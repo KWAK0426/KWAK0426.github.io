@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>연구 현황</title>
+<meta name="description" content="일정·업무와 드론 관측자료 처리 현황을 한곳에서 보는 통합 페이지">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='4' fill='%235b5bd6'/%3E%3Crect x='3.5' y='3.5' width='4' height='4' rx='1' fill='white'/%3E%3Crect x='8.5' y='3.5' width='4' height='4' rx='1' fill='white' opacity='.6'/%3E%3Crect x='3.5' y='8.5' width='4' height='4' rx='1' fill='white' opacity='.6'/%3E%3Crect x='8.5' y='8.5' width='4' height='4' rx='1' fill='white'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="assets/hub.css">
+<script>try{const t=localStorage.getItem('hub-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="module" src="assets/hub.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="./" aria-label="연구 현황 홈">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span class="brand-text"><b id="owner">연구 현황</b><small>일정 · 데이터 처리 통합</small></span>
+    </a>
+    <nav class="nav" aria-label="바로가기">
+      <a href="#schedule">일정·업무</a>
+      <a href="#drone">드론 데이터</a>
+      <a href="#timeline">타임라인</a>
+    </nav>
+    <button type="button" class="theme-btn" id="theme-btn" aria-label="화면 밝기 전환" title="밝게/어둡게"><span aria-hidden="true">◐</span></button>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero" aria-labelledby="today-title">
+    <p class="eyebrow" id="today-date">&nbsp;</p>
+    <h1 id="today-title">오늘의 현황</h1>
+    <p class="hero-sum" id="hero-sum">불러오는 중…</p>
+    <div class="sources" id="sources"></div>
+  </section>
+
+  <div class="grid">
+    <div class="col">
+    <section class="panel" id="schedule" aria-labelledby="schedule-title">
+      <header class="panel-head">
+        <div>
+          <p class="kicker k-board">일정 관리</p>
+          <h2 id="schedule-title">일정 · 업무</h2>
+        </div>
+        <a class="open-btn" id="board-link" href="/work-board/">업무 게시판 열기 <span aria-hidden="true">↗</span></a>
+      </header>
+      <div class="tiles four" id="board-tiles"><div class="skeleton"></div></div>
+      <div class="subhead"><h3>다가오는 일정 · 마감</h3><span class="muted small" id="upcoming-range">14일 이내</span></div>
+      <ol class="agenda" id="agenda"><li class="skeleton"></li></ol>
+      <div class="projects" id="projects"></div>
+    </section>
+
+    <section class="panel" aria-labelledby="links-title">
+      <header class="panel-head compact"><h2 id="links-title">바로가기</h2></header>
+      <div class="links" id="links"></div>
+    </section>
+    </div>
+
+    <section class="panel" id="drone" aria-labelledby="drone-title">
+      <header class="panel-head">
+        <div>
+          <p class="kicker k-drone">데이터 처리</p>
+          <h2 id="drone-title">김해 논 드론 관측자료</h2>
+        </div>
+        <a class="open-btn" href="drone/">전체 현황판 <span aria-hidden="true">→</span></a>
+      </header>
+      <div class="tiles three" id="drone-tiles"><div class="skeleton"></div></div>
+      <div class="subhead"><h3>회차별 자료 상태</h3><span class="muted small" id="status-total"></span></div>
+      <div id="status-meter"></div>
+      <div class="subhead"><h3>날짜 · 회차별 자료</h3><span class="muted small">날짜마다 1~6차 · 칸에 Photos 후보 수</span></div>
+      <div class="matrix" id="matrix" role="grid" aria-label="날짜별 회차 자료 현황"></div>
+      <div class="legend" id="matrix-legend"></div>
+      <div class="subhead"><h3>관측 시간 근거</h3><span class="muted small" id="time-total"></span></div>
+      <div class="meter" id="time-meter"></div>
+      <ul class="notes" id="drone-notes"></ul>
+    </section>
+  </div>
+
+  <section class="panel wide" id="timeline" aria-labelledby="timeline-title">
+    <header class="panel-head">
+      <div>
+        <p class="kicker">2026</p>
+        <h2 id="timeline-title">관측 · 일정 타임라인</h2>
+      </div>
+      <div class="legend inline" id="timeline-legend"></div>
+    </header>
+    <div class="timeline-scroll"><div class="timeline" id="tl"></div></div>
+  </section>
+</main>
+
+<footer class="wrap foot">
+  <p>각 현황판이 게시한 자료를 읽어 보여 주는 요약 페이지입니다. 원자료·파일 경로·좌표는 공개하지 않습니다.</p>
+  <p class="muted">자료 미확인·접근 오류는 0개나 자료 없음이 아닙니다. Photos 후보 수는 보정 완료 수량이 아닙니다.</p>
+</footer>
+<div class="tip" id="tip" role="tooltip" hidden></div>
+</body>
+</html>
