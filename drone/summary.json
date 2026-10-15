@@ -1,8 +1,8 @@
 {
   "format": "gimhae-drone-summary-v1",
   "title": "김해 논 드론 관측자료 현황",
-  "published_at": "2026-10-15 20:00:43 KST",
-  "published_at_iso": "2026-10-15T20:00:43.368941+09:00",
+  "published_at": "2026-10-15 23:44:45 KST",
+  "published_at_iso": "2026-10-15T23:44:45.962451+09:00",
   "j_checked_at": "2026-10-12 14:00:37 KST",
   "external_checked_at": "2026-10-12 14:00:40 KST",
   "dates": [
@@ -44,6 +44,18 @@
     "entries": 0,
     "confirmed": 0
   },
+  "tarp": {
+    "criterion": "타프 반사도 Photos 존재",
+    "sources": {
+      "0930": "FIELD_OBSERVATION_MASTER_DASHBOARD.html 2026-09-30 기록 (ELC 반사도 영상 생성 비율·타프 선정 기록)",
+      "1006": "side_updates_20261006/CURRENT_OBSERVATION_TIMELINE.html 2026-10-06 기록 (5/10 ELC 기반 반사도 Photos)"
+    },
+    "counts": {
+      "present": 0,
+      "notmade": 5,
+      "unknown": 39
+    }
+  },
   "notes": [
     "Photos 후보 합계는 보정 완료 수량이 아님",
     "자료 미확인·접근 오류는 0개나 자료 없음이 아님",
@@ -64,7 +76,18 @@
       "time_status": "기존 기록 · 회차 대응 재확인",
       "round_status": "사용자 확정",
       "calibration_status": "검토 대상 Photos 미등록",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "notmade",
+        "photos": 0,
+        "photos_source": "1006",
+        "selection": 0,
+        "selection_source": "0930",
+        "elc_images_done": 0,
+        "elc_images_total": 11405,
+        "elc_source": "0930",
+        "note": ""
+      }
     },
     {
       "date": "2026-05-10",
@@ -80,7 +103,18 @@
       "time_status": "기존 기록 · 회차 대응 재확인",
       "round_status": "사용자 확정",
       "calibration_status": "검토 대상 Photos 미등록",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "notmade",
+        "photos": 0,
+        "photos_source": "1006",
+        "selection": 0,
+        "selection_source": "0930",
+        "elc_images_done": 0,
+        "elc_images_total": 2970,
+        "elc_source": "0930",
+        "note": ""
+      }
     },
     {
       "date": "2026-05-10",
@@ -96,7 +130,18 @@
       "time_status": "기존 기록 확정",
       "round_status": "사용자 확정",
       "calibration_status": "보정 근거 미검증",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "notmade",
+        "photos": 0,
+        "photos_source": "1006",
+        "selection": 0,
+        "selection_source": "0930",
+        "elc_images_done": null,
+        "elc_images_total": null,
+        "elc_source": null,
+        "note": ""
+      }
     },
     {
       "date": "2026-05-10",
@@ -112,7 +157,18 @@
       "time_status": "기존 기록 확정",
       "round_status": "사용자 확정",
       "calibration_status": "보정 근거 미검증",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "notmade",
+        "photos": 0,
+        "photos_source": "1006",
+        "selection": 0,
+        "selection_source": "0930",
+        "elc_images_done": 0,
+        "elc_images_total": 6940,
+        "elc_source": "0930",
+        "note": ""
+      }
     },
     {
       "date": "2026-05-10",
@@ -128,7 +184,18 @@
       "time_status": "기존 기록 확정",
       "round_status": "사용자 확정",
       "calibration_status": "보정 근거 미검증",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "notmade",
+        "photos": 0,
+        "photos_source": "1006",
+        "selection": 0,
+        "selection_source": "0930",
+        "elc_images_done": 0,
+        "elc_images_total": 7570,
+        "elc_source": "0930",
+        "note": ""
+      }
     },
     {
       "date": "2026-06-30",
@@ -144,7 +211,18 @@
       "time_status": "기존 기록 확정",
       "round_status": "사용자 확정",
       "calibration_status": "보정 출처 미확인",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": "0930",
+        "elc_images_done": 0,
+        "elc_images_total": 7680,
+        "elc_source": "0930",
+        "note": "옛 기록 회차 번호와 현재 확정 회차의 대응 재확인 필요"
+      }
     },
     {
       "date": "2026-06-30",
@@ -160,7 +238,18 @@
       "time_status": "원영상 표본 · UTC 가정",
       "round_status": "사용자 확정",
       "calibration_status": "검토 대상 Photos 미등록",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": "0930",
+        "elc_images_done": null,
+        "elc_images_total": null,
+        "elc_source": null,
+        "note": "옛 기록 회차 번호와 현재 확정 회차의 대응 재확인 필요"
+      }
     },
     {
       "date": "2026-06-30",
@@ -176,7 +265,18 @@
       "time_status": "원영상 표본 · UTC 가정",
       "round_status": "사용자 확정",
       "calibration_status": "검토 대상 Photos 미등록",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": null,
+        "elc_images_done": null,
+        "elc_images_total": null,
+        "elc_source": null,
+        "note": ""
+      }
     },
     {
       "date": "2026-06-30",
@@ -192,7 +292,18 @@
       "time_status": "원영상 표본 · UTC 가정",
       "round_status": "사용자 확정",
       "calibration_status": "검토 대상 Photos 미등록",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": null,
+        "elc_images_done": null,
+        "elc_images_total": null,
+        "elc_source": null,
+        "note": ""
+      }
     },
     {
       "date": "2026-07-16",
@@ -208,7 +319,18 @@
       "time_status": "기존 기록 확정",
       "round_status": "사용자 확정",
       "calibration_status": "보정 근거 미검증",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": "0930",
+        "elc_images_done": 0,
+        "elc_images_total": 5890,
+        "elc_source": "0930",
+        "note": "옛 기록 회차 번호와 현재 확정 회차의 대응 재확인 필요"
+      }
     },
     {
       "date": "2026-07-16",
@@ -224,7 +346,18 @@
       "time_status": "기존 기록 확정",
       "round_status": "사용자 확정",
       "calibration_status": "보정 근거 미검증",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": "0930",
+        "elc_images_done": 0,
+        "elc_images_total": 8680,
+        "elc_source": "0930",
+        "note": "옛 기록 회차 번호와 현재 확정 회차의 대응 재확인 필요"
+      }
     },
     {
       "date": "2026-07-16",
@@ -240,7 +373,18 @@
       "time_status": "원영상 표본 · UTC 가정",
       "round_status": "사용자 확정",
       "calibration_status": "검토 대상 Photos 미등록",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": null,
+        "elc_images_done": null,
+        "elc_images_total": null,
+        "elc_source": null,
+        "note": ""
+      }
     },
     {
       "date": "2026-07-16",
@@ -256,7 +400,18 @@
       "time_status": "원영상 표본 · UTC 가정",
       "round_status": "사용자 확정",
       "calibration_status": "검토 대상 Photos 미등록",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": null,
+        "elc_images_done": null,
+        "elc_images_total": null,
+        "elc_source": null,
+        "note": ""
+      }
     },
     {
       "date": "2026-07-16",
@@ -272,7 +427,18 @@
       "time_status": "원영상 표본 · UTC 가정",
       "round_status": "사용자 확정",
       "calibration_status": "검토 대상 Photos 미등록",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": null,
+        "elc_images_done": null,
+        "elc_images_total": null,
+        "elc_source": null,
+        "note": ""
+      }
     },
     {
       "date": "2026-07-16",
@@ -288,7 +454,18 @@
       "time_status": "원영상 표본 · UTC 가정",
       "round_status": "사용자 확정",
       "calibration_status": "검토 대상 Photos 미등록",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": null,
+        "elc_images_done": null,
+        "elc_images_total": null,
+        "elc_source": null,
+        "note": ""
+      }
     },
     {
       "date": "2026-07-31",
@@ -304,7 +481,18 @@
       "time_status": "기존 기록 확정",
       "round_status": "사용자 확정",
       "calibration_status": "보정 근거 미검증",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 1,
+        "selection_source": "0930",
+        "elc_images_done": 0,
+        "elc_images_total": 6990,
+        "elc_source": "0930",
+        "note": ""
+      }
     },
     {
       "date": "2026-07-31",
@@ -320,7 +508,18 @@
       "time_status": "기존 기록 확정",
       "round_status": "사용자 확정",
       "calibration_status": "보정 근거 미검증",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 8,
+        "selection_source": "0930",
+        "elc_images_done": 4660,
+        "elc_images_total": 7670,
+        "elc_source": "0930",
+        "note": ""
+      }
     },
     {
       "date": "2026-07-31",
@@ -336,7 +535,18 @@
       "time_status": "기존 기록 확정",
       "round_status": "사용자 확정",
       "calibration_status": "보정 근거 미검증",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 7,
+        "selection_source": "0930",
+        "elc_images_done": 0,
+        "elc_images_total": 7310,
+        "elc_source": "0930",
+        "note": ""
+      }
     },
     {
       "date": "2026-07-31",
@@ -352,7 +562,18 @@
       "time_status": "기존 기록 확정",
       "round_status": "사용자 확정",
       "calibration_status": "보정 근거 미검증",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": "0930",
+        "elc_images_done": 0,
+        "elc_images_total": 5750,
+        "elc_source": "0930",
+        "note": ""
+      }
     },
     {
       "date": "2026-07-31",
@@ -368,7 +589,18 @@
       "time_status": "기존 기록 확정",
       "round_status": "사용자 확정",
       "calibration_status": "보정 근거 미검증",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 1,
+        "selection_source": "0930",
+        "elc_images_done": 0,
+        "elc_images_total": 7960,
+        "elc_source": "0930",
+        "note": ""
+      }
     },
     {
       "date": "2026-08-24",
@@ -384,7 +616,18 @@
       "time_status": "시간 미확인",
       "round_status": "사용자 확정",
       "calibration_status": "보정 근거 미검증",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": "0930",
+        "elc_images_done": null,
+        "elc_images_total": null,
+        "elc_source": null,
+        "note": ""
+      }
     },
     {
       "date": "2026-08-24",
@@ -400,7 +643,18 @@
       "time_status": "기존 기록 확정",
       "round_status": "사용자 확정",
       "calibration_status": "검토 대상 Photos 미등록",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": "0930",
+        "elc_images_done": 0,
+        "elc_images_total": 3235,
+        "elc_source": "0930",
+        "note": ""
+      }
     },
     {
       "date": "2026-08-24",
@@ -416,7 +670,18 @@
       "time_status": "원영상 표본 · UTC 가정",
       "round_status": "사용자 확정",
       "calibration_status": "검토 대상 Photos 미등록",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": "0930",
+        "elc_images_done": null,
+        "elc_images_total": null,
+        "elc_source": null,
+        "note": ""
+      }
     },
     {
       "date": "2026-08-24",
@@ -432,7 +697,18 @@
       "time_status": "원영상 표본 · UTC 가정",
       "round_status": "사용자 확정",
       "calibration_status": "검토 대상 Photos 미등록",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": "0930",
+        "elc_images_done": null,
+        "elc_images_total": null,
+        "elc_source": null,
+        "note": ""
+      }
     },
     {
       "date": "2026-08-24",
@@ -448,7 +724,18 @@
       "time_status": "원영상 표본 · UTC 가정",
       "round_status": "사용자 확정",
       "calibration_status": "검토 대상 Photos 미등록",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": "0930",
+        "elc_images_done": null,
+        "elc_images_total": null,
+        "elc_source": null,
+        "note": ""
+      }
     },
     {
       "date": "2026-08-24",
@@ -464,7 +751,18 @@
       "time_status": "원영상 표본 · UTC 가정",
       "round_status": "사용자 확정",
       "calibration_status": "검토 대상 Photos 미등록",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": "0930",
+        "elc_images_done": null,
+        "elc_images_total": null,
+        "elc_source": null,
+        "note": ""
+      }
     },
     {
       "date": "2026-09-08",
@@ -480,7 +778,18 @@
       "time_status": "기존 기록 확정",
       "round_status": "사용자 확정",
       "calibration_status": "보정 근거 미검증",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": "0930",
+        "elc_images_done": 0,
+        "elc_images_total": 7110,
+        "elc_source": "0930",
+        "note": ""
+      }
     },
     {
       "date": "2026-09-08",
@@ -496,7 +805,18 @@
       "time_status": "기존 기록 확정",
       "round_status": "사용자 확정",
       "calibration_status": "보정 출처 미확인",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": "0930",
+        "elc_images_done": 0,
+        "elc_images_total": 7370,
+        "elc_source": "0930",
+        "note": ""
+      }
     },
     {
       "date": "2026-09-08",
@@ -512,7 +832,18 @@
       "time_status": "기존 기록 확정",
       "round_status": "사용자 확정",
       "calibration_status": "보정 출처 미확인",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": "0930",
+        "elc_images_done": 0,
+        "elc_images_total": 7330,
+        "elc_source": "0930",
+        "note": ""
+      }
     },
     {
       "date": "2026-09-08",
@@ -528,7 +859,18 @@
       "time_status": "기존 기록 확정",
       "round_status": "사용자 확정",
       "calibration_status": "검토 대상 Photos 미등록",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": "0930",
+        "elc_images_done": 0,
+        "elc_images_total": 6240,
+        "elc_source": "0930",
+        "note": ""
+      }
     },
     {
       "date": "2026-09-21",
@@ -544,7 +886,18 @@
       "time_status": "시간 미확인",
       "round_status": "사용자 확정",
       "calibration_status": "검토 대상 Photos 미등록",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": null,
+        "elc_images_done": null,
+        "elc_images_total": null,
+        "elc_source": null,
+        "note": ""
+      }
     },
     {
       "date": "2026-09-21",
@@ -560,7 +913,18 @@
       "time_status": "시간 미확인",
       "round_status": "사용자 확정",
       "calibration_status": "검토 대상 Photos 미등록",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": null,
+        "elc_images_done": null,
+        "elc_images_total": null,
+        "elc_source": null,
+        "note": ""
+      }
     },
     {
       "date": "2026-09-21",
@@ -576,7 +940,18 @@
       "time_status": "시간 미확인",
       "round_status": "사용자 확정",
       "calibration_status": "사용자 확인",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": null,
+        "elc_images_done": null,
+        "elc_images_total": null,
+        "elc_source": null,
+        "note": ""
+      }
     },
     {
       "date": "2026-09-21",
@@ -592,7 +967,18 @@
       "time_status": "시간 미확인",
       "round_status": "사용자 확정",
       "calibration_status": "검토 대상 Photos 미등록",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": null,
+        "elc_images_done": null,
+        "elc_images_total": null,
+        "elc_source": null,
+        "note": ""
+      }
     },
     {
       "date": "2026-09-23",
@@ -608,7 +994,18 @@
       "time_status": "시간 미확인",
       "round_status": "사용자 확정",
       "calibration_status": "접근 오류 · 출처 미확인",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": null,
+        "elc_images_done": null,
+        "elc_images_total": null,
+        "elc_source": null,
+        "note": ""
+      }
     },
     {
       "date": "2026-09-23",
@@ -624,7 +1021,18 @@
       "time_status": "시간 미확인",
       "round_status": "사용자 확정",
       "calibration_status": "보정 출처 미확인",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": null,
+        "elc_images_done": null,
+        "elc_images_total": null,
+        "elc_source": null,
+        "note": ""
+      }
     },
     {
       "date": "2026-09-23",
@@ -640,7 +1048,18 @@
       "time_status": "시간 미확인",
       "round_status": "사용자 확정",
       "calibration_status": "보정 출처 미확인",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": null,
+        "elc_images_done": null,
+        "elc_images_total": null,
+        "elc_source": null,
+        "note": ""
+      }
     },
     {
       "date": "2026-09-23",
@@ -656,7 +1075,18 @@
       "time_status": "시간 미확인",
       "round_status": "사용자 확정",
       "calibration_status": "검토 대상 Photos 미등록",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": null,
+        "elc_images_done": null,
+        "elc_images_total": null,
+        "elc_source": null,
+        "note": ""
+      }
     },
     {
       "date": "2026-10-07",
@@ -672,7 +1102,18 @@
       "time_status": "시간 미확인",
       "round_status": "사용자 확정",
       "calibration_status": "검토 대상 Photos 미등록",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": null,
+        "elc_images_done": null,
+        "elc_images_total": null,
+        "elc_source": null,
+        "note": ""
+      }
     },
     {
       "date": "2026-10-07",
@@ -688,7 +1129,18 @@
       "time_status": "시간 미확인",
       "round_status": "사용자 확정",
       "calibration_status": "검토 대상 Photos 미등록",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": null,
+        "elc_images_done": null,
+        "elc_images_total": null,
+        "elc_source": null,
+        "note": ""
+      }
     },
     {
       "date": "2026-10-07",
@@ -704,7 +1156,18 @@
       "time_status": "시간 미확인",
       "round_status": "사용자 확정",
       "calibration_status": "검토 대상 Photos 미등록",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": null,
+        "elc_images_done": null,
+        "elc_images_total": null,
+        "elc_source": null,
+        "note": ""
+      }
     },
     {
       "date": "2026-10-07",
@@ -720,7 +1183,18 @@
       "time_status": "시간 미확인",
       "round_status": "사용자 확정",
       "calibration_status": "검토 대상 Photos 미등록",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": null,
+        "elc_images_done": null,
+        "elc_images_total": null,
+        "elc_source": null,
+        "note": ""
+      }
     },
     {
       "date": "2026-10-07",
@@ -736,7 +1210,18 @@
       "time_status": "시간 미확인",
       "round_status": "사용자 확정",
       "calibration_status": "검토 대상 Photos 미등록",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": null,
+        "elc_images_done": null,
+        "elc_images_total": null,
+        "elc_source": null,
+        "note": ""
+      }
     },
     {
       "date": "2026-10-07",
@@ -752,7 +1237,18 @@
       "time_status": "시간 미확인",
       "round_status": "사용자 확정",
       "calibration_status": "검토 대상 Photos 미등록",
-      "drive": []
+      "drive": [],
+      "tarp": {
+        "state": "unknown",
+        "photos": null,
+        "photos_source": null,
+        "selection": 0,
+        "selection_source": null,
+        "elc_images_done": null,
+        "elc_images_total": null,
+        "elc_source": null,
+        "note": ""
+      }
     }
   ]
 }

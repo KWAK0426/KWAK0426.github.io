@@ -175,13 +175,27 @@ h1, h2, h3, p { margin: 0; }
 .cell.complete { background: var(--st-complete); }
 .cell.partial { background: var(--st-partial); }
 .cell.empty { background: var(--st-empty); color: var(--text-2); font-weight: 500; }
-.cell.none { background: repeating-linear-gradient(135deg, var(--st-none) 0 5px, transparent 5px 9px); box-shadow: inset 0 0 0 1px var(--line); color: var(--muted); font-weight: 400; cursor: default; }
+.cell.none { display: grid; place-items: center; background: repeating-linear-gradient(135deg, var(--st-none) 0 5px, transparent 5px 9px); box-shadow: inset 0 0 0 1px var(--line); color: var(--muted); font-weight: 400; cursor: default; }
 .cell:not(.none):hover { filter: brightness(1.06); transform: translateY(-1px); }
 .cell .flag { position: absolute; top: 3px; right: 4px; width: 6px; height: 6px; border-radius: 50%; background: var(--bad); box-shadow: 0 0 0 1.5px var(--surface); }
 .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 12px; font-size: 12.5px; color: var(--text-2); }
 .legend span { display: inline-flex; align-items: center; gap: 6px; }
 .legend i { width: 11px; height: 11px; border-radius: 3px; display: inline-block; }
 .legend.inline { margin-top: 4px; justify-content: flex-end; }
+
+/* ---- 패널/타프 전환 ---- */
+.subhead:has(.switch) { align-items: center; flex-wrap: wrap; }
+.switch { display: inline-flex; padding: 3px; gap: 2px; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--line); }
+.switch button { border: 0; background: none; font: inherit; font-size: 13px; font-weight: 600; color: var(--muted); padding: 5px 13px; border-radius: 7px; cursor: pointer; }
+.switch button[aria-pressed="true"] { background: var(--surface); color: var(--text); box-shadow: 0 1px 3px rgba(20, 22, 40, .12); }
+.switch button[aria-pressed="true"][data-mode="panel"] { color: var(--st-complete); }
+.switch button[aria-pressed="true"][data-mode="tarp"] { color: var(--drone); }
+.mode-cap { font-size: 12.5px; color: var(--text-2); margin: -4px 0 10px; }
+.cell.tarp-present { background: var(--drone); }
+.cell.notmade { background: var(--surface); color: var(--text-2); box-shadow: inset 0 0 0 1.5px var(--line-2); }
+.cell .sel { position: absolute; left: 4px; top: 3px; width: 6px; height: 6px; border-radius: 2px; background: var(--drone); box-shadow: 0 0 0 1.5px var(--surface); }
+.matrix .cell { transition: background-color .25s ease, color .25s ease; }
+.legend .outline { background: var(--surface); box-shadow: inset 0 0 0 1.5px var(--line-2); }
 
 /* ---- 관측 시간 근거 막대 ---- */
 .meter { display: flex; gap: 2px; height: 14px; border-radius: 4px; overflow: hidden; }

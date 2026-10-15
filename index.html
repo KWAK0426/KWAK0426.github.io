@@ -8,9 +8,9 @@
 <meta name="description" content="일정·업무와 드론 관측자료 처리 현황을 한곳에서 보는 통합 페이지">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='4' fill='%235b5bd6'/%3E%3Crect x='3.5' y='3.5' width='4' height='4' rx='1' fill='white'/%3E%3Crect x='8.5' y='3.5' width='4' height='4' rx='1' fill='white' opacity='.6'/%3E%3Crect x='3.5' y='8.5' width='4' height='4' rx='1' fill='white' opacity='.6'/%3E%3Crect x='8.5' y='8.5' width='4' height='4' rx='1' fill='white'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="assets/hub.css">
+<link rel="stylesheet" href="assets/hub.css?v=2">
 <script>try{const t=localStorage.getItem('hub-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
-<script type="module" src="assets/hub.js"></script>
+<script type="module" src="assets/hub.js?v=2"></script>
 </head>
 <body>
 <header class="topbar">
@@ -69,7 +69,13 @@
       <div class="tiles three" id="drone-tiles"><div class="skeleton"></div></div>
       <div class="subhead"><h3>회차별 자료 상태</h3><span class="muted small" id="status-total"></span></div>
       <div id="status-meter"></div>
-      <div class="subhead"><h3>날짜 · 회차별 자료</h3><span class="muted small">날짜마다 1~6차 · 칸에 Photos 후보 수</span></div>
+      <div class="subhead"><h3>날짜 · 회차별 자료</h3>
+        <div class="switch" id="ref-switch" role="group" aria-label="반사도 종류">
+          <button type="button" data-mode="panel" aria-pressed="true">패널 반사도</button>
+          <button type="button" data-mode="tarp" aria-pressed="false">타프 반사도</button>
+        </div>
+      </div>
+      <p class="mode-cap" id="mode-cap"></p>
       <div class="matrix" id="matrix" role="grid" aria-label="날짜별 회차 자료 현황"></div>
       <div class="legend" id="matrix-legend"></div>
       <div class="subhead"><h3>관측 시간 근거</h3><span class="muted small" id="time-total"></span></div>

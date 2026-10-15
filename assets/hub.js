@@ -117,39 +117,18 @@ function renderDrone(s) {
     tile('구글 드라이브', drive, '', 'DEM·모자이크·GPS·분석 결과', '', !s.drive.entries),
   ].join('');
   const STATUS_PARTS = [['complete', '3종 있음', 'Photos·DEM·GPS'], ['partial', '일부 있음', '누락 자료 확인'], ['empty', '자료 미확인', '0개·없음 아님']];
-  $('#status-total').textContent = `${t.rounds}회차`;
+  $('#status-total').textContent = `패널 반사도 기준 · ${t.rounds}회차`;
   $('#status-meter').innerHTML = `<div class="meter" role="img" aria-label="${STATUS_PARTS.map(([k, l]) => `${l} ${t[k]}회차`).join(', ')}">`
     + STATUS_PARTS.filter(([k]) => t[k]).map(([k]) => `<i style="flex:${t[k]};background:var(--st-${k})"></i>`).join('')
     + '</div><div class="meter-legend three">'
     + STATUS_PARTS.map(([k, l, sub]) => `<span><i style="background:var(--st-${k})"></i>${l}<small>${sub}</small><b>${t[k]}</b></span>`).join('') + '</div>';
 
-  const byKey = new Map(s.rounds.map((r) => [`${r.date}#${r.round}`, r]));
-  const cells = ['<div class="mx-h"></div>', ...[1, 2, 3, 4, 5, 6].map((n) => `<div class="mx-h">${n}차</div>`)];
-  for (const date of s.dates) {
-    const count = s.fixed_round_counts[date];
-    cells.push(`<div class="mx-date">${md(date)}<small>${count}회차</small></div>`);
-    for (let n = 1; n <= 6; n++) {
-      const r = byKey.get(`${date}#${n}`);
-      if (!r) { cells.push(`<div class="cell none" aria-label="${md(date)} ${n}차: 회차 없음">없음</div>`); continue; }
-      const partialRead = r.photo_label.startsWith('일부 읽기');
-      const text = partialRead ? '일부' : r.photos ? num(r.photos) : r.state === 'empty' ? '미확인' : '—';
-      const label = `${md(date)} ${n}차 · ${DRONE_STATE[r.state]} · Photos ${r.photo_label} · DEM ${r.dem ? '있음' : '미발견'} · GPS ${r.gps ? '있음' : '미발견'} · 관측 ${r.time_label}`;
-      cells.push(`<button type="button" class="cell ${r.state}" data-key="${date}#${n}" aria-label="${esc(label)}">${text}${partialRead ? '<span class="flag" aria-hidden="true"></span>' : ''}</button>`);
-    }
-  }
-  const mx = $('#matrix');
-  mx.innerHTML = cells.join('');
-  mx.querySelectorAll('button.cell').forEach((el) => {
-    const r = byKey.get(el.dataset.key);
-    const show = () => showTip(el, roundTip(r));
-    el.addEventListener('pointerenter', show);
-    el.addEventListener('focus', show);
-    el.addEventListener('pointerleave', hideTip);
-    el.addEventListener('blur', hideTip);
-    el.addEventListener('click', () => { location.href = DRONE; });
-  });
-  $('#matrix-legend').innerHTML = '<span><i class="cell none" style="height:11px;border-radius:3px"></i>회차 없음</span>'
-    + '<span><i style="background:var(--bad);border-radius:50%;width:7px;height:7px"></i>접근 오류 · 일부만 읽힘</span>';
+  renderMatrix(s, 'panel');
+  document.querySelectorAll('#ref-switch button').forEach((b) => b.addEventListener('click', () => {
+    document.querySelectorAll('#ref-switch button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    hideTip();
+    renderMatrix(s, b.dataset.mode);
+  }));
 
   const total = TIME_STATES.reduce((n, [k]) => n + (s.time_counts[k] ?? 0), 0);
   $('#time-total').textContent = `${total}회차`;
@@ -158,6 +137,77 @@ function renderDrone(s) {
     + '</div><div class="meter-legend">'
     + TIME_STATES.map(([k, l, c]) => `<span><i style="background:var(${c})"></i>${l}<b>${s.time_counts[k] ?? 0}</b></span>`).join('') + '</div>';
   $('#drone-notes').innerHTML = s.notes.map((n) => `<li>${esc(n)}</li>`).join('');
+}
+
+// ---- 회차 행렬: 패널/타프 반사도 전환. 회차 구성(1~6차, 초과 칸 없음)은 두 모드가 같다 ----
+const MODE_CAP = {
+  panel: '패널 반사도 Photos 기준 · 칸 숫자 = Photos 후보 수',
+  tarp: '타프 반사도 Photos 기준 · 옛 기록(9/30·10/6) · 드라이브 재조사 전',
+};
+const TARP_STATE = { present: '타프 Photos 있음', notmade: '미생성 (확인됨)', unknown: '미확인' };
+const MODE_LEGEND = {
+  panel: [['var(--st-complete)', '3종 있음'], ['var(--st-partial)', '일부 있음'], ['var(--st-empty)', '자료 미확인']],
+  tarp: [['var(--drone)', '타프 Photos 있음'], ['outline', '미생성 (확인됨)'], ['var(--st-empty)', '미확인']],
+};
+const srcLabel = (k) => (k ? ` (${+k.slice(0, 2)}/${+k.slice(2)} 기록)` : '');
+
+function cellFor(r, mode) {
+  if (mode === 'panel') {
+    const partialRead = r.photo_label.startsWith('일부 읽기');
+    return {
+      cls: r.state, flag: partialRead, sel: false, tip: roundTip(r),
+      text: partialRead ? '일부' : r.photos ? num(r.photos) : r.state === 'empty' ? '미확인' : '—',
+      label: `패널 · ${DRONE_STATE[r.state]} · Photos ${r.photo_label} · DEM ${r.dem ? '있음' : '미발견'} · GPS ${r.gps ? '있음' : '미발견'} · 관측 ${r.time_label}`,
+    };
+  }
+  const t = r.tarp;
+  return {
+    cls: { present: 'tarp-present', notmade: 'notmade', unknown: 'empty' }[t.state], flag: false, sel: t.selection > 0, tip: tarpTip(r),
+    text: t.state === 'present' ? num(t.photos) : t.state === 'notmade' ? '미생성' : '미확인',
+    label: `타프 · ${TARP_STATE[t.state]}${t.selection ? ` · 선정 기록 ${t.selection}개` : ''}`,
+  };
+}
+
+function tarpTip(r) {
+  const t = r.tarp;
+  const lines = [t.state === 'unknown' ? '타프 Photos: 미확인 · 기록 없음 (0개 아님)' : `타프 Photos: ${num(t.photos)}장${srcLabel(t.photos_source)}`];
+  if (t.elc_images_total) lines.push(`참고 · 타프 ELC 영상 ${num(t.elc_images_done)} / ${num(t.elc_images_total)}장${srcLabel(t.elc_source)}`);
+  if (t.selection) lines.push(`타프 선정 기록 ${t.selection}개${srcLabel(t.selection_source)}`);
+  if (t.note) lines.push(t.note);
+  return `<b>${md(r.date)} ${r.round}차 · 타프 반사도</b>${lines.map((l) => `<span>${esc(l)}</span>`).join('')}`;
+}
+
+function renderMatrix(s, mode) {
+  const byKey = new Map(s.rounds.map((r) => [`${r.date}#${r.round}`, r]));
+  const cells = ['<div class="mx-h"></div>', ...[1, 2, 3, 4, 5, 6].map((n) => `<div class="mx-h">${n}차</div>`)];
+  for (const date of s.dates) {
+    const count = s.fixed_round_counts[date];
+    cells.push(`<div class="mx-date">${md(date)}<small>${count}회차</small></div>`);
+    for (let n = 1; n <= 6; n++) {
+      const r = byKey.get(`${date}#${n}`);
+      if (!r) { cells.push(`<div class="cell none" aria-label="${md(date)} ${n}차: 회차 없음">없음</div>`); continue; }
+      const c = cellFor(r, mode);
+      cells.push(`<button type="button" class="cell ${c.cls}" data-key="${date}#${n}" aria-label="${esc(`${md(date)} ${n}차 · ${c.label}`)}">${esc(c.text)}`
+        + `${c.flag ? '<span class="flag" aria-hidden="true"></span>' : ''}${c.sel ? '<span class="sel" aria-hidden="true"></span>' : ''}</button>`);
+    }
+  }
+  const mx = $('#matrix');
+  mx.innerHTML = cells.join('');
+  mx.querySelectorAll('button.cell').forEach((el) => {
+    const r = byKey.get(el.dataset.key);
+    const show = () => showTip(el, cellFor(r, mode).tip);
+    el.addEventListener('pointerenter', show);
+    el.addEventListener('focus', show);
+    el.addEventListener('pointerleave', hideTip);
+    el.addEventListener('blur', hideTip);
+    el.addEventListener('click', () => { location.href = DRONE; });
+  });
+  $('#mode-cap').textContent = MODE_CAP[mode];
+  $('#matrix-legend').innerHTML = MODE_LEGEND[mode].map(([c, l]) => `<span><i ${c === 'outline' ? 'class="outline"' : `style="background:${c}"`}></i>${l}</span>`).join('')
+    + '<span><i class="cell none" style="height:11px;border-radius:3px"></i>회차 없음</span>'
+    + (mode === 'panel'
+      ? '<span><i style="background:var(--bad);border-radius:50%;width:7px;height:7px"></i>접근 오류 · 일부만 읽힘</span>'
+      : '<span><i style="background:var(--drone);width:7px;height:7px;border-radius:2px"></i>타프 선정 기록 있음</span>');
 }
 
 function roundTip(r) {
