@@ -2,6 +2,27 @@
  "format": "hub-changelog-v1",
  "entries": [
   {
+   "sha": "4264727",
+   "time": "2026-10-17 01:38",
+   "date": "2026-10-17",
+   "weekday": "토",
+   "pc": "메인 PC",
+   "title": "업데이트 기록(자동 CHANGELOG)·새 PC 시작 안내·SAVE_AND_PUSH 추가",
+   "files": [
+    ".github/workflows/changelog.yml",
+    ".gitignore",
+    "README.md",
+    "SAVE_AND_PUSH.bat",
+    "START_NEW_PC.md",
+    "UPDATE_DRONE.bat",
+    "assets/hub.css",
+    "assets/hub.js",
+    "index.html",
+    "tools/make_changelog.py",
+    "tools/save.py"
+   ]
+  },
+  {
    "sha": "bc447e4",
    "time": "2026-10-17 01:26",
    "date": "2026-10-17",
