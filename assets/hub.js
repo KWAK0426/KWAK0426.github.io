@@ -134,7 +134,7 @@ function renderDrone(s) {
   const drive = s.drive.entries ? `${s.drive.confirmed}/${s.drive.entries}` : '업로드 전';
   $('#drone-tiles').innerHTML = [
     tile('관측 회차', t.rounds, '회차', `${s.dates.length}개 날짜 · 사용자 확정`, 'hero-tile'),
-    tile('Photos 후보', num(t.photo_candidates), '장', '보정 완료 수량 아님'),
+    tile('Photos', num(t.photos_total ?? t.photo_candidates), '장', '회차 기준 폴더 · 보정 완료 수량 아님'),
     tile('구글 드라이브', drive, '', 'DEM·모자이크·GPS·분석 결과', '', !s.drive.entries),
   ].join('');
   const STATUS_PARTS = [['complete', '3종 있음', 'Photos·DEM·GPS'], ['partial', '일부 있음', '누락 자료 확인'], ['empty', '자료 미확인', '0개·없음 아님']];
@@ -162,7 +162,7 @@ function renderDrone(s) {
 
 // ---- 회차 행렬: 패널/타프 반사도 전환. 회차 구성(1~6차, 초과 칸 없음)은 두 모드가 같다 ----
 const MODE_CAP = {
-  panel: '패널 반사도 Photos 기준 · 칸 숫자 = Photos 후보 수',
+  panel: '패널 반사도 Photos 기준 · 칸 숫자 = Photos 수',
   tarp: '타프 반사도 Photos 기준 · 옛 기록(9/30·10/6) · 드라이브 재조사 전',
 };
 const TARP_STATE = { present: '타프 Photos 있음', notmade: '미생성 (확인됨)', unknown: '미확인' };
@@ -245,7 +245,7 @@ function mosaicTipLine(list, all) {
 
 function roundTip(r) {
   const lines = [
-    `Photos 후보 ${r.photo_label}${r.additional_photos ? ` (+ 하위 ${num(r.additional_photos)})` : ''}`,
+    `Photos ${r.photo_label}${r.additional_photos ? ` (+ 하위 ${num(r.additional_photos)})` : ''}`,
     `DEM ${r.dem ? '있음' : '미발견'} · GPS ${r.gps ? '있음' : '미발견'} · 모자이크 후보 ${r.mosaics}`,
     `관측 ${r.time_label} · ${r.time_status}`,
     `패널 보정 출처: ${r.calibration_status}`,

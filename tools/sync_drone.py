@@ -38,7 +38,7 @@ def main():
     for name in FILES:
         shutil.copyfile(source / name, target / name)
     t = summary['totals']
-    print(f'drone/ 갱신: {summary["published_at"]} 발행 · {t["rounds"]}회차 · Photos 후보 {t["photo_candidates"]:,}')
+    print(f'drone/ 갱신: {summary["published_at"]} 발행 · {t["rounds"]}회차 · Photos {t.get("photos_total", t.get("photo_candidates")):,}')
 
 
 if __name__ == '__main__':
