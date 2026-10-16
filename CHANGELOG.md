@@ -11,25 +11,27 @@
 
 ## 2026-10-17 (토)
 
-- **02:10** · 메인 PC · 코덱스 이름을 '코덱스-연구실'로 등록, 예전 [Codex PC] 기록도 새 이름으로 표시  
+- **02:14** · 메클 · 이름표 추가: 메클(메인 클로드)·집코(코덱스-집)·연코(코덱스-연구실), 예전 기록도 새 이름으로 표시  
+  `START_NEW_PC.md`, `tools/make_changelog.py`, `tools/save.py` (3017b96)
+- **02:10** · 메클 · 코덱스 이름을 '코덱스-연구실'로 등록, 예전 [Codex PC] 기록도 새 이름으로 표시  
   `START_NEW_PC.md`, `tools/make_changelog.py` (38cbb40)
-- **02:05** · 메인 PC · 드론 공개본 갱신('Photos' 표기)  
+- **02:05** · 메클 · 드론 공개본 갱신('Photos' 표기)  
   `drone/index.html`, `drone/summary.json` (2bfbda4)
-- **02:05** · 메인 PC · 'Photos 후보' 표기를 'Photos'로 변경, 드론 공개본 갱신  
+- **02:05** · 메클 · 'Photos 후보' 표기를 'Photos'로 변경, 드론 공개본 갱신  
   `README.md`, `START_NEW_PC.md`, `assets/hub.js`, `index.html`, `tools/sync_drone.py` (ee5b93d)
-- **02:02** · 코덱스-연구실 · 드론 데이터 관리 Codex 담당 등록  
+- **02:02** · 연코 · 드론 데이터 관리 Codex 담당 등록  
   `START_NEW_PC.md` (a656215)
-- **02:01** · 메인 PC · 새 PC 안내: 드론·업무 게시판 원본 비공개 백업 저장소 반영  
+- **02:01** · 메클 · 새 PC 안내: 드론·업무 게시판 원본 비공개 백업 저장소 반영  
   `START_NEW_PC.md` (44c19fc)
-- **01:53** · 코덱스-연구실 · 시작 안내 문서 줄바꿈 정리  
+- **01:53** · 집코 · 시작 안내 문서 줄바꿈 정리  
   `START_NEW_PC.md` (c2bda7b)
-- **01:52** · 코덱스-연구실 · 사용자 승인 편집 PC 등록 및 Codex 시작 안내 추가  
+- **01:52** · 집코 · 사용자 승인 편집 PC 등록 및 Codex 시작 안내 추가  
   `START_NEW_PC.md` (f9860e0)
-- **01:52** · 메인 PC · 회차 칸을 누르면 그 회차의 모자이크 뷰어로 이동(등록된 회차만), 미등록은 이동 안 함  
+- **01:52** · 메클 · 회차 칸을 누르면 그 회차의 모자이크 뷰어로 이동(등록된 회차만), 미등록은 이동 안 함  
   `README.md`, `assets/hub.css`, `assets/hub.js`, `index.html` (b5392ab)
-- **01:40** · 메인 PC · 업데이트 기록 자동화: 사이트 배포 뒤에 기록을 올려 배포 취소(실패 표시) 방지  
+- **01:40** · 메클 · 업데이트 기록 자동화: 사이트 배포 뒤에 기록을 올려 배포 취소(실패 표시) 방지  
   `.github/workflows/changelog.yml` (3f5bf02)
-- **01:38** · 메인 PC · 업데이트 기록(자동 CHANGELOG)·새 PC 시작 안내·SAVE_AND_PUSH 추가  
+- **01:38** · 메클 · 업데이트 기록(자동 CHANGELOG)·새 PC 시작 안내·SAVE_AND_PUSH 추가  
   `.github/workflows/changelog.yml`, `.gitignore`, `README.md`, `SAVE_AND_PUSH.bat`, `START_NEW_PC.md`, `UPDATE_DRONE.bat` 외 5개 (4264727)
 - **01:26** · 이전 기록 · 첫 화면에 페이지 입구 카드(pages.json): 업무 게시판·드론 현황판·모자이크 뷰어  
   `README.md`, `assets/hub.css`, `assets/hub.js`, `index.html`, `pages.json` (bc447e4)

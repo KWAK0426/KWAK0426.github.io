@@ -2,11 +2,24 @@
  "format": "hub-changelog-v1",
  "entries": [
   {
+   "sha": "3017b96",
+   "time": "2026-10-17 02:14",
+   "date": "2026-10-17",
+   "weekday": "토",
+   "pc": "메클",
+   "title": "이름표 추가: 메클(메인 클로드)·집코(코덱스-집)·연코(코덱스-연구실), 예전 기록도 새 이름으로 표시",
+   "files": [
+    "START_NEW_PC.md",
+    "tools/make_changelog.py",
+    "tools/save.py"
+   ]
+  },
+  {
    "sha": "38cbb40",
    "time": "2026-10-17 02:10",
    "date": "2026-10-17",
    "weekday": "토",
-   "pc": "메인 PC",
+   "pc": "메클",
    "title": "코덱스 이름을 '코덱스-연구실'로 등록, 예전 [Codex PC] 기록도 새 이름으로 표시",
    "files": [
     "START_NEW_PC.md",
@@ -18,7 +31,7 @@
    "time": "2026-10-17 02:05",
    "date": "2026-10-17",
    "weekday": "토",
-   "pc": "메인 PC",
+   "pc": "메클",
    "title": "드론 공개본 갱신('Photos' 표기)",
    "files": [
     "drone/index.html",
@@ -30,7 +43,7 @@
    "time": "2026-10-17 02:05",
    "date": "2026-10-17",
    "weekday": "토",
-   "pc": "메인 PC",
+   "pc": "메클",
    "title": "'Photos 후보' 표기를 'Photos'로 변경, 드론 공개본 갱신",
    "files": [
     "README.md",
@@ -45,7 +58,7 @@
    "time": "2026-10-17 02:02",
    "date": "2026-10-17",
    "weekday": "토",
-   "pc": "코덱스-연구실",
+   "pc": "연코",
    "title": "드론 데이터 관리 Codex 담당 등록",
    "files": [
     "START_NEW_PC.md"
@@ -56,7 +69,7 @@
    "time": "2026-10-17 02:01",
    "date": "2026-10-17",
    "weekday": "토",
-   "pc": "메인 PC",
+   "pc": "메클",
    "title": "새 PC 안내: 드론·업무 게시판 원본 비공개 백업 저장소 반영",
    "files": [
     "START_NEW_PC.md"
@@ -67,7 +80,7 @@
    "time": "2026-10-17 01:53",
    "date": "2026-10-17",
    "weekday": "토",
-   "pc": "코덱스-연구실",
+   "pc": "집코",
    "title": "시작 안내 문서 줄바꿈 정리",
    "files": [
     "START_NEW_PC.md"
@@ -78,7 +91,7 @@
    "time": "2026-10-17 01:52",
    "date": "2026-10-17",
    "weekday": "토",
-   "pc": "코덱스-연구실",
+   "pc": "집코",
    "title": "사용자 승인 편집 PC 등록 및 Codex 시작 안내 추가",
    "files": [
     "START_NEW_PC.md"
@@ -89,7 +102,7 @@
    "time": "2026-10-17 01:52",
    "date": "2026-10-17",
    "weekday": "토",
-   "pc": "메인 PC",
+   "pc": "메클",
    "title": "회차 칸을 누르면 그 회차의 모자이크 뷰어로 이동(등록된 회차만), 미등록은 이동 안 함",
    "files": [
     "README.md",
@@ -103,7 +116,7 @@
    "time": "2026-10-17 01:40",
    "date": "2026-10-17",
    "weekday": "토",
-   "pc": "메인 PC",
+   "pc": "메클",
    "title": "업데이트 기록 자동화: 사이트 배포 뒤에 기록을 올려 배포 취소(실패 표시) 방지",
    "files": [
     ".github/workflows/changelog.yml"
@@ -114,7 +127,7 @@
    "time": "2026-10-17 01:38",
    "date": "2026-10-17",
    "weekday": "토",
-   "pc": "메인 PC",
+   "pc": "메클",
    "title": "업데이트 기록(자동 CHANGELOG)·새 PC 시작 안내·SAVE_AND_PUSH 추가",
    "files": [
     ".github/workflows/changelog.yml",
