@@ -9,6 +9,13 @@
 | `/drone/` | 김해 논 드론 관측자료 현황판 공개본 | `drone/summary.json` · 이 저장소에 복사 |
 | `/mosaic-viewer/` | 드론 모자이크 뷰어 (별도 저장소 `mosaic-viewer`) | 그 저장소에서 관리 |
 
+**새 PC에서 시작:** [START_NEW_PC.md](START_NEW_PC.md) · **업데이트 기록:** [CHANGELOG.md](CHANGELOG.md) (어느 PC·GitHub 웹에서 고쳐도 자동 기록)
+
+## 고치고 올리기
+
+파일을 고친 뒤 `SAVE_AND_PUSH.bat` → 최신 받기, 바꾼 내용 한 줄 입력, `[PC이름]`을 붙여 올림.
+GitHub Actions(`.github/workflows/changelog.yml`)가 git 기록으로 `CHANGELOG.md`·`changelog.json`을 다시 만들고, 통합 홈 맨 아래 "최근 업데이트"에 표시된다.
+
 ## 페이지 추가
 
 첫 화면의 페이지 카드는 `pages.json`에서 관리한다. 항목 하나(제목·설명·주소·아이콘·색)를 넣으면 카드가 생긴다. GitHub 웹에서 연필 아이콘으로 바로 고칠 수 있다.
@@ -17,7 +24,7 @@
 
 - **일정·업무**: 업무 게시판에서 게시하면 통합 페이지에 바로 반영된다. 이 저장소는 손대지 않는다.
 - **드론 데이터**: 드론 저장소(비공개)에서 `BUILD_PREVIEW.bat` 또는 `PROMOTE.bat` 실행 → 여기서 `UPDATE_DRONE.bat`
-  (`tools/sync_drone.py`로 복사 + 비공개 정보 재검사 → 변경 확인 → commit·push).
+  (`tools/sync_drone.py`로 복사 + 비공개 정보 재검사 → `tools/save.py`로 기록·올리기).
 
 ## 공개 원칙
 

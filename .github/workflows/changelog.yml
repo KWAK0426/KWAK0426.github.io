@@ -1,0 +1,31 @@
+name: 업데이트 기록
+on:
+  push:
+    branches: [main]
+    paths-ignore: ['CHANGELOG.md', 'changelog.json']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: changelog
+  cancel-in-progress: false
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: 기록 만들기
+        run: python3 tools/make_changelog.py
+      - name: 바뀌었으면 올리기
+        run: |
+          if git diff --quiet -- CHANGELOG.md changelog.json && [ -z "$(git ls-files --others --exclude-standard CHANGELOG.md changelog.json)" ]; then
+            echo "변경 없음"; exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add CHANGELOG.md changelog.json
+          git commit -m "업데이트 기록 갱신 [skip ci]"
+          git pull --rebase origin main
+          git push origin HEAD:main

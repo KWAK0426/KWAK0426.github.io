@@ -330,9 +330,16 @@ async function renderPages() {
     <span class="ic" aria-hidden="true">${esc(p.icon ?? '→')}</span><span><b>${esc(p.title)}</b><span class="d">${esc(p.desc ?? '')}</span></span><span class="go" aria-hidden="true">→</span></a>`).join('');
 }
 
+async function renderUpdates() {
+  const { entries } = await getJson('changelog.json');
+  $('#updates-list').innerHTML = entries.slice(0, 6).map((e) => `<li><time datetime="${esc(e.time)}">${md(e.date)} (${esc(e.weekday)}) ${esc(e.time.slice(11))}</time>`
+    + `<span class="pc ${e.pc === 'GitHub 웹' || e.pc === '이전 기록' ? 'web' : ''}">${esc(e.pc)}</span><span class="t" title="${esc(e.title)}">${esc(e.title)}</span></li>`).join('');
+}
+
 // ---- 시작 ---------------------------------------------------------------
 renderLinks();
 renderPages().catch((e) => { console.error(e); $('#pages').hidden = true; });
+renderUpdates().catch(() => { $('#updates-list').innerHTML = '<li class="muted small">업데이트 기록이 아직 없습니다. 첫 업로드 후 1~2분 뒤 표시됩니다.</li>'; });
 $('#today-date').textContent = `${today.slice(0, 4)}년 ${+today.slice(5, 7)}월 ${+today.slice(8, 10)}일 ${weekday(today)}요일`;
 $('#theme-btn').addEventListener('click', () => {
   const dark = document.documentElement.dataset.theme
