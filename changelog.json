@@ -2,6 +2,32 @@
  "format": "hub-changelog-v1",
  "entries": [
   {
+   "sha": "ee5b93d",
+   "time": "2026-10-17 02:05",
+   "date": "2026-10-17",
+   "weekday": "토",
+   "pc": "메인 PC",
+   "title": "'Photos 후보' 표기를 'Photos'로 변경, 드론 공개본 갱신",
+   "files": [
+    "README.md",
+    "START_NEW_PC.md",
+    "assets/hub.js",
+    "index.html",
+    "tools/sync_drone.py"
+   ]
+  },
+  {
+   "sha": "a656215",
+   "time": "2026-10-17 02:02",
+   "date": "2026-10-17",
+   "weekday": "토",
+   "pc": "Codex PC",
+   "title": "드론 데이터 관리 Codex 담당 등록",
+   "files": [
+    "START_NEW_PC.md"
+   ]
+  },
+  {
    "sha": "44c19fc",
    "time": "2026-10-17 02:01",
    "date": "2026-10-17",

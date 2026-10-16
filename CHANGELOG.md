@@ -11,6 +11,10 @@
 
 ## 2026-10-17 (토)
 
+- **02:05** · 메인 PC · 'Photos 후보' 표기를 'Photos'로 변경, 드론 공개본 갱신  
+  `README.md`, `START_NEW_PC.md`, `assets/hub.js`, `index.html`, `tools/sync_drone.py` (ee5b93d)
+- **02:02** · Codex PC · 드론 데이터 관리 Codex 담당 등록  
+  `START_NEW_PC.md` (a656215)
 - **02:01** · 메인 PC · 새 PC 안내: 드론·업무 게시판 원본 비공개 백업 저장소 반영  
   `START_NEW_PC.md` (44c19fc)
 - **01:53** · Codex PC · 시작 안내 문서 줄바꿈 정리  
