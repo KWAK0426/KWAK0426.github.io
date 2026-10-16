@@ -1,8 +1,8 @@
 {
   "format": "gimhae-drone-summary-v1",
   "title": "김해 논 드론 관측자료 현황",
-  "published_at": "2026-10-15 23:44:45 KST",
-  "published_at_iso": "2026-10-15T23:44:45.962451+09:00",
+  "published_at": "2026-10-17 02:05:30 KST",
+  "published_at_iso": "2026-10-17T02:05:30.037993+09:00",
   "j_checked_at": "2026-10-12 14:00:37 KST",
   "external_checked_at": "2026-10-12 14:00:40 KST",
   "dates": [
@@ -29,7 +29,7 @@
   },
   "totals": {
     "rounds": 44,
-    "photo_candidates": 11756,
+    "photos_total": 11756,
     "complete": 16,
     "partial": 5,
     "empty": 23
@@ -57,7 +57,7 @@
     }
   },
   "notes": [
-    "Photos 후보 합계는 보정 완료 수량이 아님",
+    "Photos 합계는 회차 기준 폴더의 파일 수이며 보정 완료 수량이 아님",
     "자료 미확인·접근 오류는 0개나 자료 없음이 아님",
     "회차 구분·패널 보정 출처·관측 시간 근거는 별도 상태"
   ],
