@@ -323,8 +323,16 @@ function renderLinks() {
   $('#links').innerHTML = links.map(([k, ic, t, s, href]) => `<a class="link-card ${k}" href="${href}"><span class="ic" aria-hidden="true">${ic}</span><b>${t}</b><span>${s}</span></a>`).join('');
 }
 
+async function renderPages() {
+  const { pages } = await getJson('pages.json');
+  const url = (href) => (href.startsWith('/') && href !== '/drone/' ? BASE + href : href.startsWith('/') ? '.' + href : href);
+  $('#pages').innerHTML = pages.map((p) => `<a class="page-card ${esc(p.color ?? 'gray')}" href="${esc(url(p.href))}">
+    <span class="ic" aria-hidden="true">${esc(p.icon ?? '→')}</span><span><b>${esc(p.title)}</b><span class="d">${esc(p.desc ?? '')}</span></span><span class="go" aria-hidden="true">→</span></a>`).join('');
+}
+
 // ---- 시작 ---------------------------------------------------------------
 renderLinks();
+renderPages().catch((e) => { console.error(e); $('#pages').hidden = true; });
 $('#today-date').textContent = `${today.slice(0, 4)}년 ${+today.slice(5, 7)}월 ${+today.slice(8, 10)}일 ${weekday(today)}요일`;
 $('#theme-btn').addEventListener('click', () => {
   const dark = document.documentElement.dataset.theme

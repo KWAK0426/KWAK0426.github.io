@@ -1,0 +1,8 @@
+{
+  "_설명": "통합 홈 첫 화면의 페이지 카드. 페이지를 추가하려면 pages 목록에 한 항목을 넣는다. href는 이 주소(kwak0426.github.io) 기준 경로 또는 https:// 주소. color: board | drone | map | gray",
+  "pages": [
+    { "title": "업무 게시판", "desc": "할 일 · 일정 · 받은 메일", "href": "/work-board/", "icon": "☑", "color": "board" },
+    { "title": "드론 관측자료 현황판", "desc": "김해 논 날짜·회차별 Photos · DEM · GPS", "href": "/drone/", "icon": "◫", "color": "drone" },
+    { "title": "드론 모자이크 뷰어", "desc": "고해상도 모자이크를 위성지도 위에서 탐색", "href": "/mosaic-viewer/", "icon": "◩", "color": "map" }
+  ]
+}

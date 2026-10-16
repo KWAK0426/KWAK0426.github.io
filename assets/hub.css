@@ -98,6 +98,18 @@ h1, h2, h3, p { margin: 0; }
 .chip.err i { background: var(--bad); }
 .chip.stale i { background: var(--warn); }
 
+/* ---- 페이지 입구 ---- */
+.pages { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; margin-bottom: 28px; }
+.page-card { position: relative; display: flex; gap: 14px; align-items: center; padding: 18px 20px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); color: var(--text); transition: transform .15s ease, border-color .15s ease; }
+.page-card:hover { text-decoration: none; transform: translateY(-2px); border-color: var(--line-2); }
+.page-card .ic { flex: none; width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; font-size: 21px; background: var(--accent-soft); color: var(--accent); }
+.page-card.drone .ic { background: var(--drone-soft); color: var(--drone); }
+.page-card.map .ic { background: var(--ok-soft); color: var(--ok); }
+.page-card.gray .ic { background: var(--surface-2); color: var(--text-2); }
+.page-card b { display: block; font-size: 16px; font-weight: 700; letter-spacing: -.01em; }
+.page-card span.d { display: block; font-size: 12.5px; color: var(--muted); margin-top: 1px; }
+.page-card .go { margin-left: auto; color: var(--faint, var(--muted)); font-size: 18px; }
+
 /* ---- 패널 ---- */
 .grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 20px; align-items: start; }
 .panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 24px; min-width: 0; }
