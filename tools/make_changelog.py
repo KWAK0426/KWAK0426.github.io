@@ -12,6 +12,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 KST = timezone(timedelta(hours=9), 'KST')
 SKIP = ('업데이트 기록 갱신',)
+# 기록 이름을 바꾼 PC·담당: 예전 이름으로 남은 커밋도 새 이름으로 표시
+ALIASES = {'Codex PC': '코덱스-연구실'}
 GENERATED = {'CHANGELOG.md', 'changelog.json'}
 WEEK = '월화수목금토일'
 
@@ -30,6 +32,7 @@ def entries():
             continue
         m = re.match(r'^\[([^\]]+)\]\s*(.*)$', subject)
         place, title = (m[1], m[2]) if m else ('GitHub 웹' if committer == 'GitHub' else '이전 기록', subject)
+        place = ALIASES.get(place, place)
         files = [f for f in git('show', '--format=', '--name-only', sha).split('\n') if f and f not in GENERATED]
         t = datetime.fromisoformat(when).astimezone(KST)
         yield {'sha': sha[:7], 'time': t.strftime('%Y-%m-%d %H:%M'), 'date': t.strftime('%Y-%m-%d'),
