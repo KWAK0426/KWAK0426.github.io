@@ -20,6 +20,12 @@ GitHub Actions(`.github/workflows/changelog.yml`)가 git 기록으로 `CHANGELOG
 
 첫 화면의 페이지 카드는 `pages.json`에서 관리한다. 항목 하나(제목·설명·주소·아이콘·색)를 넣으면 카드가 생긴다. GitHub 웹에서 연필 아이콘으로 바로 고칠 수 있다.
 
+## 회차 칸 → 모자이크 뷰어
+
+통합 홈의 "날짜 · 회차별 자료" 칸을 누르면 그 회차의 모자이크 뷰어(`/mosaic-viewer/?observation=<id>`)가 열린다.
+모자이크 뷰어 `catalog.json`의 항목에 `"project": "gimhae-paddy"`, `"date": "YYYY-MM-DD"`, `"round": 회차번호`가 있으면 자동으로 연결되고,
+없는 회차는 눌러도 이동하지 않는다(툴팁에 '미등록').
+
 ## 갱신
 
 - **일정·업무**: 업무 게시판에서 게시하면 통합 페이지에 바로 반영된다. 이 저장소는 손대지 않는다.

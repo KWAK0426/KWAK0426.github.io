@@ -102,8 +102,29 @@ function renderBoard(b) {
 }
 
 // ---- 드론 데이터 ---------------------------------------------------------------
+// 모자이크 뷰어(catalog.json)에서 김해 논 회차 항목을 찾는다: project "gimhae-paddy" + date + round
+const MOSAIC = `${BASE}/mosaic-viewer/`;
+async function loadMosaics() {
+  try {
+    const catalog = await getJson(MOSAIC + 'catalog.json');
+    const map = new Map();
+    for (const o of catalog.observations ?? []) {
+      if (o.project === 'gimhae-paddy' && o.date && Number.isInteger(o.round)) {
+        const key = `${o.date}#${o.round}`;
+        map.set(key, [...(map.get(key) ?? []), o]);
+      }
+    }
+    return map;
+  } catch (e) {
+    console.warn('모자이크 뷰어 목록을 읽지 못함', e);
+    return null;
+  }
+}
+const mosaicUrl = (o) => `${MOSAIC}?observation=${encodeURIComponent(o.id)}`;
+
 async function loadDrone() {
   const s = await getJson(DRONE + 'summary.json');
+  s.mosaics = await loadMosaics();
   if (s.format !== 'gimhae-drone-summary-v1') throw new Error('알 수 없는 요약 형식');
   return s;
 }
@@ -187,27 +208,39 @@ function renderMatrix(s, mode) {
       const r = byKey.get(`${date}#${n}`);
       if (!r) { cells.push(`<div class="cell none" aria-label="${md(date)} ${n}차: 회차 없음">없음</div>`); continue; }
       const c = cellFor(r, mode);
-      cells.push(`<button type="button" class="cell ${c.cls}" data-key="${date}#${n}" aria-label="${esc(`${md(date)} ${n}차 · ${c.label}`)}">${esc(c.text)}`
-        + `${c.flag ? '<span class="flag" aria-hidden="true"></span>' : ''}${c.sel ? '<span class="sel" aria-hidden="true"></span>' : ''}</button>`);
+      const mosaics = s.mosaics?.get(`${date}#${n}`) ?? [];
+      c.tip += mosaicTipLine(mosaics, s.mosaics);
+      if (mosaics.length) c.cls += ' has-mosaic';
+      cells.push(`<button type="button" class="cell ${c.cls}" data-key="${date}#${n}" aria-label="${esc(`${md(date)} ${n}차 · ${c.label}${mosaics.length ? ' · 누르면 모자이크 뷰어 열림' : ''}`)}">${esc(c.text)}`
+        + `${c.flag ? '<span class="flag" aria-hidden="true"></span>' : ''}${c.sel ? '<span class="sel" aria-hidden="true"></span>' : ''}${mosaics.length ? '<span class="mz" aria-hidden="true">◩</span>' : ''}</button>`);
     }
   }
   const mx = $('#matrix');
   mx.innerHTML = cells.join('');
   mx.querySelectorAll('button.cell').forEach((el) => {
     const r = byKey.get(el.dataset.key);
-    const show = () => showTip(el, cellFor(r, mode).tip);
+    const mosaics = s.mosaics?.get(el.dataset.key) ?? [];
+    const show = () => showTip(el, cellFor(r, mode).tip + mosaicTipLine(mosaics, s.mosaics));
     el.addEventListener('pointerenter', show);
     el.addEventListener('focus', show);
     el.addEventListener('pointerleave', hideTip);
     el.addEventListener('blur', hideTip);
-    el.addEventListener('click', () => { location.href = DRONE; });
+    if (mosaics.length) el.addEventListener('click', () => { location.href = mosaicUrl(mosaics[0]); });
+    else el.classList.add('no-link');
   });
   $('#mode-cap').textContent = MODE_CAP[mode];
   $('#matrix-legend').innerHTML = MODE_LEGEND[mode].map(([c, l]) => `<span><i ${c === 'outline' ? 'class="outline"' : `style="background:${c}"`}></i>${l}</span>`).join('')
     + '<span><i class="cell none" style="height:11px;border-radius:3px"></i>회차 없음</span>'
+    + `<span><b class="mz-key" aria-hidden="true">◩</b>모자이크 뷰어 있음 · 누르면 열림${s.mosaics && !s.mosaics.size ? ' (아직 등록된 회차 없음)' : ''}</span>`
     + (mode === 'panel'
       ? '<span><i style="background:var(--bad);border-radius:50%;width:7px;height:7px"></i>접근 오류 · 일부만 읽힘</span>'
       : '<span><i style="background:var(--drone);width:7px;height:7px;border-radius:2px"></i>타프 선정 기록 있음</span>');
+}
+
+function mosaicTipLine(list, all) {
+  if (all === null) return '<span>모자이크 뷰어 목록을 읽지 못함</span>';
+  if (!list.length) return '<span>모자이크 뷰어: 미등록</span>';
+  return `<span>◩ 누르면 모자이크 뷰어로 이동${list.length > 1 ? ` (${list.length}개 중 첫 번째)` : ''}</span>`;
 }
 
 function roundTip(r) {

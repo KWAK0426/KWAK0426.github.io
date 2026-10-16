@@ -206,6 +206,10 @@ h1, h2, h3, p { margin: 0; }
 .cell.tarp-present { background: var(--drone); }
 .cell.notmade { background: var(--surface); color: var(--text-2); box-shadow: inset 0 0 0 1.5px var(--line-2); }
 .cell .sel { position: absolute; left: 4px; top: 3px; width: 6px; height: 6px; border-radius: 2px; background: var(--drone); box-shadow: 0 0 0 1.5px var(--surface); }
+.cell.no-link { cursor: default; }
+.cell.has-mosaic { box-shadow: inset 0 0 0 2px var(--surface), 0 0 0 1.5px var(--accent); }
+.cell .mz { position: absolute; right: 4px; bottom: 1px; font-size: 10px; line-height: 1; opacity: .9; }
+.mz-key { color: var(--accent); font-size: 12px; }
 .matrix .cell { transition: background-color .25s ease, color .25s ease; }
 .legend .outline { background: var(--surface); box-shadow: inset 0 0 0 1.5px var(--line-2); }
 
