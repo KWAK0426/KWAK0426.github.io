@@ -12,8 +12,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 KST = timezone(timedelta(hours=9), 'KST')
 SKIP = ('업데이트 기록 갱신',)
-# 기록 이름을 바꾼 PC·담당: 예전 이름으로 남은 커밋도 새 이름으로 표시
-ALIASES = {'Codex PC': '코덱스-연구실'}
+# 기록 이름을 바꾼 PC·담당: 예전 이름으로 남은 커밋도 새 이름으로 표시 (START_NEW_PC.md 0-0 이름표)
+ALIASES = {'메인 PC': '메클', '코덱스-집': '집코', '코덱스-연구실': '연코'}
+# 같은 예전 이름([Codex PC])을 두 에이전트가 썼던 커밋은 커밋별로 지정
+ALIASES_BY_COMMIT = {'f9860e0': '집코', 'c2bda7b': '집코', 'a656215': '연코'}
 GENERATED = {'CHANGELOG.md', 'changelog.json'}
 WEEK = '월화수목금토일'
 
@@ -32,7 +34,7 @@ def entries():
             continue
         m = re.match(r'^\[([^\]]+)\]\s*(.*)$', subject)
         place, title = (m[1], m[2]) if m else ('GitHub 웹' if committer == 'GitHub' else '이전 기록', subject)
-        place = ALIASES.get(place, place)
+        place = ALIASES_BY_COMMIT.get(sha[:7]) or ALIASES.get(place, place)
         files = [f for f in git('show', '--format=', '--name-only', sha).split('\n') if f and f not in GENERATED]
         t = datetime.fromisoformat(when).astimezone(KST)
         yield {'sha': sha[:7], 'time': t.strftime('%Y-%m-%d %H:%M'), 'date': t.strftime('%Y-%m-%d'),

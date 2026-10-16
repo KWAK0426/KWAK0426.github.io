@@ -22,7 +22,7 @@ def pc_name():
     if PC_FILE.is_file() and PC_FILE.read_text(encoding='utf-8').strip():
         return PC_FILE.read_text(encoding='utf-8').strip()
     default = os.environ.get('COMPUTERNAME', 'PC')
-    name = input(f'이 PC를 기록에 뭐라고 표시할까요? (예: 연구실 PC, 집 노트북) [{default}]: ').strip() or default
+    name = input(f'기록에 표시할 이름은? (START_NEW_PC.md 0-0 이름표: 메클·집코·연코 등) [{default}]: ').strip() or default
     PC_FILE.write_text(name, encoding='utf-8')
     return name
 
