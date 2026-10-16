@@ -2,6 +2,17 @@
  "format": "hub-changelog-v1",
  "entries": [
   {
+   "sha": "3f5bf02",
+   "time": "2026-10-17 01:40",
+   "date": "2026-10-17",
+   "weekday": "토",
+   "pc": "메인 PC",
+   "title": "업데이트 기록 자동화: 사이트 배포 뒤에 기록을 올려 배포 취소(실패 표시) 방지",
+   "files": [
+    ".github/workflows/changelog.yml"
+   ]
+  },
+  {
    "sha": "4264727",
    "time": "2026-10-17 01:38",
    "date": "2026-10-17",

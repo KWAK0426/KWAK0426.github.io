@@ -11,6 +11,8 @@
 
 ## 2026-10-17 (토)
 
+- **01:40** · 메인 PC · 업데이트 기록 자동화: 사이트 배포 뒤에 기록을 올려 배포 취소(실패 표시) 방지  
+  `.github/workflows/changelog.yml` (3f5bf02)
 - **01:38** · 메인 PC · 업데이트 기록(자동 CHANGELOG)·새 PC 시작 안내·SAVE_AND_PUSH 추가  
   `.github/workflows/changelog.yml`, `.gitignore`, `README.md`, `SAVE_AND_PUSH.bat`, `START_NEW_PC.md`, `UPDATE_DRONE.bat` 외 5개 (4264727)
 - **01:26** · 이전 기록 · 첫 화면에 페이지 입구 카드(pages.json): 업무 게시판·드론 현황판·모자이크 뷰어  
