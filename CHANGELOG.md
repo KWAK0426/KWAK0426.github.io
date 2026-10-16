@@ -11,15 +11,19 @@
 
 ## 2026-10-17 (토)
 
+- **02:10** · 메인 PC · 코덱스 이름을 '코덱스-연구실'로 등록, 예전 [Codex PC] 기록도 새 이름으로 표시  
+  `START_NEW_PC.md`, `tools/make_changelog.py` (38cbb40)
+- **02:05** · 메인 PC · 드론 공개본 갱신('Photos' 표기)  
+  `drone/index.html`, `drone/summary.json` (2bfbda4)
 - **02:05** · 메인 PC · 'Photos 후보' 표기를 'Photos'로 변경, 드론 공개본 갱신  
   `README.md`, `START_NEW_PC.md`, `assets/hub.js`, `index.html`, `tools/sync_drone.py` (ee5b93d)
-- **02:02** · Codex PC · 드론 데이터 관리 Codex 담당 등록  
+- **02:02** · 코덱스-연구실 · 드론 데이터 관리 Codex 담당 등록  
   `START_NEW_PC.md` (a656215)
 - **02:01** · 메인 PC · 새 PC 안내: 드론·업무 게시판 원본 비공개 백업 저장소 반영  
   `START_NEW_PC.md` (44c19fc)
-- **01:53** · Codex PC · 시작 안내 문서 줄바꿈 정리  
+- **01:53** · 코덱스-연구실 · 시작 안내 문서 줄바꿈 정리  
   `START_NEW_PC.md` (c2bda7b)
-- **01:52** · Codex PC · 사용자 승인 편집 PC 등록 및 Codex 시작 안내 추가  
+- **01:52** · 코덱스-연구실 · 사용자 승인 편집 PC 등록 및 Codex 시작 안내 추가  
   `START_NEW_PC.md` (f9860e0)
 - **01:52** · 메인 PC · 회차 칸을 누르면 그 회차의 모자이크 뷰어로 이동(등록된 회차만), 미등록은 이동 안 함  
   `README.md`, `assets/hub.css`, `assets/hub.js`, `index.html` (b5392ab)

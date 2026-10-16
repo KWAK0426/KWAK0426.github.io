@@ -2,6 +2,30 @@
  "format": "hub-changelog-v1",
  "entries": [
   {
+   "sha": "38cbb40",
+   "time": "2026-10-17 02:10",
+   "date": "2026-10-17",
+   "weekday": "토",
+   "pc": "메인 PC",
+   "title": "코덱스 이름을 '코덱스-연구실'로 등록, 예전 [Codex PC] 기록도 새 이름으로 표시",
+   "files": [
+    "START_NEW_PC.md",
+    "tools/make_changelog.py"
+   ]
+  },
+  {
+   "sha": "2bfbda4",
+   "time": "2026-10-17 02:05",
+   "date": "2026-10-17",
+   "weekday": "토",
+   "pc": "메인 PC",
+   "title": "드론 공개본 갱신('Photos' 표기)",
+   "files": [
+    "drone/index.html",
+    "drone/summary.json"
+   ]
+  },
+  {
    "sha": "ee5b93d",
    "time": "2026-10-17 02:05",
    "date": "2026-10-17",
@@ -21,7 +45,7 @@
    "time": "2026-10-17 02:02",
    "date": "2026-10-17",
    "weekday": "토",
-   "pc": "Codex PC",
+   "pc": "코덱스-연구실",
    "title": "드론 데이터 관리 Codex 담당 등록",
    "files": [
     "START_NEW_PC.md"
@@ -43,7 +67,7 @@
    "time": "2026-10-17 01:53",
    "date": "2026-10-17",
    "weekday": "토",
-   "pc": "Codex PC",
+   "pc": "코덱스-연구실",
    "title": "시작 안내 문서 줄바꿈 정리",
    "files": [
     "START_NEW_PC.md"
@@ -54,7 +78,7 @@
    "time": "2026-10-17 01:52",
    "date": "2026-10-17",
    "weekday": "토",
-   "pc": "Codex PC",
+   "pc": "코덱스-연구실",
    "title": "사용자 승인 편집 PC 등록 및 Codex 시작 안내 추가",
    "files": [
     "START_NEW_PC.md"
