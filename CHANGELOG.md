@@ -11,6 +11,8 @@
 
 ## 2026-10-17 (토)
 
+- **01:52** · 메인 PC · 회차 칸을 누르면 그 회차의 모자이크 뷰어로 이동(등록된 회차만), 미등록은 이동 안 함  
+  `README.md`, `assets/hub.css`, `assets/hub.js`, `index.html` (b5392ab)
 - **01:40** · 메인 PC · 업데이트 기록 자동화: 사이트 배포 뒤에 기록을 올려 배포 취소(실패 표시) 방지  
   `.github/workflows/changelog.yml` (3f5bf02)
 - **01:38** · 메인 PC · 업데이트 기록(자동 CHANGELOG)·새 PC 시작 안내·SAVE_AND_PUSH 추가  
