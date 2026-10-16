@@ -11,8 +11,8 @@ Claude Code 또는 Codex로 이어서 작업하려면 맨 아래 **6번 블록**
 |---|---|---|
 | 통합 홈 | https://kwak0426.github.io/ · 저장소 `KWAK0426/KWAK0426.github.io` (공개) | 내려받아 고치고 올리기 가능 (2~3번) |
 | 업무 게시판 보기·편집 | https://kwak0426.github.io/work-board/ | **설치 없이** 웹에서 편집 (4번) |
-| 업무 게시판 앱 원본·DB·메일 연동 | **메인 PC에만** 있음 (GitHub에 원본 없음) | 메인 PC에서만 실행. 다른 PC는 웹 편집 |
-| 드론 관측자료 현황판 원본·조사 기록 | **메인 PC에만** 있음 (GitHub에 원본 없음) | 메인 PC에서만. 공개본은 통합 홈 `/drone/` |
+| 업무 게시판 앱 원본 | 비공개 저장소 `KWAK0426/work-board-app` (코드만. DB·메일 계정은 메인 PC에만) | 코드는 내려받기 가능. 실행·메일 연동은 메인 PC, 다른 PC는 웹 편집 |
+| 드론 관측자료 현황판 원본·조사 기록 | 비공개 저장소 `KWAK0426/gimhae-drone-dashboard` | 내려받아 미리보기·발행 가능. 드라이브 재조사는 외장드라이브가 연결된 PC에서만 |
 | 드론 모자이크 뷰어 | https://kwak0426.github.io/mosaic-viewer/ · 저장소 `KWAK0426/mosaic-viewer` | 그 저장소에서 관리 |
 | 업데이트 기록 | [CHANGELOG.md](CHANGELOG.md) · 통합 홈 맨 아래 "최근 업데이트" | 어느 PC에서 올려도 자동 기록 |
 
@@ -118,8 +118,8 @@ python -m http.server 8000
   - 첫 화면 페이지 카드는 pages.json, 일정 요약은 /work-board/data.json과 /work-board/shared.js를 읽음,
     드론 요약은 drone/summary.json(드론 현황판 공개본 복사본).
   - 업데이트 기록은 GitHub Actions가 git 기록으로 CHANGELOG.md·changelog.json을 자동 생성.
-- 업무 게시판: https://kwak0426.github.io/work-board/ — 앱 원본·DB는 메인 PC에만 있음. 다른 PC는 웹 "이 기기에서 편집하기"로 편집.
-- 드론 관측자료 현황판: 원본·조사 기록은 메인 PC에만 있음. 이 PC에서는 drone/ 공개본만 다룸.
+- 업무 게시판: https://kwak0426.github.io/work-board/ — 앱 코드는 비공개 저장소 KWAK0426/work-board-app, DB·메일 계정은 메인 PC에만. 다른 PC는 웹 "이 기기에서 편집하기"로 편집.
+- 드론 관측자료 현황판: 원본·조사 기록은 비공개 저장소 KWAK0426/gimhae-drone-dashboard. 사용자 확정은 data/user_confirmed.json, 기준값은 data/expected_snapshot.json, 검사는 scripts/test_paddy_panel_dashboard.py.
 - 드론 모자이크 뷰어: 별도 저장소 KWAK0426/mosaic-viewer.
 
 [먼저 할 일]
