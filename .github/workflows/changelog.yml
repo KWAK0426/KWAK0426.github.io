@@ -18,6 +18,8 @@ jobs:
           fetch-depth: 0
       - name: 기록 만들기
         run: python3 tools/make_changelog.py
+      - name: 사이트 배포가 끝날 때까지 대기 (겹치면 앞 배포가 취소돼 '실패'로 보임)
+        run: sleep 75
       - name: 바뀌었으면 올리기
         run: |
           if git diff --quiet -- CHANGELOG.md changelog.json && [ -z "$(git ls-files --others --exclude-standard CHANGELOG.md changelog.json)" ]; then
