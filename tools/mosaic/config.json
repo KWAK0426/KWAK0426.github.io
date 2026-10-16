@@ -1,0 +1,13 @@
+{
+  "_설명": "모자이크 뷰어 자동 갱신 설정. drive_folder는 '내 드라이브' 기준 폴더. cameras의 값으로 GSD = 픽셀 크기 × Z_est ÷ 초점거리를 계산한다(실제 카메라 값으로 고친 뒤 confirmed를 true로). alt_offset_m은 GPS 고도에 더하는 보정값(GPS와 DEM의 고도 기준이 다를 때, 예: 타원체고 → 정표고는 지오이드고만큼 뺌). re_view_bands는 다분광 모자이크를 화면에 보여 줄 때 쓸 밴드 번호 [빨강, 초록, 파랑] 자리(비우면 NIR·Red·Green 자동 선택).",
+  "drive_folder": ["김해논_드론"],
+  "viewer_folder": "_뷰어용(자동)",
+  "alt_offset_m": 0,
+  "cameras": {
+    "RGB": { "name": "광학 카메라 (값 확인 필요)", "focal_mm": 35, "pixel_um": 4.4, "confirmed": false },
+    "RE": { "name": "MicaSense RedEdge-MX (값 확인 필요)", "focal_mm": 5.4, "pixel_um": 3.75, "confirmed": false }
+  },
+  "re_view_bands": null,
+  "jpeg_quality": 90,
+  "wait_upload_min": 40
+}

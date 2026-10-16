@@ -3,3 +3,5 @@ __pycache__/
 .env
 _sample/
 .pc-name
+node_modules/
+tools/mosaic/.state.json

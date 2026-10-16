@@ -1,0 +1,92 @@
+/* 모자이크 뷰어: 통합 홈(hub.css)의 색·글꼴을 그대로 쓰고 지도 화면만 더한다 */
+body.viewer { height: 100dvh; display: flex; flex-direction: column; overflow: hidden; }
+.vw-top { padding: 0 16px; justify-content: space-between; }
+.vw-top .brand-mark { background: var(--drone); }
+.vw-top .brand-text small a { color: var(--muted); }
+.pill { border: 1px solid var(--line-2); background: var(--surface); color: var(--text); border-radius: 999px; padding: 6px 14px; font: inherit; font-size: 13px; cursor: pointer; }
+.vw-list-btn { display: none; }
+.vw-main { flex: 1; display: flex; min-height: 0; }
+
+/* ---- 목록 ---- */
+.vw-side { width: 340px; flex-shrink: 0; display: flex; flex-direction: column; background: var(--surface); border-right: 1px solid var(--line); min-height: 0; }
+.vw-side-h { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; padding: 18px 18px 10px; }
+.vw-side-h h1 { font-size: 18px; letter-spacing: -.01em; }
+.vw-btn { border: 1px solid var(--drone); color: var(--drone); background: var(--surface); border-radius: 9px; padding: 7px 12px; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+.vw-btn:hover:not(:disabled) { background: var(--drone-soft); }
+.vw-btn.solid { background: var(--drone); color: #fff; }
+.vw-btn:disabled { opacity: .5; cursor: default; }
+.vw-batch { margin: 0 18px 8px; padding: 8px 10px; border-radius: 9px; background: var(--drone-soft); color: var(--text); font-size: 12.5px; }
+.vw-list { flex: 1; overflow: auto; padding: 0 10px 10px; }
+.vw-date { margin: 12px 8px 4px; font-size: 12px; font-weight: 700; color: var(--muted); letter-spacing: .02em; }
+.vw-round { display: grid; grid-template-columns: 44px 1fr; gap: 4px 8px; align-items: center; padding: 8px; border-radius: 10px; }
+.vw-round.on { background: var(--drone-soft); }
+.vw-round b { font-size: 14px; }
+.vw-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.vw-chip { border: 1px solid var(--line-2); background: var(--surface); color: var(--text); border-radius: 8px; padding: 4px 10px; font: inherit; font-size: 12.5px; cursor: pointer; }
+.vw-chip:hover { border-color: var(--drone); }
+.vw-chip[aria-pressed="true"] { background: var(--drone); border-color: var(--drone); color: #fff; }
+.vw-chip.none { color: var(--muted); border-style: dashed; cursor: default; background: transparent; }
+.vw-res { grid-column: 2; font-size: 12px; color: var(--text-2); font-variant-numeric: tabular-nums; }
+.vw-res .warn { color: var(--warn); }
+.vw-empty { margin: 24px 12px; padding: 16px; border: 1px dashed var(--line-2); border-radius: 12px; color: var(--text-2); font-size: 13px; }
+.vw-empty code { font-size: 12px; }
+.vw-notices { margin: 0 18px 8px; font-size: 12.5px; }
+.vw-notices summary { cursor: pointer; color: var(--warn); }
+.vw-notices ul { margin: 6px 0 0; padding-left: 18px; color: var(--text-2); max-height: 140px; overflow: auto; }
+.vw-foot { padding: 10px 18px 14px; border-top: 1px solid var(--line); }
+
+/* ---- 지도 ---- */
+.vw-map-wrap { position: relative; flex: 1; min-width: 0; }
+.vw-map { position: absolute; inset: 0; background: #dfe3e8; }
+.vw-card { position: absolute; z-index: 3; background: color-mix(in srgb, var(--surface) 94%, transparent); backdrop-filter: blur(10px); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); }
+.vw-head { top: 12px; left: 12px; display: flex; align-items: center; gap: 14px; padding: 10px 12px; max-width: calc(100% - 24px); }
+.vw-title { display: flex; flex-direction: column; min-width: 0; }
+.vw-title b { font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.vw-seg { display: inline-flex; border: 1px solid var(--line-2); border-radius: 9px; overflow: hidden; flex-shrink: 0; }
+.vw-seg button { border: 0; background: var(--surface); color: var(--text-2); padding: 6px 12px; font: inherit; font-size: 13px; cursor: pointer; }
+.vw-seg button + button { border-left: 1px solid var(--line-2); }
+.vw-seg button[aria-pressed="true"] { background: var(--drone); color: #fff; }
+.vw-seg button:disabled { color: var(--muted); cursor: default; text-decoration: line-through; }
+.vw-seg.sm button { padding: 4px 10px; font-size: 12px; }
+.vw-ctrl { right: 12px; bottom: 34px; display: flex; flex-direction: column; gap: 8px; padding: 10px 12px; font-size: 12.5px; }
+.vw-row { display: flex; align-items: center; gap: 8px; color: var(--text-2); }
+.vw-row input[type="range"] { width: 110px; accent-color: var(--drone); }
+.vw-row input[type="checkbox"] { accent-color: var(--drone); }
+.vw-icon { position: absolute; top: 8px; right: 8px; border: 0; background: none; font-size: 18px; cursor: pointer; color: var(--text-2); }
+.vw-ctrl .vw-row:first-child { padding-right: 26px; }
+
+/* ---- 계산 결과 ---- */
+.vw-calc { left: 12px; bottom: 34px; width: 300px; padding: 12px 14px; font-size: 13px; }
+.vw-calc h2 { font-size: 13px; color: var(--muted); font-weight: 600; margin-bottom: 8px; display: flex; justify-content: space-between; gap: 8px; }
+.vw-kv { display: grid; grid-template-columns: auto 1fr; gap: 3px 12px; font-variant-numeric: tabular-nums; }
+.vw-kv dt { color: var(--muted); }
+.vw-kv dd { margin: 0; text-align: right; }
+.vw-kv dd.big { font-size: 18px; font-weight: 700; color: var(--text); }
+.vw-src { margin-top: 8px; font-size: 11.5px; color: var(--muted); }
+.vw-warn { margin-top: 8px; padding: 6px 8px; border-radius: 8px; background: var(--warn-soft); color: var(--warn); font-size: 12px; }
+.vw-err { margin-top: 6px; color: var(--bad); font-size: 12.5px; }
+.vw-progress { height: 4px; border-radius: 2px; background: var(--line); overflow: hidden; margin-top: 8px; }
+.vw-progress i { display: block; height: 100%; background: var(--drone); width: 0; transition: width .2s; }
+.vw-link { border: 0; background: none; color: var(--drone); font: inherit; font-size: 12px; cursor: pointer; padding: 0; }
+
+.vw-status { position: absolute; z-index: 4; top: 72px; left: 50%; transform: translateX(-50%); padding: 7px 14px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); font-size: 12.5px; white-space: nowrap; }
+.vw-status.error { color: var(--bad); }
+.vw-foot-map { position: absolute; z-index: 2; left: 0; right: 0; bottom: 0; display: flex; justify-content: space-between; padding: 4px 12px; background: color-mix(in srgb, var(--surface) 80%, transparent); color: var(--text-2); font-variant-numeric: tabular-nums; }
+.ol-scale-line { bottom: 30px; left: auto; right: 190px; }
+.ol-attribution { bottom: 26px; }
+
+/* ---- 휴대폰: 목록은 왼쪽에서 열리는 패널 ---- */
+@media (max-width: 760px) {
+  .vw-list-btn { display: inline-block; }
+  .vw-side { position: absolute; z-index: 10; top: 60px; bottom: 0; left: 0; width: min(88vw, 340px); transform: translateX(-102%); transition: transform .2s; box-shadow: var(--shadow); }
+  .vw-side.open { transform: none; }
+  .vw-head { left: 8px; right: 8px; top: 8px; max-width: none; padding: 8px 10px; gap: 8px; }
+  .vw-calc { left: 8px; right: 8px; width: auto; bottom: 30px; }
+  .vw-calc.collapsed .vw-kv, .vw-calc.collapsed .vw-src, .vw-calc.collapsed .vw-warn { display: none; }
+  .vw-ctrl { top: 70px; bottom: auto; right: 8px; padding: 8px 10px; }
+  .vw-row input[type="range"] { width: 80px; }
+  .ol-scale-line { display: none; }
+  .vw-status { top: 64px; }
+}
+.ol-zoom { top: 12px; left: auto; right: 12px; }
+@media (max-width: 760px) { .ol-zoom { display: none; } }

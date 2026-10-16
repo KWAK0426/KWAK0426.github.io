@@ -1,0 +1,14 @@
+{
+  "name": "gimhae-mosaic-update",
+  "private": true,
+  "type": "module",
+  "description": "김해 논 모자이크 뷰어 자동 갱신 (Drive 폴더 확인 → 표시용 파일 · Z_est·GSD 계산 → 목록 갱신)",
+  "scripts": {
+    "update": "node --disable-warning=ExperimentalWarning update.mjs",
+    "test": "node --disable-warning=ExperimentalWarning --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "geotiff": "2.1.3",
+    "proj4": "2.12.1"
+  }
+}

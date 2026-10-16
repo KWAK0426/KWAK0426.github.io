@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>모자이크 뷰어</title>
+<meta name="description" content="김해 논 드론 모자이크(광학·다분광)를 위성지도 위에서 보고 Z_est·GSD를 계산합니다">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='4' fill='%230f7f86'/%3E%3Cpath d='M4 11.5 8 4l4 7.5z' fill='white'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="../../assets/hub.css?v=5">
+<link rel="stylesheet" href="vendor/ol.css">
+<link rel="stylesheet" href="viewer.css?v=2">
+<script>try{const t=localStorage.getItem('hub-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script defer src="vendor/geotiff.js"></script>
+<script defer src="vendor/ol.js"></script>
+<script defer src="vendor/proj4.js"></script>
+<script type="module" src="app.js?v=1"></script>
+</head>
+<body class="viewer">
+<header class="topbar">
+  <div class="topbar-in vw-top">
+    <div class="brand">
+      <a class="brand-mark" href="../../" aria-label="연구 현황 홈"><i></i><i></i><i></i><i></i></a>
+      <span class="brand-text"><b>모자이크 뷰어</b><small><a href="../../#drone">← 드론 데이터 현황판</a> · 김해 논</small></span>
+    </div>
+    <button type="button" class="pill vw-list-btn" id="list-btn" aria-expanded="false" aria-controls="side">회차 목록</button>
+  </div>
+</header>
+<main class="vw-main">
+  <aside class="vw-side" id="side" aria-label="날짜·회차 목록">
+    <div class="vw-side-h">
+      <div><h1>날짜·회차</h1><p class="muted small" id="updated">목록을 읽는 중…</p></div>
+      <button type="button" class="vw-btn" id="batch" title="계산 안 된 모자이크를 모두 계산">일괄 계산하기</button>
+    </div>
+    <div class="vw-batch" id="batch-status" role="status" aria-live="polite" hidden></div>
+    <div class="vw-list" id="list"></div>
+    <details class="vw-notices" id="notices" hidden><summary></summary><ul></ul></details>
+    <p class="vw-foot small muted">매일 오전 5시에 Drive의 새 자료를 확인해 목록과 계산 결과를 자동으로 갱신합니다.</p>
+  </aside>
+  <section class="vw-map-wrap" id="map-wrap" aria-label="위성지도와 모자이크">
+    <div id="map" class="vw-map" tabindex="0" aria-label="확대·이동 가능한 지도"></div>
+    <div class="vw-card vw-head" id="head">
+      <div class="vw-title"><b id="sel-title">회차를 고르세요</b><span class="muted small" id="sel-info"></span></div>
+      <div class="vw-seg" role="group" aria-label="모자이크 종류" id="kind-seg">
+        <button type="button" data-kind="RGB" aria-pressed="false">광학</button>
+        <button type="button" data-kind="RE" aria-pressed="false">다분광</button>
+      </div>
+    </div>
+    <div class="vw-card vw-calc" id="calc" hidden></div>
+    <div class="vw-card vw-ctrl">
+      <label class="vw-row"><input type="checkbox" id="show" checked> 모자이크 보기</label>
+      <label class="vw-row">투명도 <input type="range" id="opacity" min="0" max="100" value="100" aria-label="모자이크 불투명도"></label>
+      <div class="vw-seg sm" role="group" aria-label="배경지도"><button type="button" id="bg-sat" aria-pressed="true">위성</button><button type="button" id="bg-osm" aria-pressed="false">일반지도</button></div>
+      <button type="button" class="vw-icon" id="fit" title="모자이크 전체 보기" aria-label="모자이크 전체 보기">⌖</button>
+    </div>
+    <div class="vw-status" id="status" role="status" aria-live="polite" hidden></div>
+    <div class="vw-foot-map small"><span id="coord"></span><span id="res"></span></div>
+  </section>
+</main>
+<noscript>이 뷰어를 쓰려면 JavaScript를 켜 주세요.</noscript>
+</body>
+</html>

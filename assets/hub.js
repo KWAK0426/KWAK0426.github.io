@@ -102,8 +102,9 @@ function renderBoard(b) {
 }
 
 // ---- 드론 데이터 ---------------------------------------------------------------
-// 모자이크 뷰어(catalog.json)에서 김해 논 회차 항목을 찾는다: project "gimhae-paddy" + date + round
-const MOSAIC = `${BASE}/mosaic-viewer/`;
+// 현황판 아래 모자이크 뷰어(drone/viewer/catalog.json)에서 김해 논 회차 항목을 찾는다: project "gimhae-paddy" + date + round
+// 광학(RGB)·다분광(RE) 중 하나라도 있으면 그 칸을 누를 수 있다. PC가 매일 05:00 Drive를 확인해 목록을 갱신한다.
+const MOSAIC = `${DRONE}viewer/`;
 async function loadMosaics() {
   try {
     const catalog = await getJson(MOSAIC + 'catalog.json');
@@ -120,7 +121,7 @@ async function loadMosaics() {
     return null;
   }
 }
-const mosaicUrl = (o) => `${MOSAIC}?observation=${encodeURIComponent(o.id)}`;
+const mosaicUrl = (o) => `${MOSAIC}?date=${o.date}&round=${o.round}&kind=${o.kind ?? 'RGB'}`;
 
 async function loadDrone() {
   const s = await getJson(DRONE + 'summary.json');
@@ -225,7 +226,7 @@ function renderMatrix(s, mode) {
     el.addEventListener('focus', show);
     el.addEventListener('pointerleave', hideTip);
     el.addEventListener('blur', hideTip);
-    if (mosaics.length) el.addEventListener('click', () => { location.href = mosaicUrl(mosaics[0]); });
+    if (mosaics.length) el.addEventListener('click', () => { location.href = mosaicUrl(mosaics.find((o) => o.kind === 'RGB') ?? mosaics[0]); });
     else el.classList.add('no-link');
   });
   $('#mode-cap').textContent = MODE_CAP[mode];
@@ -240,7 +241,8 @@ function renderMatrix(s, mode) {
 function mosaicTipLine(list, all) {
   if (all === null) return '<span>모자이크 뷰어 목록을 읽지 못함</span>';
   if (!list.length) return '<span>모자이크 뷰어: 미등록</span>';
-  return `<span>◩ 누르면 모자이크 뷰어로 이동${list.length > 1 ? ` (${list.length}개 중 첫 번째)` : ''}</span>`;
+  const kinds = ['RGB', 'RE'].filter((k) => list.some((o) => o.kind === k)).map((k) => ({ RGB: '광학', RE: '다분광' })[k]);
+  return `<span>◩ 누르면 모자이크 뷰어로 이동 (${kinds.join('·') || '모자이크'})</span>`;
 }
 
 function roundTip(r) {
