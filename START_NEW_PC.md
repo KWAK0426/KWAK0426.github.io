@@ -13,7 +13,8 @@ Claude Code 또는 Codex로 이어서 작업하려면 맨 아래 **6번 블록**
 | 업무 게시판 보기·편집 | https://kwak0426.github.io/work-board/ | **설치 없이** 웹에서 편집 (4번) |
 | 업무 게시판 앱 원본 | 비공개 저장소 `KWAK0426/work-board-app` (코드만. DB·메일 계정은 메인 PC에만) | 코드는 내려받기 가능. 실행·메일 연동은 메인 PC, 다른 PC는 웹 편집 |
 | 드론 관측자료 현황판 원본·조사 기록 | 비공개 저장소 `KWAK0426/gimhae-drone-dashboard` | 내려받아 미리보기·발행 가능. 드라이브 재조사는 외장드라이브가 연결된 PC에서만 |
-| 드론 모자이크 뷰어 | https://kwak0426.github.io/mosaic-viewer/ · 저장소 `KWAK0426/mosaic-viewer` | 그 저장소에서 관리 |
+| 김해 논 모자이크 뷰어 | https://kwak0426.github.io/drone/viewer/ (현황판 회차 칸을 누르면 열림) · 자료는 내 드라이브 `김해논_드론/` | **보기·'GSD 계산하기'는 설치 없이** 웹에서. 매일 05:00 자동 갱신은 메인 PC(메클)에서만 실행 — 다른 PC에 작업을 또 등록하지 않음 (README '회차 칸 → 모자이크 뷰어') |
+| 다른 현장 모자이크 뷰어 | https://kwak0426.github.io/mosaic-viewer/ · 저장소 `KWAK0426/mosaic-viewer` | 그 저장소에서 관리 |
 | 업데이트 기록 | [CHANGELOG.md](CHANGELOG.md) · 통합 홈 맨 아래 "최근 업데이트" | 어느 PC에서 올려도 자동 기록 |
 
 ---
