@@ -11,6 +11,8 @@
 
 ## 2026-10-17 (토)
 
+- **17:49** · 연코 · 김해 현황 유지, 피복 선택과 농과원 나지 6회차 공개  
+  `README.md`, `drone/index.html`, `drone/summary.json` (a4925a1)
 - **17:32** · 메클 · 새 PC 안내: 김해 논 모자이크 뷰어(/drone/viewer/) 항목, 자동 갱신은 메인 PC에서만  
   `START_NEW_PC.md` (b0a3b2a)
 - **02:28** · 메클 · 현황판 아래 모자이크 뷰어(/drone/viewer/): 회차 칸 → 광학·다분광, Z_est·GSD 계산, 매일 05:00 자동 갱신  

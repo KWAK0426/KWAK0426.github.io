@@ -2,6 +2,19 @@
  "format": "hub-changelog-v1",
  "entries": [
   {
+   "sha": "a4925a1",
+   "time": "2026-10-17 17:49",
+   "date": "2026-10-17",
+   "weekday": "토",
+   "pc": "연코",
+   "title": "김해 현황 유지, 피복 선택과 농과원 나지 6회차 공개",
+   "files": [
+    "README.md",
+    "drone/index.html",
+    "drone/summary.json"
+   ]
+  },
+  {
    "sha": "b0a3b2a",
    "time": "2026-10-17 17:32",
    "date": "2026-10-17",
