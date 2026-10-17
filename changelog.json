@@ -2,6 +2,17 @@
  "format": "hub-changelog-v1",
  "entries": [
   {
+   "sha": "b0a3b2a",
+   "time": "2026-10-17 17:32",
+   "date": "2026-10-17",
+   "weekday": "토",
+   "pc": "메클",
+   "title": "새 PC 안내: 김해 논 모자이크 뷰어(/drone/viewer/) 항목, 자동 갱신은 메인 PC에서만",
+   "files": [
+    "START_NEW_PC.md"
+   ]
+  },
+  {
    "sha": "5f7c84f",
    "time": "2026-10-17 02:28",
    "date": "2026-10-17",

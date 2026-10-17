@@ -11,6 +11,8 @@
 
 ## 2026-10-17 (토)
 
+- **17:32** · 메클 · 새 PC 안내: 김해 논 모자이크 뷰어(/drone/viewer/) 항목, 자동 갱신은 메인 PC에서만  
+  `START_NEW_PC.md` (b0a3b2a)
 - **02:28** · 메클 · 현황판 아래 모자이크 뷰어(/drone/viewer/): 회차 칸 → 광학·다분광, Z_est·GSD 계산, 매일 05:00 자동 갱신  
   `.gitignore`, `README.md`, `UPDATE_MOSAICS.bat`, `assets/hub.js`, `drone/viewer/app.js`, `drone/viewer/catalog.json` 외 20개 (5f7c84f)
 - **02:14** · 메클 · 이름표 추가: 메클(메인 클로드)·집코(코덱스-집)·연코(코덱스-연구실), 예전 기록도 새 이름으로 표시  
