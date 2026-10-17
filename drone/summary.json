@@ -1,8 +1,8 @@
 {
   "format": "gimhae-drone-summary-v1",
   "title": "김해 논 드론 관측자료 현황",
-  "published_at": "2026-10-17 02:05:30 KST",
-  "published_at_iso": "2026-10-17T02:05:30.037993+09:00",
+  "published_at": "2026-10-17 17:39:52 KST",
+  "published_at_iso": "2026-10-17T17:39:52.225020+09:00",
   "j_checked_at": "2026-10-12 14:00:37 KST",
   "external_checked_at": "2026-10-12 14:00:40 KST",
   "dates": [
@@ -1249,6 +1249,86 @@
         "elc_source": null,
         "note": ""
       }
+    }
+  ],
+  "default_cover": "farmland",
+  "cover_categories": {
+    "farmland": "농지",
+    "upland": "밭",
+    "forest": "산림",
+    "bare": "나지",
+    "tidal": "갯벌",
+    "coast": "연안",
+    "other": "기타"
+  },
+  "additional_datasets": [
+    {
+      "cover": "bare",
+      "site": "농과원 합동필드",
+      "date": "2026-06-10",
+      "classification_basis": "2026-10-17 사용자 지정: 나지",
+      "registered_at_kst": "2026-10-17",
+      "asset_record_date": "2026-10-12",
+      "time_basis": "기존 GPS 매칭 원영상 EXIF +9시간 기록. 현재 Panel Photos만의 시간 범위나 현장 관측 시작·종료 확정값이 아님.",
+      "current_disk_verified": false,
+      "panel_calibration_verified": false,
+      "rounds": [
+        {
+          "round": 1,
+          "panel_photos": 659,
+          "dem_recorded": true,
+          "gps_recorded": true,
+          "image_start_kst": "09:55:57",
+          "image_end_kst": "10:06:55"
+        },
+        {
+          "round": 2,
+          "panel_photos": 634,
+          "dem_recorded": true,
+          "gps_recorded": true,
+          "image_start_kst": "10:40:37",
+          "image_end_kst": "11:09:45",
+          "time_note": "추가 촬영 포함"
+        },
+        {
+          "round": 3,
+          "panel_photos": 785,
+          "dem_recorded": true,
+          "gps_recorded": true,
+          "image_start_kst": "11:39:15",
+          "image_end_kst": "12:07:32",
+          "field_start_kst": "11:52",
+          "field_end_kst": "12:20",
+          "field_time_basis": "사용자 현장 관측 기준"
+        },
+        {
+          "round": 4,
+          "panel_photos": 955,
+          "dem_recorded": true,
+          "gps_recorded": true,
+          "image_start_kst": "12:42:05",
+          "image_end_kst": "13:09:42",
+          "field_start_kst": "12:49",
+          "field_end_kst": "13:16",
+          "field_time_basis": "사용자 현장 관측 기준"
+        },
+        {
+          "round": 5,
+          "panel_photos": null,
+          "dem_recorded": false,
+          "gps_recorded": true,
+          "image_start_kst": "13:36:51",
+          "image_end_kst": "14:08:35"
+        },
+        {
+          "round": 6,
+          "panel_photos": null,
+          "dem_recorded": false,
+          "gps_recorded": true,
+          "image_start_kst": "14:37:09",
+          "image_end_kst": "15:13:12"
+        }
+      ]
     }
   ]
 }

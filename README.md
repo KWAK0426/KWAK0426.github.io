@@ -6,7 +6,7 @@
 |---|---|---|
 | `/` | 통합 요약 (이 저장소) | 아래 두 자료를 브라우저에서 읽어 요약 |
 | `/work-board/` | 업무 게시판 (별도 저장소 `work-board`) | `work-board/data.json` · 게시판 앱이 게시 |
-| `/drone/` | 김해 논 드론 관측자료 현황판 공개본 | `drone/summary.json` · 이 저장소에 복사 |
+| `/drone/` | 피복·장소별 드론 관측자료 현황판 공개본 (기본: 김해 농지) | `drone/summary.json` · 이 저장소에 복사 |
 | `/drone/viewer/` | 김해 논 모자이크 뷰어 (광학·다분광, Z_est·GSD) | `drone/viewer/catalog.json`·`results.json` · 매일 05:00 자동 갱신 |
 | `/mosaic-viewer/` | 다른 현장 모자이크 뷰어 (별도 저장소 `mosaic-viewer`) | 그 저장소에서 관리 |
 
@@ -67,3 +67,7 @@ Register-ScheduledTask -TaskName GimhaeMosaicViewerUpdate -Action (New-Scheduled
 
 정적 HTML·CSS·JS만 쓴다(빌드 도구 없음). `assets/hub.js`는 업무 게시판의 마감 계산 규칙(`work-board/shared.js`)을 그대로 불러 쓴다.
 로컬 확인: `python -m http.server 8000` 후 `http://localhost:8000/` (업무 게시판 자료는 공개 주소에서 읽음).
+
+### 피복·장소 분류 (2026-10-17)
+
+농지(기본), 밭, 산림, 나지, 갯벌, 연안, 기타를 선택합니다. 농과원 합동필드 2026-06-10 자료는 나지 1~6회차로 별도 등록했습니다. Photos 수량과 촬영시간은 기존 기록 기준이며 패널 보정 출처 검증 여부와 분리해 표시합니다. 현황판에는 원자료 경로·좌표를 게시하지 않습니다.
