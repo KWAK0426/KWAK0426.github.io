@@ -2,6 +2,19 @@
  "format": "hub-changelog-v1",
  "entries": [
   {
+   "sha": "904b2c2",
+   "time": "2026-10-18 12:36",
+   "date": "2026-10-18",
+   "weekday": "일",
+   "pc": "연코",
+   "title": "9/8 재저장 4회차 현황 갱신 및 공개 출처 정제",
+   "files": [
+    "START_NEW_PC.md",
+    "drone/index.html",
+    "drone/summary.json"
+   ]
+  },
+  {
    "sha": "a4925a1",
    "time": "2026-10-17 17:49",
    "date": "2026-10-17",
