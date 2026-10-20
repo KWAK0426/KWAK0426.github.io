@@ -2,6 +2,18 @@
  "format": "hub-changelog-v1",
  "entries": [
   {
+   "sha": "3caf80b",
+   "time": "2026-10-21 07:38",
+   "date": "2026-10-21",
+   "weekday": "수",
+   "pc": "연코",
+   "title": "9/23 배치 현황 반영: 476·641·664장 및 1차124장 부족 표시",
+   "files": [
+    "drone/index.html",
+    "drone/summary.json"
+   ]
+  },
+  {
    "sha": "6d8d911",
    "time": "2026-10-20 17:32",
    "date": "2026-10-20",
