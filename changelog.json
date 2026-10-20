@@ -2,6 +2,18 @@
  "format": "hub-changelog-v1",
  "entries": [
   {
+   "sha": "6d8d911",
+   "time": "2026-10-20 17:32",
+   "date": "2026-10-20",
+   "weekday": "화",
+   "pc": "연코",
+   "title": "9/21 처리 자료 현황 반영: Photos 883·839장 GPS DEM 확인",
+   "files": [
+    "drone/index.html",
+    "drone/summary.json"
+   ]
+  },
+  {
    "sha": "904b2c2",
    "time": "2026-10-18 12:36",
    "date": "2026-10-18",
