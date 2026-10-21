@@ -11,6 +11,8 @@
 
 ## 2026-10-21 (수)
 
+- **09:23** · 연코 · 10/7 1회차 Photos689장 GPS DEM 현황 반영  
+  `drone/index.html`, `drone/summary.json` (b9c1291)
 - **07:38** · 연코 · 9/23 배치 현황 반영: 476·641·664장 및 1차124장 부족 표시  
   `drone/index.html`, `drone/summary.json` (3caf80b)
 
