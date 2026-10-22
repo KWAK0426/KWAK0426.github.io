@@ -2,6 +2,18 @@
  "format": "hub-changelog-v1",
  "entries": [
   {
+   "sha": "f1b3713",
+   "time": "2026-10-22 16:33",
+   "date": "2026-10-22",
+   "weekday": "목",
+   "pc": "연코",
+   "title": "Keep mobile mosaic status clear of map controls",
+   "files": [
+    "drone/viewer/index.html",
+    "drone/viewer/viewer.css"
+   ]
+  },
+  {
    "sha": "bdaacf8",
    "time": "2026-10-22 16:28",
    "date": "2026-10-22",

@@ -11,6 +11,8 @@
 
 ## 2026-10-22 (목)
 
+- **16:33** · 연코 · Keep mobile mosaic status clear of map controls  
+  `drone/viewer/index.html`, `drone/viewer/viewer.css` (f1b3713)
 - **16:28** · 연코 · Publish approved 10/7 R1 reflectance and NDVI viewer  
   `drone/viewer/app.js`, `drone/viewer/catalog.json`, `drone/viewer/index.html`, `drone/viewer/thumbs/2026-10-07-R1-NDVI.webp`, `drone/viewer/thumbs/2026-10-07-R1-RE.webp`, `drone/viewer/viewer.css` 외 4개 (bdaacf8)
 
