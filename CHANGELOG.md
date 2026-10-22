@@ -9,6 +9,11 @@
 | 이전 기록 | 기록 규칙 전 커밋 |
 
 
+## 2026-10-22 (목)
+
+- **16:28** · 연코 · Publish approved 10/7 R1 reflectance and NDVI viewer  
+  `drone/viewer/app.js`, `drone/viewer/catalog.json`, `drone/viewer/index.html`, `drone/viewer/thumbs/2026-10-07-R1-NDVI.webp`, `drone/viewer/thumbs/2026-10-07-R1-RE.webp`, `drone/viewer/viewer.css` 외 4개 (bdaacf8)
+
 ## 2026-10-21 (수)
 
 - **09:23** · 연코 · 10/7 1회차 Photos689장 GPS DEM 현황 반영  

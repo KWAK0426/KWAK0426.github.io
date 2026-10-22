@@ -2,6 +2,26 @@
  "format": "hub-changelog-v1",
  "entries": [
   {
+   "sha": "bdaacf8",
+   "time": "2026-10-22 16:28",
+   "date": "2026-10-22",
+   "weekday": "목",
+   "pc": "연코",
+   "title": "Publish approved 10/7 R1 reflectance and NDVI viewer",
+   "files": [
+    "drone/viewer/app.js",
+    "drone/viewer/catalog.json",
+    "drone/viewer/index.html",
+    "drone/viewer/thumbs/2026-10-07-R1-NDVI.webp",
+    "drone/viewer/thumbs/2026-10-07-R1-RE.webp",
+    "drone/viewer/viewer.css",
+    "tools/mosaic/PUBLISHED_VIEWS.md",
+    "tools/mosaic/published_views.json",
+    "tools/mosaic/test/update.test.mjs",
+    "tools/mosaic/update.mjs"
+   ]
+  },
+  {
    "sha": "b9c1291",
    "time": "2026-10-21 09:23",
    "date": "2026-10-21",
