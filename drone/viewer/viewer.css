@@ -94,7 +94,7 @@ body.viewer { height: 100dvh; display: flex; flex-direction: column; overflow: h
   .vw-ctrl { top: 126px; bottom: auto; right: 8px; padding: 8px 10px; }
   .vw-row input[type="range"] { width: 80px; }
   .ol-scale-line { display: none; }
-  .vw-status { top: 106px; }
+  .vw-status { top: auto; bottom: 128px; left: 8px; right: 8px; transform: none; border-radius: 8px; white-space: normal; }
 }
 .ol-zoom { top: 12px; left: auto; right: 12px; }
 @media (max-width: 760px) { .ol-zoom { display: none; } }
