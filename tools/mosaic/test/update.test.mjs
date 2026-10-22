@@ -45,7 +45,7 @@ test('Drive 폴더 → 표시용 파일 · 목록 · Z_est (한 번 계산하면
     if (!ids.has(k)) ids.set(k, `id${ids.size}_${'x'.repeat(20)}`);
     return ids.get(k);
   });
-  const opts = { root, outDir: out, cfg, stateFile: path.join(tmp, 'state.json'), lookup, wait: false, log: () => {} };
+  const opts = { root, outDir: out, cfg, stateFile: path.join(tmp, 'state.json'), publishedFile: path.join(tmp, 'published.json'), lookup, wait: false, log: () => {} };
   const s1 = await run(opts);
   assert.equal(s1.mosaics, 2);
   assert.equal(s1.converted, 2);
@@ -87,5 +87,27 @@ test('Drive 폴더 → 표시용 파일 · 목록 · Z_est (한 번 계산하면
   // 카메라 값을 바꾸면 그 종류만 다시 계산
   const s3 = await run({ ...opts, cfg: { ...cfg, cameras: { ...cfg.cameras, RE: { ...cfg.cameras.RE, focal_mm: 5.5 } } } });
   assert.deepEqual([s3.converted, s3.computed], [0, 1]);
+  fs.rmSync(tmp, { recursive: true, force: true });
+});
+
+test('별도 승인한 표시용 RE/NDVI는 원본 없는 PC의 다음 자동 조사에도 유지', async () => {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'mosaic-published-test-'));
+  const root = path.join(tmp, 'drive'), out = path.join(tmp, 'site');
+  fs.mkdirSync(root);
+  fs.mkdirSync(path.join(out, 'thumbs'), { recursive: true });
+  const observations = ['RE', 'NDVI'].map((kind) => ({
+    id: `2026-10-07-R1-${kind}`, date: '2026-10-07', round: 1, kind,
+    driveFileId: `test_${kind}`, bounds: [128.88,35.20,128.89,35.21],
+    thumbnail: `thumbs/2026-10-07-R1-${kind}.jpg`, analysisPrivate: true, dem: null, gps: null,
+  }));
+  const publishedFile = path.join(tmp, 'published.json');
+  fs.writeFileSync(publishedFile, JSON.stringify({ observations }));
+  for (const o of observations) fs.writeFileSync(path.join(out, o.thumbnail), 'test thumbnail');
+  const opts = { root, outDir: out, cfg, stateFile: path.join(tmp,'state.json'), publishedFile, lookup: () => [], wait: false, log: () => {} };
+  const first = await run(opts);
+  assert.equal(first.shown, 2);
+  assert.deepEqual(JSON.parse(fs.readFileSync(path.join(out,'catalog.json'),'utf8')).observations, observations);
+  assert(observations.every((o) => fs.existsSync(path.join(out,o.thumbnail))));
+  assert.equal((await run(opts)).changed, false);
   fs.rmSync(tmp, { recursive: true, force: true });
 });

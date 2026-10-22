@@ -163,6 +163,7 @@ const kstNow = () => new Date(Date.now() + 9 * 3600000).toISOString().replace('T
 export async function run({
   root = null, outDir = path.join(HUB, 'drone', 'viewer'), cfg = readJson(path.join(HERE, 'config.json')),
   stateFile = path.join(HERE, '.state.json'), lookup = lookupDriveIds, wait = true, recompute = false, log = console.log,
+  publishedFile = path.join(HERE, 'published_views.json'),
 } = {}) {
   const driveRoot = root ?? (desktopDriveDir() ? path.join(desktopDriveDir(), ...cfg.drive_folder) : null);
   if (!driveRoot) throw new Error('Google Drive 데스크톱 앱 폴더(내 드라이브)를 찾지 못했습니다');
@@ -227,7 +228,7 @@ export async function run({
 
   const camOf = (kind) => cfg.cameras?.[kind] ?? null;
   const pub = (f) => (f ? { name: f.name, driveFileId: f.driveFileId ?? null, sizeBytes: f.sizeBytes, modified: f.modified, ...(f.proj4 !== undefined ? { proj4: f.proj4 } : {}) } : null);
-  const observations = ready.filter((it) => it.viewId).map((it) => ({
+  const generated = ready.filter((it) => it.viewId).map((it) => ({
     id: it.id, project: 'gimhae-paddy', date: it.date, round: it.round, kind: it.kind,
     title: `${Number(it.date.slice(5, 7))}/${Number(it.date.slice(8))} ${it.round}차 · ${KIND_LABEL[it.kind]}`,
     type: `${KIND_LABEL[it.kind]} 모자이크`,
@@ -235,6 +236,16 @@ export async function run({
     mosaic_px_cm: it.view.mosaic_px_cm, thumbnail: `thumbs/${it.id}.jpg`,
     dem: pub(it.dem), gps: pub(it.gps),
   }));
+  // Explicitly published display products survive scans on PCs without their analytical sources.
+  const published = readJson(publishedFile, { observations: [] }).observations ?? [];
+  for (const o of published) {
+    if (!o.id || !o.driveFileId || !['RGB', 'RE', 'NDVI'].includes(o.kind)
+        || !Array.isArray(o.bounds) || o.bounds.length !== 4 || !o.bounds.every(Number.isFinite)) {
+      throw new Error('공개 표시용 영상 등록 형식 오류');
+    }
+    if (o.dem || o.gps || /[A-Za-z]:[\\/]|Users[\\/]/.test(JSON.stringify(o))) throw new Error('공개 표시 목록에 원본 참조 금지');
+  }
+  const observations = [...new Map([...generated, ...published].map((o) => [o.id, o])).values()];
   const pending = ready.filter((it) => !it.viewId).map((it) => it.id);
 
   // Z_est·GSD (입력이 같으면 이전 결과 유지)
@@ -272,9 +283,9 @@ export async function run({
   if (catalogChanged) fs.writeFileSync(catalogFile, JSON.stringify(catalog, null, 1) + '\n');
   if (resultsChanged) fs.writeFileSync(resultsFile, JSON.stringify(resultsDoc, null, 1) + '\n');
   // 목록에서 빠진 썸네일 정리
-  if (fs.existsSync(thumbDir)) for (const f of fs.readdirSync(thumbDir)) if (!items.some((it) => `${it.id}.jpg` === f)) fs.rmSync(path.join(thumbDir, f));
+  if (fs.existsSync(thumbDir)) for (const f of fs.readdirSync(thumbDir)) if (!observations.some((o) => o.thumbnail === `thumbs/${f}`)) fs.rmSync(path.join(thumbDir, f));
   for (const p of problems) log(`확인 필요: ${p}`);
-  const summary = { mosaics: items.length, shown: observations.length, pending: pending.length, converted, computed, changed: catalogChanged || resultsChanged };
+  const summary = { mosaics: new Set([...items.map((it) => it.id), ...published.map((o) => o.id)]).size, shown: observations.length, pending: pending.length, converted, computed, changed: catalogChanged || resultsChanged };
   log(`완료: 모자이크 ${summary.mosaics}개 (뷰어 ${summary.shown}개, 업로드 대기 ${summary.pending}개) · 새 표시용 파일 ${converted}개 · 새 계산 ${computed}개`);
   return summary;
 }

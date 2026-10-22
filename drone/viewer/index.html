@@ -10,12 +10,12 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../../assets/hub.css?v=5">
 <link rel="stylesheet" href="vendor/ol.css">
-<link rel="stylesheet" href="viewer.css?v=2">
+<link rel="stylesheet" href="viewer.css?v=3">
 <script>try{const t=localStorage.getItem('hub-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <script defer src="vendor/geotiff.js"></script>
 <script defer src="vendor/ol.js"></script>
 <script defer src="vendor/proj4.js"></script>
-<script type="module" src="app.js?v=1"></script>
+<script type="module" src="app.js?v=2"></script>
 </head>
 <body class="viewer">
 <header class="topbar">
@@ -45,9 +45,14 @@
       <div class="vw-seg" role="group" aria-label="모자이크 종류" id="kind-seg">
         <button type="button" data-kind="RGB" aria-pressed="false">광학</button>
         <button type="button" data-kind="RE" aria-pressed="false">다분광</button>
+        <button type="button" data-kind="NDVI" aria-pressed="false">NDVI</button>
       </div>
     </div>
     <div class="vw-card vw-calc" id="calc" hidden></div>
+    <div class="vw-card vw-ndvi" id="ndvi-legend" hidden>
+      <b>NDVI</b><div class="vw-ndvi-ramp"></div>
+      <div class="vw-ndvi-ticks"><span>-1</span><span>-0.5</span><span>0</span><span>0.5</span><span>1</span></div>
+    </div>
     <div class="vw-card vw-ctrl">
       <label class="vw-row"><input type="checkbox" id="show" checked> 모자이크 보기</label>
       <label class="vw-row">투명도 <input type="range" id="opacity" min="0" max="100" value="100" aria-label="모자이크 불투명도"></label>

@@ -1,0 +1,50 @@
+{
+  "approved_at": "2026-10-22",
+  "scope": "10/7 1회차 다분광 RGB와 NDVI 표시용 영상, 위치·촬영 범위 좌표 및 표시용 Drive 파일 ID 공개를 별도 명시 승인. 원본 Photos, 개별 GPS 목록, DEM, 정량 TIFF 및 로컬 경로는 공개하지 않음.",
+  "observations": [
+    {
+      "id": "2026-10-07-R1-RE",
+      "project": "gimhae-paddy",
+      "date": "2026-10-07",
+      "round": 1,
+      "kind": "RE",
+      "title": "10/7 1차 · 다분광",
+      "type": "반사도 RGB · B6/B4/B2",
+      "driveFileId": "1pv1hji-MXVYxIcW8vHb02XnJj9Kew-wz",
+      "sizeBytes": 47705498,
+      "width": 12858,
+      "height": 9149,
+      "bounds": [128.88416481211388, 35.200058324653924, 128.8901656921459, 35.20356305038192],
+      "mosaic_px_cm": 4.25,
+      "thumbnail": "thumbs/2026-10-07-R1-RE.webp",
+      "sourcePhotos": 689,
+      "mosaicMethod": "minimum VZA; source stored values preserved",
+      "displayOnly": true,
+      "analysisPrivate": true,
+      "dem": null,
+      "gps": null
+    },
+    {
+      "id": "2026-10-07-R1-NDVI",
+      "project": "gimhae-paddy",
+      "date": "2026-10-07",
+      "round": 1,
+      "kind": "NDVI",
+      "title": "10/7 1차 · NDVI",
+      "type": "NDVI · (B10-B6)/(B10+B6)",
+      "driveFileId": "1FJMKcJ232e39gHagi5ACrRjfur6__Xzb",
+      "sizeBytes": 41661099,
+      "width": 12858,
+      "height": 9149,
+      "bounds": [128.88416481211388, 35.200058324653924, 128.8901656921459, 35.20356305038192],
+      "mosaic_px_cm": 4.25,
+      "thumbnail": "thumbs/2026-10-07-R1-NDVI.webp",
+      "sourcePhotos": 689,
+      "colorRange": [-1, 1],
+      "displayOnly": true,
+      "analysisPrivate": true,
+      "dem": null,
+      "gps": null
+    }
+  ]
+}

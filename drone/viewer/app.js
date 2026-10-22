@@ -7,7 +7,8 @@ import { computeZest, signature, decodeText } from './zest.js';
 
 const $ = (s) => document.querySelector(s);
 const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
-const KIND = { RGB: '광학', RE: '다분광' };
+const KIND = { RGB: '광학', RE: '다분광', NDVI: 'NDVI' };
+const KINDS = Object.keys(KIND);
 const store = {
   get(k) { try { return JSON.parse(localStorage.getItem(`mv.${k}`)); } catch { return null; } },
   set(k, v) { try { localStorage.setItem(`mv.${k}`, JSON.stringify(v)); } catch { /* 저장 불가 환경 */ } },
@@ -83,7 +84,7 @@ function renderList() {
     + [...groups.get(d).entries()].sort((a, b) => a[0] - b[0]).map(([n, kinds]) => {
       const on = S.sel && keyOf(S.sel) === `${d}#${n}`;
       const res = ['RGB', 'RE'].map((k) => kinds[k] && resultFor(kinds[k])).map((r, i) => (r && !r.error ? `${KIND[['RGB', 'RE'][i]]} Z ${fmt(r.z_mean_m)} m · GSD ${fmt(r.gsd_cm, 2)} cm${r.warnings?.length ? ' <span class="warn">⚠</span>' : ''}` : null)).filter(Boolean);
-      return `<div class="vw-round ${on ? 'on' : ''}"><b>${n}차</b><div class="vw-chips">${['RGB', 'RE'].map((k) => (kinds[k]
+      return `<div class="vw-round ${on ? 'on' : ''}"><b>${n}차</b><div class="vw-chips">${KINDS.map((k) => (kinds[k]
         ? `<button type="button" class="vw-chip" data-id="${esc(kinds[k].id)}" aria-pressed="${S.sel?.id === kinds[k].id}">${KIND[k]}</button>`
         : `<span class="vw-chip none" title="${KIND[k]} 모자이크 없음">${KIND[k]} 없음</span>`)).join('')}</div>
         ${res.length ? `<div class="vw-res">${res.join('<br>')}</div>` : ''}</div>`;
@@ -109,6 +110,7 @@ async function select(o, { fitView = true } = {}) {
   if (S.source) { S.source.dispose(); S.source = null; }
   $('#sel-title').textContent = o.title;
   $('#sel-info').textContent = `${o.type}${o.width ? ` · ${o.width.toLocaleString()} × ${o.height.toLocaleString()} px` : ''}${o.mosaic_px_cm ? ` · 픽셀 ${fmt(o.mosaic_px_cm, 2)} cm` : ''}`;
+  $('#ndvi-legend').hidden = o.kind !== 'NDVI';
   const sib = S.byKey.get(keyOf(o)) ?? {};
   for (const b of document.querySelectorAll('#kind-seg button')) {
     b.disabled = !sib[b.dataset.kind];
@@ -130,14 +132,34 @@ async function select(o, { fitView = true } = {}) {
   const layer = new ol.layer.WebGLTile({ source, opacity: Number($('#opacity').value) / 100, visible: $('#show').checked, cacheSize: 256 });
   S.source = source; S.layer = layer;
   let pending = 0; let loaded = false;
-  const fail = () => { if (gen === S.gen) status('모자이크를 불러오지 못했습니다. Drive 공유(링크가 있는 모든 사용자)와 인터넷 연결을 확인하세요.', 'error'); };
+  let fallback = false;
+  const fail = () => {
+    if (gen !== S.gen || fallback) return;
+    if (!o.thumbnail) {
+      status('모자이크를 불러오지 못했습니다. Drive 공유와 인터넷 연결을 확인하세요.', 'error');
+      return;
+    }
+    fallback = true;
+    if (S.layer) { map.removeLayer(S.layer); S.layer.dispose(); }
+    const preview = new ol.source.ImageStatic({
+      url: o.thumbnail, projection: 'EPSG:4326', imageExtent: o.bounds, interpolate: true,
+    });
+    source.dispose();
+    S.source = preview;
+    preview.on('imageloaderror', () => { if (gen === S.gen) status('미리보기도 불러오지 못했습니다. 연결을 확인하세요.', 'error'); });
+    const previewLayer = new ol.layer.Image({ source: preview, opacity: Number($('#opacity').value) / 100, visible: $('#show').checked });
+    S.layer = previewLayer;
+    map.addLayer(previewLayer);
+    $('#sel-info').textContent = `${o.type} · 축소 미리보기 · 원본 ${o.width.toLocaleString()} × ${o.height.toLocaleString()} px`;
+    status('축소 미리보기 · 고해상도 Drive 연결 확인 필요', 'preview');
+  };
   source.on('tileloadstart', () => { if (gen === S.gen) pending++; });
-  source.on('tileloadend', () => { if (gen !== S.gen) return; pending = Math.max(0, pending - 1); loaded = true; if (!pending) status(''); });
+  source.on('tileloadend', () => { if (gen !== S.gen || fallback) return; pending = Math.max(0, pending - 1); loaded = true; if (!pending) status(''); });
   source.on('tileloaderror', fail);
-  setTimeout(() => { if (gen === S.gen && !loaded) fail(); }, 45000);
+  setTimeout(() => { if (gen === S.gen && !loaded) fail(); }, 12000);
   try {
     await source.getView();
-    if (gen !== S.gen) return;
+    if (gen !== S.gen || fallback) return;
     map.addLayer(layer);
   } catch (e) { console.error(e); fail(); }
 }
@@ -146,7 +168,7 @@ async function select(o, { fitView = true } = {}) {
 function renderCalc(progress = null, error = null) {
   const o = S.sel;
   const box = $('#calc');
-  if (!o) { box.hidden = true; return; }
+  if (!o || o.analysisPrivate || o.kind === 'NDVI') { box.hidden = true; return; }
   box.hidden = false;
   const r = resultFor(o);
   const cam = S.catalog.cameras?.[o.kind];
