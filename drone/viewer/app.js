@@ -19,6 +19,8 @@ const S = { catalog: null, results: {}, byKey: new Map(), sel: null, layer: null
 // Drive는 바이트 구간 요청과 CORS를 지원하지만 Content-Range 머리글을 브라우저에 보여 주지 않는다.
 // 요청한 구간·응답 길이·목록의 파일 크기로 그 머리글을 채운다 (전체 파일 내려받기는 하지 않음).
 const params = new URLSearchParams(location.search);
+S.band = Number(params.get('band')) || 0;
+S.range = params.get('range') === 'minmax' ? 'minmax' : 'p05p95';
 const localTest = ['127.0.0.1', 'localhost'].includes(location.hostname) && params.get('drive');
 const DRIVE = localTest || 'https://drive.usercontent.google.com/download';
 const driveUrl = (id) => `${DRIVE}?id=${encodeURIComponent(id)}&export=download&confirm=t`;
@@ -103,6 +105,38 @@ function renderList() {
 }
 
 // ---- 모자이크 열기 -------------------------------------------------------------------
+function spectralControls(o) {
+  const cfg = o.kind === 'RE' ? o.spectral : null;
+  $('#spectral-controls').hidden = !cfg;
+  $('#band-legend').hidden = true;
+  if (!cfg) return null;
+  const bands = [...cfg.bands].sort((a, b) => a.wavelengthNm - b.wavelengthNm);
+  if (!bands.some(b => b.band === S.band)) S.band = 0;
+  $('#band-select').innerHTML = '<option value="0">RGB 합성</option>' + bands.map(b => `<option value="${b.band}">B${b.band} · ${b.wavelengthNm} nm</option>`).join('');
+  $('#band-select').value = String(S.band);
+  $('#band-range').hidden = S.band === 0;
+  for (const b of document.querySelectorAll('#band-range button')) b.setAttribute('aria-pressed', String(b.dataset.range === S.range));
+  const band = bands.find(b => b.band === S.band);
+  if (!band) return null;
+  const [lo, hi] = (S.range === 'minmax' ? ['min', 'max'] : ['p05', 'p95']).map(k => band.stats[k]);
+  $('#band-legend').hidden = false;
+  $('#band-legend-title').textContent = `${band.wavelengthNm} nm · ${S.range === 'minmax' ? 'Min–Max' : 'P05–P95'}`;
+  $('#band-ramp').style.background = `linear-gradient(90deg,${cfg.palette.map((c, i) => `${c} ${100 * i / (cfg.palette.length - 1)}%`).join(',')})`;
+  $('#band-ticks').innerHTML = [lo, (lo + hi) / 2, hi].map(v => `<span>${v.toFixed(4)}</span>`).join('');
+  return band;
+}
+
+function showBand(o, band, gen) {
+  const cfg = o.spectral;
+  const source = new ol.source.ImageStatic({ url: band.images[S.range], projection: cfg.projection, imageExtent: cfg.extent, interpolate: false });
+  const layer = new ol.layer.Image({source, opacity: Number($('#opacity').value) / 100, visible: $('#show').checked});
+  S.source = source; S.layer = layer;
+  $('#sel-info').textContent = `B${band.band} · ${band.wavelengthNm} nm · 축소 표시 ${cfg.displayWidth} × ${cfg.displayHeight} px`;
+  source.on('imageloadend', () => { if (gen === S.gen) status('밴드별 축소 표시 · 전체 유효 화소 기준 컬러바', 'preview'); });
+  source.on('imageloaderror', () => { if (gen === S.gen) status('밴드 영상을 읽지 못했습니다. 새로고침해 주세요.', 'error'); });
+  map.addLayer(layer);
+}
+
 async function select(o, { fitView = true } = {}) {
   const gen = ++S.gen;
   S.sel = o;
@@ -111,6 +145,7 @@ async function select(o, { fitView = true } = {}) {
   $('#sel-title').textContent = o.title;
   $('#sel-info').textContent = `${o.type}${o.width ? ` · ${o.width.toLocaleString()} × ${o.height.toLocaleString()} px` : ''}${o.mosaic_px_cm ? ` · 픽셀 ${fmt(o.mosaic_px_cm, 2)} cm` : ''}`;
   $('#ndvi-legend').hidden = o.kind !== 'NDVI';
+  const band = spectralControls(o);
   const sib = S.byKey.get(keyOf(o)) ?? {};
   for (const b of document.querySelectorAll('#kind-seg button')) {
     b.disabled = !sib[b.dataset.kind];
@@ -119,12 +154,15 @@ async function select(o, { fitView = true } = {}) {
   }
   const p = new URLSearchParams(location.search);
   p.set('date', o.date); p.set('round', o.round); p.set('kind', o.kind); p.delete('id');
+  if (band) { p.set('band', band.band); p.set('range', S.range); }
+  else { p.delete('band'); p.delete('range'); }
   history.replaceState(null, '', `${location.pathname}?${p}`);
   renderList();
   renderCalc();
   closeSide();
   if (fitView) fit();
   status('모자이크를 불러오는 중…');
+  if (band) { showBand(o, band, gen); return; }
   const source = new ol.source.GeoTIFF({
     sources: [{ url: driveFile(o), min: 0, max: 255 }], normalize: true, convertToRGB: 'auto', interpolate: true,
     sourceOptions: { allowFullFile: false, maxRanges: 1, blockSize: 65536, cacheSize: 100 },
@@ -277,6 +315,17 @@ $('#kind-seg').addEventListener('click', (e) => {
   if (o && o.id !== S.sel.id) select(o, { fitView: false });
 });
 $('#batch').addEventListener('click', batch);
+$('#band-select').addEventListener('change', () => {
+  S.band = Number($('#band-select').value);
+  if (S.sel) select(S.sel, {fitView: false});
+});
+$('#band-range').addEventListener('click', e => {
+  const button = e.target.closest('button[data-range]');
+  if (!button || button.dataset.range === S.range) return;
+  S.range = button.dataset.range;
+  if (S.sel) select(S.sel, {fitView: false});
+});
+new ResizeObserver(() => $('#map-wrap').style.setProperty('--head-height', `${$('#head').getBoundingClientRect().height}px`)).observe($('#head'));
 $('#fit').addEventListener('click', fit);
 $('#opacity').addEventListener('input', () => S.layer?.setOpacity(Number($('#opacity').value) / 100));
 $('#show').addEventListener('change', () => S.layer?.setVisible($('#show').checked));

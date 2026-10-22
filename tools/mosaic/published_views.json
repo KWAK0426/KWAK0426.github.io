@@ -14,7 +14,12 @@
       "sizeBytes": 47705498,
       "width": 12858,
       "height": 9149,
-      "bounds": [128.88416481211388, 35.200058324653924, 128.8901656921459, 35.20356305038192],
+      "bounds": [
+        128.88416481211388,
+        35.200058324653924,
+        128.8901656921459,
+        35.20356305038192
+      ],
       "mosaic_px_cm": 4.25,
       "thumbnail": "thumbs/2026-10-07-R1-RE.webp",
       "sourcePhotos": 689,
@@ -22,7 +27,204 @@
       "displayOnly": true,
       "analysisPrivate": true,
       "dem": null,
-      "gps": null
+      "gps": null,
+      "spectral": {
+        "unit": "reflectance_ratio",
+        "scale": 3.0517578125e-05,
+        "scaleBasis": "Inferred calibrated Metashape UInt16 convention; original export scale not independently confirmed.",
+        "statsDomain": "all_native_alpha_valid_pixels",
+        "validPixels": 92778737,
+        "percentileMethod": "exact UInt16 histogram; linear quantile",
+        "defaultMode": "p05p95",
+        "displayOnly": true,
+        "displayWidth": 1000,
+        "displayHeight": 715,
+        "projection": "EPSG:3857",
+        "extent": [
+          14347319.598200863,
+          4191101.629577843,
+          14347987.636170583,
+          4191579.0745821386
+        ],
+        "colorMap": "viridis",
+        "palette": [
+          "#440154",
+          "#460c5f",
+          "#47186a",
+          "#482273",
+          "#472c7b",
+          "#453681",
+          "#424085",
+          "#3e4989",
+          "#3a528b",
+          "#365a8c",
+          "#32628d",
+          "#2f6a8d",
+          "#2c728e",
+          "#287a8e",
+          "#26818e",
+          "#23898d",
+          "#20908c",
+          "#1e988a",
+          "#1e9f88",
+          "#21a784",
+          "#28ae7f",
+          "#32b57a",
+          "#3ebc73",
+          "#4dc26b",
+          "#5ec961",
+          "#70ce56",
+          "#83d34b",
+          "#97d83e",
+          "#addc30",
+          "#c2df22",
+          "#d7e219",
+          "#ece41a",
+          "#fde724"
+        ],
+        "bands": [
+          {
+            "band": 1,
+            "wavelengthNm": 444,
+            "stats": {
+              "min": 0.001617431640625,
+              "p05": 0.013885498046875,
+              "p95": 0.11602783203125,
+              "max": 1.09686279296875
+            },
+            "images": {
+              "minmax": "bands/2026-10-07-R1-B01-minmax.webp",
+              "p05p95": "bands/2026-10-07-R1-B01-p05p95.webp"
+            }
+          },
+          {
+            "band": 2,
+            "wavelengthNm": 475,
+            "stats": {
+              "min": 0.000518798828125,
+              "p05": 0.016632080078125,
+              "p95": 0.137847900390625,
+              "max": 1.3319091796875
+            },
+            "images": {
+              "minmax": "bands/2026-10-07-R1-B02-minmax.webp",
+              "p05p95": "bands/2026-10-07-R1-B02-p05p95.webp"
+            }
+          },
+          {
+            "band": 3,
+            "wavelengthNm": 531,
+            "stats": {
+              "min": 0.00274658203125,
+              "p05": 0.029998779296875,
+              "p95": 0.16888427734375,
+              "max": 1.3616943359375
+            },
+            "images": {
+              "minmax": "bands/2026-10-07-R1-B03-minmax.webp",
+              "p05p95": "bands/2026-10-07-R1-B03-p05p95.webp"
+            }
+          },
+          {
+            "band": 4,
+            "wavelengthNm": 560,
+            "stats": {
+              "min": 0.000732421875,
+              "p05": 0.0347900390625,
+              "p95": 0.1885986328125,
+              "max": 1.741119384765625
+            },
+            "images": {
+              "minmax": "bands/2026-10-07-R1-B04-minmax.webp",
+              "p05p95": "bands/2026-10-07-R1-B04-p05p95.webp"
+            }
+          },
+          {
+            "band": 5,
+            "wavelengthNm": 650,
+            "stats": {
+              "min": 0.001220703125,
+              "p05": 0.028472900390625,
+              "p95": 0.20416259765625,
+              "max": 1.093414306640625
+            },
+            "images": {
+              "minmax": "bands/2026-10-07-R1-B05-minmax.webp",
+              "p05p95": "bands/2026-10-07-R1-B05-p05p95.webp"
+            }
+          },
+          {
+            "band": 6,
+            "wavelengthNm": 668,
+            "stats": {
+              "min": 0.000946044921875,
+              "p05": 0.0247802734375,
+              "p95": 0.212371826171875,
+              "max": 1.095123291015625
+            },
+            "images": {
+              "minmax": "bands/2026-10-07-R1-B06-minmax.webp",
+              "p05p95": "bands/2026-10-07-R1-B06-p05p95.webp"
+            }
+          },
+          {
+            "band": 7,
+            "wavelengthNm": 705,
+            "stats": {
+              "min": 0.00335693359375,
+              "p05": 0.046905517578125,
+              "p95": 0.249267578125,
+              "max": 1.150604248046875
+            },
+            "images": {
+              "minmax": "bands/2026-10-07-R1-B07-minmax.webp",
+              "p05p95": "bands/2026-10-07-R1-B07-p05p95.webp"
+            }
+          },
+          {
+            "band": 8,
+            "wavelengthNm": 717,
+            "stats": {
+              "min": 0.001983642578125,
+              "p05": 0.058929443359375,
+              "p95": 0.306549072265625,
+              "max": 1.45025634765625
+            },
+            "images": {
+              "minmax": "bands/2026-10-07-R1-B08-minmax.webp",
+              "p05p95": "bands/2026-10-07-R1-B08-p05p95.webp"
+            }
+          },
+          {
+            "band": 9,
+            "wavelengthNm": 740,
+            "stats": {
+              "min": 0.0030517578125,
+              "p05": 0.075286865234375,
+              "p95": 0.3658447265625,
+              "max": 1.475555419921875
+            },
+            "images": {
+              "minmax": "bands/2026-10-07-R1-B09-minmax.webp",
+              "p05p95": "bands/2026-10-07-R1-B09-p05p95.webp"
+            }
+          },
+          {
+            "band": 10,
+            "wavelengthNm": 842,
+            "stats": {
+              "min": 0.00714111328125,
+              "p05": 0.105804443359375,
+              "p95": 0.4842529296875,
+              "max": 1.638763427734375
+            },
+            "images": {
+              "minmax": "bands/2026-10-07-R1-B10-minmax.webp",
+              "p05p95": "bands/2026-10-07-R1-B10-p05p95.webp"
+            }
+          }
+        ]
+      }
     },
     {
       "id": "2026-10-07-R1-NDVI",
@@ -36,11 +238,19 @@
       "sizeBytes": 41661099,
       "width": 12858,
       "height": 9149,
-      "bounds": [128.88416481211388, 35.200058324653924, 128.8901656921459, 35.20356305038192],
+      "bounds": [
+        128.88416481211388,
+        35.200058324653924,
+        128.8901656921459,
+        35.20356305038192
+      ],
       "mosaic_px_cm": 4.25,
       "thumbnail": "thumbs/2026-10-07-R1-NDVI.webp",
       "sourcePhotos": 689,
-      "colorRange": [-1, 1],
+      "colorRange": [
+        -1,
+        1
+      ],
       "displayOnly": true,
       "analysisPrivate": true,
       "dem": null,

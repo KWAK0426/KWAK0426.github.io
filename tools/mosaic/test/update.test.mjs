@@ -101,6 +101,9 @@ test('별도 승인한 표시용 RE/NDVI는 원본 없는 PC의 다음 자동 �
     thumbnail: `thumbs/2026-10-07-R1-${kind}.jpg`, analysisPrivate: true, dem: null, gps: null,
   }));
   const publishedFile = path.join(tmp, 'published.json');
+  observations[0].spectral = { bands: [{ band: 1, wavelengthNm: 444, images: {p05p95: 'bands/test.webp'} }] };
+  fs.mkdirSync(path.join(out, 'bands'));
+  fs.writeFileSync(path.join(out, 'bands/test.webp'), 'display-only band image');
   fs.writeFileSync(publishedFile, JSON.stringify({ observations }));
   for (const o of observations) fs.writeFileSync(path.join(out, o.thumbnail), 'test thumbnail');
   const opts = { root, outDir: out, cfg, stateFile: path.join(tmp,'state.json'), publishedFile, lookup: () => [], wait: false, log: () => {} };
@@ -109,5 +112,6 @@ test('별도 승인한 표시용 RE/NDVI는 원본 없는 PC의 다음 자동 �
   assert.deepEqual(JSON.parse(fs.readFileSync(path.join(out,'catalog.json'),'utf8')).observations, observations);
   assert(observations.every((o) => fs.existsSync(path.join(out,o.thumbnail))));
   assert.equal((await run(opts)).changed, false);
+  assert(fs.existsSync(path.join(out, 'bands/test.webp')), '밴드 표시 파일도 다음 조사에 유지');
   fs.rmSync(tmp, { recursive: true, force: true });
 });

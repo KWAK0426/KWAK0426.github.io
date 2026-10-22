@@ -39,7 +39,10 @@ body.viewer { height: 100dvh; display: flex; flex-direction: column; overflow: h
 .vw-map-wrap { position: relative; flex: 1; min-width: 0; }
 .vw-map { position: absolute; inset: 0; background: #dfe3e8; }
 .vw-card { position: absolute; z-index: 3; background: color-mix(in srgb, var(--surface) 94%, transparent); backdrop-filter: blur(10px); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); }
-.vw-head { top: 12px; left: 12px; display: flex; align-items: center; gap: 14px; padding: 10px 12px; max-width: calc(100% - 24px); }
+.vw-head { top: 12px; left: 12px; display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; gap: 10px 14px; padding: 10px 12px; max-width: min(800px, calc(100% - 24px)); }
+.vw-spectral { grid-column: 1 / -1; display: flex; align-items: center; flex-wrap: wrap; gap: 8px; min-width: 0; font-size: 13px; }
+.vw-spectral select { background: var(--surface); color: var(--text); border: 1px solid var(--line-2); border-radius: 6px; padding: 6px 8px; font: inherit; min-width: 0; max-width: 100%; }
+.vw-band-note { margin-top: 5px; font-size: 11px; color: var(--muted); }
 .vw-title { display: flex; flex-direction: column; min-width: 0; }
 .vw-title b { font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .vw-seg { display: inline-flex; border: 1px solid var(--line-2); border-radius: 9px; overflow: hidden; flex-shrink: 0; }
@@ -69,7 +72,7 @@ body.viewer { height: 100dvh; display: flex; flex-direction: column; overflow: h
 .vw-progress i { display: block; height: 100%; background: var(--drone); width: 0; transition: width .2s; }
 .vw-link { border: 0; background: none; color: var(--drone); font: inherit; font-size: 12px; cursor: pointer; padding: 0; }
 
-.vw-status { position: absolute; z-index: 4; top: 72px; left: 50%; transform: translateX(-50%); padding: 7px 14px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); font-size: 12.5px; white-space: nowrap; }
+.vw-status { position: absolute; z-index: 4; top: calc(var(--head-height, 48px) + 24px); left: 50%; transform: translateX(-50%); padding: 7px 14px; border-radius: 8px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); font-size: 12.5px; white-space: nowrap; }
 .vw-status.error { color: var(--bad); }
 .vw-status.preview { color: var(--warn); max-width: calc(100% - 24px); white-space: normal; }
 .vw-ndvi { bottom: 34px; left: 12px; width: 300px; padding: 10px 14px; border-radius: 8px; }
@@ -86,15 +89,16 @@ body.viewer { height: 100dvh; display: flex; flex-direction: column; overflow: h
   .vw-side { position: absolute; z-index: 10; top: 60px; bottom: 0; left: 0; width: min(88vw, 340px); transform: translateX(-102%); transition: transform .2s; box-shadow: var(--shadow); }
   .vw-side.open { transform: none; }
   .vw-head { left: 8px; right: 8px; top: 8px; max-width: none; padding: 8px 10px; gap: 8px; }
-  .vw-head { flex-direction: column; align-items: stretch; }
+  .vw-head { display: flex; flex-direction: column; align-items: stretch; }
   #kind-seg button { flex: 1; }
   .vw-ndvi { left: 8px; right: 8px; width: auto; bottom: 34px; }
   .vw-calc { left: 8px; right: 8px; width: auto; bottom: 30px; }
   .vw-calc.collapsed .vw-kv, .vw-calc.collapsed .vw-src, .vw-calc.collapsed .vw-warn { display: none; }
-  .vw-ctrl { top: 126px; bottom: auto; right: 8px; padding: 8px 10px; }
+  .vw-ctrl { top: calc(var(--head-height, 106px) + 20px); bottom: auto; right: 8px; padding: 8px 10px; }
   .vw-row input[type="range"] { width: 80px; }
   .ol-scale-line { display: none; }
   .vw-status { top: auto; bottom: 128px; left: 8px; right: 8px; transform: none; border-radius: 8px; white-space: normal; }
+  .vw-map-wrap:has(#band-legend:not([hidden])) .vw-status { bottom: 154px; }
 }
 .ol-zoom { top: 12px; left: auto; right: 12px; }
 @media (max-width: 760px) { .ol-zoom { display: none; } }

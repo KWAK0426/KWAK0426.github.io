@@ -10,12 +10,12 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../../assets/hub.css?v=5">
 <link rel="stylesheet" href="vendor/ol.css">
-<link rel="stylesheet" href="viewer.css?v=4">
+<link rel="stylesheet" href="viewer.css?v=5">
 <script>try{const t=localStorage.getItem('hub-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <script defer src="vendor/geotiff.js"></script>
 <script defer src="vendor/ol.js"></script>
 <script defer src="vendor/proj4.js"></script>
-<script type="module" src="app.js?v=2"></script>
+<script type="module" src="app.js?v=3"></script>
 </head>
 <body class="viewer">
 <header class="topbar">
@@ -47,8 +47,21 @@
         <button type="button" data-kind="RE" aria-pressed="false">다분광</button>
         <button type="button" data-kind="NDVI" aria-pressed="false">NDVI</button>
       </div>
+      <div class="vw-spectral" id="spectral-controls" hidden>
+        <label for="band-select">밴드</label>
+        <select id="band-select" aria-label="파장순 밴드 선택"></select>
+        <div class="vw-seg sm" id="band-range" role="group" aria-label="컬러바 범위" hidden>
+          <button type="button" data-range="p05p95" aria-pressed="true">P05–P95</button>
+          <button type="button" data-range="minmax" aria-pressed="false">Min–Max</button>
+        </div>
+      </div>
     </div>
     <div class="vw-card vw-calc" id="calc" hidden></div>
+    <div class="vw-card vw-ndvi" id="band-legend" hidden>
+      <b id="band-legend-title"></b><div class="vw-ndvi-ramp" id="band-ramp"></div>
+      <div class="vw-ndvi-ticks" id="band-ticks"></div>
+      <div class="vw-band-note" id="band-unit" title="원 UInt16 / 32768. 보정된 Metashape 규약에 따른 해석이며 내보내기 배율을 독립 확정한 것은 아닙니다.">반사도 (비율) · UInt16 / 32768</div>
+    </div>
     <div class="vw-card vw-ndvi" id="ndvi-legend" hidden>
       <b>NDVI</b><div class="vw-ndvi-ramp"></div>
       <div class="vw-ndvi-ticks"><span>-1</span><span>-0.5</span><span>0</span><span>0.5</span><span>1</span></div>
