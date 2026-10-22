@@ -11,6 +11,8 @@
 
 ## 2026-10-22 (목)
 
+- **17:35** · 연코 · Add approved wavelength-ordered band views and P05/P95 colorbars  
+  `drone/viewer/app.js`, `drone/viewer/bands/2026-10-07-R1-B01-minmax.webp`, `drone/viewer/bands/2026-10-07-R1-B01-p05p95.webp`, `drone/viewer/bands/2026-10-07-R1-B02-minmax.webp`, `drone/viewer/bands/2026-10-07-R1-B02-p05p95.webp`, `drone/viewer/bands/2026-10-07-R1-B03-minmax.webp` 외 21개 (57d90e4)
 - **16:33** · 연코 · Keep mobile mosaic status clear of map controls  
   `drone/viewer/index.html`, `drone/viewer/viewer.css` (f1b3713)
 - **16:28** · 연코 · Publish approved 10/7 R1 reflectance and NDVI viewer  
