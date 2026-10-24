@@ -15,15 +15,32 @@ body.viewer { height: 100dvh; display: flex; flex-direction: column; overflow: h
 .spec-series { display: inline-flex; align-items: center; gap: 5px; }
 .spec-series::before { content: ''; width: 20px; border-top: 3px solid var(--series-color); }
 .spec-series.dashed::before { border-top-style: dashed; }
+.spec-series.distribution::before { border-top-width: 7px; opacity: .25; }
+.spec-controls { padding: 0 0 14px; border-bottom: 2px solid var(--line-2); }
+.spec-selection-slot { height: 44px; display: flex; align-items: center; }
+.spec-selection-slot #field-select-wrap, .spec-selection-slot .spec-mean-toggle { margin: 0; }
+.spec-distribution-toggle { font-size: 13px; }
+.spec-plot { padding: 12px 0; border-bottom: 2px solid var(--line-2); }
+.spec-data { padding: 12px 0; }
+.spec-data h3 { font-size: 14px; margin: 0; }
+#spectrum-cache-status { margin-left: auto; font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.vw-spec-head { gap: 10px; }
+#spectrum-panel[data-mode="pixel"] .spec-comparison[hidden] { display: block !important; visibility: hidden; }
 .spec-comparison { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 10px 0; margin: 6px 0 10px; }
 .spec-comparison h4 { font-size: 13px; margin: 0 0 8px; }
 .spec-metrics { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; margin: 0; }
 .spec-metrics dt { color: var(--muted); font-size: 12px; }
 .spec-metrics dd { margin: 4px 0 0; font-size: 18px; font-weight: 600; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
 .spec-comparison p { font-size: 11px; color: var(--muted); margin: 8px 0 0; }
-#spectrum-heading { font-size: 15px; margin: 16px 0 6px; }
+#spectrum-heading { font-size: 15px; margin: 0 0 6px; height: 24px; line-height: 24px; }
 #spectrum-message, #spectrum-provenance { font-size: 12px; color: var(--muted); margin: 8px 0; overflow-wrap: anywhere; }
-#spectrum-chart svg { display: block; width: 100%; height: auto; }
+#spectrum-message { height: 40px; line-height: 18px; overflow: auto; margin: 4px 0 0; }
+#spectrum-sample-info { height: 34px; line-height: 16px; margin: 0; font-size: 11px; color: var(--muted); overflow: auto; }
+#spectrum-provenance { min-height: 36px; }
+#spectrum-series-legend { height: 40px; margin: 0; align-content: flex-start; overflow: hidden; }
+#spectrum-chart { height: 250px; contain: layout paint; }
+#spectrum-chart svg { display: block; width: 100%; height: 250px; }
+.spec-empty { height: 250px; display: grid; place-items: center; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 13px; }
 #spectrum-chart text { fill: var(--text-2); font: 13px sans-serif; }
 .spec-grid { stroke: var(--line-2); stroke-width: 1; }
 #field-select-wrap { display: flex; align-items: center; gap: 8px; font-size: 13px; margin-top: 12px; }

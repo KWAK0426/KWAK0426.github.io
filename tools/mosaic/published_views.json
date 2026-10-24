@@ -349,6 +349,12 @@
           "compression": "gzip",
           "tileTemplate": "spectra/2026-10-07-R1/pixels-{tile}.bin.gz",
           "representative": true
+        },
+        "fieldSamples": {
+          "url": "spectra/2026-10-07-R1/field-samples-v1.json",
+          "maxCurves": 256,
+          "basis": "spatially-spaced-valid-representative-pixels",
+          "scale": 3.0517578125e-05
         }
       },
       "seamlines": {
@@ -2216,6 +2222,12 @@
           "compression": "gzip",
           "tileTemplate": "spectra/2026-05-10-R3/pixels-{tile}.bin.gz",
           "representative": true
+        },
+        "fieldSamples": {
+          "url": "spectra/2026-05-10-R3/field-samples-v1.json",
+          "maxCurves": 256,
+          "basis": "spatially-spaced-valid-representative-pixels",
+          "scale": 3.0517578125e-05
         }
       },
       "rgbDisplay": {
@@ -2617,6 +2629,12 @@
           "compression": "gzip",
           "tileTemplate": "spectra/2026-05-10-R4/pixels-{tile}.bin.gz",
           "representative": true
+        },
+        "fieldSamples": {
+          "url": "spectra/2026-05-10-R4/field-samples-v1.json",
+          "maxCurves": 256,
+          "basis": "spatially-spaced-valid-representative-pixels",
+          "scale": 3.0517578125e-05
         }
       },
       "rgbDisplay": {
@@ -3018,6 +3036,12 @@
           "compression": "gzip",
           "tileTemplate": "spectra/2026-05-10-R5/pixels-{tile}.bin.gz",
           "representative": true
+        },
+        "fieldSamples": {
+          "url": "spectra/2026-05-10-R5/field-samples-v1.json",
+          "maxCurves": 256,
+          "basis": "spatially-spaced-valid-representative-pixels",
+          "scale": 3.0517578125e-05
         }
       },
       "rgbDisplay": {
@@ -3419,6 +3443,12 @@
           "compression": "gzip",
           "tileTemplate": "spectra/2026-07-16-R1/pixels-{tile}.bin.gz",
           "representative": true
+        },
+        "fieldSamples": {
+          "url": "spectra/2026-07-16-R1/field-samples-v1.json",
+          "maxCurves": 256,
+          "basis": "spatially-spaced-valid-representative-pixels",
+          "scale": 3.0517578125e-05
         }
       },
       "rgbDisplay": {
@@ -3820,6 +3850,12 @@
           "compression": "gzip",
           "tileTemplate": "spectra/2026-07-31-R1/pixels-{tile}.bin.gz",
           "representative": true
+        },
+        "fieldSamples": {
+          "url": "spectra/2026-07-31-R1/field-samples-v1.json",
+          "maxCurves": 256,
+          "basis": "spatially-spaced-valid-representative-pixels",
+          "scale": 3.0517578125e-05
         }
       },
       "rgbDisplay": {
@@ -4221,6 +4257,12 @@
           "compression": "gzip",
           "tileTemplate": "spectra/2026-07-31-R2/pixels-{tile}.bin.gz",
           "representative": true
+        },
+        "fieldSamples": {
+          "url": "spectra/2026-07-31-R2/field-samples-v1.json",
+          "maxCurves": 256,
+          "basis": "spatially-spaced-valid-representative-pixels",
+          "scale": 3.0517578125e-05
         }
       },
       "rgbDisplay": {
@@ -4622,6 +4664,12 @@
           "compression": "gzip",
           "tileTemplate": "spectra/2026-09-08-R1/pixels-{tile}.bin.gz",
           "representative": true
+        },
+        "fieldSamples": {
+          "url": "spectra/2026-09-08-R1/field-samples-v1.json",
+          "maxCurves": 256,
+          "basis": "spatially-spaced-valid-representative-pixels",
+          "scale": 3.0517578125e-05
         }
       },
       "rgbDisplay": {
@@ -5023,6 +5071,12 @@
           "compression": "gzip",
           "tileTemplate": "spectra/2026-09-08-R2/pixels-{tile}.bin.gz",
           "representative": true
+        },
+        "fieldSamples": {
+          "url": "spectra/2026-09-08-R2/field-samples-v1.json",
+          "maxCurves": 256,
+          "basis": "spatially-spaced-valid-representative-pixels",
+          "scale": 3.0517578125e-05
         }
       },
       "rgbDisplay": {
@@ -5424,6 +5478,12 @@
           "compression": "gzip",
           "tileTemplate": "spectra/2026-09-08-R3/pixels-{tile}.bin.gz",
           "representative": true
+        },
+        "fieldSamples": {
+          "url": "spectra/2026-09-08-R3/field-samples-v1.json",
+          "maxCurves": 256,
+          "basis": "spatially-spaced-valid-representative-pixels",
+          "scale": 3.0517578125e-05
         }
       },
       "rgbDisplay": {
@@ -5825,6 +5885,12 @@
           "compression": "gzip",
           "tileTemplate": "spectra/2026-09-08-R4/pixels-{tile}.bin.gz",
           "representative": true
+        },
+        "fieldSamples": {
+          "url": "spectra/2026-09-08-R4/field-samples-v1.json",
+          "maxCurves": 256,
+          "basis": "spatially-spaced-valid-representative-pixels",
+          "scale": 3.0517578125e-05
         }
       },
       "rgbDisplay": {
@@ -6226,6 +6292,12 @@
           "compression": "gzip",
           "tileTemplate": "spectra/2026-09-23-R1/pixels-{tile}.bin.gz",
           "representative": true
+        },
+        "fieldSamples": {
+          "url": "spectra/2026-09-23-R1/field-samples-v1.json",
+          "maxCurves": 256,
+          "basis": "spatially-spaced-valid-representative-pixels",
+          "scale": 3.0517578125e-05
         }
       },
       "rgbDisplay": {
@@ -6627,6 +6699,12 @@
           "compression": "gzip",
           "tileTemplate": "spectra/2026-09-23-R2/pixels-{tile}.bin.gz",
           "representative": true
+        },
+        "fieldSamples": {
+          "url": "spectra/2026-09-23-R2/field-samples-v1.json",
+          "maxCurves": 256,
+          "basis": "spatially-spaced-valid-representative-pixels",
+          "scale": 3.0517578125e-05
         }
       },
       "rgbDisplay": {
@@ -7028,6 +7106,12 @@
           "compression": "gzip",
           "tileTemplate": "spectra/2026-09-23-R3/pixels-{tile}.bin.gz",
           "representative": true
+        },
+        "fieldSamples": {
+          "url": "spectra/2026-09-23-R3/field-samples-v1.json",
+          "maxCurves": 256,
+          "basis": "spatially-spaced-valid-representative-pixels",
+          "scale": 3.0517578125e-05
         }
       },
       "rgbDisplay": {

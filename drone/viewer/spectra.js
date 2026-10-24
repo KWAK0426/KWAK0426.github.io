@@ -44,17 +44,34 @@ export function createSpectrumPanel({map, getReference, getFieldMask = () => nul
   const point = new ol.layer.Vector({source: marker, zIndex: 20, style: new ol.style.Style({image: new ol.style.Circle({radius: 6, fill: new ol.style.Fill({color: '#e54278'}), stroke: new ol.style.Stroke({color: '#ffffff', width: 2})})})});
   map.addLayer(fields); map.addLayer(point);
   const tileCache = new Map();
+  const jsonCache = new Map();
+  let sampleDocument = null, backgroundKey = null, cacheProgress = '';
   let reference = null, key = null, mode = 'pixel', yScope = 'fields', generation = 0, clickGeneration = 0, selectedPixel = null, pixelLoading = false;
+  $('#spectrum-panel').dataset.mode = mode;
+  function cacheStatus() {
+    $('#spectrum-cache-status').textContent = pixelLoading ? '새 화소 읽는 중' : cacheProgress;
+    $('#spectrum-chart').setAttribute('aria-busy', String(pixelLoading));
+  }
+  function loadJson(url) {
+    if (!jsonCache.has(url)) jsonCache.set(url, fetch(url).then(r => {
+      if (!r.ok) throw new Error('스펙트럼 자료를 읽지 못했습니다.');
+      return r.json();
+    }).catch(e => {jsonCache.delete(url); throw e;}));
+    return jsonCache.get(url);
+  }
   function open(value) {
+    if ($('#spectrum-panel').hidden === !value) return;
     $('#spectrum-panel').hidden = !value;
     $('#spectrum-toggle').setAttribute('aria-expanded', String(value));
     map.updateSize();
   }
   function empty(message) {
-    $('#spectrum-chart').innerHTML = '';
+    $('#spectrum-chart').innerHTML = '<div class="spec-empty">스펙트럼 대기</div>';
+    backgroundKey = null;
     $('#spectrum-values').innerHTML = '';
     $('#spectrum-message').textContent = message;
     $('#spectrum-provenance').textContent = '';
+    $('#spectrum-sample-info').textContent = '';
     $('#spectrum-heading').textContent = mode === 'field' ? '필지 평균' : '선택 대표화소';
     $('#spectrum-series-legend').innerHTML = '';
     $('#spectrum-comparison').hidden = true;
@@ -84,12 +101,30 @@ export function createSpectrumPanel({map, getReference, getFieldMask = () => nul
       return `<line x1="${left}" x2="${right}" y1="${y(v)}" y2="${y(v)}" class="spec-grid"/><text x="${left-8}" y="${y(v)+4}" text-anchor="end">${v.toFixed(2)}</text>`;
     }).join('');
     const ticks = Array.from({length: (xmax-xmin)/50+1}, (_, i) => xmin+i*50).map(n => `<line x1="${x(n)}" x2="${x(n)}" y1="24" y2="192" class="spec-grid"/><text data-xtick="${n}" x="${x(n)}" y="207" text-anchor="middle">${n}</text>`).join('');
-    const series = [{id: mode, values, color: mode === 'field' ? '#cf2861' : '#087f88', label: mode === 'field' ? heading : '선택 화소'}];
+    const series = [{id: mode, values, color: mode === 'field' ? '#cf2861' : '#087f88', label: mode === 'field' ? heading : '선택 화소', dashed: mode === 'pixel'}];
     const showMean = mode === 'pixel' && mean && $('#pixel-show-mean').checked;
-    if (showMean) series.push({id:'mean', values:mean, color:'#cf2861', label:`필지 ${field.get('name')} 평균`, dashed:true});
+    if (showMean) series.unshift({id:'mean', values:mean, color:'#cf2861', label:`필지 ${field.get('name')} 평균`});
     const curves = series.map(s => `<g data-series="${s.id}" clip-path="url(#spectrum-plot-clip)"><polyline fill="none" stroke="${s.color}" stroke-width="2.5" ${s.dashed ? 'stroke-dasharray="6 4"' : ''} points="${s.values.map((v, i) => `${x(nm[i])},${y(v)}`).join(' ')}"/>${s.values.map((v, i) => `<circle data-wavelength="${nm[i]}" cx="${x(nm[i])}" cy="${y(v)}" r="${s.dashed ? 2.5 : 3.5}" fill="${s.color}"><title>${esc(s.label)} · ${bandLabel(nm[i])}: ${v.toFixed(5)}</title></circle>`).join('')}</g>`).join('');
-    $('#spectrum-chart').innerHTML = `<svg viewBox="0 0 ${width} 250" data-xmin="${xmin}" data-xmax="${xmax}" data-ymin="${ymin}" data-ymax="${ymax}" data-scope="${yScope}" role="img" aria-label="${esc(heading)} 반사도 스펙트럼"><title>${esc(heading)}</title><defs><clipPath id="spectrum-plot-clip"><rect x="${left-4}" y="20" width="${right-left+8}" height="170"/></clipPath></defs>${grid}${ticks}<text x="${(left+right)/2}" y="240" text-anchor="middle">파장 (nm)</text><text x="14" y="108" text-anchor="middle" transform="rotate(-90 14 108)">반사도 (비율)</text>${curves}</svg>`;
-    $('#spectrum-series-legend').innerHTML = series.map(s => `<span class="spec-series ${s.dashed ? 'dashed' : ''}" style="--series-color:${s.color}">${esc(s.label)}</span>`).join('');
+    const axisKey = [width,ymin,ymax,yScope].join(':');
+    if ($('#spectrum-chart svg')?.dataset.axisKey !== axisKey) {
+      $('#spectrum-chart').innerHTML = `<svg viewBox="0 0 ${width} 250" data-axis-key="${axisKey}" data-xmin="${xmin}" data-xmax="${xmax}" data-ymin="${ymin}" data-ymax="${ymax}" data-scope="${yScope}" role="img"><title></title><defs><clipPath id="spectrum-plot-clip"><rect x="${left-4}" y="20" width="${right-left+8}" height="170"/></clipPath></defs>${grid}${ticks}<text x="${(left+right)/2}" y="240" text-anchor="middle">파장 (nm)</text><text x="14" y="108" text-anchor="middle" transform="rotate(-90 14 108)">반사도 (비율)</text><g id="spectrum-background" clip-path="url(#spectrum-plot-clip)"></g><g id="spectrum-curves"></g></svg>`;
+      backgroundKey = null;
+    }
+    $('#spectrum-chart svg').setAttribute('aria-label', `${heading} 반사도 스펙트럼`);
+    $('#spectrum-chart svg title').textContent = heading;
+    $('#spectrum-curves').innerHTML = curves;
+    const fieldName = field?.get('name');
+    const samples = sampleDocument?.fields[fieldName];
+    const showDistribution = samples?.count && $('#show-field-distribution').checked;
+    const nextBackgroundKey = `${axisKey}:${fieldName}:${Boolean(showDistribution)}:${samples?.count ?? 0}`;
+    if (backgroundKey !== nextBackgroundKey) {
+      $('#spectrum-background').innerHTML = showDistribution ? samples.spectra.map(raw => `<polyline data-distribution-curve fill="none" stroke="#cf2861" stroke-opacity="0.07" stroke-width="1" points="${raw.map((v,i)=>`${x(nm[i]).toFixed(2)},${y(v*sampleDocument.scale).toFixed(2)}`).join(' ')}"/>`).join('') : '';
+      backgroundKey = nextBackgroundKey;
+    }
+    const distributionOutside = showDistribution && (samples.rawMin*sampleDocument.scale < ymin || samples.rawMax*sampleDocument.scale > ymax);
+    $('#spectrum-sample-info').textContent = showDistribution
+      ? `배경: 필지 내 대표 화소 ${samples.count}개 표본 · 반사도 ${(samples.rawMin*sampleDocument.scale).toFixed(3)}–${(samples.rawMax*sampleDocument.scale).toFixed(3)}${distributionOutside ? ' · 축 밖 값 포함' : ''}` : '';
+    $('#spectrum-series-legend').innerHTML = series.map(s => `<span class="spec-series ${s.dashed ? 'dashed' : ''}" style="--series-color:${s.color}">${esc(s.label)}</span>`).join('') + (showDistribution ? '<span class="spec-series distribution" style="--series-color:#cf2861">필지 내 화소</span>' : '');
     $('#spectrum-values').innerHTML = `<thead><tr><th>대역 · nm</th><th>${mode === 'field' ? '필지 평균' : '선택 화소'}</th>${showMean ? '<th>필지 평균</th>' : ''}</tr></thead><tbody>${values.map((v, i) => `<tr><td><span class="spec-band-name">${bandLabel(nm[i])}</span></td><td data-col="value">${v.toFixed(5)}</td>${showMean ? `<td data-col="mean">${mean[i].toFixed(5)}</td>` : ''}</tr>`).join('')}</tbody>`;
     $('#pixel-mean-wrap').hidden = mode !== 'pixel';
     $('#pixel-show-mean').disabled = !mean;
@@ -122,10 +157,12 @@ export function createSpectrumPanel({map, getReference, getFieldMask = () => nul
     fields.changed(); marker.clear();
     if (!f || !f.get('mean')) { empty(f ? '이 회차의 필지 평균 자료 없음' : '선택한 필지 없음'); return; }
     const p = f.getProperties();
-    draw(p.mean, `필지 ${name} 평균`, `원본 유효 ${p.validPixels.toLocaleString()}화소 · 마스크 포함률 ${(p.coverage * 100).toFixed(1)}%`);
+    draw(p.mean, `필지 ${name} 평균`, `평균: 원해상도 유효 ${p.validPixels.toLocaleString()}화소 · 마스크 포함률 ${(p.coverage * 100).toFixed(1)}%`, f);
   }
   function setMode(value) {
     mode = value; clickGeneration++;
+    pixelLoading = false; cacheStatus();
+    $('#spectrum-panel').dataset.mode = mode;
     for (const b of document.querySelectorAll('#spectrum-mode button')) b.setAttribute('aria-pressed', String(b.dataset.mode === mode));
     $('#field-select-wrap').hidden = mode !== 'field';
     if (mode === 'field') {
@@ -133,8 +170,7 @@ export function createSpectrumPanel({map, getReference, getFieldMask = () => nul
       selectField(name);
     } else drawPixel();
   }
-  async function loadTile(index) {
-    const cfg = reference.spectrum.pixel;
+  async function loadTile(index, cfg = reference.spectrum.pixel) {
     const url = cfg.tileTemplate.replace('{tile}', String(index).padStart(3, '0'));
     if (!tileCache.has(url)) {
       const task = (async () => {
@@ -148,8 +184,26 @@ export function createSpectrumPanel({map, getReference, getFieldMask = () => nul
         return {data: new DataView(bytes), rows};
       })().catch(e => {tileCache.delete(url); throw e;});
       tileCache.set(url, task);
+      // At most about three round grids remain decoded; never grow with every visited date.
+      if (tileCache.size > 64) tileCache.delete(tileCache.keys().next().value);
     }
     return tileCache.get(url);
+  }
+  async function warmTiles(cfg, seq) {
+    const total = Math.ceil(cfg.height/cfg.tileRows);
+    let index = 0, complete = 0, failed = false;
+    cacheProgress = `자료 준비 0/${total}`; cacheStatus();
+    async function worker() {
+      while (seq === generation && index < total) {
+        const next = index++;
+        try {await loadTile(next,cfg);} catch {failed = true;}
+        if (seq !== generation) return;
+        complete++;
+        cacheProgress = complete === total ? failed ? '일부 자료 재시도 필요' : '자료 준비 완료' : `자료 준비 ${complete}/${total}`;
+        cacheStatus();
+      }
+    }
+    await Promise.all([worker(),worker()]);
   }
   async function selectPixel(coordinate) {
     const cfg = reference.spectrum.pixel, scale = reference.spectrum.scale;
@@ -158,50 +212,55 @@ export function createSpectrumPanel({map, getReference, getFieldMask = () => nul
     const col = Math.floor((x - xmin) / (xmax - xmin) * cfg.width);
     const row = Math.floor((ymax - y) / (ymax - ymin) * cfg.height);
     const seq = ++clickGeneration;
-    selectedPixel = null;
-    pixelLoading = false;
-    marker.clear();
-    fields.changed();
-    if (col < 0 || row < 0 || col >= cfg.width || row >= cfg.height) { empty('표시 범위 밖'); return; }
+    if (col < 0 || row < 0 || col >= cfg.width || row >= cfg.height) {
+      pixelLoading = false; cacheStatus();
+      $('#spectrum-message').textContent = '표시 범위 밖입니다. 이전 그래프를 유지합니다.'; return;
+    }
     pixelLoading = true;
-    empty('화소 값을 읽는 중…');
+    cacheStatus();
     try {
       const tile = await loadTile(Math.floor(row / cfg.tileRows));
       if (seq !== clickGeneration) return;
       const localRow = row % cfg.tileRows;
       const get = b => tile.data.getUint16(((b * tile.rows + localRow) * cfg.width + col) * 2, true);
-      if (!get(cfg.alphaBand)) { empty('유효 관측 없는 화소'); return; }
+      if (!get(cfg.alphaBand)) { $('#spectrum-message').textContent = '유효 관측 없는 화소입니다. 이전 그래프를 유지합니다.'; return; }
       const center = [xmin + (col + 0.5) / cfg.width * (xmax - xmin), ymax - (row + 0.5) / cfg.height * (ymax - ymin)];
       const coordinate = ol.proj.transform(center, cfg.projection, map.getView().getProjection());
       selectedPixel = {values:Array.from({length:10},(_,b)=>get(b)*scale), coordinate, ...containingField(coordinate), provenance:`${cfg.width} × ${cfg.height} 표시 격자 (${col+1}, ${row+1}) · 최근접 원본 화소 · 영역 평균 아님`};
+      pixelLoading = false;
       drawPixel();
-    } catch (e) { if (seq === clickGeneration) empty(e.message); }
-    finally { if (seq === clickGeneration) pixelLoading = false; }
+    } catch (e) { if (seq === clickGeneration) $('#spectrum-message').textContent = `${e.message} 이전 그래프를 유지합니다.`; }
+    finally { if (seq === clickGeneration) {pixelLoading = false; cacheStatus();} }
   }
   async function setObservation(o) {
     const next = getReference(o) ?? o;
     if (key === next?.id && reference) return;
     key = next?.id ?? null; reference = next; clickGeneration++; pixelLoading = false;
     const seq = ++generation;
-    boundaries.clear(); marker.clear(); tileCache.clear(); selectedPixel = null;
+    boundaries.clear(); marker.clear(); selectedPixel = null; sampleDocument = null; backgroundKey = null;
+    cacheProgress = next?.spectrum ? '필지 자료 준비 중' : '표시 영상만 제공'; cacheStatus();
+    if (next?.spectrum) void warmTiles(next.spectrum.pixel, seq);
     $('#field-select').innerHTML = '<option value="">필지 선택</option>';
     $('#spectrum-toggle').disabled = !next;
+    $('#show-field-distribution').disabled = !next?.spectrum?.fieldSamples;
     const sharedMask = getFieldMask();
     const fieldsUrl = sharedMask?.url ?? next?.spectrum?.fields;
     $('#show-fields').disabled = !fieldsUrl;
     empty(next?.spectrum ? '선택한 화소 없음' : '스펙트럼 자료 없음');
     if (!fieldsUrl) return;
     try {
-      const response = await fetch(fieldsUrl, {cache:'no-store'});
-      if (!response.ok) throw new Error('필지 경계를 읽지 못했습니다.');
-      const doc = await response.json();
+      const [shared, stats, samples] = await Promise.all([
+        loadJson(fieldsUrl),
+        next?.spectrum && fieldsUrl !== next.spectrum.fields ? loadJson(next.spectrum.fields).catch(() => null) : null,
+        next?.spectrum?.fieldSamples ? loadJson(next.spectrum.fieldSamples.url).catch(() => null) : null,
+      ]);
+      const doc = structuredClone(shared);
       if (seq !== generation) return;
+      sampleDocument = samples;
+      $('#show-field-distribution').disabled = !sampleDocument;
       // Boundaries are common; spectral means must still belong to this round.
-      if (next?.spectrum && fieldsUrl !== next.spectrum.fields) {
+      if (next?.spectrum && fieldsUrl !== next.spectrum.fields && stats) {
         try {
-          const statsResponse = await fetch(next.spectrum.fields, {cache:'no-store'});
-          if (!statsResponse.ok) throw new Error('회차별 필지 통계를 읽지 못했습니다.');
-          const stats = await statsResponse.json();
           if (seq !== generation) return;
           const byName = new Map(stats.features.map(f => [f.properties.name, f]));
           for (const field of doc.features) {
@@ -227,6 +286,9 @@ export function createSpectrumPanel({map, getReference, getFieldMask = () => nul
   $('#field-select').addEventListener('change', () => selectField($('#field-select').value));
   $('#show-fields').addEventListener('change', () => fields.setVisible($('#show-fields').checked));
   $('#pixel-show-mean').addEventListener('change', drawPixel);
+  $('#show-field-distribution').addEventListener('change', () => {
+    if (mode === 'field') selectField($('#field-select').value); else drawPixel();
+  });
   $('#spectrum-y-scope').addEventListener('click', e => {
     const b = e.target.closest('button[data-scope]');
     if (!b || b.dataset.scope === yScope) return;

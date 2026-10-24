@@ -10,12 +10,12 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../../assets/hub.css?v=5">
 <link rel="stylesheet" href="vendor/ol.css">
-<link rel="stylesheet" href="viewer.css?v=12">
+<link rel="stylesheet" href="viewer.css?v=13">
 <script>try{const t=localStorage.getItem('hub-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <script defer src="vendor/geotiff.js"></script>
 <script defer src="vendor/ol.js"></script>
 <script defer src="vendor/proj4.js"></script>
-<script type="module" src="app.js?v=20"></script>
+<script type="module" src="app.js?v=21"></script>
 </head>
 <body class="viewer">
 <header class="topbar">
@@ -80,7 +80,8 @@
     <div class="vw-foot-map small"><span id="coord"></span><span id="res"></span></div>
   </section>
   <aside class="vw-spectrum" id="spectrum-panel" aria-label="분광 스펙트럼" hidden>
-    <div class="vw-spec-head"><h2>분광 스펙트럼</h2><button type="button" class="vw-link" id="spectrum-close">접기</button></div>
+    <div class="vw-spec-head"><h2>분광 스펙트럼</h2><span id="spectrum-cache-status" role="status">자료 대기</span><button type="button" class="vw-link" id="spectrum-close">접기</button></div>
+    <section class="spec-controls" aria-label="스펙트럼 선택과 축">
     <div class="vw-seg" id="spectrum-mode" role="group" aria-label="스펙트럼 분석 단위">
       <button type="button" data-mode="pixel" aria-pressed="true">선택 화소</button>
       <button type="button" data-mode="field" aria-pressed="false">필지 평균</button>
@@ -89,12 +90,19 @@
       <button type="button" data-scope="fields" aria-pressed="true" title="이 회차 모든 필지 평균 스펙트럼의 최댓값 × 1.1 · 공통 상한">필지</button>
       <button type="button" data-scope="all" aria-pressed="false" title="이 회차 영상 전체 유효 화소 · 10밴드 공통 범위">전체</button>
     </div></div>
-    <label id="field-select-wrap" hidden>필지 <select id="field-select" aria-label="평균 스펙트럼 필지 선택"><option value="">필지 선택</option></select></label>
-    <label class="vw-row spec-mean-toggle" id="pixel-mean-wrap"><input type="checkbox" id="pixel-show-mean" checked disabled> 필지 평균선 표시</label>
+    <div class="spec-selection-slot">
+      <label id="field-select-wrap" hidden>필지 <select id="field-select" aria-label="평균 스펙트럼 필지 선택"><option value="">필지 선택</option></select></label>
+      <label class="vw-row spec-mean-toggle" id="pixel-mean-wrap"><input type="checkbox" id="pixel-show-mean" checked disabled> 필지 평균선 표시</label>
+    </div>
+    <label class="vw-row spec-distribution-toggle"><input type="checkbox" id="show-field-distribution" checked> 필지 내 화소 분포</label>
+    </section>
+    <section class="spec-plot" aria-label="스펙트럼 그래프">
     <h3 id="spectrum-heading">선택 대표화소</h3>
-    <p id="spectrum-message">선택한 화소 없음</p>
     <div class="spec-series-legend" id="spectrum-series-legend"></div>
-    <div id="spectrum-chart"></div>
+    <div id="spectrum-chart" aria-busy="false"></div>
+    <p id="spectrum-message" role="status">선택한 화소 없음</p>
+    <p id="spectrum-sample-info"></p>
+    </section>
     <section class="spec-comparison" id="spectrum-comparison" hidden aria-label="필지 평균 대비 차이">
       <h4 id="spectrum-comparison-title"></h4>
       <dl class="spec-metrics">
@@ -104,8 +112,11 @@
       </dl>
       <p>10밴드 기준 · 독립 정확도 검증 아님</p>
     </section>
+    <section class="spec-data" aria-label="관측값과 자료 출처">
+    <h3>밴드별 값</h3>
     <p id="spectrum-provenance"></p>
     <table id="spectrum-values"></table>
+    </section>
   </aside>
 </main>
 <noscript>이 뷰어를 쓰려면 JavaScript를 켜 주세요.</noscript>
