@@ -2,6 +2,37 @@
  "format": "hub-changelog-v1",
  "entries": [
   {
+   "sha": "4e9460d",
+   "time": "2026-10-25 04:06",
+   "date": "2026-10-25",
+   "weekday": "일",
+   "pc": "이전 기록",
+   "title": "Stabilize spectrum interaction and show sampled parcel distributions",
+   "files": [
+    "drone/viewer/app.js",
+    "drone/viewer/catalog.json",
+    "drone/viewer/index.html",
+    "drone/viewer/spectra.js",
+    "drone/viewer/spectra/2026-05-10-R3/field-samples-v1.json",
+    "drone/viewer/spectra/2026-05-10-R4/field-samples-v1.json",
+    "drone/viewer/spectra/2026-05-10-R5/field-samples-v1.json",
+    "drone/viewer/spectra/2026-07-16-R1/field-samples-v1.json",
+    "drone/viewer/spectra/2026-07-31-R1/field-samples-v1.json",
+    "drone/viewer/spectra/2026-07-31-R2/field-samples-v1.json",
+    "drone/viewer/spectra/2026-09-08-R1/field-samples-v1.json",
+    "drone/viewer/spectra/2026-09-08-R2/field-samples-v1.json",
+    "drone/viewer/spectra/2026-09-08-R3/field-samples-v1.json",
+    "drone/viewer/spectra/2026-09-08-R4/field-samples-v1.json",
+    "drone/viewer/spectra/2026-09-23-R1/field-samples-v1.json",
+    "drone/viewer/spectra/2026-09-23-R2/field-samples-v1.json",
+    "drone/viewer/spectra/2026-09-23-R3/field-samples-v1.json",
+    "drone/viewer/spectra/2026-10-07-R1/field-samples-v1.json",
+    "drone/viewer/viewer.css",
+    "tools/mosaic/PUBLISHED_VIEWS.md",
+    "tools/mosaic/published_views.json"
+   ]
+  },
+  {
    "sha": "093d42b",
    "time": "2026-10-25 03:27",
    "date": "2026-10-25",
@@ -1445,27 +1476,6 @@
     "drone/index.html",
     "drone/summary.json",
     "index.html"
-   ]
-  },
-  {
-   "sha": "b2b6022",
-   "time": "2026-10-15 20:03",
-   "date": "2026-10-15",
-   "weekday": "목",
-   "pc": "이전 기록",
-   "title": "연구 현황 통합 페이지: 일정·업무 + 드론 관측자료 요약",
-   "files": [
-    ".gitignore",
-    ".nojekyll",
-    "README.md",
-    "UPDATE_DRONE.bat",
-    "assets/hub.css",
-    "assets/hub.js",
-    "drone/index.html",
-    "drone/summary.json",
-    "index.html",
-    "robots.txt",
-    "tools/sync_drone.py"
    ]
   }
  ]

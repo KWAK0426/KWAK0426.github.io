@@ -11,6 +11,8 @@
 
 ## 2026-10-25 (일)
 
+- **04:06** · 이전 기록 · Stabilize spectrum interaction and show sampled parcel distributions  
+  `drone/viewer/app.js`, `drone/viewer/catalog.json`, `drone/viewer/index.html`, `drone/viewer/spectra.js`, `drone/viewer/spectra/2026-05-10-R3/field-samples-v1.json`, `drone/viewer/spectra/2026-05-10-R4/field-samples-v1.json` 외 15개 (4e9460d)
 - **03:27** · 이전 기록 · Add NDVI views and native multispectral grid resolution  
   `drone/viewer/app.js`, `drone/viewer/catalog.json`, `drone/viewer/index.html`, `drone/viewer/ndvi/2026-05-10-R3-NDVI-viridis-0-1.webp`, `drone/viewer/ndvi/2026-05-10-R4-NDVI-viridis-0-1.webp`, `drone/viewer/ndvi/2026-05-10-R5-NDVI-viridis-0-1.webp` 외 14개 (093d42b)
 - **01:33** · 이전 기록 · Complete spectra for all multispectral rounds and align RGB sources  
