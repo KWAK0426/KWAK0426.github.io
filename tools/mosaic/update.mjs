@@ -258,7 +258,13 @@ export async function run({
         && Number.isInteger(image.width) && image.width > 0 && Number.isInteger(image.height) && image.height > 0
         && JSON.stringify(image.extent) === JSON.stringify(o.spectral?.extent)
         && o.spectral?.bands?.length === 10;
-      if ((!rgb && !spectral) || !Array.isArray(image.extent) || image.extent.length !== 4 || !image.extent.every(Number.isFinite)) {
+      const ndvi = o.kind === 'NDVI' && /^ndvi\/[A-Za-z0-9_-]+\.webp$/.test(image.url)
+        && image.projection === 'EPSG:3857' && image.displayOnly === true && o.displayOnly === true && o.analysisPrivate === true
+        && image.url === o.ndviDisplay?.url && image.width === o.ndviDisplay?.width && image.height === o.ndviDisplay?.height
+        && Number.isInteger(image.width) && image.width > 0 && Number.isInteger(image.height) && image.height > 0
+        && JSON.stringify(image.extent) === JSON.stringify(o.ndviDisplay?.extent)
+        && o.ndviDisplay?.colorMap === 'viridis' && JSON.stringify(o.ndviDisplay?.range) === '[0,1]';
+      if ((!rgb && !spectral && !ndvi) || !Array.isArray(image.extent) || image.extent.length !== 4 || !image.extent.every(Number.isFinite)) {
         throw new Error('공개 축소 표시 영상 등록 형식 오류');
       }
     }

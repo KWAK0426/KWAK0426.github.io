@@ -188,6 +188,12 @@ async function select(o, { fitView = true } = {}) {
   if (S.layer) { map.removeLayer(S.layer); S.layer.dispose(); S.layer = null; }
   if (S.source) { S.source.dispose(); S.source = null; }
   $('#sel-title').textContent = o.title;
+  const resolution = o.kind === 'RE' ? o.spatialResolution : null;
+  $('#re-resolution').hidden = !resolution;
+  $('#re-resolution').textContent = resolution
+    ? `원본 격자 ${fmt(resolution.nativeXcm,2)} × ${fmt(resolution.nativeYcm,2)} cm/화소 · ${resolution.nativeWidth.toLocaleString()} × ${resolution.nativeHeight.toLocaleString()} px · ${resolution.bands}밴드 | 표시 격자 약 ${fmt(resolution.displayXcm,1)} × ${fmt(resolution.displayYcm,1)} cm/화소`
+    : '';
+  $('#re-resolution').title = '원본 정사 모자이크 중심의 WGS84 타원체 지상 격자 간격입니다. 카메라 촬영 GSD나 위치 정확도를 뜻하지 않습니다. 표시 격자는 최근접 대표 화소이며 영역 평균이 아닙니다.';
   $('#sel-info').textContent = `${descriptionFor(o)}${o.width ? ` · ${o.width.toLocaleString()} × ${o.height.toLocaleString()} px` : ''}${o.mosaic_px_cm ? ` · 픽셀 ${o.mosaic_px_cm >= 100 ? `${fmt(o.mosaic_px_cm/100,2)} m` : `${fmt(o.mosaic_px_cm,2)} cm`}` : ''}`;
   $('#ndvi-legend').hidden = o.kind !== 'NDVI';
   if (o.ndviDisplay) $('#ndvi-ramp').style.background = `linear-gradient(90deg,${o.ndviDisplay.palette.join(',')})`;

@@ -15,7 +15,7 @@
 <script defer src="vendor/geotiff.js"></script>
 <script defer src="vendor/ol.js"></script>
 <script defer src="vendor/proj4.js"></script>
-<script type="module" src="app.js?v=19"></script>
+<script type="module" src="app.js?v=20"></script>
 </head>
 <body class="viewer">
 <header class="topbar">
@@ -41,7 +41,7 @@
   <section class="vw-map-wrap" id="map-wrap" aria-label="위성지도와 모자이크">
     <div id="map" class="vw-map" tabindex="0" aria-label="확대·이동 가능한 지도"></div>
     <div class="vw-card vw-head" id="head">
-      <div class="vw-title"><b id="sel-title">회차를 고르세요</b><span class="muted small" id="sel-info"></span></div>
+      <div class="vw-title"><b id="sel-title">회차를 고르세요</b><span class="muted small" id="sel-info"></span><span class="muted small" id="re-resolution" hidden></span></div>
       <label class="vw-round-picker">회차 <select id="round-select" aria-label="관측 회차 선택" disabled></select></label>
       <div class="vw-seg" role="group" aria-label="모자이크 종류" id="kind-seg">
         <button type="button" data-kind="RGB" aria-pressed="false">광학</button>

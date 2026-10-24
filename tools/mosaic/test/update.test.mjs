@@ -122,6 +122,13 @@ test('별도 승인한 표시용 RE/NDVI는 원본 없는 PC의 다음 자동 �
   fs.writeFileSync(path.join(out,'rgb_1m/test.webp'),'display-only RGB substitute');
   fs.mkdirSync(path.join(out, 'bands'));
   fs.writeFileSync(path.join(out, 'bands/test.webp'), 'display-only band image');
+  fs.mkdirSync(path.join(out,'ndvi'));
+  const ndviImage = {url:'ndvi/test.webp',projection:'EPSG:3857',extent:[14347000,4191000,14348000,4191700],
+    width:1000,height:700,displayOnly:true,colorMap:'viridis',range:[0,1],palette:['#440154','#fde725']};
+  observations.push({id:'2026-09-08-R1-NDVI',date:'2026-09-08',round:1,kind:'NDVI',bounds:[128.88,35.20,128.89,35.21],
+    displayOnly:true,analysisPrivate:true,dem:null,gps:null,thumbnail:'ndvi/test.webp',
+    staticImage:{...ndviImage},ndviDisplay:{...ndviImage}});
+  observations[3].spatialResolution = {nativeWidth:12000,nativeHeight:8000,bands:10,nativeXcm:4.2,nativeYcm:4.2,cameraGsd:false};
   const fieldMask = {url:'fields/common.geojson',projection:'EPSG:4326',count:19};
   fs.mkdirSync(path.join(out,'fields'));
   fs.writeFileSync(path.join(out,'fields/common.geojson'),'{"type":"FeatureCollection","features":[]}');
@@ -129,12 +136,16 @@ test('별도 승인한 표시용 RE/NDVI는 원본 없는 PC의 다음 자동 �
   for (const o of observations) fs.writeFileSync(path.join(out, o.thumbnail), 'test thumbnail');
   const opts = { root, outDir: out, cfg, stateFile: path.join(tmp,'state.json'), publishedFile, lookup: () => [], wait: false, log: () => {} };
   const first = await run(opts);
-  assert.equal(first.shown, 4);
+  assert.equal(first.shown, 5);
   assert.deepEqual(JSON.parse(fs.readFileSync(path.join(out,'catalog.json'),'utf8')).observations, observations);
   assert.deepEqual(JSON.parse(fs.readFileSync(path.join(out,'catalog.json'),'utf8')).fieldMask, fieldMask);
   assert(observations.every((o) => fs.existsSync(path.join(out,o.thumbnail))));
   assert.equal((await run(opts)).changed, false);
   assert(fs.existsSync(path.join(out, 'bands/test.webp')), '밴드 표시 파일도 다음 조사에 유지');
+  observations[4].ndviDisplay.range = [-1,1];
+  fs.writeFileSync(publishedFile, JSON.stringify({observations,fieldMask}));
+  await assert.rejects(run(opts), /공개 축소 표시 영상/);
+  observations[4].ndviDisplay.range = [0,1];
   fs.writeFileSync(publishedFile, JSON.stringify({observations,fieldMask:{...fieldMask,url:'../private.geojson'}}));
   await assert.rejects(run(opts), /공통 필지 경계/);
   const safeUrl = observations[3].staticImage.url;
