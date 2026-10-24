@@ -39,6 +39,8 @@ GitHub Actions(`.github/workflows/changelog.yml`)가 git 기록으로 `CHANGELOG
 
 2026-10-25 기준 다분광 14회차에 RGB 합성·파장순 10밴드·Min–Max/P05–P95 컬러바를 등록했다. 새 13회차는 긴 변 1000px의 표시본이며 분석 TIFF는 공개하지 않는다. RGB 1m 대체 19회차와 10/7 1회차의 NDVI·필지/화소 스펙트럼은 유지한다. [표시 자료·검증 한계](tools/mosaic/PUBLISHED_VIEWS.md)를 참고한다.
 
+필지 경계 19개는 모든 날짜·회차·영상 종류에 공통 적용한다. 반사도 밴드의 기본은 표시 격자 필지 안 P05–P95, 컬러맵은 RdYlBu_r다. 전체 Min–Max도 유지하며 NDVI 등 식생지수의 viridis와 구분한다. 경계만 공통이며 회차별 스펙트럼 수치는 서로 복사하지 않는다.
+
 **자동 갱신** — 작업 스케줄러 `GimhaeMosaicViewerUpdate`가 매일 05:00 `tools/mosaic/run_daily.cmd` 실행(PC가 꺼져 있었으면 켜질 때).
 지금 바로: `UPDATE_MOSAICS.bat`. 기록: `tools/mosaic/update.log`. 새 PC에서는 Node.js·anaconda(GDAL)가 있어야 하고, 작업 등록은 README 아래 명령으로 한다.
 

@@ -1,7 +1,7 @@
 {
   "format": "gimhae-mosaic-catalog-v1",
   "title": "김해 논 드론 모자이크",
-  "updated_at": "2026-10-24T15:00:44+00:00",
+  "updated_at": "2026-10-24T15:47:35+00:00",
   "cameras": {
     "RGB": {
       "name": "광학 카메라 (값 확인 필요)",
@@ -62,41 +62,41 @@
           14347987.636170583,
           4191579.0745821386
         ],
-        "colorMap": "viridis",
+        "colorMap": "RdYlBu_r",
         "palette": [
-          "#440154",
-          "#460c5f",
-          "#47186a",
-          "#482273",
-          "#472c7b",
-          "#453681",
-          "#424085",
-          "#3e4989",
-          "#3a528b",
-          "#365a8c",
-          "#32628d",
-          "#2f6a8d",
-          "#2c728e",
-          "#287a8e",
-          "#26818e",
-          "#23898d",
-          "#20908c",
-          "#1e988a",
-          "#1e9f88",
-          "#21a784",
-          "#28ae7f",
-          "#32b57a",
-          "#3ebc73",
-          "#4dc26b",
-          "#5ec961",
-          "#70ce56",
-          "#83d34b",
-          "#97d83e",
-          "#addc30",
-          "#c2df22",
-          "#d7e219",
-          "#ece41a",
-          "#fde724"
+          "#313695",
+          "#37499e",
+          "#3d5da8",
+          "#4371b2",
+          "#5083bb",
+          "#5f94c4",
+          "#6ea6cd",
+          "#7eb5d5",
+          "#90c3dd",
+          "#a1d1e4",
+          "#b2dceb",
+          "#c2e4ef",
+          "#d3ecf4",
+          "#e2f3f3",
+          "#ecf7e1",
+          "#f5fbcf",
+          "#fefebe",
+          "#fef4af",
+          "#feeaa0",
+          "#fee191",
+          "#fdd283",
+          "#fdc274",
+          "#fdb265",
+          "#fb9f5a",
+          "#f88b51",
+          "#f57747",
+          "#ef633e",
+          "#e65035",
+          "#dd3d2d",
+          "#d22b26",
+          "#c21c26",
+          "#b20d26",
+          "#a50026"
         ],
         "bands": [
           {
@@ -109,8 +109,14 @@
               "max": 1.09686279296875
             },
             "images": {
-              "minmax": "bands/2026-10-07-R1-B01-minmax.webp",
-              "p05p95": "bands/2026-10-07-R1-B01-p05p95.webp"
+              "minmax": "bands/2026-10-07-R1-B01-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-10-07-R1-B01-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0047607421875,
+              "p05": 0.01434326171875,
+              "p95": 0.079193115234375,
+              "max": 0.159332275390625
             }
           },
           {
@@ -123,8 +129,14 @@
               "max": 1.3319091796875
             },
             "images": {
-              "minmax": "bands/2026-10-07-R1-B02-minmax.webp",
-              "p05p95": "bands/2026-10-07-R1-B02-p05p95.webp"
+              "minmax": "bands/2026-10-07-R1-B02-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-10-07-R1-B02-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.005126953125,
+              "p05": 0.0184326171875,
+              "p95": 0.0992431640625,
+              "max": 0.20867919921875
             }
           },
           {
@@ -137,8 +149,14 @@
               "max": 1.3616943359375
             },
             "images": {
-              "minmax": "bands/2026-10-07-R1-B03-minmax.webp",
-              "p05p95": "bands/2026-10-07-R1-B03-p05p95.webp"
+              "minmax": "bands/2026-10-07-R1-B03-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-10-07-R1-B03-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.009765625,
+              "p05": 0.03863525390625,
+              "p95": 0.129486083984375,
+              "max": 0.261260986328125
             }
           },
           {
@@ -151,8 +169,14 @@
               "max": 1.741119384765625
             },
             "images": {
-              "minmax": "bands/2026-10-07-R1-B04-minmax.webp",
-              "p05p95": "bands/2026-10-07-R1-B04-p05p95.webp"
+              "minmax": "bands/2026-10-07-R1-B04-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-10-07-R1-B04-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.01312255859375,
+              "p05": 0.0487060546875,
+              "p95": 0.146270751953125,
+              "max": 0.30023193359375
             }
           },
           {
@@ -165,8 +189,14 @@
               "max": 1.093414306640625
             },
             "images": {
-              "minmax": "bands/2026-10-07-R1-B05-minmax.webp",
-              "p05p95": "bands/2026-10-07-R1-B05-p05p95.webp"
+              "minmax": "bands/2026-10-07-R1-B05-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-10-07-R1-B05-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.01104736328125,
+              "p05": 0.045166015625,
+              "p95": 0.168487548828125,
+              "max": 0.35345458984375
             }
           },
           {
@@ -179,8 +209,14 @@
               "max": 1.095123291015625
             },
             "images": {
-              "minmax": "bands/2026-10-07-R1-B06-minmax.webp",
-              "p05p95": "bands/2026-10-07-R1-B06-p05p95.webp"
+              "minmax": "bands/2026-10-07-R1-B06-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-10-07-R1-B06-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0086669921875,
+              "p05": 0.040557861328125,
+              "p95": 0.176544189453125,
+              "max": 0.389129638671875
             }
           },
           {
@@ -193,8 +229,14 @@
               "max": 1.150604248046875
             },
             "images": {
-              "minmax": "bands/2026-10-07-R1-B07-minmax.webp",
-              "p05p95": "bands/2026-10-07-R1-B07-p05p95.webp"
+              "minmax": "bands/2026-10-07-R1-B07-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-10-07-R1-B07-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.026214599609375,
+              "p05": 0.084320068359375,
+              "p95": 0.208892822265625,
+              "max": 0.43341064453125
             }
           },
           {
@@ -207,8 +249,14 @@
               "max": 1.45025634765625
             },
             "images": {
-              "minmax": "bands/2026-10-07-R1-B08-minmax.webp",
-              "p05p95": "bands/2026-10-07-R1-B08-p05p95.webp"
+              "minmax": "bands/2026-10-07-R1-B08-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-10-07-R1-B08-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.029876708984375,
+              "p05": 0.10931396484375,
+              "p95": 0.254974365234375,
+              "max": 0.473175048828125
             }
           },
           {
@@ -221,8 +269,14 @@
               "max": 1.475555419921875
             },
             "images": {
-              "minmax": "bands/2026-10-07-R1-B09-minmax.webp",
-              "p05p95": "bands/2026-10-07-R1-B09-p05p95.webp"
+              "minmax": "bands/2026-10-07-R1-B09-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-10-07-R1-B09-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.039154052734375,
+              "p05": 0.135406494140625,
+              "p95": 0.30596923828125,
+              "max": 0.500946044921875
             }
           },
           {
@@ -235,11 +289,30 @@
               "max": 1.638763427734375
             },
             "images": {
-              "minmax": "bands/2026-10-07-R1-B10-minmax.webp",
-              "p05p95": "bands/2026-10-07-R1-B10-p05p95.webp"
+              "minmax": "bands/2026-10-07-R1-B10-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-10-07-R1-B10-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.050689697265625,
+              "p05": 0.1838104248046875,
+              "p95": 0.400299072265625,
+              "max": 0.603179931640625
             }
           }
-        ]
+        ],
+        "fieldContrast": {
+          "domain": "parcel_union_representative_grid",
+          "mask": "fields/gimhae-parcels-1-19.geojson",
+          "validSamples": 200823,
+          "maskSamples": 200823,
+          "percentiles": [
+            5,
+            95
+          ],
+          "aggregation": "pooled pixels; polygon union; not field means",
+          "rangeScope": "per-date-round-band",
+          "sourceValuesChanged": false
+        }
       },
       "spectrum": {
         "fields": "spectra/2026-10-07-R1/fields-numbered-20261023.json",
@@ -1355,41 +1428,41 @@
           14347908.514118072,
           4191723.5684883925
         ],
-        "colorMap": "viridis",
+        "colorMap": "RdYlBu_r",
         "palette": [
-          "#440154",
-          "#460c5f",
-          "#47186a",
-          "#482273",
-          "#472c7b",
-          "#453681",
-          "#424085",
-          "#3e4989",
-          "#3a528b",
-          "#365a8c",
-          "#32628d",
-          "#2f6a8d",
-          "#2c728e",
-          "#287a8e",
-          "#26818e",
-          "#23898d",
-          "#20908c",
-          "#1e988a",
-          "#1e9f88",
-          "#21a784",
-          "#28ae7f",
-          "#32b57a",
-          "#3ebc73",
-          "#4dc26b",
-          "#5ec961",
-          "#70ce56",
-          "#83d34b",
-          "#97d83e",
-          "#addc30",
-          "#c2df22",
-          "#d7e219",
-          "#ece41a",
-          "#fde724"
+          "#313695",
+          "#37499e",
+          "#3d5da8",
+          "#4371b2",
+          "#5083bb",
+          "#5f94c4",
+          "#6ea6cd",
+          "#7eb5d5",
+          "#90c3dd",
+          "#a1d1e4",
+          "#b2dceb",
+          "#c2e4ef",
+          "#d3ecf4",
+          "#e2f3f3",
+          "#ecf7e1",
+          "#f5fbcf",
+          "#fefebe",
+          "#fef4af",
+          "#feeaa0",
+          "#fee191",
+          "#fdd283",
+          "#fdc274",
+          "#fdb265",
+          "#fb9f5a",
+          "#f88b51",
+          "#f57747",
+          "#ef633e",
+          "#e65035",
+          "#dd3d2d",
+          "#d22b26",
+          "#c21c26",
+          "#b20d26",
+          "#a50026"
         ],
         "bands": [
           {
@@ -1402,8 +1475,14 @@
               "max": 1.264129638671875
             },
             "images": {
-              "minmax": "bands/2026-05-10-R3-B01-minmax.webp",
-              "p05p95": "bands/2026-05-10-R3-B01-p05p95.webp"
+              "minmax": "bands/2026-05-10-R3-B01-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-05-10-R3-B01-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.033782958984375,
+              "p95": 0.112030029296875,
+              "max": 1.20977783203125
             }
           },
           {
@@ -1416,8 +1495,14 @@
               "max": 1.285186767578125
             },
             "images": {
-              "minmax": "bands/2026-05-10-R3-B02-minmax.webp",
-              "p05p95": "bands/2026-05-10-R3-B02-p05p95.webp"
+              "minmax": "bands/2026-05-10-R3-B02-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-05-10-R3-B02-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.03643798828125,
+              "p95": 0.1207275390625,
+              "max": 1.18505859375
             }
           },
           {
@@ -1430,8 +1515,14 @@
               "max": 1.18353271484375
             },
             "images": {
-              "minmax": "bands/2026-05-10-R3-B03-minmax.webp",
-              "p05p95": "bands/2026-05-10-R3-B03-p05p95.webp"
+              "minmax": "bands/2026-05-10-R3-B03-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-05-10-R3-B03-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.05291748046875,
+              "p95": 0.151519775390625,
+              "max": 1.05706787109375
             }
           },
           {
@@ -1444,8 +1535,14 @@
               "max": 1.247314453125
             },
             "images": {
-              "minmax": "bands/2026-05-10-R3-B04-minmax.webp",
-              "p05p95": "bands/2026-05-10-R3-B04-p05p95.webp"
+              "minmax": "bands/2026-05-10-R3-B04-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-05-10-R3-B04-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.059722900390625,
+              "p95": 0.16522216796875,
+              "max": 0.983245849609375
             }
           },
           {
@@ -1458,8 +1555,14 @@
               "max": 1.293670654296875
             },
             "images": {
-              "minmax": "bands/2026-05-10-R3-B05-minmax.webp",
-              "p05p95": "bands/2026-05-10-R3-B05-p05p95.webp"
+              "minmax": "bands/2026-05-10-R3-B05-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-05-10-R3-B05-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.066741943359375,
+              "p95": 0.1846923828125,
+              "max": 1.0802001953125
             }
           },
           {
@@ -1472,8 +1575,14 @@
               "max": 1.214080810546875
             },
             "images": {
-              "minmax": "bands/2026-05-10-R3-B06-minmax.webp",
-              "p05p95": "bands/2026-05-10-R3-B06-p05p95.webp"
+              "minmax": "bands/2026-05-10-R3-B06-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-05-10-R3-B06-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.06207275390625,
+              "p95": 0.185211181640625,
+              "max": 1.058135986328125
             }
           },
           {
@@ -1486,8 +1595,14 @@
               "max": 1.359161376953125
             },
             "images": {
-              "minmax": "bands/2026-05-10-R3-B07-minmax.webp",
-              "p05p95": "bands/2026-05-10-R3-B07-p05p95.webp"
+              "minmax": "bands/2026-05-10-R3-B07-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-05-10-R3-B07-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.081146240234375,
+              "p95": 0.20330810546875,
+              "max": 1.10888671875
             }
           },
           {
@@ -1500,8 +1615,14 @@
               "max": 1.530242919921875
             },
             "images": {
-              "minmax": "bands/2026-05-10-R3-B08-minmax.webp",
-              "p05p95": "bands/2026-05-10-R3-B08-p05p95.webp"
+              "minmax": "bands/2026-05-10-R3-B08-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-05-10-R3-B08-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.085662841796875,
+              "p95": 0.212310791015625,
+              "max": 1.33306884765625
             }
           },
           {
@@ -1514,8 +1635,14 @@
               "max": 1.783599853515625
             },
             "images": {
-              "minmax": "bands/2026-05-10-R3-B09-minmax.webp",
-              "p05p95": "bands/2026-05-10-R3-B09-p05p95.webp"
+              "minmax": "bands/2026-05-10-R3-B09-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-05-10-R3-B09-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.0855712890625,
+              "p95": 0.211578369140625,
+              "max": 1.409027099609375
             }
           },
           {
@@ -1528,11 +1655,30 @@
               "max": 1.802947998046875
             },
             "images": {
-              "minmax": "bands/2026-05-10-R3-B10-minmax.webp",
-              "p05p95": "bands/2026-05-10-R3-B10-p05p95.webp"
+              "minmax": "bands/2026-05-10-R3-B10-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-05-10-R3-B10-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.09857177734375,
+              "p95": 0.229736328125,
+              "max": 1.407135009765625
             }
           }
-        ]
+        ],
+        "fieldContrast": {
+          "domain": "parcel_union_representative_grid",
+          "mask": "fields/gimhae-parcels-1-19.geojson",
+          "validSamples": 203885,
+          "maskSamples": 203885,
+          "percentiles": [
+            5,
+            95
+          ],
+          "aggregation": "pooled pixels; polygon union; not field means",
+          "rangeScope": "per-date-round-band",
+          "sourceValuesChanged": false
+        }
       },
       "staticImage": {
         "url": "bands/2026-05-10-R3-RGB-p05p95.webp",
@@ -1589,41 +1735,41 @@
           14347911.722587787,
           4191755.4096186515
         ],
-        "colorMap": "viridis",
+        "colorMap": "RdYlBu_r",
         "palette": [
-          "#440154",
-          "#460c5f",
-          "#47186a",
-          "#482273",
-          "#472c7b",
-          "#453681",
-          "#424085",
-          "#3e4989",
-          "#3a528b",
-          "#365a8c",
-          "#32628d",
-          "#2f6a8d",
-          "#2c728e",
-          "#287a8e",
-          "#26818e",
-          "#23898d",
-          "#20908c",
-          "#1e988a",
-          "#1e9f88",
-          "#21a784",
-          "#28ae7f",
-          "#32b57a",
-          "#3ebc73",
-          "#4dc26b",
-          "#5ec961",
-          "#70ce56",
-          "#83d34b",
-          "#97d83e",
-          "#addc30",
-          "#c2df22",
-          "#d7e219",
-          "#ece41a",
-          "#fde724"
+          "#313695",
+          "#37499e",
+          "#3d5da8",
+          "#4371b2",
+          "#5083bb",
+          "#5f94c4",
+          "#6ea6cd",
+          "#7eb5d5",
+          "#90c3dd",
+          "#a1d1e4",
+          "#b2dceb",
+          "#c2e4ef",
+          "#d3ecf4",
+          "#e2f3f3",
+          "#ecf7e1",
+          "#f5fbcf",
+          "#fefebe",
+          "#fef4af",
+          "#feeaa0",
+          "#fee191",
+          "#fdd283",
+          "#fdc274",
+          "#fdb265",
+          "#fb9f5a",
+          "#f88b51",
+          "#f57747",
+          "#ef633e",
+          "#e65035",
+          "#dd3d2d",
+          "#d22b26",
+          "#c21c26",
+          "#b20d26",
+          "#a50026"
         ],
         "bands": [
           {
@@ -1636,8 +1782,14 @@
               "max": 1.4664306640625
             },
             "images": {
-              "minmax": "bands/2026-05-10-R4-B01-minmax.webp",
-              "p05p95": "bands/2026-05-10-R4-B01-p05p95.webp"
+              "minmax": "bands/2026-05-10-R4-B01-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-05-10-R4-B01-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.03424072265625,
+              "p95": 0.170135498046875,
+              "max": 0.981201171875
             }
           },
           {
@@ -1650,8 +1802,14 @@
               "max": 1.65478515625
             },
             "images": {
-              "minmax": "bands/2026-05-10-R4-B02-minmax.webp",
-              "p05p95": "bands/2026-05-10-R4-B02-p05p95.webp"
+              "minmax": "bands/2026-05-10-R4-B02-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-05-10-R4-B02-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.040130615234375,
+              "p95": 0.19216308593749964,
+              "max": 1.044219970703125
             }
           },
           {
@@ -1664,8 +1822,14 @@
               "max": 1.607177734375
             },
             "images": {
-              "minmax": "bands/2026-05-10-R4-B03-minmax.webp",
-              "p05p95": "bands/2026-05-10-R4-B03-p05p95.webp"
+              "minmax": "bands/2026-05-10-R4-B03-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-05-10-R4-B03-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.053070068359375,
+              "p95": 0.20958862304687464,
+              "max": 1.141632080078125
             }
           },
           {
@@ -1678,8 +1842,14 @@
               "max": 1.598602294921875
             },
             "images": {
-              "minmax": "bands/2026-05-10-R4-B04-minmax.webp",
-              "p05p95": "bands/2026-05-10-R4-B04-p05p95.webp"
+              "minmax": "bands/2026-05-10-R4-B04-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-05-10-R4-B04-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.059478759765625,
+              "p95": 0.221588134765625,
+              "max": 1.0145263671875
             }
           },
           {
@@ -1692,8 +1862,14 @@
               "max": 1.610137939453125
             },
             "images": {
-              "minmax": "bands/2026-05-10-R4-B05-minmax.webp",
-              "p05p95": "bands/2026-05-10-R4-B05-p05p95.webp"
+              "minmax": "bands/2026-05-10-R4-B05-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-05-10-R4-B05-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.067962646484375,
+              "p95": 0.2401123046875,
+              "max": 1.41766357421875
             }
           },
           {
@@ -1706,8 +1882,14 @@
               "max": 1.252899169921875
             },
             "images": {
-              "minmax": "bands/2026-05-10-R4-B06-minmax.webp",
-              "p05p95": "bands/2026-05-10-R4-B06-p05p95.webp"
+              "minmax": "bands/2026-05-10-R4-B06-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-05-10-R4-B06-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.051055908203125,
+              "p95": 0.190521240234375,
+              "max": 0.954925537109375
             }
           },
           {
@@ -1720,8 +1902,14 @@
               "max": 1.690460205078125
             },
             "images": {
-              "minmax": "bands/2026-05-10-R4-B07-minmax.webp",
-              "p05p95": "bands/2026-05-10-R4-B07-p05p95.webp"
+              "minmax": "bands/2026-05-10-R4-B07-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-05-10-R4-B07-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.0806884765625,
+              "p95": 0.252716064453125,
+              "max": 1.339508056640625
             }
           },
           {
@@ -1734,8 +1922,14 @@
               "max": 1.8297119140625
             },
             "images": {
-              "minmax": "bands/2026-05-10-R4-B08-minmax.webp",
-              "p05p95": "bands/2026-05-10-R4-B08-p05p95.webp"
+              "minmax": "bands/2026-05-10-R4-B08-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-05-10-R4-B08-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.0892333984375,
+              "p95": 0.26860961914062464,
+              "max": 1.3465576171875
             }
           },
           {
@@ -1748,8 +1942,14 @@
               "max": 1.82415771484375
             },
             "images": {
-              "minmax": "bands/2026-05-10-R4-B09-minmax.webp",
-              "p05p95": "bands/2026-05-10-R4-B09-p05p95.webp"
+              "minmax": "bands/2026-05-10-R4-B09-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-05-10-R4-B09-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.085906982421875,
+              "p95": 0.249786376953125,
+              "max": 1.456634521484375
             }
           },
           {
@@ -1762,11 +1962,30 @@
               "max": 1.465545654296875
             },
             "images": {
-              "minmax": "bands/2026-05-10-R4-B10-minmax.webp",
-              "p05p95": "bands/2026-05-10-R4-B10-p05p95.webp"
+              "minmax": "bands/2026-05-10-R4-B10-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-05-10-R4-B10-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.073638916015625,
+              "p95": 0.193603515625,
+              "max": 1.192108154296875
             }
           }
-        ]
+        ],
+        "fieldContrast": {
+          "domain": "parcel_union_representative_grid",
+          "mask": "fields/gimhae-parcels-1-19.geojson",
+          "validSamples": 181625,
+          "maskSamples": 181686,
+          "percentiles": [
+            5,
+            95
+          ],
+          "aggregation": "pooled pixels; polygon union; not field means",
+          "rangeScope": "per-date-round-band",
+          "sourceValuesChanged": false
+        }
       },
       "staticImage": {
         "url": "bands/2026-05-10-R4-RGB-p05p95.webp",
@@ -1823,41 +2042,41 @@
           14347919.905724568,
           4191754.7783599775
         ],
-        "colorMap": "viridis",
+        "colorMap": "RdYlBu_r",
         "palette": [
-          "#440154",
-          "#460c5f",
-          "#47186a",
-          "#482273",
-          "#472c7b",
-          "#453681",
-          "#424085",
-          "#3e4989",
-          "#3a528b",
-          "#365a8c",
-          "#32628d",
-          "#2f6a8d",
-          "#2c728e",
-          "#287a8e",
-          "#26818e",
-          "#23898d",
-          "#20908c",
-          "#1e988a",
-          "#1e9f88",
-          "#21a784",
-          "#28ae7f",
-          "#32b57a",
-          "#3ebc73",
-          "#4dc26b",
-          "#5ec961",
-          "#70ce56",
-          "#83d34b",
-          "#97d83e",
-          "#addc30",
-          "#c2df22",
-          "#d7e219",
-          "#ece41a",
-          "#fde724"
+          "#313695",
+          "#37499e",
+          "#3d5da8",
+          "#4371b2",
+          "#5083bb",
+          "#5f94c4",
+          "#6ea6cd",
+          "#7eb5d5",
+          "#90c3dd",
+          "#a1d1e4",
+          "#b2dceb",
+          "#c2e4ef",
+          "#d3ecf4",
+          "#e2f3f3",
+          "#ecf7e1",
+          "#f5fbcf",
+          "#fefebe",
+          "#fef4af",
+          "#feeaa0",
+          "#fee191",
+          "#fdd283",
+          "#fdc274",
+          "#fdb265",
+          "#fb9f5a",
+          "#f88b51",
+          "#f57747",
+          "#ef633e",
+          "#e65035",
+          "#dd3d2d",
+          "#d22b26",
+          "#c21c26",
+          "#b20d26",
+          "#a50026"
         ],
         "bands": [
           {
@@ -1870,8 +2089,14 @@
               "max": 1.28369140625
             },
             "images": {
-              "minmax": "bands/2026-05-10-R5-B01-minmax.webp",
-              "p05p95": "bands/2026-05-10-R5-B01-p05p95.webp"
+              "minmax": "bands/2026-05-10-R5-B01-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-05-10-R5-B01-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.031890869140625,
+              "p95": 0.16204833984375,
+              "max": 0.97369384765625
             }
           },
           {
@@ -1884,8 +2109,14 @@
               "max": 1.5146484375
             },
             "images": {
-              "minmax": "bands/2026-05-10-R5-B02-minmax.webp",
-              "p05p95": "bands/2026-05-10-R5-B02-p05p95.webp"
+              "minmax": "bands/2026-05-10-R5-B02-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-05-10-R5-B02-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.0345458984375,
+              "p95": 0.171112060546875,
+              "max": 0.874908447265625
             }
           },
           {
@@ -1898,8 +2129,14 @@
               "max": 1.740386962890625
             },
             "images": {
-              "minmax": "bands/2026-05-10-R5-B03-minmax.webp",
-              "p05p95": "bands/2026-05-10-R5-B03-p05p95.webp"
+              "minmax": "bands/2026-05-10-R5-B03-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-05-10-R5-B03-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.050079345703125,
+              "p95": 0.200469970703125,
+              "max": 1.601806640625
             }
           },
           {
@@ -1912,8 +2149,14 @@
               "max": 1.76690673828125
             },
             "images": {
-              "minmax": "bands/2026-05-10-R5-B04-minmax.webp",
-              "p05p95": "bands/2026-05-10-R5-B04-p05p95.webp"
+              "minmax": "bands/2026-05-10-R5-B04-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-05-10-R5-B04-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.056640625,
+              "p95": 0.21677856445312482,
+              "max": 1.160247802734375
             }
           },
           {
@@ -1926,8 +2169,14 @@
               "max": 1.857940673828125
             },
             "images": {
-              "minmax": "bands/2026-05-10-R5-B05-minmax.webp",
-              "p05p95": "bands/2026-05-10-R5-B05-p05p95.webp"
+              "minmax": "bands/2026-05-10-R5-B05-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-05-10-R5-B05-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.065032958984375,
+              "p95": 0.230987548828125,
+              "max": 1.505340576171875
             }
           },
           {
@@ -1940,8 +2189,14 @@
               "max": 1.711669921875
             },
             "images": {
-              "minmax": "bands/2026-05-10-R5-B06-minmax.webp",
-              "p05p95": "bands/2026-05-10-R5-B06-p05p95.webp"
+              "minmax": "bands/2026-05-10-R5-B06-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-05-10-R5-B06-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.060211181640625,
+              "p95": 0.22686767578125,
+              "max": 1.309661865234375
             }
           },
           {
@@ -1954,8 +2209,14 @@
               "max": 1.6458740234375
             },
             "images": {
-              "minmax": "bands/2026-05-10-R5-B07-minmax.webp",
-              "p05p95": "bands/2026-05-10-R5-B07-p05p95.webp"
+              "minmax": "bands/2026-05-10-R5-B07-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-05-10-R5-B07-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.077545166015625,
+              "p95": 0.244415283203125,
+              "max": 1.56658935546875
             }
           },
           {
@@ -1968,8 +2229,14 @@
               "max": 1.887451171875
             },
             "images": {
-              "minmax": "bands/2026-05-10-R5-B08-minmax.webp",
-              "p05p95": "bands/2026-05-10-R5-B08-p05p95.webp"
+              "minmax": "bands/2026-05-10-R5-B08-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-05-10-R5-B08-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.081695556640625,
+              "p95": 0.25177001953125,
+              "max": 1.819305419921875
             }
           },
           {
@@ -1982,8 +2249,14 @@
               "max": 1.867218017578125
             },
             "images": {
-              "minmax": "bands/2026-05-10-R5-B09-minmax.webp",
-              "p05p95": "bands/2026-05-10-R5-B09-p05p95.webp"
+              "minmax": "bands/2026-05-10-R5-B09-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-05-10-R5-B09-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.0823974609375,
+              "p95": 0.24562988281249964,
+              "max": 1.867218017578125
             }
           },
           {
@@ -1996,11 +2269,30 @@
               "max": 1.884429931640625
             },
             "images": {
-              "minmax": "bands/2026-05-10-R5-B10-minmax.webp",
-              "p05p95": "bands/2026-05-10-R5-B10-p05p95.webp"
+              "minmax": "bands/2026-05-10-R5-B10-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-05-10-R5-B10-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.0948486328125,
+              "p95": 0.2595031738281248,
+              "max": 1.60693359375
             }
           }
-        ]
+        ],
+        "fieldContrast": {
+          "domain": "parcel_union_representative_grid",
+          "mask": "fields/gimhae-parcels-1-19.geojson",
+          "validSamples": 176713,
+          "maskSamples": 176713,
+          "percentiles": [
+            5,
+            95
+          ],
+          "aggregation": "pooled pixels; polygon union; not field means",
+          "rangeScope": "per-date-round-band",
+          "sourceValuesChanged": false
+        }
       },
       "staticImage": {
         "url": "bands/2026-05-10-R5-RGB-p05p95.webp",
@@ -2057,41 +2349,41 @@
           14347967.898009308,
           4191571.0134179653
         ],
-        "colorMap": "viridis",
+        "colorMap": "RdYlBu_r",
         "palette": [
-          "#440154",
-          "#460c5f",
-          "#47186a",
-          "#482273",
-          "#472c7b",
-          "#453681",
-          "#424085",
-          "#3e4989",
-          "#3a528b",
-          "#365a8c",
-          "#32628d",
-          "#2f6a8d",
-          "#2c728e",
-          "#287a8e",
-          "#26818e",
-          "#23898d",
-          "#20908c",
-          "#1e988a",
-          "#1e9f88",
-          "#21a784",
-          "#28ae7f",
-          "#32b57a",
-          "#3ebc73",
-          "#4dc26b",
-          "#5ec961",
-          "#70ce56",
-          "#83d34b",
-          "#97d83e",
-          "#addc30",
-          "#c2df22",
-          "#d7e219",
-          "#ece41a",
-          "#fde724"
+          "#313695",
+          "#37499e",
+          "#3d5da8",
+          "#4371b2",
+          "#5083bb",
+          "#5f94c4",
+          "#6ea6cd",
+          "#7eb5d5",
+          "#90c3dd",
+          "#a1d1e4",
+          "#b2dceb",
+          "#c2e4ef",
+          "#d3ecf4",
+          "#e2f3f3",
+          "#ecf7e1",
+          "#f5fbcf",
+          "#fefebe",
+          "#fef4af",
+          "#feeaa0",
+          "#fee191",
+          "#fdd283",
+          "#fdc274",
+          "#fdb265",
+          "#fb9f5a",
+          "#f88b51",
+          "#f57747",
+          "#ef633e",
+          "#e65035",
+          "#dd3d2d",
+          "#d22b26",
+          "#c21c26",
+          "#b20d26",
+          "#a50026"
         ],
         "bands": [
           {
@@ -2104,8 +2396,14 @@
               "max": 0.790069580078125
             },
             "images": {
-              "minmax": "bands/2026-07-16-R1-B01-minmax.webp",
-              "p05p95": "bands/2026-07-16-R1-B01-p05p95.webp"
+              "minmax": "bands/2026-07-16-R1-B01-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-07-16-R1-B01-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0048828125,
+              "p05": 0.011810302734375,
+              "p95": 0.024932861328125,
+              "max": 0.0860595703125
             }
           },
           {
@@ -2118,8 +2416,14 @@
               "max": 0.883514404296875
             },
             "images": {
-              "minmax": "bands/2026-07-16-R1-B02-minmax.webp",
-              "p05p95": "bands/2026-07-16-R1-B02-p05p95.webp"
+              "minmax": "bands/2026-07-16-R1-B02-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-07-16-R1-B02-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.006317138671875,
+              "p05": 0.01263427734375,
+              "p95": 0.026885986328125,
+              "max": 0.1103515625
             }
           },
           {
@@ -2132,8 +2436,14 @@
               "max": 0.874542236328125
             },
             "images": {
-              "minmax": "bands/2026-07-16-R1-B03-minmax.webp",
-              "p05p95": "bands/2026-07-16-R1-B03-p05p95.webp"
+              "minmax": "bands/2026-07-16-R1-B03-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-07-16-R1-B03-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.01416015625,
+              "p05": 0.031494140625,
+              "p95": 0.062713623046875,
+              "max": 0.148529052734375
             }
           },
           {
@@ -2146,8 +2456,14 @@
               "max": 0.897491455078125
             },
             "images": {
-              "minmax": "bands/2026-07-16-R1-B04-minmax.webp",
-              "p05p95": "bands/2026-07-16-R1-B04-p05p95.webp"
+              "minmax": "bands/2026-07-16-R1-B04-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-07-16-R1-B04-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.016693115234375,
+              "p05": 0.038299560546875,
+              "p95": 0.0755615234375,
+              "max": 0.170196533203125
             }
           },
           {
@@ -2160,8 +2476,14 @@
               "max": 0.8504638671875
             },
             "images": {
-              "minmax": "bands/2026-07-16-R1-B05-minmax.webp",
-              "p05p95": "bands/2026-07-16-R1-B05-p05p95.webp"
+              "minmax": "bands/2026-07-16-R1-B05-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-07-16-R1-B05-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0074462890625,
+              "p05": 0.01470947265625,
+              "p95": 0.0362548828125,
+              "max": 0.1973876953125
             }
           },
           {
@@ -2174,8 +2496,14 @@
               "max": 0.819671630859375
             },
             "images": {
-              "minmax": "bands/2026-07-16-R1-B06-minmax.webp",
-              "p05p95": "bands/2026-07-16-R1-B06-p05p95.webp"
+              "minmax": "bands/2026-07-16-R1-B06-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-07-16-R1-B06-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.00384521484375,
+              "p05": 0.010406494140625,
+              "p95": 0.030426025390625,
+              "max": 0.1998291015625
             }
           },
           {
@@ -2188,8 +2516,14 @@
               "max": 0.8204345703125
             },
             "images": {
-              "minmax": "bands/2026-07-16-R1-B07-minmax.webp",
-              "p05p95": "bands/2026-07-16-R1-B07-p05p95.webp"
+              "minmax": "bands/2026-07-16-R1-B07-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-07-16-R1-B07-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.022979736328125,
+              "p05": 0.04425048828125,
+              "p95": 0.084716796875,
+              "max": 0.219451904296875
             }
           },
           {
@@ -2202,8 +2536,14 @@
               "max": 0.884185791015625
             },
             "images": {
-              "minmax": "bands/2026-07-16-R1-B08-minmax.webp",
-              "p05p95": "bands/2026-07-16-R1-B08-p05p95.webp"
+              "minmax": "bands/2026-07-16-R1-B08-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-07-16-R1-B08-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.048431396484375,
+              "p05": 0.09014892578125,
+              "p95": 0.1625396728515618,
+              "max": 0.320068359375
             }
           },
           {
@@ -2216,8 +2556,14 @@
               "max": 0.884307861328125
             },
             "images": {
-              "minmax": "bands/2026-07-16-R1-B09-minmax.webp",
-              "p05p95": "bands/2026-07-16-R1-B09-p05p95.webp"
+              "minmax": "bands/2026-07-16-R1-B09-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-07-16-R1-B09-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.075592041015625,
+              "p05": 0.195526123046875,
+              "p95": 0.369781494140625,
+              "max": 0.651885986328125
             }
           },
           {
@@ -2230,11 +2576,30 @@
               "max": 1.06072998046875
             },
             "images": {
-              "minmax": "bands/2026-07-16-R1-B10-minmax.webp",
-              "p05p95": "bands/2026-07-16-R1-B10-p05p95.webp"
+              "minmax": "bands/2026-07-16-R1-B10-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-07-16-R1-B10-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.13128662109375,
+              "p05": 0.319732666015625,
+              "p95": 0.619476318359375,
+              "max": 0.804718017578125
             }
           }
-        ]
+        ],
+        "fieldContrast": {
+          "domain": "parcel_union_representative_grid",
+          "mask": "fields/gimhae-parcels-1-19.geojson",
+          "validSamples": 241019,
+          "maskSamples": 241534,
+          "percentiles": [
+            5,
+            95
+          ],
+          "aggregation": "pooled pixels; polygon union; not field means",
+          "rangeScope": "per-date-round-band",
+          "sourceValuesChanged": false
+        }
       },
       "staticImage": {
         "url": "bands/2026-07-16-R1-RGB-p05p95.webp",
@@ -2291,41 +2656,41 @@
           14348021.1623728,
           4191569.1021137456
         ],
-        "colorMap": "viridis",
+        "colorMap": "RdYlBu_r",
         "palette": [
-          "#440154",
-          "#460c5f",
-          "#47186a",
-          "#482273",
-          "#472c7b",
-          "#453681",
-          "#424085",
-          "#3e4989",
-          "#3a528b",
-          "#365a8c",
-          "#32628d",
-          "#2f6a8d",
-          "#2c728e",
-          "#287a8e",
-          "#26818e",
-          "#23898d",
-          "#20908c",
-          "#1e988a",
-          "#1e9f88",
-          "#21a784",
-          "#28ae7f",
-          "#32b57a",
-          "#3ebc73",
-          "#4dc26b",
-          "#5ec961",
-          "#70ce56",
-          "#83d34b",
-          "#97d83e",
-          "#addc30",
-          "#c2df22",
-          "#d7e219",
-          "#ece41a",
-          "#fde724"
+          "#313695",
+          "#37499e",
+          "#3d5da8",
+          "#4371b2",
+          "#5083bb",
+          "#5f94c4",
+          "#6ea6cd",
+          "#7eb5d5",
+          "#90c3dd",
+          "#a1d1e4",
+          "#b2dceb",
+          "#c2e4ef",
+          "#d3ecf4",
+          "#e2f3f3",
+          "#ecf7e1",
+          "#f5fbcf",
+          "#fefebe",
+          "#fef4af",
+          "#feeaa0",
+          "#fee191",
+          "#fdd283",
+          "#fdc274",
+          "#fdb265",
+          "#fb9f5a",
+          "#f88b51",
+          "#f57747",
+          "#ef633e",
+          "#e65035",
+          "#dd3d2d",
+          "#d22b26",
+          "#c21c26",
+          "#b20d26",
+          "#a50026"
         ],
         "bands": [
           {
@@ -2338,8 +2703,14 @@
               "max": 1.016326904296875
             },
             "images": {
-              "minmax": "bands/2026-07-31-R1-B01-minmax.webp",
-              "p05p95": "bands/2026-07-31-R1-B01-p05p95.webp"
+              "minmax": "bands/2026-07-31-R1-B01-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-07-31-R1-B01-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.006591796875,
+              "p95": 0.01953125,
+              "max": 0.17962646484375
             }
           },
           {
@@ -2352,8 +2723,14 @@
               "max": 1.092803955078125
             },
             "images": {
-              "minmax": "bands/2026-07-31-R1-B02-minmax.webp",
-              "p05p95": "bands/2026-07-31-R1-B02-p05p95.webp"
+              "minmax": "bands/2026-07-31-R1-B02-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-07-31-R1-B02-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.00738525390625,
+              "p95": 0.0224609375,
+              "max": 0.144683837890625
             }
           },
           {
@@ -2366,8 +2743,14 @@
               "max": 1.153717041015625
             },
             "images": {
-              "minmax": "bands/2026-07-31-R1-B03-minmax.webp",
-              "p05p95": "bands/2026-07-31-R1-B03-p05p95.webp"
+              "minmax": "bands/2026-07-31-R1-B03-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-07-31-R1-B03-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.003936767578125,
+              "p05": 0.01824951171875,
+              "p95": 0.049896240234375,
+              "max": 0.157196044921875
             }
           },
           {
@@ -2380,8 +2763,14 @@
               "max": 1.3851318359375
             },
             "images": {
-              "minmax": "bands/2026-07-31-R1-B04-minmax.webp",
-              "p05p95": "bands/2026-07-31-R1-B04-p05p95.webp"
+              "minmax": "bands/2026-07-31-R1-B04-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-07-31-R1-B04-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.006683349609375,
+              "p05": 0.022491455078125,
+              "p95": 0.060699462890625,
+              "max": 0.1947021484375
             }
           },
           {
@@ -2394,8 +2783,14 @@
               "max": 1.037353515625
             },
             "images": {
-              "minmax": "bands/2026-07-31-R1-B05-minmax.webp",
-              "p05p95": "bands/2026-07-31-R1-B05-p05p95.webp"
+              "minmax": "bands/2026-07-31-R1-B05-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-07-31-R1-B05-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.00909423828125,
+              "p95": 0.02862548828125,
+              "max": 0.18438720703125
             }
           },
           {
@@ -2408,8 +2803,14 @@
               "max": 1.01202392578125
             },
             "images": {
-              "minmax": "bands/2026-07-31-R1-B06-minmax.webp",
-              "p05p95": "bands/2026-07-31-R1-B06-p05p95.webp"
+              "minmax": "bands/2026-07-31-R1-B06-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-07-31-R1-B06-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.00653076171875,
+              "p95": 0.02325439453125,
+              "max": 0.200775146484375
             }
           },
           {
@@ -2422,8 +2823,14 @@
               "max": 0.964569091796875
             },
             "images": {
-              "minmax": "bands/2026-07-31-R1-B07-minmax.webp",
-              "p05p95": "bands/2026-07-31-R1-B07-p05p95.webp"
+              "minmax": "bands/2026-07-31-R1-B07-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-07-31-R1-B07-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.009674072265625,
+              "p05": 0.029205322265625,
+              "p95": 0.070587158203125,
+              "max": 0.239044189453125
             }
           },
           {
@@ -2436,8 +2843,14 @@
               "max": 1.17877197265625
             },
             "images": {
-              "minmax": "bands/2026-07-31-R1-B08-minmax.webp",
-              "p05p95": "bands/2026-07-31-R1-B08-p05p95.webp"
+              "minmax": "bands/2026-07-31-R1-B08-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-07-31-R1-B08-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.01580810546875,
+              "p05": 0.061004638671875,
+              "p95": 0.136199951171875,
+              "max": 0.28289794921875
             }
           },
           {
@@ -2450,8 +2863,14 @@
               "max": 1.677978515625
             },
             "images": {
-              "minmax": "bands/2026-07-31-R1-B09-minmax.webp",
-              "p05p95": "bands/2026-07-31-R1-B09-p05p95.webp"
+              "minmax": "bands/2026-07-31-R1-B09-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-07-31-R1-B09-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.03125,
+              "p05": 0.142913818359375,
+              "p95": 0.3028564453125,
+              "max": 0.453948974609375
             }
           },
           {
@@ -2464,11 +2883,30 @@
               "max": 1.82965087890625
             },
             "images": {
-              "minmax": "bands/2026-07-31-R1-B10-minmax.webp",
-              "p05p95": "bands/2026-07-31-R1-B10-p05p95.webp"
+              "minmax": "bands/2026-07-31-R1-B10-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-07-31-R1-B10-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0654296875,
+              "p05": 0.268768310546875,
+              "p95": 0.52984619140625,
+              "max": 0.750885009765625
             }
           }
-        ]
+        ],
+        "fieldContrast": {
+          "domain": "parcel_union_representative_grid",
+          "mask": "fields/gimhae-parcels-1-19.geojson",
+          "validSamples": 196272,
+          "maskSamples": 196272,
+          "percentiles": [
+            5,
+            95
+          ],
+          "aggregation": "pooled pixels; polygon union; not field means",
+          "rangeScope": "per-date-round-band",
+          "sourceValuesChanged": false
+        }
       },
       "staticImage": {
         "url": "bands/2026-07-31-R1-RGB-p05p95.webp",
@@ -2525,41 +2963,41 @@
           14347982.089388262,
           4191576.01023088
         ],
-        "colorMap": "viridis",
+        "colorMap": "RdYlBu_r",
         "palette": [
-          "#440154",
-          "#460c5f",
-          "#47186a",
-          "#482273",
-          "#472c7b",
-          "#453681",
-          "#424085",
-          "#3e4989",
-          "#3a528b",
-          "#365a8c",
-          "#32628d",
-          "#2f6a8d",
-          "#2c728e",
-          "#287a8e",
-          "#26818e",
-          "#23898d",
-          "#20908c",
-          "#1e988a",
-          "#1e9f88",
-          "#21a784",
-          "#28ae7f",
-          "#32b57a",
-          "#3ebc73",
-          "#4dc26b",
-          "#5ec961",
-          "#70ce56",
-          "#83d34b",
-          "#97d83e",
-          "#addc30",
-          "#c2df22",
-          "#d7e219",
-          "#ece41a",
-          "#fde724"
+          "#313695",
+          "#37499e",
+          "#3d5da8",
+          "#4371b2",
+          "#5083bb",
+          "#5f94c4",
+          "#6ea6cd",
+          "#7eb5d5",
+          "#90c3dd",
+          "#a1d1e4",
+          "#b2dceb",
+          "#c2e4ef",
+          "#d3ecf4",
+          "#e2f3f3",
+          "#ecf7e1",
+          "#f5fbcf",
+          "#fefebe",
+          "#fef4af",
+          "#feeaa0",
+          "#fee191",
+          "#fdd283",
+          "#fdc274",
+          "#fdb265",
+          "#fb9f5a",
+          "#f88b51",
+          "#f57747",
+          "#ef633e",
+          "#e65035",
+          "#dd3d2d",
+          "#d22b26",
+          "#c21c26",
+          "#b20d26",
+          "#a50026"
         ],
         "bands": [
           {
@@ -2572,8 +3010,14 @@
               "max": 1.219512939453125
             },
             "images": {
-              "minmax": "bands/2026-07-31-R2-B01-minmax.webp",
-              "p05p95": "bands/2026-07-31-R2-B01-p05p95.webp"
+              "minmax": "bands/2026-07-31-R2-B01-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-07-31-R2-B01-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.00103759765625,
+              "p05": 0.010101318359375,
+              "p95": 0.02398681640625,
+              "max": 0.099273681640625
             }
           },
           {
@@ -2586,8 +3030,14 @@
               "max": 1.4595947265625
             },
             "images": {
-              "minmax": "bands/2026-07-31-R2-B02-minmax.webp",
-              "p05p95": "bands/2026-07-31-R2-B02-p05p95.webp"
+              "minmax": "bands/2026-07-31-R2-B02-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-07-31-R2-B02-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.001068115234375,
+              "p05": 0.01116943359375,
+              "p95": 0.027313232421875,
+              "max": 0.14434814453125
             }
           },
           {
@@ -2600,8 +3050,14 @@
               "max": 1.361419677734375
             },
             "images": {
-              "minmax": "bands/2026-07-31-R2-B03-minmax.webp",
-              "p05p95": "bands/2026-07-31-R2-B03-p05p95.webp"
+              "minmax": "bands/2026-07-31-R2-B03-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-07-31-R2-B03-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.006256103515625,
+              "p05": 0.024383544921875,
+              "p95": 0.054595947265625,
+              "max": 0.1771240234375
             }
           },
           {
@@ -2614,8 +3070,14 @@
               "max": 1.486846923828125
             },
             "images": {
-              "minmax": "bands/2026-07-31-R2-B04-minmax.webp",
-              "p05p95": "bands/2026-07-31-R2-B04-p05p95.webp"
+              "minmax": "bands/2026-07-31-R2-B04-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-07-31-R2-B04-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.00970458984375,
+              "p05": 0.0291748046875,
+              "p95": 0.065277099609375,
+              "max": 0.19744873046875
             }
           },
           {
@@ -2628,8 +3090,14 @@
               "max": 1.994476318359375
             },
             "images": {
-              "minmax": "bands/2026-07-31-R2-B05-minmax.webp",
-              "p05p95": "bands/2026-07-31-R2-B05-p05p95.webp"
+              "minmax": "bands/2026-07-31-R2-B05-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-07-31-R2-B05-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.012786865234375,
+              "p95": 0.03509521484375,
+              "max": 0.190216064453125
             }
           },
           {
@@ -2642,8 +3110,14 @@
               "max": 1.659332275390625
             },
             "images": {
-              "minmax": "bands/2026-07-31-R2-B06-minmax.webp",
-              "p05p95": "bands/2026-07-31-R2-B06-p05p95.webp"
+              "minmax": "bands/2026-07-31-R2-B06-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-07-31-R2-B06-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.009735107421875,
+              "p95": 0.03021240234375,
+              "max": 0.19439697265625
             }
           },
           {
@@ -2656,8 +3130,14 @@
               "max": 1.173919677734375
             },
             "images": {
-              "minmax": "bands/2026-07-31-R2-B07-minmax.webp",
-              "p05p95": "bands/2026-07-31-R2-B07-p05p95.webp"
+              "minmax": "bands/2026-07-31-R2-B07-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-07-31-R2-B07-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.015655517578125,
+              "p05": 0.035858154296875,
+              "p95": 0.075531005859375,
+              "max": 0.224273681640625
             }
           },
           {
@@ -2670,8 +3150,14 @@
               "max": 1.3555908203125
             },
             "images": {
-              "minmax": "bands/2026-07-31-R2-B08-minmax.webp",
-              "p05p95": "bands/2026-07-31-R2-B08-p05p95.webp"
+              "minmax": "bands/2026-07-31-R2-B08-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-07-31-R2-B08-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.02947998046875,
+              "p05": 0.071044921875,
+              "p95": 0.134368896484375,
+              "max": 0.2696533203125
             }
           },
           {
@@ -2684,8 +3170,14 @@
               "max": 1.579620361328125
             },
             "images": {
-              "minmax": "bands/2026-07-31-R2-B09-minmax.webp",
-              "p05p95": "bands/2026-07-31-R2-B09-p05p95.webp"
+              "minmax": "bands/2026-07-31-R2-B09-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-07-31-R2-B09-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.04425048828125,
+              "p05": 0.15167236328125,
+              "p95": 0.275726318359375,
+              "max": 0.40167236328125
             }
           },
           {
@@ -2698,11 +3190,30 @@
               "max": 1.999359130859375
             },
             "images": {
-              "minmax": "bands/2026-07-31-R2-B10-minmax.webp",
-              "p05p95": "bands/2026-07-31-R2-B10-p05p95.webp"
+              "minmax": "bands/2026-07-31-R2-B10-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-07-31-R2-B10-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0828857421875,
+              "p05": 0.26239013671875,
+              "p95": 0.469696044921875,
+              "max": 0.60858154296875
             }
           }
-        ]
+        ],
+        "fieldContrast": {
+          "domain": "parcel_union_representative_grid",
+          "mask": "fields/gimhae-parcels-1-19.geojson",
+          "validSamples": 203264,
+          "maskSamples": 203264,
+          "percentiles": [
+            5,
+            95
+          ],
+          "aggregation": "pooled pixels; polygon union; not field means",
+          "rangeScope": "per-date-round-band",
+          "sourceValuesChanged": false
+        }
       },
       "staticImage": {
         "url": "bands/2026-07-31-R2-RGB-p05p95.webp",
@@ -2759,41 +3270,41 @@
           14347956.666065978,
           4191565.5834194315
         ],
-        "colorMap": "viridis",
+        "colorMap": "RdYlBu_r",
         "palette": [
-          "#440154",
-          "#460c5f",
-          "#47186a",
-          "#482273",
-          "#472c7b",
-          "#453681",
-          "#424085",
-          "#3e4989",
-          "#3a528b",
-          "#365a8c",
-          "#32628d",
-          "#2f6a8d",
-          "#2c728e",
-          "#287a8e",
-          "#26818e",
-          "#23898d",
-          "#20908c",
-          "#1e988a",
-          "#1e9f88",
-          "#21a784",
-          "#28ae7f",
-          "#32b57a",
-          "#3ebc73",
-          "#4dc26b",
-          "#5ec961",
-          "#70ce56",
-          "#83d34b",
-          "#97d83e",
-          "#addc30",
-          "#c2df22",
-          "#d7e219",
-          "#ece41a",
-          "#fde724"
+          "#313695",
+          "#37499e",
+          "#3d5da8",
+          "#4371b2",
+          "#5083bb",
+          "#5f94c4",
+          "#6ea6cd",
+          "#7eb5d5",
+          "#90c3dd",
+          "#a1d1e4",
+          "#b2dceb",
+          "#c2e4ef",
+          "#d3ecf4",
+          "#e2f3f3",
+          "#ecf7e1",
+          "#f5fbcf",
+          "#fefebe",
+          "#fef4af",
+          "#feeaa0",
+          "#fee191",
+          "#fdd283",
+          "#fdc274",
+          "#fdb265",
+          "#fb9f5a",
+          "#f88b51",
+          "#f57747",
+          "#ef633e",
+          "#e65035",
+          "#dd3d2d",
+          "#d22b26",
+          "#c21c26",
+          "#b20d26",
+          "#a50026"
         ],
         "bands": [
           {
@@ -2806,8 +3317,14 @@
               "max": 0.78045654296875
             },
             "images": {
-              "minmax": "bands/2026-09-08-R1-B01-minmax.webp",
-              "p05p95": "bands/2026-09-08-R1-B01-p05p95.webp"
+              "minmax": "bands/2026-09-08-R1-B01-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R1-B01-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.003814697265625,
+              "p05": 0.01220703125,
+              "p95": 0.028472900390625,
+              "max": 0.100555419921875
             }
           },
           {
@@ -2820,8 +3337,14 @@
               "max": 0.91705322265625
             },
             "images": {
-              "minmax": "bands/2026-09-08-R1-B02-minmax.webp",
-              "p05p95": "bands/2026-09-08-R1-B02-p05p95.webp"
+              "minmax": "bands/2026-09-08-R1-B02-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R1-B02-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.002838134765625,
+              "p05": 0.014434814453125,
+              "p95": 0.035736083984375,
+              "max": 0.119049072265625
             }
           },
           {
@@ -2834,8 +3357,14 @@
               "max": 1.06982421875
             },
             "images": {
-              "minmax": "bands/2026-09-08-R1-B03-minmax.webp",
-              "p05p95": "bands/2026-09-08-R1-B03-p05p95.webp"
+              "minmax": "bands/2026-09-08-R1-B03-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R1-B03-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.009307861328125,
+              "p05": 0.03509521484375,
+              "p95": 0.086883544921875,
+              "max": 0.1505126953125
             }
           },
           {
@@ -2848,8 +3377,14 @@
               "max": 1.273895263671875
             },
             "images": {
-              "minmax": "bands/2026-09-08-R1-B04-minmax.webp",
-              "p05p95": "bands/2026-09-08-R1-B04-p05p95.webp"
+              "minmax": "bands/2026-09-08-R1-B04-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R1-B04-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.011444091796875,
+              "p05": 0.0435791015625,
+              "p95": 0.11175537109375,
+              "max": 0.18951416015625
             }
           },
           {
@@ -2862,8 +3397,14 @@
               "max": 0.812286376953125
             },
             "images": {
-              "minmax": "bands/2026-09-08-R1-B05-minmax.webp",
-              "p05p95": "bands/2026-09-08-R1-B05-p05p95.webp"
+              "minmax": "bands/2026-09-08-R1-B05-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R1-B05-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.006256103515625,
+              "p05": 0.02484130859375,
+              "p95": 0.07232666015625,
+              "max": 0.199462890625
             }
           },
           {
@@ -2876,8 +3417,14 @@
               "max": 0.919647216796875
             },
             "images": {
-              "minmax": "bands/2026-09-08-R1-B06-minmax.webp",
-              "p05p95": "bands/2026-09-08-R1-B06-p05p95.webp"
+              "minmax": "bands/2026-09-08-R1-B06-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R1-B06-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.004669189453125,
+              "p05": 0.019439697265625,
+              "p95": 0.059722900390625,
+              "max": 0.201568603515625
             }
           },
           {
@@ -2890,8 +3437,14 @@
               "max": 1.088958740234375
             },
             "images": {
-              "minmax": "bands/2026-09-08-R1-B07-minmax.webp",
-              "p05p95": "bands/2026-09-08-R1-B07-p05p95.webp"
+              "minmax": "bands/2026-09-08-R1-B07-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R1-B07-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.018463134765625,
+              "p05": 0.06396484375,
+              "p95": 0.15509033203125,
+              "max": 0.24053955078125
             }
           },
           {
@@ -2904,8 +3457,14 @@
               "max": 0.978179931640625
             },
             "images": {
-              "minmax": "bands/2026-09-08-R1-B08-minmax.webp",
-              "p05p95": "bands/2026-09-08-R1-B08-p05p95.webp"
+              "minmax": "bands/2026-09-08-R1-B08-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R1-B08-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.034088134765625,
+              "p05": 0.107330322265625,
+              "p95": 0.24169921875,
+              "max": 0.364227294921875
             }
           },
           {
@@ -2918,8 +3477,14 @@
               "max": 1.20025634765625
             },
             "images": {
-              "minmax": "bands/2026-09-08-R1-B09-minmax.webp",
-              "p05p95": "bands/2026-09-08-R1-B09-p05p95.webp"
+              "minmax": "bands/2026-09-08-R1-B09-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R1-B09-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.05609130859375,
+              "p05": 0.182586669921875,
+              "p95": 0.363555908203125,
+              "max": 0.5484619140625
             }
           },
           {
@@ -2932,11 +3497,30 @@
               "max": 1.0963134765625
             },
             "images": {
-              "minmax": "bands/2026-09-08-R1-B10-minmax.webp",
-              "p05p95": "bands/2026-09-08-R1-B10-p05p95.webp"
+              "minmax": "bands/2026-09-08-R1-B10-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R1-B10-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.105865478515625,
+              "p05": 0.275726318359375,
+              "p95": 0.500579833984375,
+              "max": 0.681732177734375
             }
           }
-        ]
+        ],
+        "fieldContrast": {
+          "domain": "parcel_union_representative_grid",
+          "mask": "fields/gimhae-parcels-1-19.geojson",
+          "validSamples": 226941,
+          "maskSamples": 226941,
+          "percentiles": [
+            5,
+            95
+          ],
+          "aggregation": "pooled pixels; polygon union; not field means",
+          "rangeScope": "per-date-round-band",
+          "sourceValuesChanged": false
+        }
       },
       "staticImage": {
         "url": "bands/2026-09-08-R1-RGB-p05p95.webp",
@@ -2993,41 +3577,41 @@
           14347969.001676517,
           4191589.321391387
         ],
-        "colorMap": "viridis",
+        "colorMap": "RdYlBu_r",
         "palette": [
-          "#440154",
-          "#460c5f",
-          "#47186a",
-          "#482273",
-          "#472c7b",
-          "#453681",
-          "#424085",
-          "#3e4989",
-          "#3a528b",
-          "#365a8c",
-          "#32628d",
-          "#2f6a8d",
-          "#2c728e",
-          "#287a8e",
-          "#26818e",
-          "#23898d",
-          "#20908c",
-          "#1e988a",
-          "#1e9f88",
-          "#21a784",
-          "#28ae7f",
-          "#32b57a",
-          "#3ebc73",
-          "#4dc26b",
-          "#5ec961",
-          "#70ce56",
-          "#83d34b",
-          "#97d83e",
-          "#addc30",
-          "#c2df22",
-          "#d7e219",
-          "#ece41a",
-          "#fde724"
+          "#313695",
+          "#37499e",
+          "#3d5da8",
+          "#4371b2",
+          "#5083bb",
+          "#5f94c4",
+          "#6ea6cd",
+          "#7eb5d5",
+          "#90c3dd",
+          "#a1d1e4",
+          "#b2dceb",
+          "#c2e4ef",
+          "#d3ecf4",
+          "#e2f3f3",
+          "#ecf7e1",
+          "#f5fbcf",
+          "#fefebe",
+          "#fef4af",
+          "#feeaa0",
+          "#fee191",
+          "#fdd283",
+          "#fdc274",
+          "#fdb265",
+          "#fb9f5a",
+          "#f88b51",
+          "#f57747",
+          "#ef633e",
+          "#e65035",
+          "#dd3d2d",
+          "#d22b26",
+          "#c21c26",
+          "#b20d26",
+          "#a50026"
         ],
         "bands": [
           {
@@ -3040,8 +3624,14 @@
               "max": 0.798553466796875
             },
             "images": {
-              "minmax": "bands/2026-09-08-R2-B01-minmax.webp",
-              "p05p95": "bands/2026-09-08-R2-B01-p05p95.webp"
+              "minmax": "bands/2026-09-08-R2-B01-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R2-B01-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0030517578125,
+              "p05": 0.012054443359375,
+              "p95": 0.028533935546875,
+              "max": 0.0838623046875
             }
           },
           {
@@ -3054,8 +3644,14 @@
               "max": 0.878448486328125
             },
             "images": {
-              "minmax": "bands/2026-09-08-R2-B02-minmax.webp",
-              "p05p95": "bands/2026-09-08-R2-B02-p05p95.webp"
+              "minmax": "bands/2026-09-08-R2-B02-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R2-B02-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.002960205078125,
+              "p05": 0.014068603515625,
+              "p95": 0.035430908203125,
+              "max": 0.111480712890625
             }
           },
           {
@@ -3068,8 +3664,14 @@
               "max": 0.9730224609375
             },
             "images": {
-              "minmax": "bands/2026-09-08-R2-B03-minmax.webp",
-              "p05p95": "bands/2026-09-08-R2-B03-p05p95.webp"
+              "minmax": "bands/2026-09-08-R2-B03-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R2-B03-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.007415771484375,
+              "p05": 0.034576416015625,
+              "p95": 0.08416748046875,
+              "max": 0.1375732421875
             }
           },
           {
@@ -3082,8 +3684,14 @@
               "max": 1.08929443359375
             },
             "images": {
-              "minmax": "bands/2026-09-08-R2-B04-minmax.webp",
-              "p05p95": "bands/2026-09-08-R2-B04-p05p95.webp"
+              "minmax": "bands/2026-09-08-R2-B04-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R2-B04-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.012176513671875,
+              "p05": 0.042755126953125,
+              "p95": 0.1070556640625,
+              "max": 0.182098388671875
             }
           },
           {
@@ -3096,8 +3704,14 @@
               "max": 1.034210205078125
             },
             "images": {
-              "minmax": "bands/2026-09-08-R2-B05-minmax.webp",
-              "p05p95": "bands/2026-09-08-R2-B05-p05p95.webp"
+              "minmax": "bands/2026-09-08-R2-B05-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R2-B05-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.002227783203125,
+              "p05": 0.02496337890625,
+              "p95": 0.073211669921875,
+              "max": 0.156005859375
             }
           },
           {
@@ -3110,8 +3724,14 @@
               "max": 0.978363037109375
             },
             "images": {
-              "minmax": "bands/2026-09-08-R2-B06-minmax.webp",
-              "p05p95": "bands/2026-09-08-R2-B06-p05p95.webp"
+              "minmax": "bands/2026-09-08-R2-B06-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R2-B06-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.001678466796875,
+              "p05": 0.01922607421875,
+              "p95": 0.060272216796875,
+              "max": 0.149139404296875
             }
           },
           {
@@ -3124,8 +3744,14 @@
               "max": 1.16400146484375
             },
             "images": {
-              "minmax": "bands/2026-09-08-R2-B07-minmax.webp",
-              "p05p95": "bands/2026-09-08-R2-B07-p05p95.webp"
+              "minmax": "bands/2026-09-08-R2-B07-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R2-B07-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.01873779296875,
+              "p05": 0.064727783203125,
+              "p95": 0.154205322265625,
+              "max": 0.237091064453125
             }
           },
           {
@@ -3138,8 +3764,14 @@
               "max": 1.283416748046875
             },
             "images": {
-              "minmax": "bands/2026-09-08-R2-B08-minmax.webp",
-              "p05p95": "bands/2026-09-08-R2-B08-p05p95.webp"
+              "minmax": "bands/2026-09-08-R2-B08-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R2-B08-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.028350830078125,
+              "p05": 0.10601806640625,
+              "p95": 0.231170654296875,
+              "max": 0.33587646484375
             }
           },
           {
@@ -3152,8 +3784,14 @@
               "max": 1.7833251953125
             },
             "images": {
-              "minmax": "bands/2026-09-08-R2-B09-minmax.webp",
-              "p05p95": "bands/2026-09-08-R2-B09-p05p95.webp"
+              "minmax": "bands/2026-09-08-R2-B09-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R2-B09-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.045623779296875,
+              "p05": 0.181610107421875,
+              "p95": 0.347991943359375,
+              "max": 0.501861572265625
             }
           },
           {
@@ -3166,11 +3804,30 @@
               "max": 1.99798583984375
             },
             "images": {
-              "minmax": "bands/2026-09-08-R2-B10-minmax.webp",
-              "p05p95": "bands/2026-09-08-R2-B10-p05p95.webp"
+              "minmax": "bands/2026-09-08-R2-B10-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R2-B10-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.091156005859375,
+              "p05": 0.269622802734375,
+              "p95": 0.476959228515625,
+              "max": 0.632293701171875
             }
           }
-        ]
+        ],
+        "fieldContrast": {
+          "domain": "parcel_union_representative_grid",
+          "mask": "fields/gimhae-parcels-1-19.geojson",
+          "validSamples": 209103,
+          "maskSamples": 209103,
+          "percentiles": [
+            5,
+            95
+          ],
+          "aggregation": "pooled pixels; polygon union; not field means",
+          "rangeScope": "per-date-round-band",
+          "sourceValuesChanged": false
+        }
       },
       "staticImage": {
         "url": "bands/2026-09-08-R2-RGB-p05p95.webp",
@@ -3227,41 +3884,41 @@
           14347998.546302868,
           4191578.548350186
         ],
-        "colorMap": "viridis",
+        "colorMap": "RdYlBu_r",
         "palette": [
-          "#440154",
-          "#460c5f",
-          "#47186a",
-          "#482273",
-          "#472c7b",
-          "#453681",
-          "#424085",
-          "#3e4989",
-          "#3a528b",
-          "#365a8c",
-          "#32628d",
-          "#2f6a8d",
-          "#2c728e",
-          "#287a8e",
-          "#26818e",
-          "#23898d",
-          "#20908c",
-          "#1e988a",
-          "#1e9f88",
-          "#21a784",
-          "#28ae7f",
-          "#32b57a",
-          "#3ebc73",
-          "#4dc26b",
-          "#5ec961",
-          "#70ce56",
-          "#83d34b",
-          "#97d83e",
-          "#addc30",
-          "#c2df22",
-          "#d7e219",
-          "#ece41a",
-          "#fde724"
+          "#313695",
+          "#37499e",
+          "#3d5da8",
+          "#4371b2",
+          "#5083bb",
+          "#5f94c4",
+          "#6ea6cd",
+          "#7eb5d5",
+          "#90c3dd",
+          "#a1d1e4",
+          "#b2dceb",
+          "#c2e4ef",
+          "#d3ecf4",
+          "#e2f3f3",
+          "#ecf7e1",
+          "#f5fbcf",
+          "#fefebe",
+          "#fef4af",
+          "#feeaa0",
+          "#fee191",
+          "#fdd283",
+          "#fdc274",
+          "#fdb265",
+          "#fb9f5a",
+          "#f88b51",
+          "#f57747",
+          "#ef633e",
+          "#e65035",
+          "#dd3d2d",
+          "#d22b26",
+          "#c21c26",
+          "#b20d26",
+          "#a50026"
         ],
         "bands": [
           {
@@ -3274,8 +3931,14 @@
               "max": 0.852508544921875
             },
             "images": {
-              "minmax": "bands/2026-09-08-R3-B01-minmax.webp",
-              "p05p95": "bands/2026-09-08-R3-B01-p05p95.webp"
+              "minmax": "bands/2026-09-08-R3-B01-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R3-B01-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.002288818359375,
+              "p05": 0.0103759765625,
+              "p95": 0.0264892578125,
+              "max": 0.05120849609375
             }
           },
           {
@@ -3288,8 +3951,14 @@
               "max": 1.005035400390625
             },
             "images": {
-              "minmax": "bands/2026-09-08-R3-B02-minmax.webp",
-              "p05p95": "bands/2026-09-08-R3-B02-p05p95.webp"
+              "minmax": "bands/2026-09-08-R3-B02-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R3-B02-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.002655029296875,
+              "p05": 0.01226806640625,
+              "p95": 0.03350830078125,
+              "max": 0.070587158203125
             }
           },
           {
@@ -3302,8 +3971,14 @@
               "max": 0.9755859375
             },
             "images": {
-              "minmax": "bands/2026-09-08-R3-B03-minmax.webp",
-              "p05p95": "bands/2026-09-08-R3-B03-p05p95.webp"
+              "minmax": "bands/2026-09-08-R3-B03-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R3-B03-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.00726318359375,
+              "p05": 0.030517578125,
+              "p95": 0.080230712890625,
+              "max": 0.1510009765625
             }
           },
           {
@@ -3316,8 +3991,14 @@
               "max": 1.182037353515625
             },
             "images": {
-              "minmax": "bands/2026-09-08-R3-B04-minmax.webp",
-              "p05p95": "bands/2026-09-08-R3-B04-p05p95.webp"
+              "minmax": "bands/2026-09-08-R3-B04-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R3-B04-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.007659912109375,
+              "p05": 0.03824157714843751,
+              "p95": 0.102996826171875,
+              "max": 0.18475341796875
             }
           },
           {
@@ -3330,8 +4011,14 @@
               "max": 0.902069091796875
             },
             "images": {
-              "minmax": "bands/2026-09-08-R3-B05-minmax.webp",
-              "p05p95": "bands/2026-09-08-R3-B05-p05p95.webp"
+              "minmax": "bands/2026-09-08-R3-B05-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R3-B05-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0048828125,
+              "p05": 0.02142333984375,
+              "p95": 0.06881408691406232,
+              "max": 0.159576416015625
             }
           },
           {
@@ -3344,8 +4031,14 @@
               "max": 0.95941162109375
             },
             "images": {
-              "minmax": "bands/2026-09-08-R3-B06-minmax.webp",
-              "p05p95": "bands/2026-09-08-R3-B06-p05p95.webp"
+              "minmax": "bands/2026-09-08-R3-B06-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R3-B06-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.002685546875,
+              "p05": 0.0166015625,
+              "p95": 0.0576171875,
+              "max": 0.14056396484375
             }
           },
           {
@@ -3358,8 +4051,14 @@
               "max": 0.935821533203125
             },
             "images": {
-              "minmax": "bands/2026-09-08-R3-B07-minmax.webp",
-              "p05p95": "bands/2026-09-08-R3-B07-p05p95.webp"
+              "minmax": "bands/2026-09-08-R3-B07-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R3-B07-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.014373779296875,
+              "p05": 0.057342529296875,
+              "p95": 0.14544677734375,
+              "max": 0.24468994140625
             }
           },
           {
@@ -3372,8 +4071,14 @@
               "max": 1.011932373046875
             },
             "images": {
-              "minmax": "bands/2026-09-08-R3-B08-minmax.webp",
-              "p05p95": "bands/2026-09-08-R3-B08-p05p95.webp"
+              "minmax": "bands/2026-09-08-R3-B08-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R3-B08-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.02752685546875,
+              "p05": 0.097991943359375,
+              "p95": 0.22515869140625,
+              "max": 0.37335205078125
             }
           },
           {
@@ -3386,8 +4091,14 @@
               "max": 0.98583984375
             },
             "images": {
-              "minmax": "bands/2026-09-08-R3-B09-minmax.webp",
-              "p05p95": "bands/2026-09-08-R3-B09-p05p95.webp"
+              "minmax": "bands/2026-09-08-R3-B09-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R3-B09-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.043914794921875,
+              "p05": 0.1713897705078125,
+              "p95": 0.34136962890625,
+              "max": 0.503173828125
             }
           },
           {
@@ -3400,11 +4111,30 @@
               "max": 1.07025146484375
             },
             "images": {
-              "minmax": "bands/2026-09-08-R3-B10-minmax.webp",
-              "p05p95": "bands/2026-09-08-R3-B10-p05p95.webp"
+              "minmax": "bands/2026-09-08-R3-B10-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R3-B10-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.099517822265625,
+              "p05": 0.265228271484375,
+              "p95": 0.48223876953125,
+              "max": 0.652252197265625
             }
           }
-        ]
+        ],
+        "fieldContrast": {
+          "domain": "parcel_union_representative_grid",
+          "mask": "fields/gimhae-parcels-1-19.geojson",
+          "validSamples": 195523,
+          "maskSamples": 195523,
+          "percentiles": [
+            5,
+            95
+          ],
+          "aggregation": "pooled pixels; polygon union; not field means",
+          "rangeScope": "per-date-round-band",
+          "sourceValuesChanged": false
+        }
       },
       "staticImage": {
         "url": "bands/2026-09-08-R3-RGB-p05p95.webp",
@@ -3461,41 +4191,41 @@
           14347955.210287783,
           4191566.319713556
         ],
-        "colorMap": "viridis",
+        "colorMap": "RdYlBu_r",
         "palette": [
-          "#440154",
-          "#460c5f",
-          "#47186a",
-          "#482273",
-          "#472c7b",
-          "#453681",
-          "#424085",
-          "#3e4989",
-          "#3a528b",
-          "#365a8c",
-          "#32628d",
-          "#2f6a8d",
-          "#2c728e",
-          "#287a8e",
-          "#26818e",
-          "#23898d",
-          "#20908c",
-          "#1e988a",
-          "#1e9f88",
-          "#21a784",
-          "#28ae7f",
-          "#32b57a",
-          "#3ebc73",
-          "#4dc26b",
-          "#5ec961",
-          "#70ce56",
-          "#83d34b",
-          "#97d83e",
-          "#addc30",
-          "#c2df22",
-          "#d7e219",
-          "#ece41a",
-          "#fde724"
+          "#313695",
+          "#37499e",
+          "#3d5da8",
+          "#4371b2",
+          "#5083bb",
+          "#5f94c4",
+          "#6ea6cd",
+          "#7eb5d5",
+          "#90c3dd",
+          "#a1d1e4",
+          "#b2dceb",
+          "#c2e4ef",
+          "#d3ecf4",
+          "#e2f3f3",
+          "#ecf7e1",
+          "#f5fbcf",
+          "#fefebe",
+          "#fef4af",
+          "#feeaa0",
+          "#fee191",
+          "#fdd283",
+          "#fdc274",
+          "#fdb265",
+          "#fb9f5a",
+          "#f88b51",
+          "#f57747",
+          "#ef633e",
+          "#e65035",
+          "#dd3d2d",
+          "#d22b26",
+          "#c21c26",
+          "#b20d26",
+          "#a50026"
         ],
         "bands": [
           {
@@ -3508,8 +4238,14 @@
               "max": 0.95611572265625
             },
             "images": {
-              "minmax": "bands/2026-09-08-R4-B01-minmax.webp",
-              "p05p95": "bands/2026-09-08-R4-B01-p05p95.webp"
+              "minmax": "bands/2026-09-08-R4-B01-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R4-B01-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.002197265625,
+              "p05": 0.009246826171875,
+              "p95": 0.02471923828125,
+              "max": 0.047515869140625
             }
           },
           {
@@ -3522,8 +4258,14 @@
               "max": 0.93310546875
             },
             "images": {
-              "minmax": "bands/2026-09-08-R4-B02-minmax.webp",
-              "p05p95": "bands/2026-09-08-R4-B02-p05p95.webp"
+              "minmax": "bands/2026-09-08-R4-B02-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R4-B02-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.001007080078125,
+              "p05": 0.01080322265625,
+              "p95": 0.031219482421875,
+              "max": 0.063690185546875
             }
           },
           {
@@ -3536,8 +4278,14 @@
               "max": 0.947662353515625
             },
             "images": {
-              "minmax": "bands/2026-09-08-R4-B03-minmax.webp",
-              "p05p95": "bands/2026-09-08-R4-B03-p05p95.webp"
+              "minmax": "bands/2026-09-08-R4-B03-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R4-B03-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.008087158203125,
+              "p05": 0.0281982421875,
+              "p95": 0.07708740234375,
+              "max": 0.131988525390625
             }
           },
           {
@@ -3550,8 +4298,14 @@
               "max": 0.936279296875
             },
             "images": {
-              "minmax": "bands/2026-09-08-R4-B04-minmax.webp",
-              "p05p95": "bands/2026-09-08-R4-B04-p05p95.webp"
+              "minmax": "bands/2026-09-08-R4-B04-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R4-B04-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.008514404296875,
+              "p05": 0.035369873046875,
+              "p95": 0.099578857421875,
+              "max": 0.17901611328125
             }
           },
           {
@@ -3564,8 +4318,14 @@
               "max": 0.890869140625
             },
             "images": {
-              "minmax": "bands/2026-09-08-R4-B05-minmax.webp",
-              "p05p95": "bands/2026-09-08-R4-B05-p05p95.webp"
+              "minmax": "bands/2026-09-08-R4-B05-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R4-B05-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.003204345703125,
+              "p05": 0.019744873046875,
+              "p95": 0.0670166015625,
+              "max": 0.13995361328125
             }
           },
           {
@@ -3578,8 +4338,14 @@
               "max": 0.880218505859375
             },
             "images": {
-              "minmax": "bands/2026-09-08-R4-B06-minmax.webp",
-              "p05p95": "bands/2026-09-08-R4-B06-p05p95.webp"
+              "minmax": "bands/2026-09-08-R4-B06-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R4-B06-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0035400390625,
+              "p05": 0.0146484375,
+              "p95": 0.0550537109375,
+              "max": 0.122528076171875
             }
           },
           {
@@ -3592,8 +4358,14 @@
               "max": 0.89874267578125
             },
             "images": {
-              "minmax": "bands/2026-09-08-R4-B07-minmax.webp",
-              "p05p95": "bands/2026-09-08-R4-B07-p05p95.webp"
+              "minmax": "bands/2026-09-08-R4-B07-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R4-B07-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0146484375,
+              "p05": 0.054901123046875,
+              "p95": 0.144256591796875,
+              "max": 0.2401123046875
             }
           },
           {
@@ -3606,8 +4378,14 @@
               "max": 0.95428466796875
             },
             "images": {
-              "minmax": "bands/2026-09-08-R4-B08-minmax.webp",
-              "p05p95": "bands/2026-09-08-R4-B08-p05p95.webp"
+              "minmax": "bands/2026-09-08-R4-B08-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R4-B08-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.025909423828125,
+              "p05": 0.093109130859375,
+              "p95": 0.2236328125,
+              "max": 0.34600830078125
             }
           },
           {
@@ -3620,8 +4398,14 @@
               "max": 0.933624267578125
             },
             "images": {
-              "minmax": "bands/2026-09-08-R4-B09-minmax.webp",
-              "p05p95": "bands/2026-09-08-R4-B09-p05p95.webp"
+              "minmax": "bands/2026-09-08-R4-B09-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R4-B09-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.045989990234375,
+              "p05": 0.167510986328125,
+              "p95": 0.343475341796875,
+              "max": 0.53277587890625
             }
           },
           {
@@ -3634,11 +4418,30 @@
               "max": 1.171295166015625
             },
             "images": {
-              "minmax": "bands/2026-09-08-R4-B10-minmax.webp",
-              "p05p95": "bands/2026-09-08-R4-B10-p05p95.webp"
+              "minmax": "bands/2026-09-08-R4-B10-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-08-R4-B10-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.091064453125,
+              "p05": 0.262237548828125,
+              "p95": 0.49143218994140625,
+              "max": 0.65380859375
             }
           }
-        ]
+        ],
+        "fieldContrast": {
+          "domain": "parcel_union_representative_grid",
+          "mask": "fields/gimhae-parcels-1-19.geojson",
+          "validSamples": 215536,
+          "maskSamples": 215536,
+          "percentiles": [
+            5,
+            95
+          ],
+          "aggregation": "pooled pixels; polygon union; not field means",
+          "rangeScope": "per-date-round-band",
+          "sourceValuesChanged": false
+        }
       },
       "staticImage": {
         "url": "bands/2026-09-08-R4-RGB-p05p95.webp",
@@ -3695,41 +4498,41 @@
           14347974.088607268,
           4191602.508751934
         ],
-        "colorMap": "viridis",
+        "colorMap": "RdYlBu_r",
         "palette": [
-          "#440154",
-          "#460c5f",
-          "#47186a",
-          "#482273",
-          "#472c7b",
-          "#453681",
-          "#424085",
-          "#3e4989",
-          "#3a528b",
-          "#365a8c",
-          "#32628d",
-          "#2f6a8d",
-          "#2c728e",
-          "#287a8e",
-          "#26818e",
-          "#23898d",
-          "#20908c",
-          "#1e988a",
-          "#1e9f88",
-          "#21a784",
-          "#28ae7f",
-          "#32b57a",
-          "#3ebc73",
-          "#4dc26b",
-          "#5ec961",
-          "#70ce56",
-          "#83d34b",
-          "#97d83e",
-          "#addc30",
-          "#c2df22",
-          "#d7e219",
-          "#ece41a",
-          "#fde724"
+          "#313695",
+          "#37499e",
+          "#3d5da8",
+          "#4371b2",
+          "#5083bb",
+          "#5f94c4",
+          "#6ea6cd",
+          "#7eb5d5",
+          "#90c3dd",
+          "#a1d1e4",
+          "#b2dceb",
+          "#c2e4ef",
+          "#d3ecf4",
+          "#e2f3f3",
+          "#ecf7e1",
+          "#f5fbcf",
+          "#fefebe",
+          "#fef4af",
+          "#feeaa0",
+          "#fee191",
+          "#fdd283",
+          "#fdc274",
+          "#fdb265",
+          "#fb9f5a",
+          "#f88b51",
+          "#f57747",
+          "#ef633e",
+          "#e65035",
+          "#dd3d2d",
+          "#d22b26",
+          "#c21c26",
+          "#b20d26",
+          "#a50026"
         ],
         "bands": [
           {
@@ -3742,8 +4545,14 @@
               "max": 0.713623046875
             },
             "images": {
-              "minmax": "bands/2026-09-23-R1-B01-minmax.webp",
-              "p05p95": "bands/2026-09-23-R1-B01-p05p95.webp"
+              "minmax": "bands/2026-09-23-R1-B01-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-23-R1-B01-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.01312255859375,
+              "p95": 0.07266693115234357,
+              "max": 0.428070068359375
             }
           },
           {
@@ -3756,8 +4565,14 @@
               "max": 0.734893798828125
             },
             "images": {
-              "minmax": "bands/2026-09-23-R1-B02-minmax.webp",
-              "p05p95": "bands/2026-09-23-R1-B02-p05p95.webp"
+              "minmax": "bands/2026-09-23-R1-B02-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-23-R1-B02-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.016143798828125,
+              "p95": 0.09295654296875,
+              "max": 0.487457275390625
             }
           },
           {
@@ -3770,8 +4585,14 @@
               "max": 0.784912109375
             },
             "images": {
-              "minmax": "bands/2026-09-23-R1-B03-minmax.webp",
-              "p05p95": "bands/2026-09-23-R1-B03-p05p95.webp"
+              "minmax": "bands/2026-09-23-R1-B03-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-23-R1-B03-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.00360107421875,
+              "p05": 0.038330078125,
+              "p95": 0.12554931640625,
+              "max": 0.669952392578125
             }
           },
           {
@@ -3784,8 +4605,14 @@
               "max": 0.85302734375
             },
             "images": {
-              "minmax": "bands/2026-09-23-R1-B04-minmax.webp",
-              "p05p95": "bands/2026-09-23-R1-B04-p05p95.webp"
+              "minmax": "bands/2026-09-23-R1-B04-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-23-R1-B04-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0068359375,
+              "p05": 0.048492431640625,
+              "p95": 0.14349365234375,
+              "max": 0.716552734375
             }
           },
           {
@@ -3798,8 +4625,14 @@
               "max": 0.77117919921875
             },
             "images": {
-              "minmax": "bands/2026-09-23-R1-B05-minmax.webp",
-              "p05p95": "bands/2026-09-23-R1-B05-p05p95.webp"
+              "minmax": "bands/2026-09-23-R1-B05-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-23-R1-B05-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 3.0517578125e-05,
+              "p05": 0.037261962890625,
+              "p95": 0.17490081787109357,
+              "max": 0.75848388671875
             }
           },
           {
@@ -3812,8 +4645,14 @@
               "max": 0.86297607421875
             },
             "images": {
-              "minmax": "bands/2026-09-23-R1-B06-minmax.webp",
-              "p05p95": "bands/2026-09-23-R1-B06-p05p95.webp"
+              "minmax": "bands/2026-09-23-R1-B06-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-23-R1-B06-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.03070068359375,
+              "p95": 0.181549072265625,
+              "max": 0.832733154296875
             }
           },
           {
@@ -3826,8 +4665,14 @@
               "max": 0.885833740234375
             },
             "images": {
-              "minmax": "bands/2026-09-23-R1-B07-minmax.webp",
-              "p05p95": "bands/2026-09-23-R1-B07-p05p95.webp"
+              "minmax": "bands/2026-09-23-R1-B07-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-23-R1-B07-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.014190673828125,
+              "p05": 0.079132080078125,
+              "p95": 0.2110595703125,
+              "max": 0.856719970703125
             }
           },
           {
@@ -3840,8 +4685,14 @@
               "max": 1.050750732421875
             },
             "images": {
-              "minmax": "bands/2026-09-23-R1-B08-minmax.webp",
-              "p05p95": "bands/2026-09-23-R1-B08-p05p95.webp"
+              "minmax": "bands/2026-09-23-R1-B08-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-23-R1-B08-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.009613037109375,
+              "p05": 0.108917236328125,
+              "p95": 0.2584884643554686,
+              "max": 0.89501953125
             }
           },
           {
@@ -3854,8 +4705,14 @@
               "max": 1.049591064453125
             },
             "images": {
-              "minmax": "bands/2026-09-23-R1-B09-minmax.webp",
-              "p05p95": "bands/2026-09-23-R1-B09-p05p95.webp"
+              "minmax": "bands/2026-09-23-R1-B09-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-23-R1-B09-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.01983642578125,
+              "p05": 0.140380859375,
+              "p95": 0.342010498046875,
+              "max": 0.871429443359375
             }
           },
           {
@@ -3868,11 +4725,30 @@
               "max": 1.0931396484375
             },
             "images": {
-              "minmax": "bands/2026-09-23-R1-B10-minmax.webp",
-              "p05p95": "bands/2026-09-23-R1-B10-p05p95.webp"
+              "minmax": "bands/2026-09-23-R1-B10-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-23-R1-B10-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.04119873046875,
+              "p05": 0.183624267578125,
+              "p95": 0.448486328125,
+              "max": 0.849853515625
             }
           }
-        ]
+        ],
+        "fieldContrast": {
+          "domain": "parcel_union_representative_grid",
+          "mask": "fields/gimhae-parcels-1-19.geojson",
+          "validSamples": 204058,
+          "maskSamples": 204134,
+          "percentiles": [
+            5,
+            95
+          ],
+          "aggregation": "pooled pixels; polygon union; not field means",
+          "rangeScope": "per-date-round-band",
+          "sourceValuesChanged": false
+        }
       },
       "staticImage": {
         "url": "bands/2026-09-23-R1-RGB-p05p95.webp",
@@ -3929,41 +4805,41 @@
           14347966.623481805,
           4191604.8093876718
         ],
-        "colorMap": "viridis",
+        "colorMap": "RdYlBu_r",
         "palette": [
-          "#440154",
-          "#460c5f",
-          "#47186a",
-          "#482273",
-          "#472c7b",
-          "#453681",
-          "#424085",
-          "#3e4989",
-          "#3a528b",
-          "#365a8c",
-          "#32628d",
-          "#2f6a8d",
-          "#2c728e",
-          "#287a8e",
-          "#26818e",
-          "#23898d",
-          "#20908c",
-          "#1e988a",
-          "#1e9f88",
-          "#21a784",
-          "#28ae7f",
-          "#32b57a",
-          "#3ebc73",
-          "#4dc26b",
-          "#5ec961",
-          "#70ce56",
-          "#83d34b",
-          "#97d83e",
-          "#addc30",
-          "#c2df22",
-          "#d7e219",
-          "#ece41a",
-          "#fde724"
+          "#313695",
+          "#37499e",
+          "#3d5da8",
+          "#4371b2",
+          "#5083bb",
+          "#5f94c4",
+          "#6ea6cd",
+          "#7eb5d5",
+          "#90c3dd",
+          "#a1d1e4",
+          "#b2dceb",
+          "#c2e4ef",
+          "#d3ecf4",
+          "#e2f3f3",
+          "#ecf7e1",
+          "#f5fbcf",
+          "#fefebe",
+          "#fef4af",
+          "#feeaa0",
+          "#fee191",
+          "#fdd283",
+          "#fdc274",
+          "#fdb265",
+          "#fb9f5a",
+          "#f88b51",
+          "#f57747",
+          "#ef633e",
+          "#e65035",
+          "#dd3d2d",
+          "#d22b26",
+          "#c21c26",
+          "#b20d26",
+          "#a50026"
         ],
         "bands": [
           {
@@ -3976,8 +4852,14 @@
               "max": 0.88946533203125
             },
             "images": {
-              "minmax": "bands/2026-09-23-R2-B01-minmax.webp",
-              "p05p95": "bands/2026-09-23-R2-B01-p05p95.webp"
+              "minmax": "bands/2026-09-23-R2-B01-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-23-R2-B01-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.003448486328125,
+              "p05": 0.0147705078125,
+              "p95": 0.079803466796875,
+              "max": 0.4615478515625
             }
           },
           {
@@ -3990,8 +4872,14 @@
               "max": 1.00848388671875
             },
             "images": {
-              "minmax": "bands/2026-09-23-R2-B02-minmax.webp",
-              "p05p95": "bands/2026-09-23-R2-B02-p05p95.webp"
+              "minmax": "bands/2026-09-23-R2-B02-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-23-R2-B02-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.018280029296875,
+              "p95": 0.10186767578125,
+              "max": 0.5687255859375
             }
           },
           {
@@ -4004,8 +4892,14 @@
               "max": 0.928955078125
             },
             "images": {
-              "minmax": "bands/2026-09-23-R2-B03-minmax.webp",
-              "p05p95": "bands/2026-09-23-R2-B03-p05p95.webp"
+              "minmax": "bands/2026-09-23-R2-B03-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-23-R2-B03-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.00762939453125,
+              "p05": 0.04193115234375,
+              "p95": 0.13677978515625,
+              "max": 0.769317626953125
             }
           },
           {
@@ -4018,8 +4912,14 @@
               "max": 1.0599365234375
             },
             "images": {
-              "minmax": "bands/2026-09-23-R2-B04-minmax.webp",
-              "p05p95": "bands/2026-09-23-R2-B04-p05p95.webp"
+              "minmax": "bands/2026-09-23-R2-B04-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-23-R2-B04-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.007232666015625,
+              "p05": 0.052001953125,
+              "p95": 0.152618408203125,
+              "max": 0.853363037109375
             }
           },
           {
@@ -4032,8 +4932,14 @@
               "max": 0.99078369140625
             },
             "images": {
-              "minmax": "bands/2026-09-23-R2-B05-minmax.webp",
-              "p05p95": "bands/2026-09-23-R2-B05-p05p95.webp"
+              "minmax": "bands/2026-09-23-R2-B05-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-23-R2-B05-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.042205810546875,
+              "p95": 0.195587158203125,
+              "max": 0.872802734375
             }
           },
           {
@@ -4046,8 +4952,14 @@
               "max": 0.997833251953125
             },
             "images": {
-              "minmax": "bands/2026-09-23-R2-B06-minmax.webp",
-              "p05p95": "bands/2026-09-23-R2-B06-p05p95.webp"
+              "minmax": "bands/2026-09-23-R2-B06-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-23-R2-B06-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.034576416015625,
+              "p95": 0.198760986328125,
+              "max": 0.86614990234375
             }
           },
           {
@@ -4060,8 +4972,14 @@
               "max": 0.977996826171875
             },
             "images": {
-              "minmax": "bands/2026-09-23-R2-B07-minmax.webp",
-              "p05p95": "bands/2026-09-23-R2-B07-p05p95.webp"
+              "minmax": "bands/2026-09-23-R2-B07-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-23-R2-B07-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.017303466796875,
+              "p05": 0.088775634765625,
+              "p95": 0.23346862792968714,
+              "max": 0.8675537109375
             }
           },
           {
@@ -4074,8 +4992,14 @@
               "max": 1.19915771484375
             },
             "images": {
-              "minmax": "bands/2026-09-23-R2-B08-minmax.webp",
-              "p05p95": "bands/2026-09-23-R2-B08-p05p95.webp"
+              "minmax": "bands/2026-09-23-R2-B08-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-23-R2-B08-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.010833740234375,
+              "p05": 0.1201171875,
+              "p95": 0.2620849609375,
+              "max": 0.902435302734375
             }
           },
           {
@@ -4088,8 +5012,14 @@
               "max": 1.094757080078125
             },
             "images": {
-              "minmax": "bands/2026-09-23-R2-B09-minmax.webp",
-              "p05p95": "bands/2026-09-23-R2-B09-p05p95.webp"
+              "minmax": "bands/2026-09-23-R2-B09-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-23-R2-B09-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0186767578125,
+              "p05": 0.157012939453125,
+              "p95": 0.33939514160156214,
+              "max": 0.891204833984375
             }
           },
           {
@@ -4102,11 +5032,30 @@
               "max": 1.231964111328125
             },
             "images": {
-              "minmax": "bands/2026-09-23-R2-B10-minmax.webp",
-              "p05p95": "bands/2026-09-23-R2-B10-p05p95.webp"
+              "minmax": "bands/2026-09-23-R2-B10-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-23-R2-B10-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.052032470703125,
+              "p05": 0.2022705078125,
+              "p95": 0.438201904296875,
+              "max": 0.8773193359375
             }
           }
-        ]
+        ],
+        "fieldContrast": {
+          "domain": "parcel_union_representative_grid",
+          "mask": "fields/gimhae-parcels-1-19.geojson",
+          "validSamples": 193255,
+          "maskSamples": 193255,
+          "percentiles": [
+            5,
+            95
+          ],
+          "aggregation": "pooled pixels; polygon union; not field means",
+          "rangeScope": "per-date-round-band",
+          "sourceValuesChanged": false
+        }
       },
       "staticImage": {
         "url": "bands/2026-09-23-R2-RGB-p05p95.webp",
@@ -4163,41 +5112,41 @@
           14348014.0341671,
           4191597.0082042245
         ],
-        "colorMap": "viridis",
+        "colorMap": "RdYlBu_r",
         "palette": [
-          "#440154",
-          "#460c5f",
-          "#47186a",
-          "#482273",
-          "#472c7b",
-          "#453681",
-          "#424085",
-          "#3e4989",
-          "#3a528b",
-          "#365a8c",
-          "#32628d",
-          "#2f6a8d",
-          "#2c728e",
-          "#287a8e",
-          "#26818e",
-          "#23898d",
-          "#20908c",
-          "#1e988a",
-          "#1e9f88",
-          "#21a784",
-          "#28ae7f",
-          "#32b57a",
-          "#3ebc73",
-          "#4dc26b",
-          "#5ec961",
-          "#70ce56",
-          "#83d34b",
-          "#97d83e",
-          "#addc30",
-          "#c2df22",
-          "#d7e219",
-          "#ece41a",
-          "#fde724"
+          "#313695",
+          "#37499e",
+          "#3d5da8",
+          "#4371b2",
+          "#5083bb",
+          "#5f94c4",
+          "#6ea6cd",
+          "#7eb5d5",
+          "#90c3dd",
+          "#a1d1e4",
+          "#b2dceb",
+          "#c2e4ef",
+          "#d3ecf4",
+          "#e2f3f3",
+          "#ecf7e1",
+          "#f5fbcf",
+          "#fefebe",
+          "#fef4af",
+          "#feeaa0",
+          "#fee191",
+          "#fdd283",
+          "#fdc274",
+          "#fdb265",
+          "#fb9f5a",
+          "#f88b51",
+          "#f57747",
+          "#ef633e",
+          "#e65035",
+          "#dd3d2d",
+          "#d22b26",
+          "#c21c26",
+          "#b20d26",
+          "#a50026"
         ],
         "bands": [
           {
@@ -4210,8 +5159,14 @@
               "max": 0.815948486328125
             },
             "images": {
-              "minmax": "bands/2026-09-23-R3-B01-minmax.webp",
-              "p05p95": "bands/2026-09-23-R3-B01-p05p95.webp"
+              "minmax": "bands/2026-09-23-R3-B01-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-23-R3-B01-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.002105712890625,
+              "p05": 0.0133056640625,
+              "p95": 0.071044921875,
+              "max": 0.439239501953125
             }
           },
           {
@@ -4224,8 +5179,14 @@
               "max": 0.905487060546875
             },
             "images": {
-              "minmax": "bands/2026-09-23-R3-B02-minmax.webp",
-              "p05p95": "bands/2026-09-23-R3-B02-p05p95.webp"
+              "minmax": "bands/2026-09-23-R3-B02-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-23-R3-B02-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.0169677734375,
+              "p95": 0.093902587890625,
+              "max": 0.53369140625
             }
           },
           {
@@ -4238,8 +5199,14 @@
               "max": 0.923675537109375
             },
             "images": {
-              "minmax": "bands/2026-09-23-R3-B03-minmax.webp",
-              "p05p95": "bands/2026-09-23-R3-B03-p05p95.webp"
+              "minmax": "bands/2026-09-23-R3-B03-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-23-R3-B03-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.002288818359375,
+              "p05": 0.03753662109375,
+              "p95": 0.12286376953125,
+              "max": 0.686492919921875
             }
           },
           {
@@ -4252,8 +5219,14 @@
               "max": 1.40008544921875
             },
             "images": {
-              "minmax": "bands/2026-09-23-R3-B04-minmax.webp",
-              "p05p95": "bands/2026-09-23-R3-B04-p05p95.webp"
+              "minmax": "bands/2026-09-23-R3-B04-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-23-R3-B04-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.001739501953125,
+              "p05": 0.04718017578125,
+              "p95": 0.139068603515625,
+              "max": 0.755126953125
             }
           },
           {
@@ -4266,8 +5239,14 @@
               "max": 1.1837158203125
             },
             "images": {
-              "minmax": "bands/2026-09-23-R3-B05-minmax.webp",
-              "p05p95": "bands/2026-09-23-R3-B05-p05p95.webp"
+              "minmax": "bands/2026-09-23-R3-B05-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-23-R3-B05-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.03753662109375,
+              "p95": 0.1702880859375,
+              "max": 0.938201904296875
             }
           },
           {
@@ -4280,8 +5259,14 @@
               "max": 1.178131103515625
             },
             "images": {
-              "minmax": "bands/2026-09-23-R3-B06-minmax.webp",
-              "p05p95": "bands/2026-09-23-R3-B06-p05p95.webp"
+              "minmax": "bands/2026-09-23-R3-B06-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-23-R3-B06-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0,
+              "p05": 0.031982421875,
+              "p95": 0.1787109375,
+              "max": 0.90960693359375
             }
           },
           {
@@ -4294,8 +5279,14 @@
               "max": 1.311309814453125
             },
             "images": {
-              "minmax": "bands/2026-09-23-R3-B07-minmax.webp",
-              "p05p95": "bands/2026-09-23-R3-B07-p05p95.webp"
+              "minmax": "bands/2026-09-23-R3-B07-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-23-R3-B07-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.01336669921875,
+              "p05": 0.077606201171875,
+              "p95": 0.206085205078125,
+              "max": 0.885009765625
             }
           },
           {
@@ -4308,8 +5299,14 @@
               "max": 1.518707275390625
             },
             "images": {
-              "minmax": "bands/2026-09-23-R3-B08-minmax.webp",
-              "p05p95": "bands/2026-09-23-R3-B08-p05p95.webp"
+              "minmax": "bands/2026-09-23-R3-B08-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-23-R3-B08-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.007659912109375,
+              "p05": 0.107940673828125,
+              "p95": 0.24530029296875,
+              "max": 0.961669921875
             }
           },
           {
@@ -4322,8 +5319,14 @@
               "max": 1.88580322265625
             },
             "images": {
-              "minmax": "bands/2026-09-23-R3-B09-minmax.webp",
-              "p05p95": "bands/2026-09-23-R3-B09-p05p95.webp"
+              "minmax": "bands/2026-09-23-R3-B09-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-23-R3-B09-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.011444091796875,
+              "p05": 0.138214111328125,
+              "p95": 0.31689453125,
+              "max": 0.959991455078125
             }
           },
           {
@@ -4336,11 +5339,30 @@
               "max": 1.892303466796875
             },
             "images": {
-              "minmax": "bands/2026-09-23-R3-B10-minmax.webp",
-              "p05p95": "bands/2026-09-23-R3-B10-p05p95.webp"
+              "minmax": "bands/2026-09-23-R3-B10-minmax-rdylbur.webp",
+              "p05p95": "bands/2026-09-23-R3-B10-fields-p05p95-rdylbur.webp"
+            },
+            "fieldStats": {
+              "min": 0.0260009765625,
+              "p05": 0.185455322265625,
+              "p95": 0.42809295654296875,
+              "max": 0.981201171875
             }
           }
-        ]
+        ],
+        "fieldContrast": {
+          "domain": "parcel_union_representative_grid",
+          "mask": "fields/gimhae-parcels-1-19.geojson",
+          "validSamples": 179106,
+          "maskSamples": 179106,
+          "percentiles": [
+            5,
+            95
+          ],
+          "aggregation": "pooled pixels; polygon union; not field means",
+          "rangeScope": "per-date-round-band",
+          "sourceValuesChanged": false
+        }
       },
       "staticImage": {
         "url": "bands/2026-09-23-R3-RGB-p05p95.webp",
@@ -4358,5 +5380,13 @@
     }
   ],
   "pending": [],
-  "notices": []
+  "notices": [],
+  "fieldMask": {
+    "url": "fields/gimhae-parcels-1-19.geojson",
+    "projection": "EPSG:4326",
+    "count": 19,
+    "numbering": "1-19",
+    "scope": "all-dates-rounds-kinds",
+    "containsSpectralMeans": false
+  }
 }

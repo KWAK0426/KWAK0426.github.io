@@ -237,7 +237,12 @@ export async function run({
     dem: pub(it.dem), gps: pub(it.gps),
   }));
   // Explicitly published display products survive scans on PCs without their analytical sources.
-  const published = readJson(publishedFile, { observations: [] }).observations ?? [];
+  const publishedDoc = readJson(publishedFile, { observations: [] });
+  const published = publishedDoc.observations ?? [];
+  const fieldMask = publishedDoc.fieldMask;
+  if (fieldMask && (!/^fields\/[A-Za-z0-9_-]+\.geojson$/.test(fieldMask.url)
+      || fieldMask.projection !== 'EPSG:4326' || !Number.isInteger(fieldMask.count) || fieldMask.count < 1))
+    throw new Error('공통 필지 경계 등록 형식 오류');
   for (const o of published) {
     if (!o.id || (!o.driveFileId && !o.staticImage) || !['RGB', 'RE', 'NDVI'].includes(o.kind)
         || !Array.isArray(o.bounds) || o.bounds.length !== 4 || !o.bounds.every(Number.isFinite)) {
@@ -294,6 +299,7 @@ export async function run({
   const catalog = {
     format: CATALOG_FORMAT, title: '김해 논 드론 모자이크', updated_at: new Date().toISOString(),
     cameras: cfg.cameras, alt_offset_m: cfg.alt_offset_m ?? 0, observations, pending, notices: problems,
+    ...(fieldMask ? {fieldMask} : {}),
   };
   const resultsDoc = { format: RESULT_FORMAT, updated_at: new Date().toISOString(), results };
   const oldCatalog = readJson(catalogFile);

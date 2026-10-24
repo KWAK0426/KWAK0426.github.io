@@ -24,7 +24,7 @@ export function compareSpectra(pixel, mean) {
   };
 }
 
-export function createSpectrumPanel({map, getReference}) {
+export function createSpectrumPanel({map, getReference, getFieldMask = () => null}) {
   const boundaries = new ol.source.Vector(), marker = new ol.source.Vector();
   const fields = new ol.layer.Vector({source: boundaries, zIndex: 10, style: feature => {
     const selectedName = mode === 'pixel' ? selectedPixel?.field?.get('name') : $('#field-select').value;
@@ -186,13 +186,31 @@ export function createSpectrumPanel({map, getReference}) {
     boundaries.clear(); marker.clear(); tileCache.clear(); selectedPixel = null;
     $('#field-select').innerHTML = '<option value="">필지 선택</option>';
     $('#spectrum-toggle').disabled = !next?.spectrum;
-    $('#show-fields').disabled = !next?.spectrum;
+    const sharedMask = getFieldMask();
+    const fieldsUrl = sharedMask?.url ?? next?.spectrum?.fields;
+    $('#show-fields').disabled = !fieldsUrl;
     empty(next?.spectrum ? '선택한 화소 없음' : '스펙트럼 자료 없음');
-    if (!next?.spectrum) return;
+    if (!fieldsUrl) return;
     try {
-      const response = await fetch(next.spectrum.fields, {cache:'no-store'});
+      const response = await fetch(fieldsUrl, {cache:'no-store'});
       if (!response.ok) throw new Error('필지 경계를 읽지 못했습니다.');
       const doc = await response.json();
+      if (seq !== generation) return;
+      // Boundaries are common; spectral means must still belong to this round.
+      if (next?.spectrum && fieldsUrl !== next.spectrum.fields) {
+        try {
+          const statsResponse = await fetch(next.spectrum.fields, {cache:'no-store'});
+          if (!statsResponse.ok) throw new Error('회차별 필지 통계를 읽지 못했습니다.');
+          const stats = await statsResponse.json();
+          if (seq !== generation) return;
+          const byName = new Map(stats.features.map(f => [f.properties.name, f]));
+          for (const field of doc.features) {
+            const dated = byName.get(field.properties.name);
+            if (dated && JSON.stringify(dated.geometry) === JSON.stringify(field.geometry))
+              field.properties = {...field.properties, ...dated.properties};
+          }
+        } catch (e) { if (seq === generation) empty(e.message); }
+      }
       if (seq !== generation) return;
       const features = new ol.format.GeoJSON().readFeatures(doc, {dataProjection: 'EPSG:4326', featureProjection: map.getView().getProjection()});
       const names = features.map(f => f.get('name'));

@@ -1,6 +1,6 @@
 // Desktop processing prepares the products and metadata; this viewer only reads them.
 /* global ol, proj4 */
-import { createSpectrumPanel } from './spectra.js?v=9';
+import { createSpectrumPanel } from './spectra.js?v=10';
 import { bandLabel } from './bands.js';
 
 const $ = (s) => document.querySelector(s);
@@ -47,7 +47,7 @@ const map = new ol.Map({
   view: new ol.View({ center: ol.proj.fromLonLat([128.88, 35.2]), zoom: 13, maxZoom: 24 }),
 });
 const view = map.getView();
-const spectrumPanel = createSpectrumPanel({map, getReference: o => S.byKey.get(`${o.date}#${o.round}`)?.RE});
+const spectrumPanel = createSpectrumPanel({map, getReference: o => S.byKey.get(`${o.date}#${o.round}`)?.RE, getFieldMask: () => S.catalog?.fieldMask});
 const seamSource = new ol.source.Vector();
 const seamLayer = new ol.layer.Vector({source:seamSource, visible:false, zIndex:8, style:[
   new ol.style.Style({stroke:new ol.style.Stroke({color:'#20282d', width:3})}),
@@ -136,9 +136,12 @@ function spectralControls(o) {
   for (const b of document.querySelectorAll('#band-range button')) b.setAttribute('aria-pressed', String(b.dataset.range === S.range));
   const band = bands.find(b => b.band === S.band);
   if (!band) return null;
-  const [lo, hi] = (S.range === 'minmax' ? ['min', 'max'] : ['p05', 'p95']).map(k => band.stats[k]);
+  const parcelRange = S.range === 'p05p95' && band.fieldStats;
+  const stats = parcelRange ? band.fieldStats : band.stats;
+  const [lo, hi] = (S.range === 'minmax' ? ['min', 'max'] : ['p05', 'p95']).map(k => stats[k]);
   $('#band-legend').hidden = false;
-  $('#band-legend-title').textContent = `${bandLabel(band.wavelengthNm)} · ${S.range === 'minmax' ? 'Min–Max' : 'P05–P95'}`;
+  $('#band-legend-title').textContent = `${bandLabel(band.wavelengthNm)} · ${S.range === 'minmax' ? '전체 Min–Max' : parcelRange ? '필지 P05–P95' : 'P05–P95'}`;
+  $('#band-unit').title = `원 UInt16 / 32768 · 내보내기 배율 독립 확정 전 · ${parcelRange ? '표시 격자에서 공통 필지 안 유효 화소의 P05/P95 · 회차·밴드별 범위' : '원본 전체 alpha 유효 화소 범위'}`;
   $('#band-ramp').style.background = `linear-gradient(90deg,${cfg.palette.map((c, i) => `${c} ${100 * i / (cfg.palette.length - 1)}%`).join(',')})`;
   $('#band-ticks').innerHTML = [lo, (lo + hi) / 2, hi].map(v => `<span>${v.toFixed(4)}</span>`).join('');
   return band;
@@ -150,7 +153,11 @@ function showBand(o, band, gen) {
   const layer = new ol.layer.Image({source, opacity: Number($('#opacity').value) / 100, visible: $('#show').checked});
   S.source = source; S.layer = layer;
   $('#sel-info').textContent = `${bandLabel(band.wavelengthNm)} · 축소 표시 ${cfg.displayWidth} × ${cfg.displayHeight} px`;
-  source.on('imageloadend', () => { if (gen === S.gen) status('밴드별 축소 표시 · 전체 유효 화소 기준 컬러바', 'preview'); });
+  source.on('imageloadend', () => {
+    if (gen !== S.gen) return;
+    const label = S.range === 'p05p95' ? band.fieldStats ? '필지 안 P05–P95' : '전체 유효 화소 P05–P95' : '전체 유효 화소 Min–Max';
+    status(`밴드별 축소 표시 · ${label}`, 'preview');
+  });
   source.on('imageloaderror', () => { if (gen === S.gen) status('밴드 영상을 읽지 못했습니다. 새로고침해 주세요.', 'error'); });
   map.addLayer(layer);
 }
