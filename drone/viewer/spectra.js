@@ -44,7 +44,7 @@ export function createSpectrumPanel({map, getReference}) {
   const point = new ol.layer.Vector({source: marker, zIndex: 20, style: new ol.style.Style({image: new ol.style.Circle({radius: 6, fill: new ol.style.Fill({color: '#e54278'}), stroke: new ol.style.Stroke({color: '#ffffff', width: 2})})})});
   map.addLayer(fields); map.addLayer(point);
   const tileCache = new Map();
-  let reference = null, key = null, mode = 'pixel', yScope = 'fields', generation = 0, clickGeneration = 0, selectedPixel = null;
+  let reference = null, key = null, mode = 'pixel', yScope = 'fields', generation = 0, clickGeneration = 0, selectedPixel = null, pixelLoading = false;
   function open(value) {
     $('#spectrum-panel').hidden = !value;
     $('#spectrum-toggle').setAttribute('aria-expanded', String(value));
@@ -109,7 +109,7 @@ export function createSpectrumPanel({map, getReference}) {
   }
   function drawPixel() {
     marker.clear();
-    if (!selectedPixel) {empty('선택한 화소 없음');fields.changed();return;}
+    if (!selectedPixel) {empty(pixelLoading ? '화소 값을 읽는 중…' : '선택한 화소 없음');fields.changed();return;}
     const p = selectedPixel;
     marker.addFeature(new ol.Feature(new ol.geom.Point(p.coordinate)));
     const note = p.field ? ` · 필지 ${p.field.get('name')}` : p.ambiguous ? ' · 경계 중복: 평균 비교 보류' : ' · 필지 밖: 평균 비교 없음';
@@ -159,9 +159,11 @@ export function createSpectrumPanel({map, getReference}) {
     const row = Math.floor((ymax - y) / (ymax - ymin) * cfg.height);
     const seq = ++clickGeneration;
     selectedPixel = null;
+    pixelLoading = false;
     marker.clear();
     fields.changed();
     if (col < 0 || row < 0 || col >= cfg.width || row >= cfg.height) { empty('표시 범위 밖'); return; }
+    pixelLoading = true;
     empty('화소 값을 읽는 중…');
     try {
       const tile = await loadTile(Math.floor(row / cfg.tileRows));
@@ -174,11 +176,12 @@ export function createSpectrumPanel({map, getReference}) {
       selectedPixel = {values:Array.from({length:10},(_,b)=>get(b)*scale), coordinate, ...containingField(coordinate), provenance:`${cfg.width} × ${cfg.height} 표시 격자 (${col+1}, ${row+1}) · 최근접 원본 화소 · 영역 평균 아님`};
       drawPixel();
     } catch (e) { if (seq === clickGeneration) empty(e.message); }
+    finally { if (seq === clickGeneration) pixelLoading = false; }
   }
   async function setObservation(o) {
     const next = getReference(o);
     if (key === next?.id && reference) return;
-    key = next?.id ?? null; reference = next; clickGeneration++;
+    key = next?.id ?? null; reference = next; clickGeneration++; pixelLoading = false;
     const seq = ++generation;
     boundaries.clear(); marker.clear(); tileCache.clear(); selectedPixel = null;
     $('#field-select').innerHTML = '<option value="">필지 선택</option>';
