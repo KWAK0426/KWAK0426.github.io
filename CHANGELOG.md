@@ -11,6 +11,8 @@
 
 ## 2026-10-25 (일)
 
+- **00:50** · 연코 · 전 날짜 공통 필지와 반사도 RdYlBu_r·필지 대비 적용  
+  `README.md`, `drone/updates/20261024_verified_release.html`, `drone/viewer/app.js`, `drone/viewer/bands/2026-05-10-R3-B01-fields-p05p95-rdylbur.webp`, `drone/viewer/bands/2026-05-10-R3-B01-minmax-rdylbur.webp`, `drone/viewer/bands/2026-05-10-R3-B02-fields-p05p95-rdylbur.webp` 외 285개 (3fe0036)
 - **00:02** · 연코 · 업로드된 다분광 13회차를 밴드별 뷰어에 연결  
   `README.md`, `drone/updates/20261024_verified_release.html`, `drone/viewer/app.js`, `drone/viewer/bands/2026-05-10-R3-B01-minmax.webp`, `drone/viewer/bands/2026-05-10-R3-B01-p05p95.webp`, `drone/viewer/bands/2026-05-10-R3-B02-minmax.webp` 외 276개 (fa9b4d0)
 
