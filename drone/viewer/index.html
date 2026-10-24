@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>모자이크 뷰어</title>
-<meta name="description" content="김해 논 드론 모자이크(광학·다분광)를 위성지도 위에서 보고 Z_est·GSD를 계산합니다">
+<meta name="description" content="김해 논 드론 모자이크·NDVI·밴드별 반사도와 필지 스펙트럼을 조회합니다">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='4' fill='%230f7f86'/%3E%3Cpath d='M4 11.5 8 4l4 7.5z' fill='white'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../../assets/hub.css?v=5">
 <link rel="stylesheet" href="vendor/ol.css">
-<link rel="stylesheet" href="viewer.css?v=5">
+<link rel="stylesheet" href="viewer.css?v=12">
 <script>try{const t=localStorage.getItem('hub-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <script defer src="vendor/geotiff.js"></script>
 <script defer src="vendor/ol.js"></script>
 <script defer src="vendor/proj4.js"></script>
-<script type="module" src="app.js?v=3"></script>
+<script type="module" src="app.js?v=15"></script>
 </head>
 <body class="viewer">
 <header class="topbar">
@@ -24,24 +24,25 @@
       <a class="brand-mark" href="../../" aria-label="연구 현황 홈"><i></i><i></i><i></i><i></i></a>
       <span class="brand-text"><b>모자이크 뷰어</b><small><a href="../../#drone">← 드론 데이터 현황판</a> · 김해 논</small></span>
     </div>
-    <button type="button" class="pill vw-list-btn" id="list-btn" aria-expanded="false" aria-controls="side">회차 목록</button>
+    <div class="vw-top-actions">
+      <button type="button" class="pill" id="spectrum-toggle" aria-expanded="false" aria-controls="spectrum-panel" disabled>스펙트럼</button>
+      <button type="button" class="pill vw-list-btn" id="list-btn" aria-expanded="false" aria-controls="side">날짜 목록</button>
+    </div>
   </div>
 </header>
 <main class="vw-main">
-  <aside class="vw-side" id="side" aria-label="날짜·회차 목록">
+  <aside class="vw-side" id="side" aria-label="관측 날짜 목록">
     <div class="vw-side-h">
-      <div><h1>날짜·회차</h1><p class="muted small" id="updated">목록을 읽는 중…</p></div>
-      <button type="button" class="vw-btn" id="batch" title="계산 안 된 모자이크를 모두 계산">일괄 계산하기</button>
+      <div><h1>관측 날짜</h1><p class="muted small" id="updated">목록을 읽는 중…</p></div>
     </div>
-    <div class="vw-batch" id="batch-status" role="status" aria-live="polite" hidden></div>
     <div class="vw-list" id="list"></div>
     <details class="vw-notices" id="notices" hidden><summary></summary><ul></ul></details>
-    <p class="vw-foot small muted">매일 오전 5시에 Drive의 새 자료를 확인해 목록과 계산 결과를 자동으로 갱신합니다.</p>
   </aside>
   <section class="vw-map-wrap" id="map-wrap" aria-label="위성지도와 모자이크">
     <div id="map" class="vw-map" tabindex="0" aria-label="확대·이동 가능한 지도"></div>
     <div class="vw-card vw-head" id="head">
       <div class="vw-title"><b id="sel-title">회차를 고르세요</b><span class="muted small" id="sel-info"></span></div>
+      <label class="vw-round-picker">회차 <select id="round-select" aria-label="관측 회차 선택" disabled></select></label>
       <div class="vw-seg" role="group" aria-label="모자이크 종류" id="kind-seg">
         <button type="button" data-kind="RGB" aria-pressed="false">광학</button>
         <button type="button" data-kind="RE" aria-pressed="false">다분광</button>
@@ -55,19 +56,22 @@
           <button type="button" data-range="minmax" aria-pressed="false">Min–Max</button>
         </div>
       </div>
+      <a class="vw-link vw-metadata" id="round-metadata" download hidden>회차 메타데이터 CSV</a>
     </div>
-    <div class="vw-card vw-calc" id="calc" hidden></div>
     <div class="vw-card vw-ndvi" id="band-legend" hidden>
       <b id="band-legend-title"></b><div class="vw-ndvi-ramp" id="band-ramp"></div>
       <div class="vw-ndvi-ticks" id="band-ticks"></div>
       <div class="vw-band-note" id="band-unit" title="원 UInt16 / 32768. 보정된 Metashape 규약에 따른 해석이며 내보내기 배율을 독립 확정한 것은 아닙니다.">반사도 (비율) · UInt16 / 32768</div>
     </div>
     <div class="vw-card vw-ndvi" id="ndvi-legend" hidden>
-      <b>NDVI</b><div class="vw-ndvi-ramp"></div>
-      <div class="vw-ndvi-ticks"><span>-1</span><span>-0.5</span><span>0</span><span>0.5</span><span>1</span></div>
+      <b>NDVI · viridis</b><div class="vw-ndvi-ramp" id="ndvi-ramp"></div>
+      <div class="vw-ndvi-ticks"><span>0</span><span>0.25</span><span>0.5</span><span>0.75</span><span>1</span></div>
     </div>
     <div class="vw-card vw-ctrl">
       <label class="vw-row"><input type="checkbox" id="show" checked> 모자이크 보기</label>
+      <label class="vw-row"><input type="checkbox" id="show-fields" checked disabled> 필지 경계</label>
+      <label class="vw-row"><input type="checkbox" id="show-seams" disabled><span class="vw-seam-key" aria-hidden="true"></span> 심라인</label>
+      <span class="small muted" id="seam-status" role="status" hidden></span>
       <label class="vw-row">투명도 <input type="range" id="opacity" min="0" max="100" value="100" aria-label="모자이크 불투명도"></label>
       <div class="vw-seg sm" role="group" aria-label="배경지도"><button type="button" id="bg-sat" aria-pressed="true">위성</button><button type="button" id="bg-osm" aria-pressed="false">일반지도</button></div>
       <button type="button" class="vw-icon" id="fit" title="모자이크 전체 보기" aria-label="모자이크 전체 보기">⌖</button>
@@ -75,6 +79,34 @@
     <div class="vw-status" id="status" role="status" aria-live="polite" hidden></div>
     <div class="vw-foot-map small"><span id="coord"></span><span id="res"></span></div>
   </section>
+  <aside class="vw-spectrum" id="spectrum-panel" aria-label="분광 스펙트럼" hidden>
+    <div class="vw-spec-head"><h2>분광 스펙트럼</h2><button type="button" class="vw-link" id="spectrum-close">접기</button></div>
+    <div class="vw-seg" id="spectrum-mode" role="group" aria-label="스펙트럼 분석 단위">
+      <button type="button" data-mode="pixel" aria-pressed="true">선택 화소</button>
+      <button type="button" data-mode="field" aria-pressed="false">필지 평균</button>
+    </div>
+    <div class="spec-axis-control"><span>Y축 범위</span><div class="vw-seg sm" id="spectrum-y-scope" role="group" aria-label="회차 공통 Y축 범위">
+      <button type="button" data-scope="fields" aria-pressed="true" title="이 회차 모든 필지 평균 스펙트럼의 최댓값 × 1.1 · 공통 상한">필지</button>
+      <button type="button" data-scope="all" aria-pressed="false" title="이 회차 영상 전체 유효 화소 · 10밴드 공통 범위">전체</button>
+    </div></div>
+    <label id="field-select-wrap" hidden>필지 <select id="field-select" aria-label="평균 스펙트럼 필지 선택"><option value="">필지 선택</option></select></label>
+    <label class="vw-row spec-mean-toggle" id="pixel-mean-wrap"><input type="checkbox" id="pixel-show-mean" checked disabled> 필지 평균선 표시</label>
+    <h3 id="spectrum-heading">선택 대표화소</h3>
+    <p id="spectrum-message">선택한 화소 없음</p>
+    <div class="spec-series-legend" id="spectrum-series-legend"></div>
+    <div id="spectrum-chart"></div>
+    <section class="spec-comparison" id="spectrum-comparison" hidden aria-label="필지 평균 대비 차이">
+      <h4 id="spectrum-comparison-title"></h4>
+      <dl class="spec-metrics">
+        <div><dt title="10밴드 벡터 사이 각도. 0°에 가까울수록 형태가 유사하며 영벡터는 계산할 수 없습니다.">SAM (°)</dt><dd data-metric="sam"></dd></div>
+        <div><dt title="100 × sqrt(mean((화소-필지평균)^2)) / mean(필지평균). 10밴드 동일 가중이며 기준 평균이 0 이하면 계산하지 않습니다.">rRMSE (%)</dt><dd data-metric="rrmse"></dd></div>
+        <div><dt title="100 × mean(화소-필지평균) / mean(필지평균). 양수는 평균보다 높고 음수는 낮습니다.">Bias (%)</dt><dd data-metric="bias"></dd></div>
+      </dl>
+      <p>10밴드 기준 · 독립 정확도 검증 아님</p>
+    </section>
+    <p id="spectrum-provenance"></p>
+    <table id="spectrum-values"></table>
+  </aside>
 </main>
 <noscript>이 뷰어를 쓰려면 JavaScript를 켜 주세요.</noscript>
 </body>

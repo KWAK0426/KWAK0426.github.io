@@ -7,7 +7,7 @@
 | `/` | 통합 요약 (이 저장소) | 아래 두 자료를 브라우저에서 읽어 요약 |
 | `/work-board/` | 업무 게시판 (별도 저장소 `work-board`) | `work-board/data.json` · 게시판 앱이 게시 |
 | `/drone/` | 피복·장소별 드론 관측자료 현황판 공개본 (기본: 김해 농지) | `drone/summary.json` · 이 저장소에 복사 |
-| `/drone/viewer/` | 김해 논 모자이크 뷰어 (광학·다분광, Z_est·GSD) | `drone/viewer/catalog.json`·`results.json` · 매일 05:00 자동 갱신 |
+| `/drone/viewer/` | 김해 논 모자이크 뷰어 (RGB·다분광·NDVI·등록 필지/스펙트럼) | `drone/viewer/catalog.json`·회차 CSV · 기존 매일 05:00 자동 갱신 유지 |
 | `/mosaic-viewer/` | 다른 현장 모자이크 뷰어 (별도 저장소 `mosaic-viewer`) | 그 저장소에서 관리 |
 
 **새 PC에서 시작:** [START_NEW_PC.md](START_NEW_PC.md) · **업데이트 기록:** [CHANGELOG.md](CHANGELOG.md) (어느 PC·GitHub 웹에서 고쳐도 자동 기록)
@@ -42,7 +42,7 @@ GitHub Actions(`.github/workflows/changelog.yml`)가 git 기록으로 `CHANGELOG
 
 **Z_est·GSD** — 평균 Z_est = 촬영 지점마다 (GPS 고도 + 보정값) − DEM, 이착륙처럼 중앙값에서 max(5 m, 20%) 넘게 벗어난 점은 뺀다.
 GSD = 픽셀 크기 × Z_est ÷ 초점거리. 카메라 값·고도 보정은 `tools/mosaic/config.json`(기본값은 '값 확인 필요'로 표시).
-입력 파일(이름·크기·수정 시각)·카메라 값이 같으면 다시 계산하지 않는다. 뷰어의 'GSD 계산하기'·'일괄 계산하기'는 같은 코드(`drone/viewer/zest.js`)로 브라우저에서 계산해 그 기기에 보관하고, PC 결과가 올라오면 그 값을 쓴다.
+입력 파일(이름·크기·수정 시각)·카메라 값이 같으면 데스크톱 자동화는 다시 계산하지 않는다. 현재 뷰어의 'GSD 계산하기'·'일괄 계산하기' 기능은 제거했다. 계산은 데스크톱에서 하고 승인된 회차 CSV를 뷰어에서 조회한다. 공유 계산 모듈 `drone/viewer/zest.js`와 기존 자동화·결과 파일은 보존한다. 새 표시 자료의 공개 범위와 검증 한계는 [2026-10-24 배포 기록](drone/updates/20261024_verified_release.html)을 따른다.
 시험: `cd tools/mosaic && npm install && npm test`
 
 ```powershell

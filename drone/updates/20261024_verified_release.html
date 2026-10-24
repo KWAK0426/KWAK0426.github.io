@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2026-10-24 현황판 배포 기록</title>
+<style>body{font:17px/1.7 system-ui,sans-serif;color:#e6edf3;background:#121719;margin:0}main{max-width:850px;margin:auto;padding:28px 20px}h1{font-size:28px}h2{font-size:21px;margin-top:32px}a{color:#69d5cb}li{margin:10px 0}table{border-collapse:collapse;width:100%}th,td{padding:10px;text-align:left;border-bottom:1px solid #3b4449}small{color:#bbc5cb}</style>
+<main>
+<a href="../">현황판</a> · <a href="../viewer/?date=2026-10-07&amp;round=1&amp;kind=RE&amp;band=6">뷰어</a>
+<h1>2026-10-24 검증된 표시 자료 배포</h1>
+<p>사용자 승인에 따라 필지 경계·평균 스펙트럼·축소 격자 대표 화소값, 심라인과 검증된 1m RGB 대체 영상을 공개합니다. 원본 Photos·개별 GPS 목록·로컬 경로·분석용 TIFF는 포함하지 않습니다.</p>
+<h2>포함 항목</h2>
+<ul>
+<li>10/7 1차: 파장순 10밴드, 필지 1~19 고유 번호, 필지 평균/대표 화소 스펙트럼과 내부 유사도. x축은 400~900nm 실제 파장 간격이며 필지 공통 y축은 모든 필지 평균의 최댓값 +10%입니다.</li>
+<li>10/7 1차: 실제 선택영상 경계(심라인), NDVI viridis 0~1 표시, 회차 CSV 조회. 브라우저 일괄 GSD 계산 기능은 제거했습니다.</li>
+<li>1m 다분광 RGB 대체 19회차: 5/10 3~5차, 6/30 1차, 7/16 1~2차, 7/31 1~5차, 9/8 1~4차, 9/23 1~3차, 10/7 1차. 실제 광학 카메라 영상과 구분합니다.</li>
+</ul>
+<h2>해석상 한계</h2>
+<p>표시·수치 전달 검증은 절대 반사도 정확도 인증이 아닙니다. 일부 입력의 UInt16 반사도 배율은 기존 Metashape 규약에 따른 해석으로, 독립 내보내기 로그 검증은 남아 있습니다. 대표 화소 조회는 1000×715 표시 격자 중심에 대응하는 원본 최근접 화소이며 전체 원해상도 조회가 아닙니다. SAM·rRMSE·Bias는 소속 필지 평균과의 내부 차이로, 독립 정답 대비 정확도는 아닙니다.</p>
+<p>10/7 회차 CSV는 원자료 드라이브를 다시 읽지 못한 저장 처리 기록입니다. 미확인 기하 항목은 빈칸으로 유지했으며 현재 원자료 검증 완료로 표시하지 않습니다.</p>
+<h2>제외·보류</h2>
+<table><thead><tr><th>항목</th><th>이유</th></tr></thead><tbody>
+<tr><td>5/10 2차, 8/24 2차, 9/21 3·4차 RGB 대체</td><td>제외 회차 또는 5밴드 파장/회차 대응 미확정</td></tr>
+<tr><td>6/10 ELC 정량 승인</td><td>1차 타프 출력 출처 미확정, 3차 타프 처리 폴더의 실제 4차 혼입, ELC 물리 파장·계수 연결 재검증 필요</td></tr>
+<tr><td>6/10 5·6차 반사도 모자이크</td><td>조사한 처리 위치에 정사 Photos·모자이크 미확인. 방사보정+센서 교정만으로 반사도나 정사화가 완료되지는 않음</td></tr>
+</tbody></table>
+<h2>검사 기준</h2>
+<p>등록된 표시 파일·스펙트럼 청크·필지·심라인의 읽기와 참조 무결성, 19개 필지의 공통축 및 고유 번호, 데스크톱/모바일 표시, 자동 갱신 시 등록 유지, 비공개 경로·원영상·개별 GPS 제외를 확인합니다. 원자료를 옮기거나 지우거나 재처리하는 배포가 아닙니다.</p>
+<small>김해 농지의 사용자 확정 9개 날짜·44회차 및 날짜당 6칸 규칙은 유지합니다. 최신 출처 점검을 과거 자료의 보정 완료로 해석하지 않습니다.</small>
+</main>
+</html>

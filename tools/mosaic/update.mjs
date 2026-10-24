@@ -239,13 +239,25 @@ export async function run({
   // Explicitly published display products survive scans on PCs without their analytical sources.
   const published = readJson(publishedFile, { observations: [] }).observations ?? [];
   for (const o of published) {
-    if (!o.id || !o.driveFileId || !['RGB', 'RE', 'NDVI'].includes(o.kind)
+    if (!o.id || (!o.driveFileId && !o.staticImage) || !['RGB', 'RE', 'NDVI'].includes(o.kind)
         || !Array.isArray(o.bounds) || o.bounds.length !== 4 || !o.bounds.every(Number.isFinite)) {
       throw new Error('공개 표시용 영상 등록 형식 오류');
     }
+    if (o.staticImage && (!/^rgb_1m\/[A-Za-z0-9_-]+\.webp$/.test(o.staticImage.url)
+        || o.staticImage.projection !== 'EPSG:32652'
+        || !Array.isArray(o.staticImage.extent) || o.staticImage.extent.length !== 4 || !o.staticImage.extent.every(Number.isFinite)
+        || !o.derivedFromMultispectral || o.isOptical !== false || o.mosaic_px_cm !== 100)) {
+      throw new Error('1m RGB 대체 영상 등록 형식 오류');
+    }
     if (o.dem || o.gps || /[A-Za-z]:[\\/]|Users[\\/]/.test(JSON.stringify(o))) throw new Error('공개 표시 목록에 원본 참조 금지');
   }
-  const observations = [...new Map([...generated, ...published].map((o) => [o.id, o])).values()];
+  const registered = new Map(generated.map(o => [o.id,o]));
+  for (const o of published) {
+    const existing = registered.get(o.id);
+    if (o.derivedFromMultispectral && existing?.kind === 'RGB' && !existing.derivedFromMultispectral) continue;
+    registered.set(o.id,o);
+  }
+  const observations = [...registered.values()];
   const pending = ready.filter((it) => !it.viewId).map((it) => it.id);
 
   // Z_est·GSD (입력이 같으면 이전 결과 유지)

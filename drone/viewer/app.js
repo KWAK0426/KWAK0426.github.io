@@ -1,19 +1,13 @@
-// 김해 논 모자이크 뷰어: 날짜·회차별 광학(RGB)·다분광(RE) 모자이크를 위성지도 위에 보여 주고
-// 'GSD 계산하기'로 평균 Z_est(GPS 고도 − DEM)와 GSD를 계산한다.
-// 계산 결과는 PC가 매일 05:00 계산해 results.json으로 올리고(모두에게 유지),
-// 이 화면에서 직접 계산한 결과는 PC 결과가 올라오기 전까지 이 기기에 보관한다.
-/* global ol, GeoTIFF, proj4 */
-import { computeZest, signature, decodeText } from './zest.js';
+// Desktop processing prepares the products and metadata; this viewer only reads them.
+/* global ol, proj4 */
+import { createSpectrumPanel } from './spectra.js?v=8';
+import { bandLabel } from './bands.js';
 
 const $ = (s) => document.querySelector(s);
 const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const KIND = { RGB: '광학', RE: '다분광', NDVI: 'NDVI' };
-const KINDS = Object.keys(KIND);
-const store = {
-  get(k) { try { return JSON.parse(localStorage.getItem(`mv.${k}`)); } catch { return null; } },
-  set(k, v) { try { localStorage.setItem(`mv.${k}`, JSON.stringify(v)); } catch { /* 저장 불가 환경 */ } },
-};
-const S = { catalog: null, results: {}, byKey: new Map(), sel: null, layer: null, source: null, gen: 0, busy: new Set() };
+const kindLabel = o => o?.derivedFromMultispectral ? 'RGB 대체' : KIND[o?.kind];
+const S = { catalog: null, byKey: new Map(), sel: null, layer: null, source: null, gen: 0 };
 
 // ---- Drive 파일 읽기 --------------------------------------------------------------
 // Drive는 바이트 구간 요청과 CORS를 지원하지만 Content-Range 머리글을 브라우저에 보여 주지 않는다.
@@ -53,6 +47,14 @@ const map = new ol.Map({
   view: new ol.View({ center: ol.proj.fromLonLat([128.88, 35.2]), zoom: 13, maxZoom: 24 }),
 });
 const view = map.getView();
+const spectrumPanel = createSpectrumPanel({map, getReference: o => S.byKey.get(`${o.date}#${o.round}`)?.RE});
+const seamSource = new ol.source.Vector();
+const seamLayer = new ol.layer.Vector({source:seamSource, visible:false, zIndex:8, style:[
+  new ol.style.Style({stroke:new ol.style.Stroke({color:'#20282d', width:3})}),
+  new ol.style.Style({stroke:new ol.style.Stroke({color:'#ffc145', width:1.5})}),
+]});
+map.addLayer(seamLayer);
+let seamUrl = null, seamTask = null, seamGeneration = 0;
 function status(text, kind = '') { const el = $('#status'); el.textContent = text; el.className = `vw-status ${kind}`; el.hidden = !text; }
 function fit() {
   if (!S.sel?.bounds) return;
@@ -61,37 +63,56 @@ function fit() {
 
 // ---- 목록 ------------------------------------------------------------------------
 const keyOf = (o) => `${o.date}#${o.round}`;
-const md = (d) => `${Number(d.slice(5, 7))}/${Number(d.slice(8))}`;
-function resultFor(o) {
-  const cam = S.catalog.cameras?.[o.kind];
-  const sig = signature(o, cam, S.catalog.alt_offset_m ?? 0);
-  const pc = S.results[o.id];
-  if (pc && pc.signature === sig) return pc;
-  const local = store.get(`zest.${o.id}`);
-  if (local && local.signature === sig) return { ...local, source: 'local' };
-  return null;
+async function syncSeamlines(o) {
+  const cfg = o?.seamlines ?? S.byKey.get(o && keyOf(o))?.RE?.seamlines;
+  const url = cfg?.url ?? null, checkbox = $('#show-seams'), note = $('#seam-status');
+  if (url !== seamUrl) {
+    seamUrl = url; seamTask = null; seamGeneration++; seamSource.clear();
+  }
+  checkbox.disabled = !url;
+  checkbox.title = url ? '실제로 선택된 Photos가 바뀌는 경계 · 모자이크 외곽 포함' : '이 회차의 선택영상 경계 자료 미등록';
+  seamLayer.setVisible(Boolean(url && checkbox.checked));
+  note.hidden = true;
+  if (!url || !checkbox.checked || seamSource.getFeatures().length) return;
+  const seq = seamGeneration;
+  note.textContent = '심라인을 읽는 중…'; note.hidden = false;
+  try {
+    seamTask ??= fetch(url).then(r => {
+      if (!r.ok) throw new Error('심라인 자료를 읽지 못했습니다.');
+      if (!url.endsWith('.gz')) return r.json();
+      if (!('DecompressionStream' in window)) throw new Error('이 브라우저는 압축 심라인 읽기를 지원하지 않습니다.');
+      return new Response(r.body.pipeThrough(new DecompressionStream('gzip'))).json();
+    });
+    const doc = await seamTask;
+    if (seq !== seamGeneration || seamSource.getFeatures().length) return;
+    const features = new ol.format.GeoJSON().readFeatures(doc, {dataProjection:'EPSG:4326', featureProjection:view.getProjection()});
+    if (!features.length) throw new Error('심라인 경계 자료가 비어 있습니다.');
+    seamSource.addFeatures(features);
+    note.hidden = true;
+  } catch (e) {
+    if (seq !== seamGeneration) return;
+    seamTask = null; seamLayer.setVisible(false); checkbox.checked = false;
+    note.textContent = e.message; note.hidden = false;
+  }
 }
-const canCompute = (o) => !!(o.dem?.driveFileId && o.gps?.driveFileId && o.dem?.proj4 !== undefined);
+const roundsFor = date => [...new Set(S.catalog.observations.filter(o => o.date === date).map(o => o.round))].sort((a, b) => a - b);
+function observationFor(date, round, kind = S.sel?.kind) {
+  const group = S.byKey.get(`${date}#${round}`);
+  return group && (group[kind] ?? group.RGB ?? group.RE ?? group.NDVI);
+}
+function descriptionFor(o) {
+  const cfg = o.spectral ?? S.byKey.get(keyOf(o))?.RE?.spectral;
+  return o.type.replace(/\bB(\d+)\b/g, (label, n) => {
+    const band = cfg?.bands.find(b => b.band === Number(n));
+    return band ? bandLabel(band.wavelengthNm) : label;
+  });
+}
 const fmt = (v, d = 1) => (v == null ? '—' : Number(v).toFixed(d));
 
 function renderList() {
-  const groups = new Map();
-  for (const o of S.catalog.observations) {
-    if (!groups.has(o.date)) groups.set(o.date, new Map());
-    const g = groups.get(o.date);
-    g.set(o.round, { ...(g.get(o.round) ?? {}), [o.kind]: o });
-  }
-  const dates = [...groups.keys()].sort().reverse();
-  $('#list').innerHTML = dates.length ? dates.map((d) => `<div class="vw-date">${md(d)} <span class="muted">(${d})</span></div>`
-    + [...groups.get(d).entries()].sort((a, b) => a[0] - b[0]).map(([n, kinds]) => {
-      const on = S.sel && keyOf(S.sel) === `${d}#${n}`;
-      const res = ['RGB', 'RE'].map((k) => kinds[k] && resultFor(kinds[k])).map((r, i) => (r && !r.error ? `${KIND[['RGB', 'RE'][i]]} Z ${fmt(r.z_mean_m)} m · GSD ${fmt(r.gsd_cm, 2)} cm${r.warnings?.length ? ' <span class="warn">⚠</span>' : ''}` : null)).filter(Boolean);
-      return `<div class="vw-round ${on ? 'on' : ''}"><b>${n}차</b><div class="vw-chips">${KINDS.map((k) => (kinds[k]
-        ? `<button type="button" class="vw-chip" data-id="${esc(kinds[k].id)}" aria-pressed="${S.sel?.id === kinds[k].id}">${KIND[k]}</button>`
-        : `<span class="vw-chip none" title="${KIND[k]} 모자이크 없음">${KIND[k]} 없음</span>`)).join('')}</div>
-        ${res.length ? `<div class="vw-res">${res.join('<br>')}</div>` : ''}</div>`;
-    }).join('')).join('')
-    : `<div class="vw-empty"><b>아직 등록된 모자이크가 없습니다</b><p>내 드라이브 <code>김해논_드론/날짜/</code> 폴더에 <code>YYMMDD_R1_RGB.tif</code>, <code>YYMMDD_R1_RE.tif</code>, <code>YYMMDD_DEM.tif</code>, <code>YYMMDD_R1_GPS.csv</code> 이름으로 넣으면 다음 날 오전 5시에 자동으로 나타납니다.</p></div>`;
+  const dates = [...new Set(S.catalog.observations.map(o => o.date))].sort().reverse();
+  $('#list').innerHTML = dates.length ? dates.map(d => `<button type="button" class="vw-date" data-date="${esc(d)}" aria-pressed="${S.sel?.date === d}">${esc(d)}</button>`).join('')
+    : '<div class="vw-empty"><b>아직 등록된 모자이크가 없습니다</b></div>';
   const pending = S.catalog.pending?.length ?? 0;
   const t = new Date(S.catalog.updated_at);
   $('#updated').textContent = `모자이크 ${S.catalog.observations.length}개${pending ? ` · Drive 업로드 대기 ${pending}개` : ''} · ${Number.isNaN(t.getTime()) ? '' : `${t.toLocaleString('ko-KR', { timeZone: 'Asia/Seoul', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' })} 갱신`}`;
@@ -99,9 +120,6 @@ function renderList() {
   $('#notices').hidden = !notes.length;
   $('#notices summary').textContent = `확인 필요 ${notes.length}건 (파일 이름·빠진 자료)`;
   $('#notices ul').innerHTML = notes.map((n) => `<li>${esc(n)}</li>`).join('');
-  const todo = S.catalog.observations.filter((o) => !resultFor(o) && canCompute(o));
-  $('#batch').disabled = !todo.length || S.busy.size > 0;
-  $('#batch').title = todo.length ? `계산 안 된 모자이크 ${todo.length}개를 계산합니다` : '계산할 모자이크가 없습니다 (모두 계산됨)';
 }
 
 // ---- 모자이크 열기 -------------------------------------------------------------------
@@ -112,7 +130,7 @@ function spectralControls(o) {
   if (!cfg) return null;
   const bands = [...cfg.bands].sort((a, b) => a.wavelengthNm - b.wavelengthNm);
   if (!bands.some(b => b.band === S.band)) S.band = 0;
-  $('#band-select').innerHTML = '<option value="0">RGB 합성</option>' + bands.map(b => `<option value="${b.band}">B${b.band} · ${b.wavelengthNm} nm</option>`).join('');
+  $('#band-select').innerHTML = '<option value="0">RGB 합성</option>' + bands.map(b => `<option value="${b.band}">${bandLabel(b.wavelengthNm)}</option>`).join('');
   $('#band-select').value = String(S.band);
   $('#band-range').hidden = S.band === 0;
   for (const b of document.querySelectorAll('#band-range button')) b.setAttribute('aria-pressed', String(b.dataset.range === S.range));
@@ -120,7 +138,7 @@ function spectralControls(o) {
   if (!band) return null;
   const [lo, hi] = (S.range === 'minmax' ? ['min', 'max'] : ['p05', 'p95']).map(k => band.stats[k]);
   $('#band-legend').hidden = false;
-  $('#band-legend-title').textContent = `${band.wavelengthNm} nm · ${S.range === 'minmax' ? 'Min–Max' : 'P05–P95'}`;
+  $('#band-legend-title').textContent = `${bandLabel(band.wavelengthNm)} · ${S.range === 'minmax' ? 'Min–Max' : 'P05–P95'}`;
   $('#band-ramp').style.background = `linear-gradient(90deg,${cfg.palette.map((c, i) => `${c} ${100 * i / (cfg.palette.length - 1)}%`).join(',')})`;
   $('#band-ticks').innerHTML = [lo, (lo + hi) / 2, hi].map(v => `<span>${v.toFixed(4)}</span>`).join('');
   return band;
@@ -131,26 +149,50 @@ function showBand(o, band, gen) {
   const source = new ol.source.ImageStatic({ url: band.images[S.range], projection: cfg.projection, imageExtent: cfg.extent, interpolate: false });
   const layer = new ol.layer.Image({source, opacity: Number($('#opacity').value) / 100, visible: $('#show').checked});
   S.source = source; S.layer = layer;
-  $('#sel-info').textContent = `B${band.band} · ${band.wavelengthNm} nm · 축소 표시 ${cfg.displayWidth} × ${cfg.displayHeight} px`;
+  $('#sel-info').textContent = `${bandLabel(band.wavelengthNm)} · 축소 표시 ${cfg.displayWidth} × ${cfg.displayHeight} px`;
   source.on('imageloadend', () => { if (gen === S.gen) status('밴드별 축소 표시 · 전체 유효 화소 기준 컬러바', 'preview'); });
   source.on('imageloaderror', () => { if (gen === S.gen) status('밴드 영상을 읽지 못했습니다. 새로고침해 주세요.', 'error'); });
   map.addLayer(layer);
 }
 
+function showStaticMosaic(o, gen, image = o.staticImage) {
+  if (image.projection === 'EPSG:32652') {
+    proj4.defs('EPSG:32652', '+proj=utm +zone=52 +datum=WGS84 +units=m +no_defs');
+    ol.proj.proj4.register(proj4);
+  }
+  const source = new ol.source.ImageStatic({url:image.url, projection:image.projection, imageExtent:image.extent, interpolate:false});
+  S.source = source;
+  S.layer = new ol.layer.Image({source, opacity:Number($('#opacity').value)/100, visible:$('#show').checked});
+  source.on('imageloadend', () => {if (gen === S.gen) status('');});
+  source.on('imageloaderror', () => {if (gen === S.gen) status('모자이크 영상을 불러오지 못했습니다.', 'error');});
+  map.addLayer(S.layer);
+}
+
 async function select(o, { fitView = true } = {}) {
   const gen = ++S.gen;
   S.sel = o;
+  void syncSeamlines(o);
+  $('#round-select').innerHTML = roundsFor(o.date).map(n => `<option value="${n}">${n}회차</option>`).join('');
+  $('#round-select').value = String(o.round);
+  $('#round-select').disabled = false;
+  void spectrumPanel.setObservation(o);
   if (S.layer) { map.removeLayer(S.layer); S.layer.dispose(); S.layer = null; }
   if (S.source) { S.source.dispose(); S.source = null; }
   $('#sel-title').textContent = o.title;
-  $('#sel-info').textContent = `${o.type}${o.width ? ` · ${o.width.toLocaleString()} × ${o.height.toLocaleString()} px` : ''}${o.mosaic_px_cm ? ` · 픽셀 ${fmt(o.mosaic_px_cm, 2)} cm` : ''}`;
+  $('#sel-info').textContent = `${descriptionFor(o)}${o.width ? ` · ${o.width.toLocaleString()} × ${o.height.toLocaleString()} px` : ''}${o.mosaic_px_cm ? ` · 픽셀 ${o.mosaic_px_cm >= 100 ? `${fmt(o.mosaic_px_cm/100,2)} m` : `${fmt(o.mosaic_px_cm,2)} cm`}` : ''}`;
   $('#ndvi-legend').hidden = o.kind !== 'NDVI';
+  if (o.ndviDisplay) $('#ndvi-ramp').style.background = `linear-gradient(90deg,${o.ndviDisplay.palette.join(',')})`;
   const band = spectralControls(o);
   const sib = S.byKey.get(keyOf(o)) ?? {};
+  const metadataCsv = o.metadataCsv ?? sib.RE?.metadataCsv;
+  $('#round-metadata').hidden = !metadataCsv;
+  if (metadataCsv) $('#round-metadata').href = metadataCsv;
+  else $('#round-metadata').removeAttribute('href');
   for (const b of document.querySelectorAll('#kind-seg button')) {
+    b.textContent = sib[b.dataset.kind] ? kindLabel(sib[b.dataset.kind]) : KIND[b.dataset.kind];
     b.disabled = !sib[b.dataset.kind];
     b.setAttribute('aria-pressed', String(b.dataset.kind === o.kind));
-    b.title = sib[b.dataset.kind] ? '' : `이 회차에는 ${KIND[b.dataset.kind]} 모자이크가 없습니다`;
+    b.title = sib[b.dataset.kind] ? '' : `이 뷰어에 해당 회차의 ${KIND[b.dataset.kind]} 모자이크가 아직 등록되지 않았습니다`;
   }
   const p = new URLSearchParams(location.search);
   p.set('date', o.date); p.set('round', o.round); p.set('kind', o.kind); p.delete('id');
@@ -158,11 +200,17 @@ async function select(o, { fitView = true } = {}) {
   else { p.delete('band'); p.delete('range'); }
   history.replaceState(null, '', `${location.pathname}?${p}`);
   renderList();
-  renderCalc();
   closeSide();
   if (fitView) fit();
   status('모자이크를 불러오는 중…');
   if (band) { showBand(o, band, gen); return; }
+  // The old Drive NDVI COG is already colorized with a different range.
+  if (o.kind === 'NDVI' && o.ndviDisplay) {
+    $('#sel-info').textContent = `NDVI · viridis · 0–1 · 축소 표시 ${o.ndviDisplay.width} × ${o.ndviDisplay.height} px`;
+    showStaticMosaic(o, gen, o.ndviDisplay);
+    return;
+  }
+  if (o.staticImage) {showStaticMosaic(o, gen); return;}
   const source = new ol.source.GeoTIFF({
     sources: [{ url: driveFile(o), min: 0, max: 255 }], normalize: true, convertToRGB: 'auto', interpolate: true,
     sourceOptions: { allowFullFile: false, maxRanges: 1, blockSize: 65536, cacheSize: 100 },
@@ -188,7 +236,7 @@ async function select(o, { fitView = true } = {}) {
     const previewLayer = new ol.layer.Image({ source: preview, opacity: Number($('#opacity').value) / 100, visible: $('#show').checked });
     S.layer = previewLayer;
     map.addLayer(previewLayer);
-    $('#sel-info').textContent = `${o.type} · 축소 미리보기 · 원본 ${o.width.toLocaleString()} × ${o.height.toLocaleString()} px`;
+    $('#sel-info').textContent = `${descriptionFor(o)} · 축소 미리보기 · 원본 ${o.width.toLocaleString()} × ${o.height.toLocaleString()} px`;
     status('축소 미리보기 · 고해상도 Drive 연결 확인 필요', 'preview');
   };
   source.on('tileloadstart', () => { if (gen === S.gen) pending++; });
@@ -202,94 +250,11 @@ async function select(o, { fitView = true } = {}) {
   } catch (e) { console.error(e); fail(); }
 }
 
-// ---- Z_est·GSD -----------------------------------------------------------------------
-function renderCalc(progress = null, error = null) {
-  const o = S.sel;
-  const box = $('#calc');
-  if (!o || o.analysisPrivate || o.kind === 'NDVI') { box.hidden = true; return; }
-  box.hidden = false;
-  const r = resultFor(o);
-  const cam = S.catalog.cameras?.[o.kind];
-  const busy = S.busy.has(o.id);
-  const head = `<h2><span>${KIND[o.kind]} · Z_est·GSD</span>${r && !busy ? '<button type="button" class="vw-link" id="recalc" title="입력이 같아도 다시 계산">다시 계산</button>' : ''}</h2>`;
-  if (busy) {
-    box.innerHTML = `${head}<p>계산 중… GPS 점마다 DEM 고도를 읽고 있습니다</p><div class="vw-progress"><i style="width:${Math.round((progress ?? 0) * 100)}%"></i></div>`;
-    return;
-  }
-  if (!r || r.error) {
-    const why = !o.dem ? '이 회차의 DEM이 없습니다' : !o.gps ? '이 회차의 GPS가 없습니다' : !canCompute(o) ? 'DEM·GPS가 아직 Drive에 올라가지 않았습니다' : '';
-    box.innerHTML = `${head}${why ? `<p class="muted">${why}</p>` : `<button type="button" class="vw-btn solid" id="calc-btn">GSD 계산하기</button>
-      <p class="vw-src">평균 Z_est = GPS 고도 − DEM (촬영 지점마다) · GSD = 픽셀 ${cam?.pixel_um ?? '?'} µm × Z_est ÷ 초점거리 ${cam?.focal_mm ?? '?'} mm</p>`}
-      ${r?.error || error ? `<p class="vw-err">계산 실패: ${esc(error ?? r.error)}</p>` : ''}`;
-    $('#calc-btn')?.addEventListener('click', () => calc(o));
-    return;
-  }
-  const when = new Date(r.computed_at).toLocaleString('ko-KR', { timeZone: 'Asia/Seoul', year: '2-digit', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' });
-  box.innerHTML = `${head}<dl class="vw-kv">
-      <dt>평균 Z_est</dt><dd class="big">${fmt(r.z_mean_m, 2)} m</dd>
-      <dt>GSD (Z_est 기준)</dt><dd class="big">${fmt(r.gsd_cm, 2)} cm</dd>
-      <dt>중앙값 · 표준편차</dt><dd>${fmt(r.z_median_m, 2)} · ${fmt(r.z_sd_m, 2)} m</dd>
-      <dt>사용한 GPS 점</dt><dd>${r.n_used} / ${r.n_total}${r.n_outlier ? ` (이착륙 등 ${r.n_outlier} 제외)` : ''}${r.n_outside ? ` · DEM 밖 ${r.n_outside}` : ''}</dd>
-      <dt>모자이크 픽셀</dt><dd>${fmt(r.mosaic_px_cm ?? o.mosaic_px_cm, 2)} cm</dd>
-      <dt>카메라</dt><dd>${esc(r.camera?.name ?? '—')}${r.camera ? ` · ${r.camera.focal_mm} mm · ${r.camera.pixel_um} µm` : ''}</dd>
-    </dl>
-    ${r.camera && !r.camera.confirmed ? '<div class="vw-warn">카메라 초점거리·픽셀 크기는 기본값입니다. 실제 값으로 고치면 GSD가 다시 계산됩니다.</div>' : ''}
-    ${(r.warnings ?? []).map((w) => `<div class="vw-warn">${esc(w)}</div>`).join('')}
-    <p class="vw-src">${r.source === 'local' ? '이 기기에서 계산 · PC 자동 계산(매일 05:00)이 올라오면 그 값으로 바뀝니다' : 'PC 자동 계산 (매일 05:00 갱신, 입력이 바뀔 때만 다시 계산)'} · ${when}<br>
-      GPS 열: ${esc(r.gps_columns?.lat)} · ${esc(r.gps_columns?.lon)} · ${esc(r.gps_columns?.alt)}${r.alt_offset_m ? ` · 고도 보정 ${r.alt_offset_m} m` : ''}</p>`;
-  $('#recalc')?.addEventListener('click', () => calc(o, { force: true }));
-}
-
-async function calc(o, { force = false } = {}) {
-  if (S.busy.has(o.id) || (!force && resultFor(o))) return resultFor(o);
-  S.busy.add(o.id);
-  if (S.sel?.id === o.id) renderCalc(0);
-  renderList();
-  try {
-    const r = await computeZest({
-      obs: o, camera: S.catalog.cameras?.[o.kind], altOffset: S.catalog.alt_offset_m ?? 0, proj4,
-      openDem: () => GeoTIFF.fromUrl(driveFile(o.dem), { allowFullFile: false, maxRanges: 1, blockSize: 65536, cacheSize: 200 }),
-      readGps: async () => {
-        const res = await fetch(driveUrl(o.gps.driveFileId), { credentials: 'omit', referrerPolicy: 'no-referrer' });
-        if (!res.ok) throw new Error(`GPS 파일을 읽지 못했습니다 (${res.status})`);
-        return decodeText(new Uint8Array(await res.arrayBuffer()));
-      },
-      onProgress: (p) => { if (S.sel?.id === o.id) renderCalc(p); },
-    });
-    store.set(`zest.${o.id}`, r);
-    return r;
-  } catch (e) {
-    console.error(e);
-    if (S.sel?.id === o.id) { S.busy.delete(o.id); renderCalc(null, e.message); }
-    throw e;
-  } finally {
-    S.busy.delete(o.id);
-    if (S.sel?.id === o.id && !$('#calc .vw-err')) renderCalc();
-    renderList();
-  }
-}
-
-async function batch() {
-  const todo = S.catalog.observations.filter((o) => !resultFor(o) && canCompute(o));
-  if (!todo.length) return;
-  const box = $('#batch-status');
-  box.hidden = false;
-  $('#batch').disabled = true;
-  let ok = 0; let bad = 0;
-  for (const [i, o] of todo.entries()) {
-    box.textContent = `일괄 계산 중 ${i + 1}/${todo.length} · ${o.title}`;
-    try { await calc(o); ok++; } catch { bad++; }
-  }
-  box.textContent = `일괄 계산 끝: ${ok}개 완료${bad ? ` · ${bad}개 실패 (해당 회차를 눌러 이유 확인)` : ''}`;
-  renderList();
-}
-
 // ---- 시작 ------------------------------------------------------------------------
 async function load() {
   const get = (f) => nativeFetch(`${f}?t=${Date.now()}`, { cache: 'no-store' }).then((r) => { if (!r.ok) throw new Error(f); return r.json(); });
   try {
-    const [catalog, results] = await Promise.all([get('catalog.json'), get('results.json').catch(() => ({ results: {} }))]);
-    S.catalog = catalog; S.results = results.results ?? {};
+    S.catalog = await get('catalog.json');
   } catch (e) {
     console.error(e);
     $('#updated').textContent = '목록을 읽지 못했습니다. 새로고침해 주세요.';
@@ -300,21 +265,27 @@ async function load() {
   renderList();
   const id = params.get('id');
   const want = id ? S.catalog.observations.find((o) => o.id === id)
-    : (() => { const g = S.byKey.get(`${params.get('date')}#${Number(params.get('round'))}`); return g ? (g[params.get('kind')] ?? g.RGB ?? g.RE) : null; })();
-  const first = want ?? [...S.catalog.observations].sort((a, b) => (a.date < b.date ? 1 : -1) || a.round - b.round)[0];
+    : observationFor(params.get('date'), params.has('round') ? Number(params.get('round')) : roundsFor(params.get('date'))[0], params.get('kind'));
+  const latest = [...new Set(S.catalog.observations.map(o => o.date))].sort().at(-1);
+  const first = want ?? observationFor(latest, roundsFor(latest)[0], params.get('kind'));
   if (first) select(first);
   else if (params.get('date')) status('이 회차의 모자이크는 아직 없습니다', 'error');
 }
 
 function closeSide() { $('#side').classList.remove('open'); $('#list-btn').setAttribute('aria-expanded', 'false'); }
 $('#list-btn').addEventListener('click', () => { const open = $('#side').classList.toggle('open'); $('#list-btn').setAttribute('aria-expanded', String(open)); });
-$('#list').addEventListener('click', (e) => { const b = e.target.closest('button[data-id]'); if (b) select(S.catalog.observations.find((o) => o.id === b.dataset.id)); });
+$('#list').addEventListener('click', e => {
+  const b = e.target.closest('button[data-date]');
+  if (b) select(observationFor(b.dataset.date, roundsFor(b.dataset.date)[0]));
+});
+$('#round-select').addEventListener('change', () => {
+  if (S.sel) select(observationFor(S.sel.date, Number($('#round-select').value)));
+});
 $('#kind-seg').addEventListener('click', (e) => {
   const b = e.target.closest('button[data-kind]');
   const o = b && S.sel && S.byKey.get(keyOf(S.sel))?.[b.dataset.kind];
   if (o && o.id !== S.sel.id) select(o, { fitView: false });
 });
-$('#batch').addEventListener('click', batch);
 $('#band-select').addEventListener('change', () => {
   S.band = Number($('#band-select').value);
   if (S.sel) select(S.sel, {fitView: false});
@@ -329,6 +300,7 @@ new ResizeObserver(() => $('#map-wrap').style.setProperty('--head-height', `${$(
 $('#fit').addEventListener('click', fit);
 $('#opacity').addEventListener('input', () => S.layer?.setOpacity(Number($('#opacity').value) / 100));
 $('#show').addEventListener('change', () => S.layer?.setVisible($('#show').checked));
+$('#show-seams').addEventListener('change', () => {void syncSeamlines(S.sel);});
 const bg = (isSat) => { sat.setVisible(isSat); osm.setVisible(!isSat); $('#bg-sat').setAttribute('aria-pressed', String(isSat)); $('#bg-osm').setAttribute('aria-pressed', String(!isSat)); };
 $('#bg-sat').addEventListener('click', () => bg(true));
 $('#bg-osm').addEventListener('click', () => bg(false));

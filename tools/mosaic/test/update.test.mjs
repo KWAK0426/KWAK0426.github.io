@@ -84,6 +84,15 @@ test('Drive 폴더 → 표시용 파일 · 목록 · Z_est (한 번 계산하면
   // 두 번째 실행: 바뀐 게 없으면 다시 만들거나 계산하지 않음
   const s2 = await run(opts);
   assert.deepEqual([s2.converted, s2.computed, s2.changed], [0, 0, false]);
+  fs.writeFileSync(opts.publishedFile,JSON.stringify({observations:[{
+    id:rgb.id,date:rgb.date,round:rgb.round,kind:'RGB',bounds:rgb.bounds,
+    derivedFromMultispectral:true,isOptical:false,mosaic_px_cm:100,analysisPrivate:true,dem:null,gps:null,
+    staticImage:{url:'rgb_1m/test.webp',projection:'EPSG:32652',extent:[489000,3895000,489500,3895500]},
+  }]}));
+  await run(opts);
+  const preserved=JSON.parse(fs.readFileSync(path.join(out,'catalog.json'),'utf8')).observations.find(o=>o.id===rgb.id);
+  assert.equal(preserved.driveFileId,rgb.driveFileId,'기존 광학을 다분광 RGB 대체 영상으로 덮지 않음');
+  assert.equal(preserved.staticImage,undefined);
   // 카메라 값을 바꾸면 그 종류만 다시 계산
   const s3 = await run({ ...opts, cfg: { ...cfg, cameras: { ...cfg.cameras, RE: { ...cfg.cameras.RE, focal_mm: 5.5 } } } });
   assert.deepEqual([s3.converted, s3.computed], [0, 1]);
@@ -102,13 +111,18 @@ test('별도 승인한 표시용 RE/NDVI는 원본 없는 PC의 다음 자동 �
   }));
   const publishedFile = path.join(tmp, 'published.json');
   observations[0].spectral = { bands: [{ band: 1, wavelengthNm: 444, images: {p05p95: 'bands/test.webp'} }] };
+  observations.push({id:'2026-10-07-R1-RGB',date:'2026-10-07',round:1,kind:'RGB',bounds:[128.88,35.20,128.89,35.21],
+    derivedFromMultispectral:true,isOptical:false,mosaic_px_cm:100,analysisPrivate:true,dem:null,gps:null,
+    staticImage:{url:'rgb_1m/test.webp',projection:'EPSG:32652',extent:[489000,3895000,489500,3895500]},thumbnail:'rgb_1m/test.webp'});
+  fs.mkdirSync(path.join(out,'rgb_1m'));
+  fs.writeFileSync(path.join(out,'rgb_1m/test.webp'),'display-only RGB substitute');
   fs.mkdirSync(path.join(out, 'bands'));
   fs.writeFileSync(path.join(out, 'bands/test.webp'), 'display-only band image');
   fs.writeFileSync(publishedFile, JSON.stringify({ observations }));
   for (const o of observations) fs.writeFileSync(path.join(out, o.thumbnail), 'test thumbnail');
   const opts = { root, outDir: out, cfg, stateFile: path.join(tmp,'state.json'), publishedFile, lookup: () => [], wait: false, log: () => {} };
   const first = await run(opts);
-  assert.equal(first.shown, 2);
+  assert.equal(first.shown, 3);
   assert.deepEqual(JSON.parse(fs.readFileSync(path.join(out,'catalog.json'),'utf8')).observations, observations);
   assert(observations.every((o) => fs.existsSync(path.join(out,o.thumbnail))));
   assert.equal((await run(opts)).changed, false);
