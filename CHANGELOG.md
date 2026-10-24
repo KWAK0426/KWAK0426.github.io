@@ -9,6 +9,11 @@
 | 이전 기록 | 기록 규칙 전 커밋 |
 
 
+## 2026-10-25 (일)
+
+- **00:02** · 연코 · 업로드된 다분광 13회차를 밴드별 뷰어에 연결  
+  `README.md`, `drone/updates/20261024_verified_release.html`, `drone/viewer/app.js`, `drone/viewer/bands/2026-05-10-R3-B01-minmax.webp`, `drone/viewer/bands/2026-05-10-R3-B01-p05p95.webp`, `drone/viewer/bands/2026-05-10-R3-B02-minmax.webp` 외 276개 (fa9b4d0)
+
 ## 2026-10-24 (토)
 
 - **18:25** · 연코 · 느린 첫 화소 다운로드 중 로딩 상태 유지  
