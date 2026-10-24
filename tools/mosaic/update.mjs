@@ -243,11 +243,19 @@ export async function run({
         || !Array.isArray(o.bounds) || o.bounds.length !== 4 || !o.bounds.every(Number.isFinite)) {
       throw new Error('공개 표시용 영상 등록 형식 오류');
     }
-    if (o.staticImage && (!/^rgb_1m\/[A-Za-z0-9_-]+\.webp$/.test(o.staticImage.url)
-        || o.staticImage.projection !== 'EPSG:32652'
-        || !Array.isArray(o.staticImage.extent) || o.staticImage.extent.length !== 4 || !o.staticImage.extent.every(Number.isFinite)
-        || !o.derivedFromMultispectral || o.isOptical !== false || o.mosaic_px_cm !== 100)) {
-      throw new Error('1m RGB 대체 영상 등록 형식 오류');
+    if (o.staticImage) {
+      const image = o.staticImage;
+      const rgb = o.kind === 'RGB' && /^rgb_1m\/[A-Za-z0-9_-]+\.webp$/.test(image.url)
+        && image.projection === 'EPSG:32652' && o.derivedFromMultispectral && o.isOptical === false && o.mosaic_px_cm === 100;
+      const spectral = o.kind === 'RE' && /^bands\/[A-Za-z0-9_-]+\.webp$/.test(image.url)
+        && image.projection === 'EPSG:3857' && image.displayOnly === true && o.displayOnly === true && o.analysisPrivate === true
+        && image.width === o.spectral?.displayWidth && image.height === o.spectral?.displayHeight
+        && Number.isInteger(image.width) && image.width > 0 && Number.isInteger(image.height) && image.height > 0
+        && JSON.stringify(image.extent) === JSON.stringify(o.spectral?.extent)
+        && o.spectral?.bands?.length === 10;
+      if ((!rgb && !spectral) || !Array.isArray(image.extent) || image.extent.length !== 4 || !image.extent.every(Number.isFinite)) {
+        throw new Error('공개 축소 표시 영상 등록 형식 오류');
+      }
     }
     if (o.dem || o.gps || /[A-Za-z]:[\\/]|Users[\\/]/.test(JSON.stringify(o))) throw new Error('공개 표시 목록에 원본 참조 금지');
   }

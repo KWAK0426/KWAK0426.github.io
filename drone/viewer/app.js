@@ -156,6 +156,8 @@ function showBand(o, band, gen) {
 }
 
 function showStaticMosaic(o, gen, image = o.staticImage) {
+  const preview = o.kind === 'RE' && image.displayOnly;
+  if (preview) $('#sel-info').textContent = `${descriptionFor(o)} · 축소 표시 ${image.width} × ${image.height} px · 원본 ${o.width.toLocaleString()} × ${o.height.toLocaleString()} px`;
   if (image.projection === 'EPSG:32652') {
     proj4.defs('EPSG:32652', '+proj=utm +zone=52 +datum=WGS84 +units=m +no_defs');
     ol.proj.proj4.register(proj4);
@@ -163,7 +165,7 @@ function showStaticMosaic(o, gen, image = o.staticImage) {
   const source = new ol.source.ImageStatic({url:image.url, projection:image.projection, imageExtent:image.extent, interpolate:false});
   S.source = source;
   S.layer = new ol.layer.Image({source, opacity:Number($('#opacity').value)/100, visible:$('#show').checked});
-  source.on('imageloadend', () => {if (gen === S.gen) status('');});
+  source.on('imageloadend', () => {if (gen === S.gen) status(preview ? '다분광 축소 표시 · 원본 분석 TIFF는 비공개 보존' : '', preview ? 'preview' : '');});
   source.on('imageloaderror', () => {if (gen === S.gen) status('모자이크 영상을 불러오지 못했습니다.', 'error');});
   map.addLayer(S.layer);
 }
