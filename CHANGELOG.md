@@ -9,6 +9,11 @@
 | 이전 기록 | 기록 규칙 전 커밋 |
 
 
+## 2026-10-24 (토)
+
+- **18:20** · 연코 · 검증된 모자이크·스펙트럼 공개 및 농과원 보류 근거 갱신  
+  `README.md`, `START_NEW_PC.md`, `drone/index.html`, `drone/updates/20261024_verified_release.html`, `drone/viewer/app.js`, `drone/viewer/bands.js` 외 75개 (4fda09c)
+
 ## 2026-10-22 (목)
 
 - **17:35** · 연코 · Add approved wavelength-ordered band views and P05/P95 colorbars  
