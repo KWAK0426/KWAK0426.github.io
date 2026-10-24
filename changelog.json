@@ -2,6 +2,36 @@
  "format": "hub-changelog-v1",
  "entries": [
   {
+   "sha": "093d42b",
+   "time": "2026-10-25 03:27",
+   "date": "2026-10-25",
+   "weekday": "일",
+   "pc": "이전 기록",
+   "title": "Add NDVI views and native multispectral grid resolution",
+   "files": [
+    "drone/viewer/app.js",
+    "drone/viewer/catalog.json",
+    "drone/viewer/index.html",
+    "drone/viewer/ndvi/2026-05-10-R3-NDVI-viridis-0-1.webp",
+    "drone/viewer/ndvi/2026-05-10-R4-NDVI-viridis-0-1.webp",
+    "drone/viewer/ndvi/2026-05-10-R5-NDVI-viridis-0-1.webp",
+    "drone/viewer/ndvi/2026-07-16-R1-NDVI-viridis-0-1.webp",
+    "drone/viewer/ndvi/2026-07-31-R1-NDVI-viridis-0-1.webp",
+    "drone/viewer/ndvi/2026-07-31-R2-NDVI-viridis-0-1.webp",
+    "drone/viewer/ndvi/2026-09-08-R1-NDVI-viridis-0-1.webp",
+    "drone/viewer/ndvi/2026-09-08-R2-NDVI-viridis-0-1.webp",
+    "drone/viewer/ndvi/2026-09-08-R3-NDVI-viridis-0-1.webp",
+    "drone/viewer/ndvi/2026-09-08-R4-NDVI-viridis-0-1.webp",
+    "drone/viewer/ndvi/2026-09-23-R1-NDVI-viridis-0-1.webp",
+    "drone/viewer/ndvi/2026-09-23-R2-NDVI-viridis-0-1.webp",
+    "drone/viewer/ndvi/2026-09-23-R3-NDVI-viridis-0-1.webp",
+    "tools/mosaic/PUBLISHED_VIEWS.md",
+    "tools/mosaic/published_views.json",
+    "tools/mosaic/test/update.test.mjs",
+    "tools/mosaic/update.mjs"
+   ]
+  },
+  {
    "sha": "5da63b9",
    "time": "2026-10-25 01:33",
    "date": "2026-10-25",

@@ -11,6 +11,8 @@
 
 ## 2026-10-25 (일)
 
+- **03:27** · 이전 기록 · Add NDVI views and native multispectral grid resolution  
+  `drone/viewer/app.js`, `drone/viewer/catalog.json`, `drone/viewer/index.html`, `drone/viewer/ndvi/2026-05-10-R3-NDVI-viridis-0-1.webp`, `drone/viewer/ndvi/2026-05-10-R4-NDVI-viridis-0-1.webp`, `drone/viewer/ndvi/2026-05-10-R5-NDVI-viridis-0-1.webp` 외 14개 (093d42b)
 - **01:33** · 이전 기록 · Complete spectra for all multispectral rounds and align RGB sources  
   `drone/viewer/app.js`, `drone/viewer/bands/2026-05-10-R3-RGB-canonical-p05p95.webp`, `drone/viewer/bands/2026-05-10-R4-RGB-canonical-p05p95.webp`, `drone/viewer/bands/2026-05-10-R5-RGB-canonical-p05p95.webp`, `drone/viewer/bands/2026-07-16-R1-RGB-canonical-p05p95.webp`, `drone/viewer/bands/2026-07-31-R1-RGB-canonical-p05p95.webp` 외 352개 (5da63b9)
 - **00:50** · 연코 · 전 날짜 공통 필지와 반사도 RdYlBu_r·필지 대비 적용  
