@@ -11,6 +11,8 @@
 
 ## 2026-10-25 (일)
 
+- **01:33** · 이전 기록 · Complete spectra for all multispectral rounds and align RGB sources  
+  `drone/viewer/app.js`, `drone/viewer/bands/2026-05-10-R3-RGB-canonical-p05p95.webp`, `drone/viewer/bands/2026-05-10-R4-RGB-canonical-p05p95.webp`, `drone/viewer/bands/2026-05-10-R5-RGB-canonical-p05p95.webp`, `drone/viewer/bands/2026-07-16-R1-RGB-canonical-p05p95.webp`, `drone/viewer/bands/2026-07-31-R1-RGB-canonical-p05p95.webp` 외 352개 (5da63b9)
 - **00:50** · 연코 · 전 날짜 공통 필지와 반사도 RdYlBu_r·필지 대비 적용  
   `README.md`, `drone/updates/20261024_verified_release.html`, `drone/viewer/app.js`, `drone/viewer/bands/2026-05-10-R3-B01-fields-p05p95-rdylbur.webp`, `drone/viewer/bands/2026-05-10-R3-B01-minmax-rdylbur.webp`, `drone/viewer/bands/2026-05-10-R3-B02-fields-p05p95-rdylbur.webp` 외 285개 (3fe0036)
 - **00:02** · 연코 · 업로드된 다분광 13회차를 밴드별 뷰어에 연결  
