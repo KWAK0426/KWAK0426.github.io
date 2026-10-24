@@ -11,6 +11,8 @@
 
 ## 2026-10-24 (토)
 
+- **18:25** · 연코 · 느린 첫 화소 다운로드 중 로딩 상태 유지  
+  `drone/viewer/app.js`, `drone/viewer/index.html`, `drone/viewer/spectra.js` (c36def3)
 - **18:20** · 연코 · 검증된 모자이크·스펙트럼 공개 및 농과원 보류 근거 갱신  
   `README.md`, `START_NEW_PC.md`, `drone/index.html`, `drone/updates/20261024_verified_release.html`, `drone/viewer/app.js`, `drone/viewer/bands.js` 외 75개 (4fda09c)
 

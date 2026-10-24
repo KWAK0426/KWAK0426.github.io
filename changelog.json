@@ -2,6 +2,19 @@
  "format": "hub-changelog-v1",
  "entries": [
   {
+   "sha": "c36def3",
+   "time": "2026-10-24 18:25",
+   "date": "2026-10-24",
+   "weekday": "토",
+   "pc": "연코",
+   "title": "느린 첫 화소 다운로드 중 로딩 상태 유지",
+   "files": [
+    "drone/viewer/app.js",
+    "drone/viewer/index.html",
+    "drone/viewer/spectra.js"
+   ]
+  },
+  {
    "sha": "4fda09c",
    "time": "2026-10-24 18:20",
    "date": "2026-10-24",
