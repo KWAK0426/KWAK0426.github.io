@@ -1,7 +1,7 @@
 {
   "format": "gimhae-mosaic-catalog-v1",
   "title": "김해 논 드론 모자이크",
-  "updated_at": "2026-10-24T15:47:35+00:00",
+  "updated_at": "2026-10-24T16:30:54.889351+00:00",
   "cameras": {
     "RGB": {
       "name": "광학 카메라 (값 확인 필요)",
@@ -37,7 +37,7 @@
         35.20356305038192
       ],
       "mosaic_px_cm": 4.25,
-      "thumbnail": "thumbs/2026-10-07-R1-RE.webp",
+      "thumbnail": "bands/2026-10-07-R1-RGB-canonical-p05p95.webp",
       "sourcePhotos": 689,
       "mosaicMethod": "minimum VZA; source stored values preserved",
       "displayOnly": true,
@@ -376,7 +376,48 @@
         "outerBoundaryIncluded": true,
         "simplified": false
       },
-      "metadataCsv": "metadata/2026-10-07-R1.csv"
+      "metadataCsv": "metadata/2026-10-07-R1.csv",
+      "staticImage": {
+        "url": "bands/2026-10-07-R1-RGB-canonical-p05p95.webp",
+        "projection": "EPSG:3857",
+        "extent": [
+          14347319.598200863,
+          4191101.629577843,
+          14347987.636170583,
+          4191579.0745821386
+        ],
+        "width": 1000,
+        "height": 715,
+        "displayOnly": true
+      },
+      "rgbDisplay": {
+        "bands": [
+          6,
+          4,
+          2
+        ],
+        "wavelengthsNm": [
+          668,
+          560,
+          475
+        ],
+        "rangeBasis": "native-alpha-valid-P05-P95",
+        "rangesRaw": [
+          [
+            812.0,
+            6959.0
+          ],
+          [
+            1140.0,
+            6180.0
+          ],
+          [
+            545.0,
+            4517.0
+          ]
+        ],
+        "sourceGroup": "2026-10-07-R1"
+      }
     },
     {
       "id": "2026-10-07-R1-NDVI",
@@ -701,16 +742,19 @@
         35.20463240845774
       ],
       "mosaic_px_cm": 100,
-      "thumbnail": "rgb_1m/2026-05-10-R3-MS-RGB-1m.webp",
+      "thumbnail": "rgb_1m/2026-05-10-R3-canonical-1m.webp",
       "staticImage": {
-        "url": "rgb_1m/2026-05-10-R3-MS-RGB-1m.webp",
+        "url": "rgb_1m/2026-05-10-R3-canonical-1m.webp",
         "projection": "EPSG:32652",
         "extent": [
-          489462,
-          3895201,
-          489938,
-          3895742
-        ]
+          489462.0,
+          3895201.0,
+          489938.0,
+          3895742.0
+        ],
+        "width": 476,
+        "height": 541,
+        "displayOnly": true
       },
       "derivedFromMultispectral": true,
       "isOptical": false,
@@ -718,8 +762,36 @@
       "analysisPrivate": true,
       "dem": null,
       "gps": null,
-      "resampling": "1m valid-area average",
-      "calibrationStatus": "source accuracy not independently validated"
+      "resampling": "1m valid-area average; same full-band source and channel stretch as RE",
+      "calibrationStatus": "source accuracy not independently validated",
+      "rgbDisplay": {
+        "bands": [
+          6,
+          4,
+          2
+        ],
+        "wavelengthsNm": [
+          668,
+          560,
+          475
+        ],
+        "rangeBasis": "native-alpha-valid-P05-P95",
+        "rangesRaw": [
+          [
+            1705.0,
+            8386.0
+          ],
+          [
+            1864.0,
+            7565.0
+          ],
+          [
+            1004.0,
+            5951.0
+          ]
+        ],
+        "sourceGroup": "2026-05-10-R3"
+      }
     },
     {
       "id": "2026-05-10-R4-RGB",
@@ -730,24 +802,27 @@
       "title": "5/10 4차 · 다분광 RGB 대체 · 1m",
       "type": "다분광 RGB 대체 · R/G/B 668/560/475 nm · P05–P95 표시",
       "width": 508,
-      "height": 516,
+      "height": 573,
       "bounds": [
-        128.88389905280275,
+        128.88389832127422,
         35.19969484036029,
         128.88948627767928,
-        35.204352897791296
+        35.20486687362711
       ],
       "mosaic_px_cm": 100,
-      "thumbnail": "rgb_1m/2026-05-10-R4-MS-RGB-1m.webp",
+      "thumbnail": "rgb_1m/2026-05-10-R4-canonical-1m.webp",
       "staticImage": {
-        "url": "rgb_1m/2026-05-10-R4-MS-RGB-1m.webp",
+        "url": "rgb_1m/2026-05-10-R4-canonical-1m.webp",
         "projection": "EPSG:32652",
         "extent": [
-          489432,
-          3895195,
-          489940,
-          3895711
-        ]
+          489432.0,
+          3895195.0,
+          489940.0,
+          3895768.0
+        ],
+        "width": 508,
+        "height": 573,
+        "displayOnly": true
       },
       "derivedFromMultispectral": true,
       "isOptical": false,
@@ -755,8 +830,36 @@
       "analysisPrivate": true,
       "dem": null,
       "gps": null,
-      "resampling": "1m valid-area average",
-      "calibrationStatus": "source accuracy not independently validated"
+      "resampling": "1m valid-area average; same full-band source and channel stretch as RE",
+      "calibrationStatus": "source accuracy not independently validated",
+      "rgbDisplay": {
+        "bands": [
+          6,
+          4,
+          2
+        ],
+        "wavelengthsNm": [
+          668,
+          560,
+          475
+        ],
+        "rangeBasis": "native-alpha-valid-P05-P95",
+        "rangesRaw": [
+          [
+            1493.0,
+            7969.0
+          ],
+          [
+            1936.0,
+            9110.0
+          ],
+          [
+            1198.0,
+            8069.0
+          ]
+        ],
+        "sourceGroup": "2026-05-10-R4"
+      }
     },
     {
       "id": "2026-05-10-R5-RGB",
@@ -766,25 +869,28 @@
       "kind": "RGB",
       "title": "5/10 5차 · 다분광 RGB 대체 · 1m",
       "type": "다분광 RGB 대체 · R/G/B 668/560/475 nm · P05–P95 표시",
-      "width": 480,
-      "height": 529,
+      "width": 494,
+      "height": 580,
       "bounds": [
-        128.8841296448954,
-        35.19965899280562,
-        128.88940942848026,
-        35.20443398165816
+        128.88412904290274,
+        35.199622924302915,
+        128.889563273412,
+        35.20485792667519
       ],
       "mosaic_px_cm": 100,
-      "thumbnail": "rgb_1m/2026-05-10-R5-MS-RGB-1m.webp",
+      "thumbnail": "rgb_1m/2026-05-10-R5-canonical-1m.webp",
       "staticImage": {
-        "url": "rgb_1m/2026-05-10-R5-MS-RGB-1m.webp",
+        "url": "rgb_1m/2026-05-10-R5-canonical-1m.webp",
         "projection": "EPSG:32652",
         "extent": [
-          489453,
-          3895191,
-          489933,
-          3895720
-        ]
+          489453.0,
+          3895187.0,
+          489947.0,
+          3895767.0
+        ],
+        "width": 494,
+        "height": 580,
+        "displayOnly": true
       },
       "derivedFromMultispectral": true,
       "isOptical": false,
@@ -792,8 +898,36 @@
       "analysisPrivate": true,
       "dem": null,
       "gps": null,
-      "resampling": "1m valid-area average",
-      "calibrationStatus": "source accuracy not independently validated"
+      "resampling": "1m valid-area average; same full-band source and channel stretch as RE",
+      "calibrationStatus": "source accuracy not independently validated",
+      "rgbDisplay": {
+        "bands": [
+          6,
+          4,
+          2
+        ],
+        "wavelengthsNm": [
+          668,
+          560,
+          475
+        ],
+        "rangeBasis": "native-alpha-valid-P05-P95",
+        "rangesRaw": [
+          [
+            1837.0,
+            10048.0
+          ],
+          [
+            1884.0,
+            9490.0
+          ],
+          [
+            1109.0,
+            7752.0
+          ]
+        ],
+        "sourceGroup": "2026-05-10-R5"
+      }
     },
     {
       "id": "2026-06-30-R1-RGB",
@@ -840,25 +974,28 @@
       "kind": "RGB",
       "title": "7/16 1차 · 다분광 RGB 대체 · 1m",
       "type": "다분광 RGB 대체 · R/G/B 668/560/475 nm · P05–P95 표시",
-      "width": 495,
-      "height": 347,
+      "width": 498,
+      "height": 353,
       "bounds": [
-        128.8845264711148,
-        35.20036270631966,
-        128.8899687372059,
-        35.203496711521375
+        128.8845154723997,
+        35.20031761022016,
+        128.88999076906114,
+        35.20350574860726
       ],
       "mosaic_px_cm": 100,
-      "thumbnail": "rgb_1m/2026-07-16-R1-MS-RGB-1m.webp",
+      "thumbnail": "rgb_1m/2026-07-16-R1-canonical-1m.webp",
       "staticImage": {
-        "url": "rgb_1m/2026-07-16-R1-MS-RGB-1m.webp",
+        "url": "rgb_1m/2026-07-16-R1-canonical-1m.webp",
         "projection": "EPSG:32652",
         "extent": [
-          489489,
-          3895269,
-          489984,
-          3895616
-        ]
+          489488.0,
+          3895264.0,
+          489986.0,
+          3895617.0
+        ],
+        "width": 498,
+        "height": 353,
+        "displayOnly": true
       },
       "derivedFromMultispectral": true,
       "isOptical": false,
@@ -866,8 +1003,36 @@
       "analysisPrivate": true,
       "dem": null,
       "gps": null,
-      "resampling": "1m valid-area average",
-      "calibrationStatus": "source accuracy not independently validated"
+      "resampling": "1m valid-area average; same full-band source and channel stretch as RE",
+      "calibrationStatus": "source accuracy not independently validated",
+      "rgbDisplay": {
+        "bands": [
+          6,
+          4,
+          2
+        ],
+        "wavelengthsNm": [
+          668,
+          560,
+          475
+        ],
+        "rangeBasis": "native-alpha-valid-P05-P95",
+        "rangesRaw": [
+          [
+            362.0,
+            6113.0
+          ],
+          [
+            1334.0,
+            5898.0
+          ],
+          [
+            440.0,
+            4646.0
+          ]
+        ],
+        "sourceGroup": "2026-07-16-R1"
+      }
     },
     {
       "id": "2026-07-16-R2-RGB",
@@ -914,25 +1079,28 @@
       "kind": "RGB",
       "title": "7/31 1차 · 다분광 RGB 대체 · 1m",
       "type": "다분광 RGB 대체 · R/G/B 668/560/475 nm · P05–P95 표시",
-      "width": 518,
+      "width": 553,
       "height": 344,
       "bounds": [
         128.8843946397156,
         35.200389631919,
-        128.89008954160846,
-        35.203496821274925
+        128.8904740353392,
+        35.203497169688454
       ],
       "mosaic_px_cm": 100,
-      "thumbnail": "rgb_1m/2026-07-31-R1-MS-RGB-1m.webp",
+      "thumbnail": "rgb_1m/2026-07-31-R1-canonical-1m.webp",
       "staticImage": {
-        "url": "rgb_1m/2026-07-31-R1-MS-RGB-1m.webp",
+        "url": "rgb_1m/2026-07-31-R1-canonical-1m.webp",
         "projection": "EPSG:32652",
         "extent": [
-          489477,
-          3895272,
-          489995,
-          3895616
-        ]
+          489477.0,
+          3895272.0,
+          490030.0,
+          3895616.0
+        ],
+        "width": 553,
+        "height": 344,
+        "displayOnly": true
       },
       "derivedFromMultispectral": true,
       "isOptical": false,
@@ -940,8 +1108,36 @@
       "analysisPrivate": true,
       "dem": null,
       "gps": null,
-      "resampling": "1m valid-area average",
-      "calibrationStatus": "source accuracy not independently validated"
+      "resampling": "1m valid-area average; same full-band source and channel stretch as RE",
+      "calibrationStatus": "source accuracy not independently validated",
+      "rgbDisplay": {
+        "bands": [
+          6,
+          4,
+          2
+        ],
+        "wavelengthsNm": [
+          668,
+          560,
+          475
+        ],
+        "rangeBasis": "native-alpha-valid-P05-P95",
+        "rangesRaw": [
+          [
+            206.0,
+            5501.0
+          ],
+          [
+            758.0,
+            5461.0
+          ],
+          [
+            234.0,
+            4116.0
+          ]
+        ],
+        "sourceGroup": "2026-07-31-R1"
+      }
     },
     {
       "id": "2026-07-31-R2-RGB",
@@ -951,25 +1147,28 @@
       "kind": "RGB",
       "title": "7/31 2차 · 다분광 RGB 대체 · 1m",
       "type": "다분광 RGB 대체 · R/G/B 668/560/475 nm · P05–P95 표시",
-      "width": 530,
-      "height": 363,
+      "width": 543,
+      "height": 369,
       "bounds": [
-        128.88416389635697,
-        35.20024513747302,
-        128.88999086632887,
-        35.20352378285068
+        128.88415288479308,
+        35.20020905846521,
+        128.8901227410919,
+        35.20354193679552
       ],
       "mosaic_px_cm": 100,
-      "thumbnail": "rgb_1m/2026-07-31-R2-MS-RGB-1m.webp",
+      "thumbnail": "rgb_1m/2026-07-31-R2-canonical-1m.webp",
       "staticImage": {
-        "url": "rgb_1m/2026-07-31-R2-MS-RGB-1m.webp",
+        "url": "rgb_1m/2026-07-31-R2-canonical-1m.webp",
         "projection": "EPSG:32652",
         "extent": [
-          489456,
-          3895256,
-          489986,
-          3895619
-        ]
+          489455.0,
+          3895252.0,
+          489998.0,
+          3895621.0
+        ],
+        "width": 543,
+        "height": 369,
+        "displayOnly": true
       },
       "derivedFromMultispectral": true,
       "isOptical": false,
@@ -977,8 +1176,36 @@
       "analysisPrivate": true,
       "dem": null,
       "gps": null,
-      "resampling": "1m valid-area average",
-      "calibrationStatus": "source accuracy not independently validated"
+      "resampling": "1m valid-area average; same full-band source and channel stretch as RE",
+      "calibrationStatus": "source accuracy not independently validated",
+      "rgbDisplay": {
+        "bands": [
+          6,
+          4,
+          2
+        ],
+        "wavelengthsNm": [
+          668,
+          560,
+          475
+        ],
+        "rangeBasis": "native-alpha-valid-P05-P95",
+        "rangesRaw": [
+          [
+            235.0,
+            5389.0
+          ],
+          [
+            940.0,
+            5228.0
+          ],
+          [
+            265.0,
+            3924.0
+          ]
+        ],
+        "sourceGroup": "2026-07-31-R2"
+      }
     },
     {
       "id": "2026-07-31-R3-RGB",
@@ -1108,16 +1335,19 @@
         35.203469590250194
       ],
       "mosaic_px_cm": 100,
-      "thumbnail": "rgb_1m/2026-09-08-R1-MS-RGB-1m.webp",
+      "thumbnail": "rgb_1m/2026-09-08-R1-canonical-1m.webp",
       "staticImage": {
-        "url": "rgb_1m/2026-09-08-R1-MS-RGB-1m.webp",
+        "url": "rgb_1m/2026-09-08-R1-canonical-1m.webp",
         "projection": "EPSG:32652",
         "extent": [
-          489463,
-          3895275,
-          489977,
-          3895613
-        ]
+          489463.0,
+          3895275.0,
+          489977.0,
+          3895613.0
+        ],
+        "width": 514,
+        "height": 338,
+        "displayOnly": true
       },
       "derivedFromMultispectral": true,
       "isOptical": false,
@@ -1125,8 +1355,36 @@
       "analysisPrivate": true,
       "dem": null,
       "gps": null,
-      "resampling": "1m valid-area average",
-      "calibrationStatus": "source accuracy not independently validated"
+      "resampling": "1m valid-area average; same full-band source and channel stretch as RE",
+      "calibrationStatus": "source accuracy not independently validated",
+      "rgbDisplay": {
+        "bands": [
+          6,
+          4,
+          2
+        ],
+        "wavelengthsNm": [
+          668,
+          560,
+          475
+        ],
+        "rangeBasis": "native-alpha-valid-P05-P95",
+        "rangesRaw": [
+          [
+            637.0,
+            4536.0
+          ],
+          [
+            1360.0,
+            4780.0
+          ],
+          [
+            462.0,
+            3177.0
+          ]
+        ],
+        "sourceGroup": "2026-09-08-R1"
+      }
     },
     {
       "id": "2026-09-08-R2-RGB",
@@ -1145,16 +1403,19 @@
         35.203641015412316
       ],
       "mosaic_px_cm": 100,
-      "thumbnail": "rgb_1m/2026-09-08-R2-MS-RGB-1m.webp",
+      "thumbnail": "rgb_1m/2026-09-08-R2-canonical-1m.webp",
       "staticImage": {
-        "url": "rgb_1m/2026-09-08-R2-MS-RGB-1m.webp",
+        "url": "rgb_1m/2026-09-08-R2-canonical-1m.webp",
         "projection": "EPSG:32652",
         "extent": [
-          489452,
-          3895244,
-          489987,
-          3895632
-        ]
+          489452.0,
+          3895244.0,
+          489987.0,
+          3895632.0
+        ],
+        "width": 535,
+        "height": 388,
+        "displayOnly": true
       },
       "derivedFromMultispectral": true,
       "isOptical": false,
@@ -1162,8 +1423,36 @@
       "analysisPrivate": true,
       "dem": null,
       "gps": null,
-      "resampling": "1m valid-area average",
-      "calibrationStatus": "source accuracy not independently validated"
+      "resampling": "1m valid-area average; same full-band source and channel stretch as RE",
+      "calibrationStatus": "source accuracy not independently validated",
+      "rgbDisplay": {
+        "bands": [
+          6,
+          4,
+          2
+        ],
+        "wavelengthsNm": [
+          668,
+          560,
+          475
+        ],
+        "rangeBasis": "native-alpha-valid-P05-P95",
+        "rangesRaw": [
+          [
+            639.0,
+            5067.0
+          ],
+          [
+            1375.0,
+            5000.0
+          ],
+          [
+            454.0,
+            3770.0
+          ]
+        ],
+        "sourceGroup": "2026-09-08-R2"
+      }
     },
     {
       "id": "2026-09-08-R3-RGB",
@@ -1182,16 +1471,19 @@
         35.20356911767535
       ],
       "mosaic_px_cm": 100,
-      "thumbnail": "rgb_1m/2026-09-08-R3-MS-RGB-1m.webp",
+      "thumbnail": "rgb_1m/2026-09-08-R3-canonical-1m.webp",
       "staticImage": {
-        "url": "rgb_1m/2026-09-08-R3-MS-RGB-1m.webp",
+        "url": "rgb_1m/2026-09-08-R3-canonical-1m.webp",
         "projection": "EPSG:32652",
         "extent": [
-          489457,
-          3895258,
-          490011,
-          3895624
-        ]
+          489457.0,
+          3895258.0,
+          490011.0,
+          3895624.0
+        ],
+        "width": 554,
+        "height": 366,
+        "displayOnly": true
       },
       "derivedFromMultispectral": true,
       "isOptical": false,
@@ -1199,8 +1491,36 @@
       "analysisPrivate": true,
       "dem": null,
       "gps": null,
-      "resampling": "1m valid-area average",
-      "calibrationStatus": "source accuracy not independently validated"
+      "resampling": "1m valid-area average; same full-band source and channel stretch as RE",
+      "calibrationStatus": "source accuracy not independently validated",
+      "rgbDisplay": {
+        "bands": [
+          6,
+          4,
+          2
+        ],
+        "wavelengthsNm": [
+          668,
+          560,
+          475
+        ],
+        "rangeBasis": "native-alpha-valid-P05-P95",
+        "rangesRaw": [
+          [
+            562.0,
+            4611.0
+          ],
+          [
+            1251.0,
+            4619.0
+          ],
+          [
+            407.0,
+            3393.0
+          ]
+        ],
+        "sourceGroup": "2026-09-08-R3"
+      }
     },
     {
       "id": "2026-09-08-R4-RGB",
@@ -1219,16 +1539,19 @@
         35.2034785973814
       ],
       "mosaic_px_cm": 100,
-      "thumbnail": "rgb_1m/2026-09-08-R4-MS-RGB-1m.webp",
+      "thumbnail": "rgb_1m/2026-09-08-R4-canonical-1m.webp",
       "staticImage": {
-        "url": "rgb_1m/2026-09-08-R4-MS-RGB-1m.webp",
+        "url": "rgb_1m/2026-09-08-R4-canonical-1m.webp",
         "projection": "EPSG:32652",
         "extent": [
-          489448,
-          3895249,
-          489976,
-          3895614
-        ]
+          489448.0,
+          3895249.0,
+          489976.0,
+          3895614.0
+        ],
+        "width": 528,
+        "height": 365,
+        "displayOnly": true
       },
       "derivedFromMultispectral": true,
       "isOptical": false,
@@ -1236,8 +1559,36 @@
       "analysisPrivate": true,
       "dem": null,
       "gps": null,
-      "resampling": "1m valid-area average",
-      "calibrationStatus": "source accuracy not independently validated"
+      "resampling": "1m valid-area average; same full-band source and channel stretch as RE",
+      "calibrationStatus": "source accuracy not independently validated",
+      "rgbDisplay": {
+        "bands": [
+          6,
+          4,
+          2
+        ],
+        "wavelengthsNm": [
+          668,
+          560,
+          475
+        ],
+        "rangeBasis": "native-alpha-valid-P05-P95",
+        "rangesRaw": [
+          [
+            502.0,
+            4672.0
+          ],
+          [
+            1140.0,
+            4667.0
+          ],
+          [
+            370.0,
+            3526.0
+          ]
+        ],
+        "sourceGroup": "2026-09-08-R4"
+      }
     },
     {
       "id": "2026-09-23-R1-RGB",
@@ -1256,16 +1607,19 @@
         35.20374024366106
       ],
       "mosaic_px_cm": 100,
-      "thumbnail": "rgb_1m/2026-09-23-R1-MS-RGB-1m.webp",
+      "thumbnail": "rgb_1m/2026-09-23-R1-canonical-1m.webp",
       "staticImage": {
-        "url": "rgb_1m/2026-09-23-R1-MS-RGB-1m.webp",
+        "url": "rgb_1m/2026-09-23-R1-canonical-1m.webp",
         "projection": "EPSG:32652",
         "extent": [
-          489449,
-          3895269,
-          489991,
-          3895643
-        ]
+          489449.0,
+          3895269.0,
+          489991.0,
+          3895643.0
+        ],
+        "width": 542,
+        "height": 374,
+        "displayOnly": true
       },
       "derivedFromMultispectral": true,
       "isOptical": false,
@@ -1273,8 +1627,36 @@
       "analysisPrivate": true,
       "dem": null,
       "gps": null,
-      "resampling": "1m valid-area average",
-      "calibrationStatus": "source accuracy not independently validated"
+      "resampling": "1m valid-area average; same full-band source and channel stretch as RE",
+      "calibrationStatus": "source accuracy not independently validated",
+      "rgbDisplay": {
+        "bands": [
+          6,
+          4,
+          2
+        ],
+        "wavelengthsNm": [
+          668,
+          560,
+          475
+        ],
+        "rangeBasis": "native-alpha-valid-P05-P95",
+        "rangesRaw": [
+          [
+            792.0,
+            6776.0
+          ],
+          [
+            1271.0,
+            5756.0
+          ],
+          [
+            496.0,
+            4115.0
+          ]
+        ],
+        "sourceGroup": "2026-09-23-R1"
+      }
     },
     {
       "id": "2026-09-23-R2-RGB",
@@ -1293,16 +1675,19 @@
         35.2037582180287
       ],
       "mosaic_px_cm": 100,
-      "thumbnail": "rgb_1m/2026-09-23-R2-MS-RGB-1m.webp",
+      "thumbnail": "rgb_1m/2026-09-23-R2-canonical-1m.webp",
       "staticImage": {
-        "url": "rgb_1m/2026-09-23-R2-MS-RGB-1m.webp",
+        "url": "rgb_1m/2026-09-23-R2-canonical-1m.webp",
         "projection": "EPSG:32652",
         "extent": [
-          489428,
-          3895275,
-          489985,
-          3895645
-        ]
+          489428.0,
+          3895275.0,
+          489985.0,
+          3895645.0
+        ],
+        "width": 557,
+        "height": 370,
+        "displayOnly": true
       },
       "derivedFromMultispectral": true,
       "isOptical": false,
@@ -1310,8 +1695,36 @@
       "analysisPrivate": true,
       "dem": null,
       "gps": null,
-      "resampling": "1m valid-area average",
-      "calibrationStatus": "source accuracy not independently validated"
+      "resampling": "1m valid-area average; same full-band source and channel stretch as RE",
+      "calibrationStatus": "source accuracy not independently validated",
+      "rgbDisplay": {
+        "bands": [
+          6,
+          4,
+          2
+        ],
+        "wavelengthsNm": [
+          668,
+          560,
+          475
+        ],
+        "rangeBasis": "native-alpha-valid-P05-P95",
+        "rangesRaw": [
+          [
+            947.0,
+            7095.0
+          ],
+          [
+            1490.0,
+            5999.0
+          ],
+          [
+            570.0,
+            4307.0
+          ]
+        ],
+        "sourceGroup": "2026-09-23-R2"
+      }
     },
     {
       "id": "2026-09-23-R3-RGB",
@@ -1330,16 +1743,19 @@
         35.20370450384653
       ],
       "mosaic_px_cm": 100,
-      "thumbnail": "rgb_1m/2026-09-23-R3-MS-RGB-1m.webp",
+      "thumbnail": "rgb_1m/2026-09-23-R3-canonical-1m.webp",
       "staticImage": {
-        "url": "rgb_1m/2026-09-23-R3-MS-RGB-1m.webp",
+        "url": "rgb_1m/2026-09-23-R3-canonical-1m.webp",
         "projection": "EPSG:32652",
         "extent": [
-          489445,
-          3895276,
-          490024,
-          3895639
-        ]
+          489445.0,
+          3895276.0,
+          490024.0,
+          3895639.0
+        ],
+        "width": 579,
+        "height": 363,
+        "displayOnly": true
       },
       "derivedFromMultispectral": true,
       "isOptical": false,
@@ -1347,8 +1763,36 @@
       "analysisPrivate": true,
       "dem": null,
       "gps": null,
-      "resampling": "1m valid-area average",
-      "calibrationStatus": "source accuracy not independently validated"
+      "resampling": "1m valid-area average; same full-band source and channel stretch as RE",
+      "calibrationStatus": "source accuracy not independently validated",
+      "rgbDisplay": {
+        "bands": [
+          6,
+          4,
+          2
+        ],
+        "wavelengthsNm": [
+          668,
+          560,
+          475
+        ],
+        "rangeBasis": "native-alpha-valid-P05-P95",
+        "rangesRaw": [
+          [
+            928.0,
+            6783.0
+          ],
+          [
+            1420.0,
+            5839.0
+          ],
+          [
+            548.0,
+            4273.0
+          ]
+        ],
+        "sourceGroup": "2026-09-23-R3"
+      }
     },
     {
       "id": "2026-10-07-R1-RGB",
@@ -1367,16 +1811,19 @@
         35.20356902802923
       ],
       "mosaic_px_cm": 100,
-      "thumbnail": "rgb_1m/2026-10-07-R1-MS-RGB-1m.webp",
+      "thumbnail": "rgb_1m/2026-10-07-R1-canonical-1m.webp",
       "staticImage": {
-        "url": "rgb_1m/2026-10-07-R1-MS-RGB-1m.webp",
+        "url": "rgb_1m/2026-10-07-R1-canonical-1m.webp",
         "projection": "EPSG:32652",
         "extent": [
-          489456,
-          3895235,
-          490002,
-          3895624
-        ]
+          489456.0,
+          3895235.0,
+          490002.0,
+          3895624.0
+        ],
+        "width": 546,
+        "height": 389,
+        "displayOnly": true
       },
       "derivedFromMultispectral": true,
       "isOptical": false,
@@ -1384,8 +1831,36 @@
       "analysisPrivate": true,
       "dem": null,
       "gps": null,
-      "resampling": "1m valid-area average",
-      "calibrationStatus": "source accuracy not independently validated"
+      "resampling": "1m valid-area average; same full-band source and channel stretch as RE",
+      "calibrationStatus": "source accuracy not independently validated",
+      "rgbDisplay": {
+        "bands": [
+          6,
+          4,
+          2
+        ],
+        "wavelengthsNm": [
+          668,
+          560,
+          475
+        ],
+        "rangeBasis": "native-alpha-valid-P05-P95",
+        "rangesRaw": [
+          [
+            812.0,
+            6959.0
+          ],
+          [
+            1140.0,
+            6180.0
+          ],
+          [
+            545.0,
+            4517.0
+          ]
+        ],
+        "sourceGroup": "2026-10-07-R1"
+      }
     },
     {
       "id": "2026-05-10-R3-RE",
@@ -1403,7 +1878,7 @@
         128.88945513380875,
         35.20462365986436
       ],
-      "thumbnail": "bands/2026-05-10-R3-RGB-p05p95.webp",
+      "thumbnail": "bands/2026-05-10-R3-RGB-canonical-p05p95.webp",
       "displayOnly": true,
       "analysisPrivate": true,
       "dem": null,
@@ -1681,7 +2156,7 @@
         }
       },
       "staticImage": {
-        "url": "bands/2026-05-10-R3-RGB-p05p95.webp",
+        "url": "bands/2026-05-10-R3-RGB-canonical-p05p95.webp",
         "projection": "EPSG:3857",
         "extent": [
           14347327.313091993,
@@ -1692,6 +2167,86 @@
         "width": 877,
         "height": 1000,
         "displayOnly": true
+      },
+      "spectrum": {
+        "fields": "spectra/2026-05-10-R3/fields-native.json",
+        "unit": "reflectance_ratio",
+        "scale": 3.0517578125e-05,
+        "numbering": {
+          "start": 1,
+          "count": 19,
+          "basis": "common-parcel-geometry"
+        },
+        "wavelengthsNm": [
+          444,
+          475,
+          531,
+          560,
+          650,
+          668,
+          705,
+          717,
+          740,
+          842
+        ],
+        "yRanges": {
+          "fields": {
+            "min": 0.0,
+            "max": 1.783599853515625,
+            "basis": "native-alpha-valid-parcel-pixels-all-bands"
+          },
+          "all": {
+            "min": 0.0,
+            "max": 1.802947998046875
+          }
+        },
+        "pixel": {
+          "width": 877,
+          "height": 1000,
+          "extent": [
+            14347327.313091993,
+            4191060.5517168264,
+            14347908.514118072,
+            4191723.5684883925
+          ],
+          "projection": "EPSG:3857",
+          "tileRows": 32,
+          "channels": 11,
+          "alphaBand": 10,
+          "layout": "band-major-row-column",
+          "dtype": "uint16-le",
+          "compression": "gzip",
+          "tileTemplate": "spectra/2026-05-10-R3/pixels-{tile}.bin.gz",
+          "representative": true
+        }
+      },
+      "rgbDisplay": {
+        "bands": [
+          6,
+          4,
+          2
+        ],
+        "wavelengthsNm": [
+          668,
+          560,
+          475
+        ],
+        "rangeBasis": "native-alpha-valid-P05-P95",
+        "rangesRaw": [
+          [
+            1705.0,
+            8386.0
+          ],
+          [
+            1864.0,
+            7565.0
+          ],
+          [
+            1004.0,
+            5951.0
+          ]
+        ],
+        "sourceGroup": "2026-05-10-R3"
       }
     },
     {
@@ -1710,7 +2265,7 @@
         128.8894839559826,
         35.20485737723303
       ],
-      "thumbnail": "bands/2026-05-10-R4-RGB-p05p95.webp",
+      "thumbnail": "bands/2026-05-10-R4-RGB-canonical-p05p95.webp",
       "displayOnly": true,
       "analysisPrivate": true,
       "dem": null,
@@ -1988,7 +2543,7 @@
         }
       },
       "staticImage": {
-        "url": "bands/2026-05-10-R4-RGB-p05p95.webp",
+        "url": "bands/2026-05-10-R4-RGB-canonical-p05p95.webp",
         "projection": "EPSG:3857",
         "extent": [
           14347291.087858383,
@@ -1999,6 +2554,86 @@
         "width": 884,
         "height": 1000,
         "displayOnly": true
+      },
+      "spectrum": {
+        "fields": "spectra/2026-05-10-R4/fields-native.json",
+        "unit": "reflectance_ratio",
+        "scale": 3.0517578125e-05,
+        "numbering": {
+          "start": 1,
+          "count": 19,
+          "basis": "common-parcel-geometry"
+        },
+        "wavelengthsNm": [
+          444,
+          475,
+          531,
+          560,
+          650,
+          668,
+          705,
+          717,
+          740,
+          842
+        ],
+        "yRanges": {
+          "fields": {
+            "min": 0.0,
+            "max": 1.665802001953125,
+            "basis": "native-alpha-valid-parcel-pixels-all-bands"
+          },
+          "all": {
+            "min": 0.0,
+            "max": 1.8297119140625
+          }
+        },
+        "pixel": {
+          "width": 884,
+          "height": 1000,
+          "extent": [
+            14347291.087858383,
+            4191052.974677683,
+            14347911.722587787,
+            4191755.4096186515
+          ],
+          "projection": "EPSG:3857",
+          "tileRows": 32,
+          "channels": 11,
+          "alphaBand": 10,
+          "layout": "band-major-row-column",
+          "dtype": "uint16-le",
+          "compression": "gzip",
+          "tileTemplate": "spectra/2026-05-10-R4/pixels-{tile}.bin.gz",
+          "representative": true
+        }
+      },
+      "rgbDisplay": {
+        "bands": [
+          6,
+          4,
+          2
+        ],
+        "wavelengthsNm": [
+          668,
+          560,
+          475
+        ],
+        "rangeBasis": "native-alpha-valid-P05-P95",
+        "rangesRaw": [
+          [
+            1493.0,
+            7969.0
+          ],
+          [
+            1936.0,
+            9110.0
+          ],
+          [
+            1198.0,
+            8069.0
+          ]
+        ],
+        "sourceGroup": "2026-05-10-R4"
       }
     },
     {
@@ -2017,7 +2652,7 @@
         128.88955746635102,
         35.204852743732054
       ],
-      "thumbnail": "bands/2026-05-10-R5-RGB-p05p95.webp",
+      "thumbnail": "bands/2026-05-10-R5-RGB-canonical-p05p95.webp",
       "displayOnly": true,
       "analysisPrivate": true,
       "dem": null,
@@ -2295,7 +2930,7 @@
         }
       },
       "staticImage": {
-        "url": "bands/2026-05-10-R5-RGB-p05p95.webp",
+        "url": "bands/2026-05-10-R5-RGB-canonical-p05p95.webp",
         "projection": "EPSG:3857",
         "extent": [
           14347316.798668165,
@@ -2306,6 +2941,86 @@
         "width": 847,
         "height": 1000,
         "displayOnly": true
+      },
+      "spectrum": {
+        "fields": "spectra/2026-05-10-R5/fields-native.json",
+        "unit": "reflectance_ratio",
+        "scale": 3.0517578125e-05,
+        "numbering": {
+          "start": 1,
+          "count": 19,
+          "basis": "common-parcel-geometry"
+        },
+        "wavelengthsNm": [
+          444,
+          475,
+          531,
+          560,
+          650,
+          668,
+          705,
+          717,
+          740,
+          842
+        ],
+        "yRanges": {
+          "fields": {
+            "min": 0.0,
+            "max": 1.867218017578125,
+            "basis": "native-alpha-valid-parcel-pixels-all-bands"
+          },
+          "all": {
+            "min": 0.0,
+            "max": 1.887451171875
+          }
+        },
+        "pixel": {
+          "width": 847,
+          "height": 1000,
+          "extent": [
+            14347316.798668165,
+            4191042.547008622,
+            14347919.905724568,
+            4191754.7783599775
+          ],
+          "projection": "EPSG:3857",
+          "tileRows": 32,
+          "channels": 11,
+          "alphaBand": 10,
+          "layout": "band-major-row-column",
+          "dtype": "uint16-le",
+          "compression": "gzip",
+          "tileTemplate": "spectra/2026-05-10-R5/pixels-{tile}.bin.gz",
+          "representative": true
+        }
+      },
+      "rgbDisplay": {
+        "bands": [
+          6,
+          4,
+          2
+        ],
+        "wavelengthsNm": [
+          668,
+          560,
+          475
+        ],
+        "rangeBasis": "native-alpha-valid-P05-P95",
+        "rangesRaw": [
+          [
+            1837.0,
+            10048.0
+          ],
+          [
+            1884.0,
+            9490.0
+          ],
+          [
+            1109.0,
+            7752.0
+          ]
+        ],
+        "sourceGroup": "2026-05-10-R5"
       }
     },
     {
@@ -2324,7 +3039,7 @@
         128.88998858838002,
         35.203503879678266
       ],
-      "thumbnail": "bands/2026-07-16-R1-RGB-p05p95.webp",
+      "thumbnail": "bands/2026-07-16-R1-RGB-canonical-p05p95.webp",
       "displayOnly": true,
       "analysisPrivate": true,
       "dem": null,
@@ -2602,7 +3317,7 @@
         }
       },
       "staticImage": {
-        "url": "bands/2026-07-16-R1-RGB-p05p95.webp",
+        "url": "bands/2026-07-16-R1-RGB-canonical-p05p95.webp",
         "projection": "EPSG:3857",
         "extent": [
           14347358.601182023,
@@ -2613,6 +3328,86 @@
         "width": 1000,
         "height": 711,
         "displayOnly": true
+      },
+      "spectrum": {
+        "fields": "spectra/2026-07-16-R1/fields-native.json",
+        "unit": "reflectance_ratio",
+        "scale": 3.0517578125e-05,
+        "numbering": {
+          "start": 1,
+          "count": 19,
+          "basis": "common-parcel-geometry"
+        },
+        "wavelengthsNm": [
+          444,
+          475,
+          531,
+          560,
+          650,
+          668,
+          705,
+          717,
+          740,
+          842
+        ],
+        "yRanges": {
+          "fields": {
+            "min": 0.00152587890625,
+            "max": 0.85040283203125,
+            "basis": "native-alpha-valid-parcel-pixels-all-bands"
+          },
+          "all": {
+            "min": 0.0,
+            "max": 1.06072998046875
+          }
+        },
+        "pixel": {
+          "width": 1000,
+          "height": 711,
+          "extent": [
+            14347358.601182023,
+            4191138.0907254233,
+            14347967.898009308,
+            4191571.0134179653
+          ],
+          "projection": "EPSG:3857",
+          "tileRows": 32,
+          "channels": 11,
+          "alphaBand": 10,
+          "layout": "band-major-row-column",
+          "dtype": "uint16-le",
+          "compression": "gzip",
+          "tileTemplate": "spectra/2026-07-16-R1/pixels-{tile}.bin.gz",
+          "representative": true
+        }
+      },
+      "rgbDisplay": {
+        "bands": [
+          6,
+          4,
+          2
+        ],
+        "wavelengthsNm": [
+          668,
+          560,
+          475
+        ],
+        "rangeBasis": "native-alpha-valid-P05-P95",
+        "rangesRaw": [
+          [
+            362.0,
+            6113.0
+          ],
+          [
+            1334.0,
+            5898.0
+          ],
+          [
+            440.0,
+            4646.0
+          ]
+        ],
+        "sourceGroup": "2026-07-16-R1"
       }
     },
     {
@@ -2631,7 +3426,7 @@
         128.89046707029826,
         35.203489850282
       ],
-      "thumbnail": "bands/2026-07-31-R1-RGB-p05p95.webp",
+      "thumbnail": "bands/2026-07-31-R1-RGB-canonical-p05p95.webp",
       "displayOnly": true,
       "analysisPrivate": true,
       "dem": null,
@@ -2909,7 +3704,7 @@
         }
       },
       "staticImage": {
-        "url": "bands/2026-07-31-R1-RGB-p05p95.webp",
+        "url": "bands/2026-07-31-R1-RGB-canonical-p05p95.webp",
         "projection": "EPSG:3857",
         "extent": [
           14347345.222599136,
@@ -2920,6 +3715,86 @@
         "width": 1000,
         "height": 625,
         "displayOnly": true
+      },
+      "spectrum": {
+        "fields": "spectra/2026-07-31-R1/fields-native.json",
+        "unit": "reflectance_ratio",
+        "scale": 3.0517578125e-05,
+        "numbering": {
+          "start": 1,
+          "count": 19,
+          "basis": "common-parcel-geometry"
+        },
+        "wavelengthsNm": [
+          444,
+          475,
+          531,
+          560,
+          650,
+          668,
+          705,
+          717,
+          740,
+          842
+        ],
+        "yRanges": {
+          "fields": {
+            "min": 0.0,
+            "max": 0.774139404296875,
+            "basis": "native-alpha-valid-parcel-pixels-all-bands"
+          },
+          "all": {
+            "min": 0.0,
+            "max": 1.82965087890625
+          }
+        },
+        "pixel": {
+          "width": 1000,
+          "height": 625,
+          "extent": [
+            14347345.222599136,
+            4191146.9375849385,
+            14348021.1623728,
+            4191569.1021137456
+          ],
+          "projection": "EPSG:3857",
+          "tileRows": 32,
+          "channels": 11,
+          "alphaBand": 10,
+          "layout": "band-major-row-column",
+          "dtype": "uint16-le",
+          "compression": "gzip",
+          "tileTemplate": "spectra/2026-07-31-R1/pixels-{tile}.bin.gz",
+          "representative": true
+        }
+      },
+      "rgbDisplay": {
+        "bands": [
+          6,
+          4,
+          2
+        ],
+        "wavelengthsNm": [
+          668,
+          560,
+          475
+        ],
+        "rangeBasis": "native-alpha-valid-P05-P95",
+        "rangesRaw": [
+          [
+            206.0,
+            5501.0
+          ],
+          [
+            758.0,
+            5461.0
+          ],
+          [
+            234.0,
+            4116.0
+          ]
+        ],
+        "sourceGroup": "2026-07-31-R1"
       }
     },
     {
@@ -2938,7 +3813,7 @@
         128.89011607170622,
         35.203540557380244
       ],
-      "thumbnail": "bands/2026-07-31-R2-RGB-p05p95.webp",
+      "thumbnail": "bands/2026-07-31-R2-RGB-canonical-p05p95.webp",
       "displayOnly": true,
       "analysisPrivate": true,
       "dem": null,
@@ -3216,7 +4091,7 @@
         }
       },
       "staticImage": {
-        "url": "bands/2026-07-31-R2-RGB-p05p95.webp",
+        "url": "bands/2026-07-31-R2-RGB-canonical-p05p95.webp",
         "projection": "EPSG:3857",
         "extent": [
           14347318.319190364,
@@ -3227,6 +4102,86 @@
         "width": 1000,
         "height": 682,
         "displayOnly": true
+      },
+      "spectrum": {
+        "fields": "spectra/2026-07-31-R2/fields-native.json",
+        "unit": "reflectance_ratio",
+        "scale": 3.0517578125e-05,
+        "numbering": {
+          "start": 1,
+          "count": 19,
+          "basis": "common-parcel-geometry"
+        },
+        "wavelengthsNm": [
+          444,
+          475,
+          531,
+          560,
+          650,
+          668,
+          705,
+          717,
+          740,
+          842
+        ],
+        "yRanges": {
+          "fields": {
+            "min": 0.0,
+            "max": 0.695953369140625,
+            "basis": "native-alpha-valid-parcel-pixels-all-bands"
+          },
+          "all": {
+            "min": 0.0,
+            "max": 1.999359130859375
+          }
+        },
+        "pixel": {
+          "width": 1000,
+          "height": 682,
+          "extent": [
+            14347318.319190364,
+            4191123.113393863,
+            14347982.089388262,
+            4191576.01023088
+          ],
+          "projection": "EPSG:3857",
+          "tileRows": 32,
+          "channels": 11,
+          "alphaBand": 10,
+          "layout": "band-major-row-column",
+          "dtype": "uint16-le",
+          "compression": "gzip",
+          "tileTemplate": "spectra/2026-07-31-R2/pixels-{tile}.bin.gz",
+          "representative": true
+        }
+      },
+      "rgbDisplay": {
+        "bands": [
+          6,
+          4,
+          2
+        ],
+        "wavelengthsNm": [
+          668,
+          560,
+          475
+        ],
+        "rangeBasis": "native-alpha-valid-P05-P95",
+        "rangesRaw": [
+          [
+            235.0,
+            5389.0
+          ],
+          [
+            940.0,
+            5228.0
+          ],
+          [
+            265.0,
+            3924.0
+          ]
+        ],
+        "sourceGroup": "2026-07-31-R2"
       }
     },
     {
@@ -3245,7 +4200,7 @@
         128.8898876901164,
         35.20346402228011
       ],
-      "thumbnail": "bands/2026-09-08-R1-RGB-p05p95.webp",
+      "thumbnail": "bands/2026-09-08-R1-RGB-canonical-p05p95.webp",
       "displayOnly": true,
       "analysisPrivate": true,
       "dem": null,
@@ -3523,7 +4478,7 @@
         }
       },
       "staticImage": {
-        "url": "bands/2026-09-08-R1-RGB-p05p95.webp",
+        "url": "bands/2026-09-08-R1-RGB-canonical-p05p95.webp",
         "projection": "EPSG:3857",
         "extent": [
           14347328.486765552,
@@ -3534,6 +4489,86 @@
         "width": 1000,
         "height": 659,
         "displayOnly": true
+      },
+      "spectrum": {
+        "fields": "spectra/2026-09-08-R1/fields-native.json",
+        "unit": "reflectance_ratio",
+        "scale": 3.0517578125e-05,
+        "numbering": {
+          "start": 1,
+          "count": 19,
+          "basis": "common-parcel-geometry"
+        },
+        "wavelengthsNm": [
+          444,
+          475,
+          531,
+          560,
+          650,
+          668,
+          705,
+          717,
+          740,
+          842
+        ],
+        "yRanges": {
+          "fields": {
+            "min": 0.001251220703125,
+            "max": 0.773651123046875,
+            "basis": "native-alpha-valid-parcel-pixels-all-bands"
+          },
+          "all": {
+            "min": 0.0,
+            "max": 1.273895263671875
+          }
+        },
+        "pixel": {
+          "width": 1000,
+          "height": 659,
+          "extent": [
+            14347328.486765552,
+            4191151.468335627,
+            14347956.666065978,
+            4191565.5834194315
+          ],
+          "projection": "EPSG:3857",
+          "tileRows": 32,
+          "channels": 11,
+          "alphaBand": 10,
+          "layout": "band-major-row-column",
+          "dtype": "uint16-le",
+          "compression": "gzip",
+          "tileTemplate": "spectra/2026-09-08-R1/pixels-{tile}.bin.gz",
+          "representative": true
+        }
+      },
+      "rgbDisplay": {
+        "bands": [
+          6,
+          4,
+          2
+        ],
+        "wavelengthsNm": [
+          668,
+          560,
+          475
+        ],
+        "rangeBasis": "native-alpha-valid-P05-P95",
+        "rangesRaw": [
+          [
+            637.0,
+            4536.0
+          ],
+          [
+            1360.0,
+            4780.0
+          ],
+          [
+            462.0,
+            3177.0
+          ]
+        ],
+        "sourceGroup": "2026-09-08-R1"
       }
     },
     {
@@ -3552,7 +4587,7 @@
         128.88999850279126,
         35.203638264135016
       ],
-      "thumbnail": "bands/2026-09-08-R2-RGB-p05p95.webp",
+      "thumbnail": "bands/2026-09-08-R2-RGB-canonical-p05p95.webp",
       "displayOnly": true,
       "analysisPrivate": true,
       "dem": null,
@@ -3830,7 +4865,7 @@
         }
       },
       "staticImage": {
-        "url": "bands/2026-09-08-R2-RGB-p05p95.webp",
+        "url": "bands/2026-09-08-R2-RGB-canonical-p05p95.webp",
         "projection": "EPSG:3857",
         "extent": [
           14347314.547518596,
@@ -3841,6 +4876,86 @@
         "width": 1000,
         "height": 727,
         "displayOnly": true
+      },
+      "spectrum": {
+        "fields": "spectra/2026-09-08-R2/fields-native.json",
+        "unit": "reflectance_ratio",
+        "scale": 3.0517578125e-05,
+        "numbering": {
+          "start": 1,
+          "count": 19,
+          "basis": "common-parcel-geometry"
+        },
+        "wavelengthsNm": [
+          444,
+          475,
+          531,
+          560,
+          650,
+          668,
+          705,
+          717,
+          740,
+          842
+        ],
+        "yRanges": {
+          "fields": {
+            "min": 0.0,
+            "max": 0.7022705078125,
+            "basis": "native-alpha-valid-parcel-pixels-all-bands"
+          },
+          "all": {
+            "min": 0.0,
+            "max": 1.99798583984375
+          }
+        },
+        "pixel": {
+          "width": 1000,
+          "height": 727,
+          "extent": [
+            14347314.547518596,
+            4191113.3311291165,
+            14347969.001676517,
+            4191589.321391387
+          ],
+          "projection": "EPSG:3857",
+          "tileRows": 32,
+          "channels": 11,
+          "alphaBand": 10,
+          "layout": "band-major-row-column",
+          "dtype": "uint16-le",
+          "compression": "gzip",
+          "tileTemplate": "spectra/2026-09-08-R2/pixels-{tile}.bin.gz",
+          "representative": true
+        }
+      },
+      "rgbDisplay": {
+        "bands": [
+          6,
+          4,
+          2
+        ],
+        "wavelengthsNm": [
+          668,
+          560,
+          475
+        ],
+        "rangeBasis": "native-alpha-valid-P05-P95",
+        "rangesRaw": [
+          [
+            639.0,
+            5067.0
+          ],
+          [
+            1375.0,
+            5000.0
+          ],
+          [
+            454.0,
+            3770.0
+          ]
+        ],
+        "sourceGroup": "2026-09-08-R2"
       }
     },
     {
@@ -3859,7 +4974,7 @@
         128.8902639066854,
         35.203559187725894
       ],
-      "thumbnail": "bands/2026-09-08-R3-RGB-p05p95.webp",
+      "thumbnail": "bands/2026-09-08-R3-RGB-canonical-p05p95.webp",
       "displayOnly": true,
       "analysisPrivate": true,
       "dem": null,
@@ -4137,7 +5252,7 @@
         }
       },
       "staticImage": {
-        "url": "bands/2026-09-08-R3-RGB-p05p95.webp",
+        "url": "bands/2026-09-08-R3-RGB-canonical-p05p95.webp",
         "projection": "EPSG:3857",
         "extent": [
           14347321.456564156,
@@ -4148,6 +5263,86 @@
         "width": 1000,
         "height": 663,
         "displayOnly": true
+      },
+      "spectrum": {
+        "fields": "spectra/2026-09-08-R3/fields-native.json",
+        "unit": "reflectance_ratio",
+        "scale": 3.0517578125e-05,
+        "numbering": {
+          "start": 1,
+          "count": 19,
+          "basis": "common-parcel-geometry"
+        },
+        "wavelengthsNm": [
+          444,
+          475,
+          531,
+          560,
+          650,
+          668,
+          705,
+          717,
+          740,
+          842
+        ],
+        "yRanges": {
+          "fields": {
+            "min": 0.0,
+            "max": 0.713104248046875,
+            "basis": "native-alpha-valid-parcel-pixels-all-bands"
+          },
+          "all": {
+            "min": 0.0,
+            "max": 1.182037353515625
+          }
+        },
+        "pixel": {
+          "width": 1000,
+          "height": 663,
+          "extent": [
+            14347321.456564156,
+            4191129.783188601,
+            14347998.546302868,
+            4191578.548350186
+          ],
+          "projection": "EPSG:3857",
+          "tileRows": 32,
+          "channels": 11,
+          "alphaBand": 10,
+          "layout": "band-major-row-column",
+          "dtype": "uint16-le",
+          "compression": "gzip",
+          "tileTemplate": "spectra/2026-09-08-R3/pixels-{tile}.bin.gz",
+          "representative": true
+        }
+      },
+      "rgbDisplay": {
+        "bands": [
+          6,
+          4,
+          2
+        ],
+        "wavelengthsNm": [
+          668,
+          560,
+          475
+        ],
+        "rangeBasis": "native-alpha-valid-P05-P95",
+        "rangesRaw": [
+          [
+            562.0,
+            4611.0
+          ],
+          [
+            1251.0,
+            4619.0
+          ],
+          [
+            407.0,
+            3393.0
+          ]
+        ],
+        "sourceGroup": "2026-09-08-R3"
       }
     },
     {
@@ -4166,7 +5361,7 @@
         128.88987461263838,
         35.20346942684407
       ],
-      "thumbnail": "bands/2026-09-08-R4-RGB-p05p95.webp",
+      "thumbnail": "bands/2026-09-08-R4-RGB-canonical-p05p95.webp",
       "displayOnly": true,
       "analysisPrivate": true,
       "dem": null,
@@ -4444,7 +5639,7 @@
         }
       },
       "staticImage": {
-        "url": "bands/2026-09-08-R4-RGB-p05p95.webp",
+        "url": "bands/2026-09-08-R4-RGB-canonical-p05p95.webp",
         "projection": "EPSG:3857",
         "extent": [
           14347310.41649788,
@@ -4455,6 +5650,86 @@
         "width": 1000,
         "height": 694,
         "displayOnly": true
+      },
+      "spectrum": {
+        "fields": "spectra/2026-09-08-R4/fields-native.json",
+        "unit": "reflectance_ratio",
+        "scale": 3.0517578125e-05,
+        "numbering": {
+          "start": 1,
+          "count": 19,
+          "basis": "common-parcel-geometry"
+        },
+        "wavelengthsNm": [
+          444,
+          475,
+          531,
+          560,
+          650,
+          668,
+          705,
+          717,
+          740,
+          842
+        ],
+        "yRanges": {
+          "fields": {
+            "min": 0.0,
+            "max": 0.709625244140625,
+            "basis": "native-alpha-valid-parcel-pixels-all-bands"
+          },
+          "all": {
+            "min": 0.0,
+            "max": 1.171295166015625
+          }
+        },
+        "pixel": {
+          "width": 1000,
+          "height": 694,
+          "extent": [
+            14347310.41649788,
+            4191118.85349083,
+            14347955.210287783,
+            4191566.319713556
+          ],
+          "projection": "EPSG:3857",
+          "tileRows": 32,
+          "channels": 11,
+          "alphaBand": 10,
+          "layout": "band-major-row-column",
+          "dtype": "uint16-le",
+          "compression": "gzip",
+          "tileTemplate": "spectra/2026-09-08-R4/pixels-{tile}.bin.gz",
+          "representative": true
+        }
+      },
+      "rgbDisplay": {
+        "bands": [
+          6,
+          4,
+          2
+        ],
+        "wavelengthsNm": [
+          668,
+          560,
+          475
+        ],
+        "rangeBasis": "native-alpha-valid-P05-P95",
+        "rangesRaw": [
+          [
+            502.0,
+            4672.0
+          ],
+          [
+            1140.0,
+            4667.0
+          ],
+          [
+            370.0,
+            3526.0
+          ]
+        ],
+        "sourceGroup": "2026-09-08-R4"
       }
     },
     {
@@ -4473,7 +5748,7 @@
         128.8900441994677,
         35.20373506205578
       ],
-      "thumbnail": "bands/2026-09-23-R1-RGB-p05p95.webp",
+      "thumbnail": "bands/2026-09-23-R1-RGB-canonical-p05p95.webp",
       "displayOnly": true,
       "analysisPrivate": true,
       "dem": null,
@@ -4751,7 +6026,7 @@
         }
       },
       "staticImage": {
-        "url": "bands/2026-09-23-R1-RGB-p05p95.webp",
+        "url": "bands/2026-09-23-R1-RGB-canonical-p05p95.webp",
         "projection": "EPSG:3857",
         "extent": [
           14347311.399557717,
@@ -4762,6 +6037,86 @@
         "width": 1000,
         "height": 693,
         "displayOnly": true
+      },
+      "spectrum": {
+        "fields": "spectra/2026-09-23-R1/fields-native.json",
+        "unit": "reflectance_ratio",
+        "scale": 3.0517578125e-05,
+        "numbering": {
+          "start": 1,
+          "count": 19,
+          "basis": "common-parcel-geometry"
+        },
+        "wavelengthsNm": [
+          444,
+          475,
+          531,
+          560,
+          650,
+          668,
+          705,
+          717,
+          740,
+          842
+        ],
+        "yRanges": {
+          "fields": {
+            "min": 0.0,
+            "max": 0.934234619140625,
+            "basis": "native-alpha-valid-parcel-pixels-all-bands"
+          },
+          "all": {
+            "min": 0.0,
+            "max": 1.0931396484375
+          }
+        },
+        "pixel": {
+          "width": 1000,
+          "height": 693,
+          "extent": [
+            14347311.399557717,
+            4191143.49209775,
+            14347974.088607268,
+            4191602.508751934
+          ],
+          "projection": "EPSG:3857",
+          "tileRows": 32,
+          "channels": 11,
+          "alphaBand": 10,
+          "layout": "band-major-row-column",
+          "dtype": "uint16-le",
+          "compression": "gzip",
+          "tileTemplate": "spectra/2026-09-23-R1/pixels-{tile}.bin.gz",
+          "representative": true
+        }
+      },
+      "rgbDisplay": {
+        "bands": [
+          6,
+          4,
+          2
+        ],
+        "wavelengthsNm": [
+          668,
+          560,
+          475
+        ],
+        "rangeBasis": "native-alpha-valid-P05-P95",
+        "rangesRaw": [
+          [
+            792.0,
+            6776.0
+          ],
+          [
+            1271.0,
+            5756.0
+          ],
+          [
+            496.0,
+            4115.0
+          ]
+        ],
+        "sourceGroup": "2026-09-23-R1"
       }
     },
     {
@@ -4780,7 +6135,7 @@
         128.88997713910467,
         35.20375194918032
       ],
-      "thumbnail": "bands/2026-09-23-R2-RGB-p05p95.webp",
+      "thumbnail": "bands/2026-09-23-R2-RGB-canonical-p05p95.webp",
       "displayOnly": true,
       "analysisPrivate": true,
       "dem": null,
@@ -5058,7 +6413,7 @@
         }
       },
       "staticImage": {
-        "url": "bands/2026-09-23-R2-RGB-p05p95.webp",
+        "url": "bands/2026-09-23-R2-RGB-canonical-p05p95.webp",
         "projection": "EPSG:3857",
         "extent": [
           14347285.676102577,
@@ -5069,6 +6424,86 @@
         "width": 1000,
         "height": 667,
         "displayOnly": true
+      },
+      "spectrum": {
+        "fields": "spectra/2026-09-23-R2/fields-native.json",
+        "unit": "reflectance_ratio",
+        "scale": 3.0517578125e-05,
+        "numbering": {
+          "start": 1,
+          "count": 19,
+          "basis": "common-parcel-geometry"
+        },
+        "wavelengthsNm": [
+          444,
+          475,
+          531,
+          560,
+          650,
+          668,
+          705,
+          717,
+          740,
+          842
+        ],
+        "yRanges": {
+          "fields": {
+            "min": 0.0,
+            "max": 1.112457275390625,
+            "basis": "native-alpha-valid-parcel-pixels-all-bands"
+          },
+          "all": {
+            "min": 0.0,
+            "max": 1.231964111328125
+          }
+        },
+        "pixel": {
+          "width": 1000,
+          "height": 667,
+          "extent": [
+            14347285.676102577,
+            4191150.7923840983,
+            14347966.623481805,
+            4191604.8093876718
+          ],
+          "projection": "EPSG:3857",
+          "tileRows": 32,
+          "channels": 11,
+          "alphaBand": 10,
+          "layout": "band-major-row-column",
+          "dtype": "uint16-le",
+          "compression": "gzip",
+          "tileTemplate": "spectra/2026-09-23-R2/pixels-{tile}.bin.gz",
+          "representative": true
+        }
+      },
+      "rgbDisplay": {
+        "bands": [
+          6,
+          4,
+          2
+        ],
+        "wavelengthsNm": [
+          668,
+          560,
+          475
+        ],
+        "rangeBasis": "native-alpha-valid-P05-P95",
+        "rangesRaw": [
+          [
+            947.0,
+            7095.0
+          ],
+          [
+            1490.0,
+            5999.0
+          ],
+          [
+            570.0,
+            4307.0
+          ]
+        ],
+        "sourceGroup": "2026-09-23-R2"
       }
     },
     {
@@ -5087,7 +6522,7 @@
         128.89040303653698,
         35.203694686925786
       ],
-      "thumbnail": "bands/2026-09-23-R3-RGB-p05p95.webp",
+      "thumbnail": "bands/2026-09-23-R3-RGB-canonical-p05p95.webp",
       "displayOnly": true,
       "analysisPrivate": true,
       "dem": null,
@@ -5365,7 +6800,7 @@
         }
       },
       "staticImage": {
-        "url": "bands/2026-09-23-R3-RGB-p05p95.webp",
+        "url": "bands/2026-09-23-R3-RGB-canonical-p05p95.webp",
         "projection": "EPSG:3857",
         "extent": [
           14347306.911821853,
@@ -5376,6 +6811,86 @@
         "width": 1000,
         "height": 628,
         "displayOnly": true
+      },
+      "spectrum": {
+        "fields": "spectra/2026-09-23-R3/fields-native.json",
+        "unit": "reflectance_ratio",
+        "scale": 3.0517578125e-05,
+        "numbering": {
+          "start": 1,
+          "count": 19,
+          "basis": "common-parcel-geometry"
+        },
+        "wavelengthsNm": [
+          444,
+          475,
+          531,
+          560,
+          650,
+          668,
+          705,
+          717,
+          740,
+          842
+        ],
+        "yRanges": {
+          "fields": {
+            "min": 0.0,
+            "max": 1.039764404296875,
+            "basis": "native-alpha-valid-parcel-pixels-all-bands"
+          },
+          "all": {
+            "min": 0.0,
+            "max": 1.892303466796875
+          }
+        },
+        "pixel": {
+          "width": 1000,
+          "height": 628,
+          "extent": [
+            14347306.911821853,
+            4191152.8157109665,
+            14348014.0341671,
+            4191597.0082042245
+          ],
+          "projection": "EPSG:3857",
+          "tileRows": 32,
+          "channels": 11,
+          "alphaBand": 10,
+          "layout": "band-major-row-column",
+          "dtype": "uint16-le",
+          "compression": "gzip",
+          "tileTemplate": "spectra/2026-09-23-R3/pixels-{tile}.bin.gz",
+          "representative": true
+        }
+      },
+      "rgbDisplay": {
+        "bands": [
+          6,
+          4,
+          2
+        ],
+        "wavelengthsNm": [
+          668,
+          560,
+          475
+        ],
+        "rangeBasis": "native-alpha-valid-P05-P95",
+        "rangesRaw": [
+          [
+            928.0,
+            6783.0
+          ],
+          [
+            1420.0,
+            5839.0
+          ],
+          [
+            548.0,
+            4273.0
+          ]
+        ],
+        "sourceGroup": "2026-09-23-R3"
       }
     }
   ],

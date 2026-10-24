@@ -1,6 +1,6 @@
 // Desktop processing prepares the products and metadata; this viewer only reads them.
 /* global ol, proj4 */
-import { createSpectrumPanel } from './spectra.js?v=10';
+import { createSpectrumPanel } from './spectra.js?v=11';
 import { bandLabel } from './bands.js';
 
 const $ = (s) => document.querySelector(s);

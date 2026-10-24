@@ -120,7 +120,7 @@ export function createSpectrumPanel({map, getReference, getFieldMask = () => nul
     const f = boundaries.getFeatures().find(f => f.get('name') === name);
     $('#field-select').value = f ? name : '';
     fields.changed(); marker.clear();
-    if (!f || !f.get('mean')) { empty(f ? '필지 내 유효 관측 없음' : '선택한 필지 없음'); return; }
+    if (!f || !f.get('mean')) { empty(f ? '이 회차의 필지 평균 자료 없음' : '선택한 필지 없음'); return; }
     const p = f.getProperties();
     draw(p.mean, `필지 ${name} 평균`, `원본 유효 ${p.validPixels.toLocaleString()}화소 · 마스크 포함률 ${(p.coverage * 100).toFixed(1)}%`);
   }
@@ -179,13 +179,13 @@ export function createSpectrumPanel({map, getReference, getFieldMask = () => nul
     finally { if (seq === clickGeneration) pixelLoading = false; }
   }
   async function setObservation(o) {
-    const next = getReference(o);
+    const next = getReference(o) ?? o;
     if (key === next?.id && reference) return;
     key = next?.id ?? null; reference = next; clickGeneration++; pixelLoading = false;
     const seq = ++generation;
     boundaries.clear(); marker.clear(); tileCache.clear(); selectedPixel = null;
     $('#field-select').innerHTML = '<option value="">필지 선택</option>';
-    $('#spectrum-toggle').disabled = !next?.spectrum;
+    $('#spectrum-toggle').disabled = !next;
     const sharedMask = getFieldMask();
     const fieldsUrl = sharedMask?.url ?? next?.spectrum?.fields;
     $('#show-fields').disabled = !fieldsUrl;
@@ -236,7 +236,11 @@ export function createSpectrumPanel({map, getReference, getFieldMask = () => nul
     else drawPixel();
   });
   map.on('singleclick', async e => {
-    if (!reference?.spectrum) return;
+    if (!reference?.spectrum) {
+      open(true);
+      empty('이 회차는 표시 영상만 제공됩니다. 10밴드 화소 스펙트럼 자료가 없습니다.');
+      return;
+    }
     open(true);
     if (mode === 'field') {
       const feature = boundaries.getFeatures().find(f => f.getGeometry().intersectsCoordinate(e.coordinate));
