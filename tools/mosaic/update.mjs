@@ -240,6 +240,7 @@ export async function run({
   const publishedDoc = readJson(publishedFile, { observations: [] });
   const published = publishedDoc.observations ?? [];
   const fieldMask = publishedDoc.fieldMask;
+    const displayPolicy = publishedDoc.displayPolicy;
   if (fieldMask && (!/^fields\/[A-Za-z0-9_-]+\.geojson$/.test(fieldMask.url)
       || fieldMask.projection !== 'EPSG:4326' || !Number.isInteger(fieldMask.count) || fieldMask.count < 1))
     throw new Error('공통 필지 경계 등록 형식 오류');
@@ -306,6 +307,7 @@ export async function run({
     format: CATALOG_FORMAT, title: '김해 논 드론 모자이크', updated_at: new Date().toISOString(),
     cameras: cfg.cameras, alt_offset_m: cfg.alt_offset_m ?? 0, observations, pending, notices: problems,
     ...(fieldMask ? {fieldMask} : {}),
+      ...(displayPolicy ? {displayPolicy} : {}),
   };
   const resultsDoc = { format: RESULT_FORMAT, updated_at: new Date().toISOString(), results };
   const oldCatalog = readJson(catalogFile);

@@ -7,6 +7,7 @@ const $ = (s) => document.querySelector(s);
 const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const KIND = { RGB: '광학', RE: '다분광', NDVI: 'NDVI' };
 const kindLabel = o => o?.derivedFromMultispectral ? 'RGB 대체' : KIND[o?.kind];
+const displayUrl = (url, o) => o.displayVersion ? `${url}${url.includes('?') ? '&' : '?'}display=${encodeURIComponent(o.displayVersion)}` : url;
 const S = { catalog: null, byKey: new Map(), sel: null, layer: null, source: null, gen: 0 };
 
 // ---- Drive 파일 읽기 --------------------------------------------------------------
@@ -142,14 +143,15 @@ function spectralControls(o) {
   $('#band-legend').hidden = false;
   $('#band-legend-title').textContent = `${bandLabel(band.wavelengthNm)} · ${S.range === 'minmax' ? '전체 Min–Max' : parcelRange ? '필지 P05–P95' : 'P05–P95'}`;
   $('#band-unit').title = `원 UInt16 / 32768 · 내보내기 배율 독립 확정 전 · ${parcelRange ? '표시 격자에서 공통 필지 안 유효 화소의 P05/P95 · 회차·밴드별 범위' : '원본 전체 alpha 유효 화소 범위'}`;
-  $('#band-ramp').style.background = `linear-gradient(90deg,${cfg.palette.map((c, i) => `${c} ${100 * i / (cfg.palette.length - 1)}%`).join(',')})`;
+  const palette = band.palette ?? cfg.palette;
+  $('#band-ramp').style.background = `linear-gradient(90deg,${palette.map((c, i) => `${c} ${100 * i / (palette.length - 1)}%`).join(',')})`;
   $('#band-ticks').innerHTML = [lo, (lo + hi) / 2, hi].map(v => `<span>${v.toFixed(4)}</span>`).join('');
   return band;
 }
 
 function showBand(o, band, gen) {
   const cfg = o.spectral;
-  const source = new ol.source.ImageStatic({ url: band.images[S.range], projection: cfg.projection, imageExtent: cfg.extent, interpolate: false });
+  const source = new ol.source.ImageStatic({ url: displayUrl(band.images[S.range], o), projection: cfg.projection, imageExtent: cfg.extent, interpolate: false });
   const layer = new ol.layer.Image({source, opacity: Number($('#opacity').value) / 100, visible: $('#show').checked});
   S.source = source; S.layer = layer;
   $('#sel-info').textContent = `${bandLabel(band.wavelengthNm)} · 축소 표시 ${cfg.displayWidth} × ${cfg.displayHeight} px`;
@@ -165,11 +167,15 @@ function showBand(o, band, gen) {
 function showStaticMosaic(o, gen, image = o.staticImage) {
   const preview = o.kind === 'RE' && image.displayOnly;
   if (preview) $('#sel-info').textContent = `${descriptionFor(o)} · 축소 표시 ${image.width} × ${image.height} px · 원본 ${o.width.toLocaleString()} × ${o.height.toLocaleString()} px`;
+  if (o.rgbDisplay?.rangeScope === 'all-registered-RGB-rounds') {
+    $('#sel-info').textContent += ' · 회차 공통 RGB 스트레치';
+    $('#sel-info').title = `R/G/B 668/560/475 nm · ${o.rgbDisplay.rounds}회차의 유효 1m 화소를 합친 채널별 P05–P95 · 감마 1 · 같은 반사도는 같은 표시 색 · ${o.rgbDisplay.rangesReflectance.map(r => r.map(v => v.toFixed(4)).join('–')).join(' / ')}`;
+  }
   if (image.projection === 'EPSG:32652') {
     proj4.defs('EPSG:32652', '+proj=utm +zone=52 +datum=WGS84 +units=m +no_defs');
     ol.proj.proj4.register(proj4);
   }
-  const source = new ol.source.ImageStatic({url:image.url, projection:image.projection, imageExtent:image.extent, interpolate:false});
+  const source = new ol.source.ImageStatic({url:displayUrl(image.url, o), projection:image.projection, imageExtent:image.extent, interpolate:false});
   S.source = source;
   S.layer = new ol.layer.Image({source, opacity:Number($('#opacity').value)/100, visible:$('#show').checked});
   source.on('imageloadend', () => {if (gen === S.gen) status(preview ? '다분광 축소 표시 · 원본 분석 TIFF는 비공개 보존' : '', preview ? 'preview' : '');});
@@ -188,6 +194,7 @@ async function select(o, { fitView = true } = {}) {
   if (S.layer) { map.removeLayer(S.layer); S.layer.dispose(); S.layer = null; }
   if (S.source) { S.source.dispose(); S.source = null; }
   $('#sel-title').textContent = o.title;
+  $('#sel-info').removeAttribute('title');
   const resolution = o.kind === 'RE' ? o.spatialResolution : null;
   $('#re-resolution').hidden = !resolution;
   $('#re-resolution').textContent = resolution
