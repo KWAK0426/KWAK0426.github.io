@@ -15,6 +15,7 @@ Claude Code 또는 Codex로 이어서 작업하려면 맨 아래 **6번 블록**
 | 드론 관측자료 현황판 원본·조사 기록 | 비공개 저장소 `KWAK0426/gimhae-drone-dashboard` | 내려받아 미리보기·발행 가능. 드라이브 재조사는 외장드라이브가 연결된 PC에서만 |
 | 김해 논 모자이크 뷰어 | https://kwak0426.github.io/drone/viewer/ (현황판 회차 칸을 누르면 열림) · 승인된 표시 자료만 공개 | **지도·밴드·NDVI·등록된 필지/스펙트럼은 설치 없이** 웹에서. 브라우저 일괄 GSD 계산은 제거했고 회차 CSV를 조회함. 기존 매일 05:00 자동 갱신은 메인 PC(메클)에서만 실행 — 다른 PC에 중복 등록하지 않음 |
 | 다른 현장 모자이크 뷰어 | https://kwak0426.github.io/mosaic-viewer/ · 저장소 `KWAK0426/mosaic-viewer` | 그 저장소에서 관리 |
+| NBAR 연구 현황 허브 | https://kwak0426.github.io/NBAR/ · 저장소 `KWAK0426/NBAR` | 통합 홈 바로가기에서 진입. 수정 전 해당 저장소의 `AGENTS.md`, `docs/COORDINATION.md`, `docs/updates/` 최신 기록 확인. 작업용·외부 공유용의 별도 구성은 후속 작업이며 아직 분리하지 않음 |
 | 업데이트 기록 | [CHANGELOG.md](CHANGELOG.md) · 통합 홈 맨 아래 "최근 업데이트" | 어느 PC에서 올려도 자동 기록 |
 
 ---
