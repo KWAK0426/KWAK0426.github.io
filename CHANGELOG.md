@@ -11,6 +11,8 @@
 
 ## 2026-10-26 (월)
 
+- **02:38** · 연코 · 밴드별 색상과 RGB 회차 공통 스트레치 적용  
+  `README.md`, `drone/viewer/app.js`, `drone/viewer/bands/2026-05-10-R3-B01-fields-p05p95-rdylbur.webp`, `drone/viewer/bands/2026-05-10-R3-B01-minmax-rdylbur.webp`, `drone/viewer/bands/2026-05-10-R3-B02-fields-p05p95-rdylbur.webp`, `drone/viewer/bands/2026-05-10-R3-B02-minmax-rdylbur.webp` 외 316개 (f00121e)
 - **00:34** · 연코 · 통합 홈에 NBAR 연구 현황 허브 바로가기 추가  
   `START_NEW_PC.md`, `pages.json` (afa05f5)
 
