@@ -15,7 +15,7 @@ body.viewer { height: 100dvh; display: flex; flex-direction: column; overflow: h
 .spec-series { display: inline-flex; align-items: center; gap: 5px; }
 .spec-series::before { content: ''; width: 20px; border-top: 3px solid var(--series-color); }
 .spec-series.dashed::before { border-top-style: dashed; }
-.spec-series.distribution::before { border-top-width: 7px; opacity: .25; }
+.spec-series.distribution::before { height: 9px; border-top: 0; background: var(--series-color); opacity: .18; }
 .spec-controls { padding: 0 0 14px; border-bottom: 2px solid var(--line-2); }
 .spec-selection-slot { height: 44px; display: flex; align-items: center; }
 .spec-selection-slot #field-select-wrap, .spec-selection-slot .spec-mean-toggle { margin: 0; }

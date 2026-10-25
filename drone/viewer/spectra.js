@@ -9,6 +9,20 @@ export function fieldMeanRange(means) {
   return {min: Math.min(...values), max: Math.max(...values)};
 }
 
+export function spectrumEnvelope(spectra, scale = 1) {
+  if (!Array.isArray(spectra) || !spectra.length || !Number.isFinite(scale) || scale <= 0) return null;
+  const bands = spectra[0]?.length;
+  if (!bands || !spectra.every(row => Array.isArray(row) && row.length === bands && row.every(Number.isFinite))) return null;
+  const min = Array(bands).fill(Infinity), max = Array(bands).fill(-Infinity);
+  for (const row of spectra) for (let i = 0; i < bands; i++) {
+    const value = row[i] * scale;
+    if (!Number.isFinite(value)) return null;
+    min[i] = Math.min(min[i], value);
+    max[i] = Math.max(max[i], value);
+  }
+  return {min, max, count: spectra.length};
+}
+
 export function compareSpectra(pixel, mean) {
   if (!pixel?.length || pixel.length !== mean?.length || ![...pixel, ...mean].every(Number.isFinite)) return null;
   const n = pixel.length;
@@ -115,16 +129,19 @@ export function createSpectrumPanel({map, getReference, getFieldMask = () => nul
     $('#spectrum-curves').innerHTML = curves;
     const fieldName = field?.get('name');
     const samples = sampleDocument?.fields[fieldName];
-    const showDistribution = samples?.count && $('#show-field-distribution').checked;
+    const envelope = samples?.count ? spectrumEnvelope(samples.spectra, sampleDocument.scale) : null;
+    const showDistribution = envelope?.min.length === nm.length && $('#show-field-distribution').checked;
     const nextBackgroundKey = `${axisKey}:${fieldName}:${Boolean(showDistribution)}:${samples?.count ?? 0}`;
     if (backgroundKey !== nextBackgroundKey) {
-      $('#spectrum-background').innerHTML = showDistribution ? samples.spectra.map(raw => `<polyline data-distribution-curve fill="none" stroke="#cf2861" stroke-opacity="0.07" stroke-width="1" points="${raw.map((v,i)=>`${x(nm[i]).toFixed(2)},${y(v*sampleDocument.scale).toFixed(2)}`).join(' ')}"/>`).join('') : '';
+      const upper = showDistribution ? envelope.max.map((v,i) => `${x(nm[i]).toFixed(2)},${y(v).toFixed(2)}`) : [];
+      const lower = showDistribution ? envelope.min.map((v,i) => `${x(nm[i]).toFixed(2)},${y(v).toFixed(2)}`).reverse() : [];
+      $('#spectrum-background').innerHTML = showDistribution ? `<path data-distribution-range d="M${upper.join(' L')} L${lower.join(' L')} Z" fill="#cf2861" fill-opacity="0.18" stroke="none"/>` : '';
       backgroundKey = nextBackgroundKey;
     }
-    const distributionOutside = showDistribution && (samples.rawMin*sampleDocument.scale < ymin || samples.rawMax*sampleDocument.scale > ymax);
+    const distributionOutside = showDistribution && (envelope.min.some(v => v < ymin) || envelope.max.some(v => v > ymax));
     $('#spectrum-sample-info').textContent = showDistribution
-      ? `배경: 필지 내 대표 화소 ${samples.count}개 표본 · 반사도 ${(samples.rawMin*sampleDocument.scale).toFixed(3)}–${(samples.rawMax*sampleDocument.scale).toFixed(3)}${distributionOutside ? ' · 축 밖 값 포함' : ''}` : '';
-    $('#spectrum-series-legend').innerHTML = series.map(s => `<span class="spec-series ${s.dashed ? 'dashed' : ''}" style="--series-color:${s.color}">${esc(s.label)}</span>`).join('') + (showDistribution ? '<span class="spec-series distribution" style="--series-color:#cf2861">필지 내 화소</span>' : '');
+      ? `필지 내 표본 ${envelope.count}개 · 밴드별 최소–최대(전체 화소 범위 아님)${distributionOutside ? ' · 축 밖 값 포함' : ''}` : '';
+    $('#spectrum-series-legend').innerHTML = series.map(s => `<span class="spec-series ${s.dashed ? 'dashed' : ''}" style="--series-color:${s.color}">${esc(s.label)}</span>`).join('') + (showDistribution ? '<span class="spec-series distribution" style="--series-color:#cf2861">필지 내 표본 범위</span>' : '');
     $('#spectrum-values').innerHTML = `<thead><tr><th>대역 · nm</th><th>${mode === 'field' ? '필지 평균' : '선택 화소'}</th>${showMean ? '<th>필지 평균</th>' : ''}</tr></thead><tbody>${values.map((v, i) => `<tr><td><span class="spec-band-name">${bandLabel(nm[i])}</span></td><td data-col="value">${v.toFixed(5)}</td>${showMean ? `<td data-col="mean">${mean[i].toFixed(5)}</td>` : ''}</tr>`).join('')}</tbody>`;
     $('#pixel-mean-wrap').hidden = mode !== 'pixel';
     $('#pixel-show-mean').disabled = !mean;
