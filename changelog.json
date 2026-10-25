@@ -2,6 +2,18 @@
  "format": "hub-changelog-v1",
  "entries": [
   {
+   "sha": "afa05f5",
+   "time": "2026-10-26 00:34",
+   "date": "2026-10-26",
+   "weekday": "월",
+   "pc": "연코",
+   "title": "통합 홈에 NBAR 연구 현황 허브 바로가기 추가",
+   "files": [
+    "START_NEW_PC.md",
+    "pages.json"
+   ]
+  },
+  {
    "sha": "4e9460d",
    "time": "2026-10-25 04:06",
    "date": "2026-10-25",
@@ -1460,22 +1472,6 @@
     "assets/hub.js",
     "index.html",
     "pages.json"
-   ]
-  },
-  {
-   "sha": "5b73420",
-   "time": "2026-10-15 23:46",
-   "date": "2026-10-15",
-   "weekday": "목",
-   "pc": "이전 기록",
-   "title": "회차 행렬에 패널/타프 반사도 전환 스위치 추가, 없음 칸 정렬, 자산 캐시 버전",
-   "files": [
-    ".gitignore",
-    "assets/hub.css",
-    "assets/hub.js",
-    "drone/index.html",
-    "drone/summary.json",
-    "index.html"
    ]
   }
  ]

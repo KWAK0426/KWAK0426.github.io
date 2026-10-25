@@ -9,6 +9,11 @@
 | 이전 기록 | 기록 규칙 전 커밋 |
 
 
+## 2026-10-26 (월)
+
+- **00:34** · 연코 · 통합 홈에 NBAR 연구 현황 허브 바로가기 추가  
+  `START_NEW_PC.md`, `pages.json` (afa05f5)
+
 ## 2026-10-25 (일)
 
 - **04:06** · 이전 기록 · Stabilize spectrum interaction and show sampled parcel distributions  
