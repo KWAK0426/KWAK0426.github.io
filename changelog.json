@@ -2,6 +2,22 @@
  "format": "hub-changelog-v1",
  "entries": [
   {
+   "sha": "7378226",
+   "time": "2026-10-26 02:58",
+   "date": "2026-10-26",
+   "weekday": "월",
+   "pc": "연코",
+   "title": "필지 스펙트럼 개별선을 최소최대 음영 범위로 변경",
+   "files": [
+    "drone/viewer/app.js",
+    "drone/viewer/index.html",
+    "drone/viewer/spectra.js",
+    "drone/viewer/viewer.css",
+    "tools/mosaic/PUBLISHED_VIEWS.md",
+    "tools/mosaic/test/spectrum-envelope.test.mjs"
+   ]
+  },
+  {
    "sha": "f00121e",
    "time": "2026-10-26 02:38",
    "date": "2026-10-26",
@@ -1768,27 +1784,6 @@
    "title": "업데이트 기록 자동화: 사이트 배포 뒤에 기록을 올려 배포 취소(실패 표시) 방지",
    "files": [
     ".github/workflows/changelog.yml"
-   ]
-  },
-  {
-   "sha": "4264727",
-   "time": "2026-10-17 01:38",
-   "date": "2026-10-17",
-   "weekday": "토",
-   "pc": "메클",
-   "title": "업데이트 기록(자동 CHANGELOG)·새 PC 시작 안내·SAVE_AND_PUSH 추가",
-   "files": [
-    ".github/workflows/changelog.yml",
-    ".gitignore",
-    "README.md",
-    "SAVE_AND_PUSH.bat",
-    "START_NEW_PC.md",
-    "UPDATE_DRONE.bat",
-    "assets/hub.css",
-    "assets/hub.js",
-    "index.html",
-    "tools/make_changelog.py",
-    "tools/save.py"
    ]
   }
  ]
