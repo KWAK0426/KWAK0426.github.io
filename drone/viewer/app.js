@@ -7,7 +7,7 @@ const $ = (s) => document.querySelector(s);
 const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const KIND = { RGB: '광학', RE: '다분광', NDVI: 'NDVI' };
 const kindLabel = o => o?.derivedFromMultispectral ? 'RGB 대체' : KIND[o?.kind];
-const displayUrl = (url, o) => { const version = o.kind === 'RGB' && o.derivedFromMultispectral ? `${o.displayVersion || 'rgb'}-brightness-20261029` : o.displayVersion; return version ? `${url}${url.includes('?') ? '&' : '?'}display=${encodeURIComponent(version)}` : url; };
+const displayUrl = (url, o) => { const version = o.kind === 'RGB' && o.derivedFromMultispectral ? `${o.displayVersion || 'rgb'}-brightness-20261029-v2` : o.displayVersion; return version ? `${url}${url.includes('?') ? '&' : '?'}display=${encodeURIComponent(version)}` : url; };
 const S = { catalog: null, byKey: new Map(), sel: null, layer: null, source: null, gen: 0 };
 
 // ---- Drive 파일 읽기 --------------------------------------------------------------
