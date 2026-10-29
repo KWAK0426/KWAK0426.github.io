@@ -2,6 +2,38 @@
  "format": "hub-changelog-v1",
  "entries": [
   {
+   "sha": "17162d5",
+   "time": "2026-10-29 10:02",
+   "date": "2026-10-29",
+   "weekday": "목",
+   "pc": "이전 기록",
+   "title": "6월 30일 1회차 다분광 표시 영상 연결",
+   "files": [
+    "drone/viewer/bands/2026-06-30-R1-B01-minmax.webp",
+    "drone/viewer/bands/2026-06-30-R1-B01-p05p95.webp",
+    "drone/viewer/bands/2026-06-30-R1-B02-minmax.webp",
+    "drone/viewer/bands/2026-06-30-R1-B02-p05p95.webp",
+    "drone/viewer/bands/2026-06-30-R1-B03-minmax.webp",
+    "drone/viewer/bands/2026-06-30-R1-B03-p05p95.webp",
+    "drone/viewer/bands/2026-06-30-R1-B04-minmax.webp",
+    "drone/viewer/bands/2026-06-30-R1-B04-p05p95.webp",
+    "drone/viewer/bands/2026-06-30-R1-B05-minmax.webp",
+    "drone/viewer/bands/2026-06-30-R1-B05-p05p95.webp",
+    "drone/viewer/bands/2026-06-30-R1-B06-minmax.webp",
+    "drone/viewer/bands/2026-06-30-R1-B06-p05p95.webp",
+    "drone/viewer/bands/2026-06-30-R1-B07-minmax.webp",
+    "drone/viewer/bands/2026-06-30-R1-B07-p05p95.webp",
+    "drone/viewer/bands/2026-06-30-R1-B08-minmax.webp",
+    "drone/viewer/bands/2026-06-30-R1-B08-p05p95.webp",
+    "drone/viewer/bands/2026-06-30-R1-B09-minmax.webp",
+    "drone/viewer/bands/2026-06-30-R1-B09-p05p95.webp",
+    "drone/viewer/bands/2026-06-30-R1-B10-minmax.webp",
+    "drone/viewer/bands/2026-06-30-R1-B10-p05p95.webp",
+    "drone/viewer/bands/2026-06-30-R1-RE-RGB-preview.webp",
+    "drone/viewer/catalog.json"
+   ]
+  },
+  {
    "sha": "3ff2a3e",
    "time": "2026-10-29 09:46",
    "date": "2026-10-29",
@@ -1797,17 +1829,6 @@
     "assets/hub.js",
     "index.html",
     "tools/sync_drone.py"
-   ]
-  },
-  {
-   "sha": "a656215",
-   "time": "2026-10-17 02:02",
-   "date": "2026-10-17",
-   "weekday": "토",
-   "pc": "연코",
-   "title": "드론 데이터 관리 Codex 담당 등록",
-   "files": [
-    "START_NEW_PC.md"
    ]
   }
  ]
