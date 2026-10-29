@@ -138,6 +138,7 @@ function spectralControls(o) {
   for (const b of document.querySelectorAll('#band-range button')) b.setAttribute('aria-pressed', String(b.dataset.range === S.range));
   const band = bands.find(b => b.band === S.band);
   if (!band) return null;
+  $('#band-range [data-range="p05p95"]').textContent = band.fieldStats ? '필지 P05–P95' : '전체 P05–P95';
   const parcelRange = S.range === 'p05p95' && band.fieldStats;
   const stats = parcelRange ? band.fieldStats : band.stats;
   const [lo, hi] = (S.range === 'minmax' ? ['min', 'max'] : ['p05', 'p95']).map(k => stats[k]);
