@@ -143,8 +143,8 @@ function spectralControls(o) {
   const stats = parcelRange ? band.fieldStats : band.stats;
   const [lo, hi] = (S.range === 'minmax' ? ['min', 'max'] : ['p05', 'p95']).map(k => stats[k]);
   $('#band-legend').hidden = false;
-  $('#band-legend-title').textContent = `${bandLabel(band.wavelengthNm)} · ${S.range === 'minmax' ? '전체 Min–Max' : parcelRange ? '필지 P05–P95' : 'P05–P95'}`;
-  $('#band-unit').title = `원 UInt16 / 32768 · 내보내기 배율 독립 확정 전 · ${parcelRange ? '표시 격자에서 공통 필지 안 유효 화소의 P05/P95 · 회차·밴드별 범위' : '원본 전체 alpha 유효 화소 범위'}`;
+  $('#band-legend-title').textContent = `${bandLabel(band.wavelengthNm)} · ${S.range === 'minmax' ? (cfg.statsDomain === 'target_parcels_union' ? '필지 Min–Max' : '전체 Min–Max') : parcelRange ? '필지 P05–P95' : 'P05–P95'}`;
+  $('#band-unit').title = cfg.statsDomain === 'target_parcels_union' ? '대상 18개 필지의 원본 격자 유효 화소 기준 · 보정 배율 독립 검증 전' : `원 UInt16 / 32768 · 내보내기 배율 독립 확정 전 · ${parcelRange ? '표시 격자에서 공통 필지 안 유효 화소의 P05/P95 · 회차·밴드별 범위' : '원본 전체 alpha 유효 화소 범위'}`;
   const palette = band.palette ?? cfg.palette;
   $('#band-ramp').style.background = `linear-gradient(90deg,${palette.map((c, i) => `${c} ${100 * i / (palette.length - 1)}%`).join(',')})`;
   $('#band-ticks').innerHTML = [lo, (lo + hi) / 2, hi].map(v => `<span>${v.toFixed(4)}</span>`).join('');
@@ -159,7 +159,7 @@ function showBand(o, band, gen) {
   $('#sel-info').textContent = `${bandLabel(band.wavelengthNm)} · 축소 표시 ${cfg.displayWidth} × ${cfg.displayHeight} px`;
   source.on('imageloadend', () => {
     if (gen !== S.gen) return;
-    const label = S.range === 'p05p95' ? band.fieldStats ? '필지 안 P05–P95' : '전체 유효 화소 P05–P95' : '전체 유효 화소 Min–Max';
+    const label = S.range === 'p05p95' ? band.fieldStats ? '필지 안 P05–P95' : '전체 유효 화소 P05–P95' : cfg.statsDomain === 'target_parcels_union' ? '필지 안 Min–Max' : '전체 유효 화소 Min–Max';
     status(`밴드별 축소 표시 · ${label}`, 'preview');
   });
   source.on('imageloaderror', () => { if (gen === S.gen) status('밴드 영상을 읽지 못했습니다. 새로고침해 주세요.', 'error'); });
