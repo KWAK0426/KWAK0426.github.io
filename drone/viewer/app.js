@@ -239,6 +239,7 @@ async function select(o, { fitView = true } = {}) {
     if (rgbImage) {
       const visual = {...sourceRgb, staticImage: {...rgbImage, displayOnly:true}};
       showStaticMosaic(visual, gen);
+      $('#re-resolution').hidden = true;
       $('#sel-info').textContent = 'RGB 합성 · 밝기 조정 표시 · 다분광 RGB 대체 영상 · 표시 해상도 1m';
     } else showStaticMosaic(o, gen);
     return;
