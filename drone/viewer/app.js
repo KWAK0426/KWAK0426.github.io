@@ -7,7 +7,8 @@ const $ = (s) => document.querySelector(s);
 const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const KIND = { RGB: '광학', RE: '다분광', NDVI: 'NDVI' };
 const kindLabel = o => o?.derivedFromMultispectral ? 'RGB 대체' : KIND[o?.kind];
-const displayUrl = (url, o) => { const version = o.kind === 'RGB' && o.derivedFromMultispectral ? `${o.displayVersion || 'rgb'}-brightness-20261029-v2` : o.displayVersion; return version ? `${url}${url.includes('?') ? '&' : '?'}display=${encodeURIComponent(version)}` : url; };
+const displayUrl = (url, o) => { const version = o.kind === 'RGB' && o.derivedFromMultispectral ? `${o.displayVersion || 'rgb'}-brightness-20261029-v3` : o.displayVersion; return version ? `${url}${url.includes('?') ? '&' : '?'}display=${encodeURIComponent(version)}` : url; };
+const approvedRgbImages = {"2026-05-10-R3-RGB":{"url":"rgb_1m/2026-05-10-R3-MS-RGB-1m.webp","projection":"EPSG:32652","extent":[489462,3895201,489938,3895742]},"2026-05-10-R4-RGB":{"url":"rgb_1m/2026-05-10-R4-MS-RGB-1m.webp","projection":"EPSG:32652","extent":[489432,3895195,489940,3895711]},"2026-05-10-R5-RGB":{"url":"rgb_1m/2026-05-10-R5-MS-RGB-1m.webp","projection":"EPSG:32652","extent":[489453,3895191,489933,3895720]},"2026-06-30-R1-RGB":{"url":"rgb_1m/2026-06-30-R1-MS-RGB-1m.webp","projection":"EPSG:32652","extent":[489477,3895274,489954,3895640]},"2026-07-16-R1-RGB":{"url":"rgb_1m/2026-07-16-R1-MS-RGB-1m.webp","projection":"EPSG:32652","extent":[489489,3895269,489984,3895616]},"2026-07-16-R2-RGB":{"url":"rgb_1m/2026-07-16-R2-MS-RGB-1m.webp","projection":"EPSG:32652","extent":[489407,3895274,490010,3895644]},"2026-07-31-R1-RGB":{"url":"rgb_1m/2026-07-31-R1-MS-RGB-1m.webp","projection":"EPSG:32652","extent":[489477,3895272,489995,3895616]},"2026-07-31-R2-RGB":{"url":"rgb_1m/2026-07-31-R2-MS-RGB-1m.webp","projection":"EPSG:32652","extent":[489456,3895256,489986,3895619]},"2026-07-31-R3-RGB":{"url":"rgb_1m/2026-07-31-R3-MS-RGB-1m.webp","projection":"EPSG:32652","extent":[489477,3895298,490001,3895615]},"2026-07-31-R4-RGB":{"url":"rgb_1m/2026-07-31-R4-MS-RGB-1m.webp","projection":"EPSG:32652","extent":[489502,3895273,489956,3895622]},"2026-07-31-R5-RGB":{"url":"rgb_1m/2026-07-31-R5-MS-RGB-1m.webp","projection":"EPSG:32652","extent":[489464,3895283,489957,3895612]},"2026-09-08-R1-RGB":{"url":"rgb_1m/2026-09-08-R1-MS-RGB-1m.webp","projection":"EPSG:32652","extent":[489463,3895275,489977,3895613]},"2026-09-08-R2-RGB":{"url":"rgb_1m/2026-09-08-R2-MS-RGB-1m.webp","projection":"EPSG:32652","extent":[489452,3895244,489987,3895632]},"2026-09-08-R3-RGB":{"url":"rgb_1m/2026-09-08-R3-MS-RGB-1m.webp","projection":"EPSG:32652","extent":[489457,3895258,490011,3895624]},"2026-09-08-R4-RGB":{"url":"rgb_1m/2026-09-08-R4-MS-RGB-1m.webp","projection":"EPSG:32652","extent":[489448,3895249,489976,3895614]},"2026-09-23-R1-RGB":{"url":"rgb_1m/2026-09-23-R1-MS-RGB-1m.webp","projection":"EPSG:32652","extent":[489449,3895269,489991,3895643]},"2026-09-23-R2-RGB":{"url":"rgb_1m/2026-09-23-R2-MS-RGB-1m.webp","projection":"EPSG:32652","extent":[489428,3895275,489985,3895645]},"2026-09-23-R3-RGB":{"url":"rgb_1m/2026-09-23-R3-MS-RGB-1m.webp","projection":"EPSG:32652","extent":[489445,3895276,490024,3895639]},"2026-10-07-R1-RGB":{"url":"rgb_1m/2026-10-07-R1-MS-RGB-1m.webp","projection":"EPSG:32652","extent":[489456,3895235,490002,3895624]}};
 const S = { catalog: null, byKey: new Map(), sel: null, layer: null, source: null, gen: 0 };
 
 // ---- Drive 파일 읽기 --------------------------------------------------------------
@@ -232,7 +233,16 @@ async function select(o, { fitView = true } = {}) {
     showStaticMosaic(o, gen, o.ndviDisplay);
     return;
   }
-  if (o.staticImage) {showStaticMosaic(o, gen); return;}
+  if (o.staticImage) {
+    const sourceRgb = o.kind === 'RGB' ? o : o.kind === 'RE' ? sib.RGB : null;
+    const rgbImage = sourceRgb?.derivedFromMultispectral ? approvedRgbImages[sourceRgb.id] : null;
+    if (rgbImage) {
+      const visual = {...sourceRgb, staticImage: {...rgbImage, displayOnly:true}};
+      showStaticMosaic(visual, gen);
+      $('#sel-info').textContent = 'RGB 합성 · 밝기 조정 표시 · 다분광 RGB 대체 영상 · 표시 해상도 1m';
+    } else showStaticMosaic(o, gen);
+    return;
+  }
   const source = new ol.source.GeoTIFF({
     sources: [{ url: driveFile(o), min: 0, max: 255 }], normalize: true, convertToRGB: 'auto', interpolate: true,
     sourceOptions: { allowFullFile: false, maxRanges: 1, blockSize: 65536, cacheSize: 100 },
