@@ -2,6 +2,35 @@
  "format": "hub-changelog-v1",
  "entries": [
   {
+   "sha": "0dbccee",
+   "time": "2026-10-29 09:23",
+   "date": "2026-10-29",
+   "weekday": "목",
+   "pc": "이전 기록",
+   "title": "밝기 조정한 RGB 대체 영상 적용",
+   "files": [
+    "drone/viewer/rgb_1m/2026-05-10-R3-MS-RGB-1m.webp",
+    "drone/viewer/rgb_1m/2026-05-10-R4-MS-RGB-1m.webp",
+    "drone/viewer/rgb_1m/2026-05-10-R5-MS-RGB-1m.webp",
+    "drone/viewer/rgb_1m/2026-06-30-R1-MS-RGB-1m.webp",
+    "drone/viewer/rgb_1m/2026-07-16-R1-MS-RGB-1m.webp",
+    "drone/viewer/rgb_1m/2026-07-16-R2-MS-RGB-1m.webp",
+    "drone/viewer/rgb_1m/2026-07-31-R1-MS-RGB-1m.webp",
+    "drone/viewer/rgb_1m/2026-07-31-R2-MS-RGB-1m.webp",
+    "drone/viewer/rgb_1m/2026-07-31-R3-MS-RGB-1m.webp",
+    "drone/viewer/rgb_1m/2026-07-31-R4-MS-RGB-1m.webp",
+    "drone/viewer/rgb_1m/2026-07-31-R5-MS-RGB-1m.webp",
+    "drone/viewer/rgb_1m/2026-09-08-R1-MS-RGB-1m.webp",
+    "drone/viewer/rgb_1m/2026-09-08-R2-MS-RGB-1m.webp",
+    "drone/viewer/rgb_1m/2026-09-08-R3-MS-RGB-1m.webp",
+    "drone/viewer/rgb_1m/2026-09-08-R4-MS-RGB-1m.webp",
+    "drone/viewer/rgb_1m/2026-09-23-R1-MS-RGB-1m.webp",
+    "drone/viewer/rgb_1m/2026-09-23-R2-MS-RGB-1m.webp",
+    "drone/viewer/rgb_1m/2026-09-23-R3-MS-RGB-1m.webp",
+    "drone/viewer/rgb_1m/2026-10-07-R1-MS-RGB-1m.webp"
+   ]
+  },
+  {
    "sha": "7378226",
    "time": "2026-10-26 02:58",
    "date": "2026-10-26",
@@ -1773,17 +1802,6 @@
     "assets/hub.css",
     "assets/hub.js",
     "index.html"
-   ]
-  },
-  {
-   "sha": "3f5bf02",
-   "time": "2026-10-17 01:40",
-   "date": "2026-10-17",
-   "weekday": "토",
-   "pc": "메클",
-   "title": "업데이트 기록 자동화: 사이트 배포 뒤에 기록을 올려 배포 취소(실패 표시) 방지",
-   "files": [
-    ".github/workflows/changelog.yml"
    ]
   }
  ]

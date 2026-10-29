@@ -9,6 +9,11 @@
 | 이전 기록 | 기록 규칙 전 커밋 |
 
 
+## 2026-10-29 (목)
+
+- **09:23** · 이전 기록 · 밝기 조정한 RGB 대체 영상 적용  
+  `drone/viewer/rgb_1m/2026-05-10-R3-MS-RGB-1m.webp`, `drone/viewer/rgb_1m/2026-05-10-R4-MS-RGB-1m.webp`, `drone/viewer/rgb_1m/2026-05-10-R5-MS-RGB-1m.webp`, `drone/viewer/rgb_1m/2026-06-30-R1-MS-RGB-1m.webp`, `drone/viewer/rgb_1m/2026-07-16-R1-MS-RGB-1m.webp`, `drone/viewer/rgb_1m/2026-07-16-R2-MS-RGB-1m.webp` 외 13개 (0dbccee)
+
 ## 2026-10-26 (월)
 
 - **02:58** · 연코 · 필지 스펙트럼 개별선을 최소최대 음영 범위로 변경  
