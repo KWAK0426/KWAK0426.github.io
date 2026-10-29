@@ -2,6 +2,19 @@
  "format": "hub-changelog-v1",
  "entries": [
   {
+   "sha": "5158b68",
+   "time": "2026-10-29 09:31",
+   "date": "2026-10-29",
+   "weekday": "목",
+   "pc": "이전 기록",
+   "title": "6월 30일 RGB 대체 영상을 승인 시안과 일치",
+   "files": [
+    "drone/viewer/app.js",
+    "drone/viewer/index.html",
+    "drone/viewer/rgb_1m/2026-06-30-R1-MS-RGB-1m.webp"
+   ]
+  },
+  {
    "sha": "7fc6142",
    "time": "2026-10-29 09:26",
    "date": "2026-10-29",
@@ -1787,17 +1800,6 @@
    "weekday": "토",
    "pc": "집코",
    "title": "시작 안내 문서 줄바꿈 정리",
-   "files": [
-    "START_NEW_PC.md"
-   ]
-  },
-  {
-   "sha": "f9860e0",
-   "time": "2026-10-17 01:52",
-   "date": "2026-10-17",
-   "weekday": "토",
-   "pc": "집코",
-   "title": "사용자 승인 편집 PC 등록 및 Codex 시작 안내 추가",
    "files": [
     "START_NEW_PC.md"
    ]
