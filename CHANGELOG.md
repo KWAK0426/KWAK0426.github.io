@@ -11,6 +11,8 @@
 
 ## 2026-10-29 (목)
 
+- **10:05** · 이전 기록 · 다분광 표시 범위 기준 안내 수정  
+  `drone/viewer/app.js`, `drone/viewer/index.html` (c798e2f)
 - **10:02** · 이전 기록 · 6월 30일 1회차 다분광 표시 영상 연결  
   `drone/viewer/bands/2026-06-30-R1-B01-minmax.webp`, `drone/viewer/bands/2026-06-30-R1-B01-p05p95.webp`, `drone/viewer/bands/2026-06-30-R1-B02-minmax.webp`, `drone/viewer/bands/2026-06-30-R1-B02-p05p95.webp`, `drone/viewer/bands/2026-06-30-R1-B03-minmax.webp`, `drone/viewer/bands/2026-06-30-R1-B03-p05p95.webp` 외 16개 (17162d5)
 - **09:46** · 이전 기록 · RGB 대체 영상 표시 격자 안내 수정  

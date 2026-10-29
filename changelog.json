@@ -2,6 +2,18 @@
  "format": "hub-changelog-v1",
  "entries": [
   {
+   "sha": "c798e2f",
+   "time": "2026-10-29 10:05",
+   "date": "2026-10-29",
+   "weekday": "목",
+   "pc": "이전 기록",
+   "title": "다분광 표시 범위 기준 안내 수정",
+   "files": [
+    "drone/viewer/app.js",
+    "drone/viewer/index.html"
+   ]
+  },
+  {
    "sha": "17162d5",
    "time": "2026-10-29 10:02",
    "date": "2026-10-29",
@@ -1814,21 +1826,6 @@
    "files": [
     "drone/index.html",
     "drone/summary.json"
-   ]
-  },
-  {
-   "sha": "ee5b93d",
-   "time": "2026-10-17 02:05",
-   "date": "2026-10-17",
-   "weekday": "토",
-   "pc": "메클",
-   "title": "'Photos 후보' 표기를 'Photos'로 변경, 드론 공개본 갱신",
-   "files": [
-    "README.md",
-    "START_NEW_PC.md",
-    "assets/hub.js",
-    "index.html",
-    "tools/sync_drone.py"
    ]
   }
  ]
