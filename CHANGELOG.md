@@ -11,6 +11,8 @@
 
 ## 2026-10-29 (목)
 
+- **09:26** · 이전 기록 · RGB 대체 영상 밝기 표시 및 캐시 갱신  
+  `drone/viewer/app.js`, `drone/viewer/index.html` (7fc6142)
 - **09:23** · 이전 기록 · 밝기 조정한 RGB 대체 영상 적용  
   `drone/viewer/rgb_1m/2026-05-10-R3-MS-RGB-1m.webp`, `drone/viewer/rgb_1m/2026-05-10-R4-MS-RGB-1m.webp`, `drone/viewer/rgb_1m/2026-05-10-R5-MS-RGB-1m.webp`, `drone/viewer/rgb_1m/2026-06-30-R1-MS-RGB-1m.webp`, `drone/viewer/rgb_1m/2026-07-16-R1-MS-RGB-1m.webp`, `drone/viewer/rgb_1m/2026-07-16-R2-MS-RGB-1m.webp` 외 13개 (0dbccee)
 

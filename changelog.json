@@ -2,6 +2,18 @@
  "format": "hub-changelog-v1",
  "entries": [
   {
+   "sha": "7fc6142",
+   "time": "2026-10-29 09:26",
+   "date": "2026-10-29",
+   "weekday": "목",
+   "pc": "이전 기록",
+   "title": "RGB 대체 영상 밝기 표시 및 캐시 갱신",
+   "files": [
+    "drone/viewer/app.js",
+    "drone/viewer/index.html"
+   ]
+  },
+  {
    "sha": "0dbccee",
    "time": "2026-10-29 09:23",
    "date": "2026-10-29",
@@ -1788,20 +1800,6 @@
    "title": "사용자 승인 편집 PC 등록 및 Codex 시작 안내 추가",
    "files": [
     "START_NEW_PC.md"
-   ]
-  },
-  {
-   "sha": "b5392ab",
-   "time": "2026-10-17 01:52",
-   "date": "2026-10-17",
-   "weekday": "토",
-   "pc": "메클",
-   "title": "회차 칸을 누르면 그 회차의 모자이크 뷰어로 이동(등록된 회차만), 미등록은 이동 안 함",
-   "files": [
-    "README.md",
-    "assets/hub.css",
-    "assets/hub.js",
-    "index.html"
    ]
   }
  ]
