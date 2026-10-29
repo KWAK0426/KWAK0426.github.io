@@ -7,7 +7,7 @@ const $ = (s) => document.querySelector(s);
 const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const KIND = { RGB: '광학', RE: '다분광', NDVI: 'NDVI' };
 const kindLabel = o => o?.derivedFromMultispectral ? 'RGB 대체' : KIND[o?.kind];
-const displayUrl = (url, o) => o.displayVersion ? `${url}${url.includes('?') ? '&' : '?'}display=${encodeURIComponent(o.displayVersion)}` : url;
+const displayUrl = (url, o) => { const version = o.kind === 'RGB' && o.derivedFromMultispectral ? `${o.displayVersion || 'rgb'}-brightness-20261029` : o.displayVersion; return version ? `${url}${url.includes('?') ? '&' : '?'}display=${encodeURIComponent(version)}` : url; };
 const S = { catalog: null, byKey: new Map(), sel: null, layer: null, source: null, gen: 0 };
 
 // ---- Drive 파일 읽기 --------------------------------------------------------------
@@ -103,7 +103,7 @@ function observationFor(date, round, kind = S.sel?.kind) {
 }
 function descriptionFor(o) {
   const cfg = o.spectral ?? S.byKey.get(keyOf(o))?.RE?.spectral;
-  return o.type.replace(/\bB(\d+)\b/g, (label, n) => {
+  return (o.kind === 'RGB' && o.derivedFromMultispectral ? o.type.replace('공통 P05–P95 표시', '밝기 조정 표시') : o.type).replace(/\bB(\d+)\b/g, (label, n) => {
     const band = cfg?.bands.find(b => b.band === Number(n));
     return band ? bandLabel(band.wavelengthNm) : label;
   });
@@ -167,9 +167,9 @@ function showBand(o, band, gen) {
 function showStaticMosaic(o, gen, image = o.staticImage) {
   const preview = o.kind === 'RE' && image.displayOnly;
   if (preview) $('#sel-info').textContent = `${descriptionFor(o)} · 축소 표시 ${image.width} × ${image.height} px · 원본 ${o.width.toLocaleString()} × ${o.height.toLocaleString()} px`;
-  if (o.rgbDisplay?.rangeScope === 'all-registered-RGB-rounds') {
-    $('#sel-info').textContent += ' · 회차 공통 RGB 스트레치';
-    $('#sel-info').title = `R/G/B 668/560/475 nm · ${o.rgbDisplay.rounds}회차의 유효 1m 화소를 합친 채널별 P05–P95 · 감마 1 · 같은 반사도는 같은 표시 색 · ${o.rgbDisplay.rangesReflectance.map(r => r.map(v => v.toFixed(4)).join('–')).join(' / ')}`;
+  if (o.kind === 'RGB' && o.derivedFromMultispectral) {
+    $('#sel-info').textContent += ' · 영상별 밝기 조정';
+    $('#sel-info').title = '표시용 밝기 조정 · 영상별 휘도 P02–P98 및 감마 0.55 · 회차 간 색상 직접 비교에 사용하지 않음';
   }
   if (image.projection === 'EPSG:32652') {
     proj4.defs('EPSG:32652', '+proj=utm +zone=52 +datum=WGS84 +units=m +no_defs');
