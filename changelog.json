@@ -2,6 +2,22 @@
  "format": "hub-changelog-v1",
  "entries": [
   {
+   "sha": "7a70d5e",
+   "time": "2026-10-29 09:44",
+   "date": "2026-10-29",
+   "weekday": "목",
+   "pc": "이전 기록",
+   "title": "RGB 밝기 조정 영상 연결과 시안 일치",
+   "files": [
+    "drone/viewer/app.js",
+    "drone/viewer/index.html",
+    "drone/viewer/rgb_1m/2026-07-16-R2-MS-RGB-1m.webp",
+    "drone/viewer/rgb_1m/2026-07-31-R3-MS-RGB-1m.webp",
+    "drone/viewer/rgb_1m/2026-07-31-R4-MS-RGB-1m.webp",
+    "drone/viewer/rgb_1m/2026-07-31-R5-MS-RGB-1m.webp"
+   ]
+  },
+  {
    "sha": "5158b68",
    "time": "2026-10-29 09:31",
    "date": "2026-10-29",
@@ -1789,17 +1805,6 @@
    "weekday": "토",
    "pc": "메클",
    "title": "새 PC 안내: 드론·업무 게시판 원본 비공개 백업 저장소 반영",
-   "files": [
-    "START_NEW_PC.md"
-   ]
-  },
-  {
-   "sha": "c2bda7b",
-   "time": "2026-10-17 01:53",
-   "date": "2026-10-17",
-   "weekday": "토",
-   "pc": "집코",
-   "title": "시작 안내 문서 줄바꿈 정리",
    "files": [
     "START_NEW_PC.md"
    ]
