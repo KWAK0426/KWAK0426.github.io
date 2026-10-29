@@ -2,6 +2,39 @@
  "format": "hub-changelog-v1",
  "entries": [
   {
+   "sha": "066e47b",
+   "time": "2026-10-29 10:14",
+   "date": "2026-10-29",
+   "weekday": "목",
+   "pc": "이전 기록",
+   "title": "6월 30일 다분광 색상 범위를 대상 필지 기준으로 조정",
+   "files": [
+    "drone/viewer/app.js",
+    "drone/viewer/bands/2026-06-30-R1-B01-fields-minmax.webp",
+    "drone/viewer/bands/2026-06-30-R1-B01-fields-p05p95.webp",
+    "drone/viewer/bands/2026-06-30-R1-B02-fields-minmax.webp",
+    "drone/viewer/bands/2026-06-30-R1-B02-fields-p05p95.webp",
+    "drone/viewer/bands/2026-06-30-R1-B03-fields-minmax.webp",
+    "drone/viewer/bands/2026-06-30-R1-B03-fields-p05p95.webp",
+    "drone/viewer/bands/2026-06-30-R1-B04-fields-minmax.webp",
+    "drone/viewer/bands/2026-06-30-R1-B04-fields-p05p95.webp",
+    "drone/viewer/bands/2026-06-30-R1-B05-fields-minmax.webp",
+    "drone/viewer/bands/2026-06-30-R1-B05-fields-p05p95.webp",
+    "drone/viewer/bands/2026-06-30-R1-B06-fields-minmax.webp",
+    "drone/viewer/bands/2026-06-30-R1-B06-fields-p05p95.webp",
+    "drone/viewer/bands/2026-06-30-R1-B07-fields-minmax.webp",
+    "drone/viewer/bands/2026-06-30-R1-B07-fields-p05p95.webp",
+    "drone/viewer/bands/2026-06-30-R1-B08-fields-minmax.webp",
+    "drone/viewer/bands/2026-06-30-R1-B08-fields-p05p95.webp",
+    "drone/viewer/bands/2026-06-30-R1-B09-fields-minmax.webp",
+    "drone/viewer/bands/2026-06-30-R1-B09-fields-p05p95.webp",
+    "drone/viewer/bands/2026-06-30-R1-B10-fields-minmax.webp",
+    "drone/viewer/bands/2026-06-30-R1-B10-fields-p05p95.webp",
+    "drone/viewer/catalog.json",
+    "drone/viewer/index.html"
+   ]
+  },
+  {
    "sha": "c798e2f",
    "time": "2026-10-29 10:05",
    "date": "2026-10-29",
@@ -1814,18 +1847,6 @@
    "files": [
     "START_NEW_PC.md",
     "tools/make_changelog.py"
-   ]
-  },
-  {
-   "sha": "2bfbda4",
-   "time": "2026-10-17 02:05",
-   "date": "2026-10-17",
-   "weekday": "토",
-   "pc": "메클",
-   "title": "드론 공개본 갱신('Photos' 표기)",
-   "files": [
-    "drone/index.html",
-    "drone/summary.json"
    ]
   }
  ]
