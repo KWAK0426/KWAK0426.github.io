@@ -2,6 +2,18 @@
  "format": "hub-changelog-v1",
  "entries": [
   {
+   "sha": "3ff2a3e",
+   "time": "2026-10-29 09:46",
+   "date": "2026-10-29",
+   "weekday": "목",
+   "pc": "이전 기록",
+   "title": "RGB 대체 영상 표시 격자 안내 수정",
+   "files": [
+    "drone/viewer/app.js",
+    "drone/viewer/index.html"
+   ]
+  },
+  {
    "sha": "7a70d5e",
    "time": "2026-10-29 09:44",
    "date": "2026-10-29",
@@ -1794,17 +1806,6 @@
    "weekday": "토",
    "pc": "연코",
    "title": "드론 데이터 관리 Codex 담당 등록",
-   "files": [
-    "START_NEW_PC.md"
-   ]
-  },
-  {
-   "sha": "44c19fc",
-   "time": "2026-10-17 02:01",
-   "date": "2026-10-17",
-   "weekday": "토",
-   "pc": "메클",
-   "title": "새 PC 안내: 드론·업무 게시판 원본 비공개 백업 저장소 반영",
    "files": [
     "START_NEW_PC.md"
    ]
