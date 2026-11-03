@@ -25,7 +25,7 @@ main{max-width:1536px;margin:auto;padding:24px 32px 36px}.metrics{display:grid;g
 </style>
 </head>
 <body>
-<header class="masthead"><div class="masthead-inner"><div><div class="eyebrow">김해 논 · 관측자료 현황</div><h1>패널 반사도 통합 현황</h1><p class="subtitle">Photos · DEM · GPS · 모자이크 후보 / 조사 기록 통합</p></div><div class="report-links"><span class="updated">공개본 갱신 2026-10-24 · 자료별 조사 시각은 이력 참조</span><span class="updated">현황표의 파일 경로·좌표 생략 · 승인된 표시 자료는 뷰어에서 열람</span><a href="../">← 통합 현황</a></div></div></header>
+<header class="masthead"><div class="masthead-inner"><div><div class="eyebrow">김해 논 · 관측자료 현황</div><h1>패널 반사도 통합 현황</h1><p class="subtitle">Photos · DEM · GPS · 모자이크 후보 / 조사 기록 통합</p></div><div class="report-links"><span class="updated">공개본 갱신 2026-11-03 · 자료별 조사 시각은 이력 참조</span><span class="updated">현황표의 파일 경로·좌표 생략 · 승인된 표시 자료는 뷰어에서 열람</span><a href="../">← 통합 현황</a></div></div></header>
 <main>
 <style>
 .habitat-toolbar{display:flex;gap:16px;align-items:center;flex-wrap:wrap;padding:0 0 20px;margin-bottom:22px;border-bottom:1px solid var(--line)}
@@ -39,104 +39,85 @@ main{max-width:1536px;margin:auto;padding:24px 32px 36px}.metrics{display:grid;g
 </select></label>
 <label for="site-filter">장소<select id="site-filter"><option value="all">전체 장소</option></select></label>
 </div>
-<section class="metrics" aria-label="전체 현황"><div class="metric green"><span>3종 자료 있음</span><strong>21<small>회차 · 보정 검증 별도</small></strong></div><div class="metric amber"><span>일부 자료만 있음</span><strong>2<small>회차 · 누락 자료 확인</small></strong></div><div class="metric teal"><span>회차 연결 Photos</span><strong>15,037<small>TIFF · 보정 완료 수량 아님</small></strong></div><div class="metric"><span>촬영일</span><strong>9<small>날짜 · 2026년</small></strong></div></section>
+<section class="metrics" aria-label="전체 현황"><div class="metric green"><span>3종 자료 있음</span><strong>23<small>회차 · 보정 검증 별도</small></strong></div><div class="metric amber"><span>일부 자료만 있음</span><strong>1<small>회차 · 누락 자료 확인</small></strong></div><div class="metric teal"><span>회차 연결 Photos</span><strong>16,435<small>TIFF · 보정 완료 수량 아님</small></strong></div><div class="metric"><span>촬영일</span><strong>9<small>날짜 · 2026년</small></strong></div></section>
 <div class="toolbar"><div class="filters"><select class="date-select" id="date-filter" aria-label="날짜 선택"><option value="all">전체 날짜</option><option value="2026-05-10">2026-05-10</option><option value="2026-06-30">2026-06-30</option><option value="2026-07-16">2026-07-16</option><option value="2026-07-31">2026-07-31</option><option value="2026-08-24">2026-08-24</option><option value="2026-09-08">2026-09-08</option><option value="2026-09-21">2026-09-21</option><option value="2026-09-23">2026-09-23</option><option value="2026-10-07">2026-10-07</option></select><div class="segmented" role="group" aria-label="자료 상태"><label><input type="radio" name="status" value="all" checked><span>전체</span></label><label><input type="radio" name="status" value="complete"><span>3종 있음</span></label><label><input type="radio" name="status" value="partial"><span>일부 있음</span></label><label><input type="radio" name="status" value="empty"><span>미등록</span></label></div></div><span class="result-count" id="result-count" aria-live="polite"></span></div>
 <div class="legend"><span><i class="dot complete"></i>3종 있음</span><span><i class="dot partial"></i>일부 있음</span><span><i class="dot empty"></i>자료 미등록</span><span><i class="dot pending"></i>분류 대기</span></div>
-<div class="date-grid"><section class="date-card complete" data-date="2026-05-10"><header class="card-head"><div><h2>05 / 10</h2><span class="year">2026</span></div><div class="card-meta"><span>고정 5회차 · 1~5차</span><span>Photos 3회차 · 3종 3회차</span></div></header>
+<div class="date-grid"><section class="date-card complete" data-date="2026-05-10"><header class="card-head"><div><h2>05 / 10</h2><span class="year">2026</span></div><div class="card-meta"><span>고정 5회차 · 1~5차</span><span>Photos 4회차 · 3종 4회차</span></div></header><p class="audit-warning">5/10은 ELC용 타프가 없다는 사용자 확인 기록이 있음. MicaSense 교정 패널과 구분.</p>
 <div class="row-head"><span>회차</span><span>Photos</span><span>DEM</span><span>GPS</span><span></span></div>
-<details class="round-row empty" data-state="empty"><summary><span class="round"><i class="dot empty" title="자료 미확인"></i>1차</span><span class="photo-count">자료 미확인</span><span class="flag no" title="이 조사 범위에서 미발견">미발견</span><span class="flag no" title="이 조사 범위에서 미발견">미발견</span><span class="chevron" aria-hidden="true">⌄</span><span class="verification"><span class="observation-time">관측(KST): 12:38:15 ~ 13:23:35 (45분)</span><span class="time-status">기존 기록 · 회차 대응 재확인</span><span>회차 구분: 사용자 확정</span><span>패널 보정 출처: 검토 대상 Photos 미등록</span></span></summary><div class="row-detail"><p class="time-evidence">관측 시간 근거: 기존 GPS·EXIF 타임라인 / 기존 GPS 대응 촬영 구간이며 이번에 재조사하지 않았습니다.</p>
-
-<p><b>회차 구분:</b> 2026-10-12 사용자 확정: 이 날짜는 5회차. 자료 유무·촬영시각 대응 검증·패널 보정 출처는 별도.<br><b>패널 보정 출처:</b> 회차 연결과 독립적으로 패널 기준값·보정 처리 기록 확인 필요.</p>
+<details class="round-row empty" data-state="empty"><summary><span class="round"><i class="dot empty" title="자료 미확인"></i>1차</span><span class="photo-count">자료 미확인</span><span class="flag no" title="이 조사 범위에서 미발견">미발견</span><span class="flag no" title="이 조사 범위에서 미발견">미발견</span><span aria-hidden="true" class="chevron">⌄</span><span class="verification"><span class="observation-time">관측(KST): 12:38:15 ~ 13:23:35 (45분)</span><span class="time-status">기존 기록 · 회차 대응 재확인</span><span>회차 구분: 사용자 확정</span><span>패널 보정 출처: 검토 대상 Photos 미등록</span></span></summary><div class="row-detail"><p class="time-evidence">관측 시간 근거: 기존 GPS·EXIF 타임라인 / 기존 GPS 대응 촬영 구간이며 이번에 재조사하지 않았습니다.</p>
+<p><b>회차 구분:</b> 2026-10-12 사용자 확정: 이 날짜는 5회차. 자료 유무·촬영시각 대응 검증·패널 보정 출처는 별도.<br/><b>패널 보정 출처:</b> 회차 연결과 독립적으로 패널 기준값·보정 처리 기록 확인 필요.</p>
 <p><b>자료의 회차 대응 근거:</b> 양식 폴더만 / 관리 폴더의 회차 표기. 실제 촬영시각·GPS 대응 확정을 뜻하지 않음.</p>
-<p><b>자료 조사 기록</b><br>2026-10-12 14:00:37 KST</p>
+<p><b>자료 조사 기록</b><br/>2026-10-12 14:00:37 KST</p>
 <p>이 회차 경로에서 세 자료 미발견. 공폴더를 실제 촬영 회차로 단정하지 않음.</p>
 <p>모자이크 후보: 0개 · 과거 Photos: 미확인 (2026-09-30)</p>
 <details><summary>이전 조사 비고</summary><p>확인한 폴더에서 적격 IMG TIFF를 찾지 못함. 빈 회차 양식은 관측 미실시나 다른 저장 위치의 부재를 뜻하지 않음. 5/10 기존 회차 라벨·GPS 대응 문제는 별도 확인 필요.</p></details>
-
 </div></details>
-<details class="round-row partial" data-state="partial"><summary><span class="round"><i class="dot partial" title="일부 있음"></i>2차</span><span class="photo-count">—</span><span class="flag yes">있음</span><span class="flag yes">있음</span><span class="chevron" aria-hidden="true">⌄</span><span class="verification"><span class="observation-time">관측(KST): 09:55:49 ~ 10:20:13 (24분)</span><span class="time-status">기존 기록 · 회차 대응 재확인</span><span>회차 구분: 사용자 확정</span><span>패널 보정 출처: 검토 대상 Photos 미등록</span></span></summary><div class="row-detail"><p class="time-evidence">관측 시간 근거: 기존 GPS·EXIF 타임라인 / 기존 GPS 대응 촬영 구간이며 이번에 재조사하지 않았습니다.</p>
-
-<p><b>회차 구분:</b> 2026-10-12 사용자 확정: 이 날짜는 5회차. 자료 유무·촬영시각 대응 검증·패널 보정 출처는 별도.<br><b>패널 보정 출처:</b> 회차 연결과 독립적으로 패널 기준값·보정 처리 기록 확인 필요.</p>
-<p><b>자료의 회차 대응 근거:</b> 회차 폴더 표기 / 관리 폴더의 회차 표기. 실제 촬영시각·GPS 대응 확정을 뜻하지 않음.</p>
-<p><b>자료 조사 기록</b><br>2026-10-12 14:00:37 KST</p>
+<details class="round-row complete" data-state="complete"><summary><span class="round"><i class="dot complete" title="3종 있음 · 보정 검증 별도"></i>2차</span><span class="photo-count">571</span><span class="flag yes">있음</span><span class="flag yes">있음</span><span aria-hidden="true" class="chevron">⌄</span><span class="verification"><span class="observation-time">관측(KST): 09:55:49 ~ 10:20:13 (24분)</span><span class="time-status">기존 기록 · 회차 대응 재확인</span><span>회차 구분: 사용자 확정</span><span>패널 보정 출처: 보정 출처·정확도 미검증</span></span></summary><div class="row-detail"><p>2026-11-03 17:57:27 KST: Photos 571장과 GPS 파일명 대응을 확인. 5개 영상 밴드 + alpha 표본; 촬영시각 및 보정 출처·정확도는 별도 확인 필요.</p><p class="time-evidence">관측 시간 근거: 기존 GPS·EXIF 타임라인 / 기존 GPS 대응 촬영 구간이며 이번에 재조사하지 않았습니다.</p>
+<p><b>회차 구분:</b> 2026-10-12 사용자 확정: 이 날짜는 5회차. 자료 유무·촬영시각 대응 검증·패널 보정 출처는 별도.<br/><b>패널 보정 출처:</b> 회차 연결과 독립적으로 패널 기준값·보정 처리 기록 확인 필요.</p>
+<p>자료의 회차 대응 근거: 폴더 표기와 GPS 파일명 대응. 촬영시간과 GPS 위치의 독립 검증은 별도.</p>
+<p><b>자료 조사 기록</b><br/>2026-10-12 14:00:37 KST</p>
 <p> 기존 분석 제외 회차. 존재 여부와 사용 적합성은 별개.</p>
 <p>모자이크 후보: 1개 · 과거 Photos: 31개 (2026-10-06)</p>
 <details><summary>이전 조사 비고</summary><p>확인한 폴더에서 적격 IMG TIFF를 찾지 못함. 빈 회차 양식은 관측 미실시나 다른 저장 위치의 부재를 뜻하지 않음. 5/10 기존 회차 라벨·GPS 대응 문제는 별도 확인 필요.</p></details>
-
 </div></details>
-<details class="round-row complete" data-state="complete"><summary><span class="round"><i class="dot complete" title="3종 있음"></i>3차</span><span class="photo-count">366</span><span class="flag yes">있음</span><span class="flag yes">있음</span><span class="chevron" aria-hidden="true">⌄</span><span class="verification"><span class="observation-time">관측(KST): 10:51:12 ~ 11:05:06 (14분)</span><span class="time-status">기존 기록 확정</span><span>회차 구분: 사용자 확정</span><span>패널 보정 출처: 보정 근거 미검증</span></span></summary><div class="row-detail"><p class="time-evidence">관측 시간 근거: 기존 GPS·EXIF 타임라인 / 기존 GPS 대응 촬영 구간이며 이번에 재조사하지 않았습니다.</p>
-
-<p><b>회차 구분:</b> 2026-10-12 사용자 확정: 이 날짜는 5회차. 자료 유무·촬영시각 대응 검증·패널 보정 출처는 별도.<br><b>패널 보정 출처:</b> Panel 분류 폴더의 파일 존재만 확인. 패널 기준값·처리 계수·출력 영상의 연결 근거는 이번 조사에서 검증하지 않음.</p>
+<details class="round-row complete" data-state="complete"><summary><span class="round"><i class="dot complete" title="3종 있음"></i>3차</span><span class="photo-count">366</span><span class="flag yes">있음</span><span class="flag yes">있음</span><span aria-hidden="true" class="chevron">⌄</span><span class="verification"><span class="observation-time">관측(KST): 10:51:12 ~ 11:05:06 (14분)</span><span class="time-status">기존 기록 확정</span><span>회차 구분: 사용자 확정</span><span>패널 보정 출처: 보정 근거 미검증</span></span></summary><div class="row-detail"><p class="time-evidence">관측 시간 근거: 기존 GPS·EXIF 타임라인 / 기존 GPS 대응 촬영 구간이며 이번에 재조사하지 않았습니다.</p>
+<p><b>회차 구분:</b> 2026-10-12 사용자 확정: 이 날짜는 5회차. 자료 유무·촬영시각 대응 검증·패널 보정 출처는 별도.<br/><b>패널 보정 출처:</b> Panel 분류 폴더의 파일 존재만 확인. 패널 기준값·처리 계수·출력 영상의 연결 근거는 이번 조사에서 검증하지 않음.</p>
 <p><b>자료의 회차 대응 근거:</b> 회차 폴더 표기 / 관리 폴더의 회차 표기. 실제 촬영시각·GPS 대응 확정을 뜻하지 않음.</p>
-<p><b>자료 조사 기록</b><br>2026-10-12 14:00:37 KST</p>
+<p><b>자료 조사 기록</b><br/>2026-10-12 14:00:37 KST</p>
 <p></p>
 <p>모자이크 후보: 1개 · 과거 Photos: 366개 (2026-10-06)</p>
 <details><summary>이전 조사 비고</summary><p>파일 목록·표본 헤더 확인. 패널 보정 품질·촬영시각 전수 검증은 아님. 5/10 기존 회차 라벨·GPS 대응 문제는 별도 확인 필요.</p></details>
-
 </div></details>
-<details class="round-row complete" data-state="complete"><summary><span class="round"><i class="dot complete" title="3종 있음"></i>4차</span><span class="photo-count">640</span><span class="flag yes">있음</span><span class="flag yes">있음</span><span class="chevron" aria-hidden="true">⌄</span><span class="verification"><span class="observation-time">관측(KST): 12:09:11 ~ 12:34:07 (25분)</span><span class="time-status">기존 기록 확정</span><span>회차 구분: 사용자 확정</span><span>패널 보정 출처: 보정 근거 미검증</span></span></summary><div class="row-detail"><p class="time-evidence">관측 시간 근거: 기존 GPS·EXIF 타임라인 / 기존 GPS 대응 촬영 구간이며 이번에 재조사하지 않았습니다.</p>
-
-<p><b>회차 구분:</b> 2026-10-12 사용자 확정: 이 날짜는 5회차. 자료 유무·촬영시각 대응 검증·패널 보정 출처는 별도.<br><b>패널 보정 출처:</b> Panel 분류 폴더의 파일 존재만 확인. 패널 기준값·처리 계수·출력 영상의 연결 근거는 이번 조사에서 검증하지 않음.</p>
+<details class="round-row complete" data-state="complete"><summary><span class="round"><i class="dot complete" title="3종 있음"></i>4차</span><span class="photo-count">640</span><span class="flag yes">있음</span><span class="flag yes">있음</span><span aria-hidden="true" class="chevron">⌄</span><span class="verification"><span class="observation-time">관측(KST): 12:09:11 ~ 12:34:07 (25분)</span><span class="time-status">기존 기록 확정</span><span>회차 구분: 사용자 확정</span><span>패널 보정 출처: 보정 근거 미검증</span></span></summary><div class="row-detail"><p class="time-evidence">관측 시간 근거: 기존 GPS·EXIF 타임라인 / 기존 GPS 대응 촬영 구간이며 이번에 재조사하지 않았습니다.</p>
+<p><b>회차 구분:</b> 2026-10-12 사용자 확정: 이 날짜는 5회차. 자료 유무·촬영시각 대응 검증·패널 보정 출처는 별도.<br/><b>패널 보정 출처:</b> Panel 분류 폴더의 파일 존재만 확인. 패널 기준값·처리 계수·출력 영상의 연결 근거는 이번 조사에서 검증하지 않음.</p>
 <p><b>자료의 회차 대응 근거:</b> 회차 폴더 표기 / 관리 폴더의 회차 표기. 실제 촬영시각·GPS 대응 확정을 뜻하지 않음.</p>
-<p><b>자료 조사 기록</b><br>2026-10-12 14:00:37 KST</p>
+<p><b>자료 조사 기록</b><br/>2026-10-12 14:00:37 KST</p>
 <p></p>
 <p>모자이크 후보: 1개 · 과거 Photos: 640개 (2026-10-06)</p>
 <details><summary>이전 조사 비고</summary><p>파일 목록·표본 헤더 확인. 패널 보정 품질·촬영시각 전수 검증은 아님. 5/10 기존 회차 라벨·GPS 대응 문제는 별도 확인 필요.</p></details>
-
 </div></details>
-<details class="round-row complete" data-state="complete"><summary><span class="round"><i class="dot complete" title="3종 있음"></i>5차</span><span class="photo-count">679</span><span class="flag yes">있음</span><span class="flag yes">있음</span><span class="chevron" aria-hidden="true">⌄</span><span class="verification"><span class="observation-time">관측(KST): 12:50:45 ~ 13:30:55 (40분)</span><span class="time-status">기존 기록 확정</span><span>회차 구분: 사용자 확정</span><span>패널 보정 출처: 보정 근거 미검증</span></span></summary><div class="row-detail"><p class="time-evidence">관측 시간 근거: 기존 GPS·EXIF 타임라인 / 기존 GPS 대응 촬영 구간이며 이번에 재조사하지 않았습니다.</p>
-
-<p><b>회차 구분:</b> 2026-10-12 사용자 확정: 이 날짜는 5회차. 자료 유무·촬영시각 대응 검증·패널 보정 출처는 별도.<br><b>패널 보정 출처:</b> Panel 분류 폴더의 파일 존재만 확인. 패널 기준값·처리 계수·출력 영상의 연결 근거는 이번 조사에서 검증하지 않음.</p>
+<details class="round-row complete" data-state="complete"><summary><span class="round"><i class="dot complete" title="3종 있음"></i>5차</span><span class="photo-count">679</span><span class="flag yes">있음</span><span class="flag yes">있음</span><span aria-hidden="true" class="chevron">⌄</span><span class="verification"><span class="observation-time">관측(KST): 12:50:45 ~ 13:30:55 (40분)</span><span class="time-status">기존 기록 확정</span><span>회차 구분: 사용자 확정</span><span>패널 보정 출처: 보정 근거 미검증</span></span></summary><div class="row-detail"><p class="time-evidence">관측 시간 근거: 기존 GPS·EXIF 타임라인 / 기존 GPS 대응 촬영 구간이며 이번에 재조사하지 않았습니다.</p>
+<p><b>회차 구분:</b> 2026-10-12 사용자 확정: 이 날짜는 5회차. 자료 유무·촬영시각 대응 검증·패널 보정 출처는 별도.<br/><b>패널 보정 출처:</b> Panel 분류 폴더의 파일 존재만 확인. 패널 기준값·처리 계수·출력 영상의 연결 근거는 이번 조사에서 검증하지 않음.</p>
 <p><b>자료의 회차 대응 근거:</b> 회차 폴더 표기 / 관리 폴더의 회차 표기. 실제 촬영시각·GPS 대응 확정을 뜻하지 않음.</p>
-<p><b>자료 조사 기록</b><br>2026-10-12 14:00:37 KST</p>
+<p><b>자료 조사 기록</b><br/>2026-10-12 14:00:37 KST</p>
 <p></p>
 <p>모자이크 후보: 1개 · 과거 Photos: 679개 (2026-10-06)</p>
 <details><summary>이전 조사 비고</summary><p>파일 목록·표본 헤더 확인. 패널 보정 품질·촬영시각 전수 검증은 아님. 5/10 기존 회차 라벨·GPS 대응 문제는 별도 확인 필요.</p></details>
-
 </div></details>
 <div class="round-row nonexistent" data-state="nonexistent"><div class="absent-summary"><span class="round">6차</span><span class="absent-label">없음</span></div></div>
 </section>
-<section class="date-card complete" data-date="2026-06-30"><header class="card-head"><div><h2>06 / 30</h2><span class="year">2026</span></div><div class="card-meta"><span>고정 4회차 · 1~4차</span><span>Photos 1회차 · 3종 1회차</span></div></header>
+<section class="date-card complete" data-date="2026-06-30"><header class="card-head"><div><h2>06 / 30</h2><span class="year">2026</span></div><div class="card-meta"><span>고정 4회차 · 1~4차</span><span>Photos 2회차 · 3종 2회차</span></div></header>
 <div class="row-head"><span>회차</span><span>Photos</span><span>DEM</span><span>GPS</span><span></span></div>
-<details class="round-row complete" data-state="complete"><summary><span class="round"><i class="dot complete" title="3종 있음"></i>1차</span><span class="photo-count">767</span><span class="flag yes">있음</span><span class="flag yes">있음</span><span class="chevron" aria-hidden="true">⌄</span><span class="verification"><span class="observation-time">관측(KST): 10:05:53 ~ 10:40:52 (35분)</span><span class="time-status">기존 기록 확정</span><span>회차 구분: 사용자 확정</span><span>패널 보정 출처: 보정 출처 미확인</span></span></summary><div class="row-detail"><p class="time-evidence">관측 시간 근거: 기존 GPS·EXIF 타임라인 / 기존 GPS 대응 촬영 구간이며 이번에 재조사하지 않았습니다.</p>
-
-<p><b>회차 구분:</b> 2026-10-12 사용자 확정: 이 날짜는 4회차. 자료 유무·촬영시각 대응 검증·패널 보정 출처는 별도.<br><b>패널 보정 출처:</b> 회차 연결과 독립적으로 패널 기준값·보정 처리 기록 확인 필요.</p>
+<details class="round-row complete" data-state="complete"><summary><span class="round"><i class="dot complete" title="3종 있음"></i>1차</span><span class="photo-count">767</span><span class="flag yes">있음</span><span class="flag yes">있음</span><span aria-hidden="true" class="chevron">⌄</span><span class="verification"><span class="observation-time">관측(KST): 10:05:53 ~ 10:40:52 (35분)</span><span class="time-status">기존 기록 확정</span><span>회차 구분: 사용자 확정</span><span>패널 보정 출처: 보정 출처 미확인</span></span></summary><div class="row-detail"><p class="time-evidence">관측 시간 근거: 기존 GPS·EXIF 타임라인 / 기존 GPS 대응 촬영 구간이며 이번에 재조사하지 않았습니다.</p>
+<p><b>회차 구분:</b> 2026-10-12 사용자 확정: 이 날짜는 4회차. 자료 유무·촬영시각 대응 검증·패널 보정 출처는 별도.<br/><b>패널 보정 출처:</b> 회차 연결과 독립적으로 패널 기준값·보정 처리 기록 확인 필요.</p>
 <p><b>자료의 회차 대응 근거:</b> 회차 폴더 표기 / 관리 폴더의 회차 표기. 실제 촬영시각·GPS 대응 확정을 뜻하지 않음.</p>
-<p><b>자료 조사 기록</b><br>2026-10-12 14:00:40 KST</p>
+<p><b>자료 조사 기록</b><br/>2026-10-12 14:00:40 KST</p>
 <p>이 회차 경로에서 세 자료 미발견. 공폴더를 실제 촬영 회차로 단정하지 않음. 기본 회차 폴더 밖의 자료를 기존 회차 구분으로 연결. 첫 Photos 폴더만 집계하고 다른 후보는 합산하지 않음. 패널 보정 출처·자료 동일성은 별도 검증 필요.</p>
 <p>모자이크 후보: 0개 · 과거 Photos: 미확인 (2026-09-30)</p>
 <details><summary>이전 조사 비고</summary><p>파일 목록·표본 헤더 확인. 패널 보정 품질·촬영시각 전수 검증은 아님. 별도 저장 위치는 중복 합산하지 않음; 파일 내용 동일성은 미검증.</p></details>
-
 </div></details>
-<details class="round-row empty" data-state="empty"><summary><span class="round"><i class="dot empty" title="자료 미확인"></i>2차</span><span class="photo-count">자료 미확인</span><span class="flag no" title="이 조사 범위에서 미발견">미발견</span><span class="flag no" title="이 조사 범위에서 미발견">미발견</span><span class="chevron" aria-hidden="true">⌄</span><span class="verification"><span class="observation-time">관측(KST): 11:14:59 ~ 11:49:12 (34분)</span><span class="time-status">원영상 표본 · UTC 가정</span><span>회차 구분: 사용자 확정</span><span>패널 보정 출처: 검토 대상 Photos 미등록</span></span></summary><div class="row-detail"><p class="time-evidence">관측 시간 근거: 원영상 표본 기록 / 원영상 표본의 UTC 시각을 KST로 변환. 전수·GPS 대응 미확인.</p>
-
-<p><b>회차 구분:</b> 2026-10-12 사용자 확정: 이 날짜는 4회차. 자료 유무·촬영시각 대응 검증·패널 보정 출처는 별도.<br><b>패널 보정 출처:</b> 회차 연결과 독립적으로 패널 기준값·보정 처리 기록 확인 필요.</p>
-<p><b>자료의 회차 대응 근거:</b> 양식 폴더만 / 관리 폴더의 회차 표기. 실제 촬영시각·GPS 대응 확정을 뜻하지 않음.</p>
-<p><b>자료 조사 기록</b><br>2026-10-12 14:00:37 KST</p>
-<p>이 회차 경로에서 세 자료 미발견. 공폴더를 실제 촬영 회차로 단정하지 않음.</p>
+<details class="round-row complete" data-state="complete"><summary><span class="round"><i class="dot complete" title="3종 있음 · 보정 검증 별도"></i>2차</span><span class="photo-count">827</span><span class="flag yes">있음</span><span class="flag yes">있음</span><span aria-hidden="true" class="chevron">⌄</span><span class="verification"><span class="observation-time">관측(KST): 11:14:59 ~ 11:49:12 (34분)</span><span class="time-status">원영상 표본 · UTC 가정</span><span>회차 구분: 사용자 확정</span><span>패널 보정 출처: 보정 출처·정확도 미검증</span></span></summary><div class="row-detail"><p>2026-11-03 17:57:27 KST: Photos 827장과 GPS 파일명 대응, 세 표본의 10개 영상 밴드 + alpha 읽기를 확인. 보정 출처·정확도는 미검증.</p><p class="time-evidence">관측 시간 근거: 원영상 표본 기록 / 원영상 표본의 UTC 시각을 KST로 변환. 전수·GPS 대응 미확인.</p>
+<p><b>회차 구분:</b> 2026-10-12 사용자 확정: 이 날짜는 4회차. 자료 유무·촬영시각 대응 검증·패널 보정 출처는 별도.<br/><b>패널 보정 출처:</b> 회차 연결과 독립적으로 패널 기준값·보정 처리 기록 확인 필요.</p>
+<p>자료의 회차 대응 근거: 폴더 표기와 GPS 파일명 대응. 촬영시간과 GPS 위치의 독립 검증은 별도.</p>
+<p><b>자료 조사 기록</b><br/>2026-10-12 14:00:37 KST</p>
 <p>모자이크 후보: 0개 · 과거 Photos: 미확인 (2026-09-30)</p>
 <details><summary>이전 조사 비고</summary><p>확인한 폴더에서 적격 IMG TIFF를 찾지 못함. 빈 회차 양식은 관측 미실시나 다른 저장 위치의 부재를 뜻하지 않음.</p></details>
-
 </div></details>
-<details class="round-row empty" data-state="empty"><summary><span class="round"><i class="dot empty" title="자료 미확인"></i>3차</span><span class="photo-count">자료 미확인</span><span class="flag no" title="이 조사 범위에서 미발견">미발견</span><span class="flag no" title="이 조사 범위에서 미발견">미발견</span><span class="chevron" aria-hidden="true">⌄</span><span class="verification"><span class="observation-time">관측(KST): 12:23:05 ~ 13:06:36 (44분)</span><span class="time-status">원영상 표본 · UTC 가정</span><span>회차 구분: 사용자 확정</span><span>패널 보정 출처: 검토 대상 Photos 미등록</span></span></summary><div class="row-detail"><p class="time-evidence">관측 시간 근거: 원영상 표본 기록 / 원영상 표본의 UTC 시각을 KST로 변환. 전수·GPS 대응 미확인.</p>
-
-<p><b>회차 구분:</b> 2026-10-12 사용자 확정: 이 날짜는 4회차. 자료 유무·촬영시각 대응 검증·패널 보정 출처는 별도.<br><b>패널 보정 출처:</b> 회차 연결과 독립적으로 패널 기준값·보정 처리 기록 확인 필요.</p>
+<details class="round-row empty" data-state="empty"><summary><span class="round"><i class="dot empty" title="자료 미확인"></i>3차</span><span class="photo-count">자료 미확인</span><span class="flag no" title="이 조사 범위에서 미발견">미발견</span><span class="flag no" title="이 조사 범위에서 미발견">미발견</span><span aria-hidden="true" class="chevron">⌄</span><span class="verification"><span class="observation-time">관측(KST): 12:23:05 ~ 13:06:36 (44분)</span><span class="time-status">원영상 표본 · UTC 가정</span><span>회차 구분: 사용자 확정</span><span>패널 보정 출처: 검토 대상 Photos 미등록</span></span></summary><div class="row-detail"><p class="time-evidence">관측 시간 근거: 원영상 표본 기록 / 원영상 표본의 UTC 시각을 KST로 변환. 전수·GPS 대응 미확인.</p>
+<p><b>회차 구분:</b> 2026-10-12 사용자 확정: 이 날짜는 4회차. 자료 유무·촬영시각 대응 검증·패널 보정 출처는 별도.<br/><b>패널 보정 출처:</b> 회차 연결과 독립적으로 패널 기준값·보정 처리 기록 확인 필요.</p>
 <p><b>자료의 회차 대응 근거:</b> 양식 폴더만 / 관리 폴더의 회차 표기. 실제 촬영시각·GPS 대응 확정을 뜻하지 않음.</p>
-<p><b>자료 조사 기록</b><br>2026-10-12 14:00:37 KST</p>
+<p><b>자료 조사 기록</b><br/>2026-10-12 14:00:37 KST</p>
 <p>이 회차 경로에서 세 자료 미발견. 공폴더를 실제 촬영 회차로 단정하지 않음.</p>
 <p>모자이크 후보: 0개 · 과거 Photos: 미확인 (2026-10-06)</p>
 <details><summary>이전 조사 비고</summary><p>확인한 폴더에서 적격 IMG TIFF를 찾지 못함. 빈 회차 양식은 관측 미실시나 다른 저장 위치의 부재를 뜻하지 않음.</p></details>
-
 </div></details>
-<details class="round-row empty" data-state="empty"><summary><span class="round"><i class="dot empty" title="자료 미확인"></i>4차</span><span class="photo-count">자료 미확인</span><span class="flag no" title="이 조사 범위에서 미발견">미발견</span><span class="flag no" title="이 조사 범위에서 미발견">미발견</span><span class="chevron" aria-hidden="true">⌄</span><span class="verification"><span class="observation-time">관측(KST): 13:40:40 ~ 14:18:51 (38분)</span><span class="time-status">원영상 표본 · UTC 가정</span><span>회차 구분: 사용자 확정</span><span>패널 보정 출처: 검토 대상 Photos 미등록</span></span></summary><div class="row-detail"><p class="time-evidence">관측 시간 근거: 원영상 표본 기록 / 원영상 표본의 UTC 시각을 KST로 변환. 전수·GPS 대응 미확인.</p>
-
-<p><b>회차 구분:</b> 2026-10-12 사용자 확정: 이 날짜는 4회차. 자료 유무·촬영시각 대응 검증·패널 보정 출처는 별도.<br><b>패널 보정 출처:</b> 회차 연결과 독립적으로 패널 기준값·보정 처리 기록 확인 필요.</p>
+<details class="round-row empty" data-state="empty"><summary><span class="round"><i class="dot empty" title="자료 미확인"></i>4차</span><span class="photo-count">자료 미확인</span><span class="flag no" title="이 조사 범위에서 미발견">미발견</span><span class="flag no" title="이 조사 범위에서 미발견">미발견</span><span aria-hidden="true" class="chevron">⌄</span><span class="verification"><span class="observation-time">관측(KST): 13:40:40 ~ 14:18:51 (38분)</span><span class="time-status">원영상 표본 · UTC 가정</span><span>회차 구분: 사용자 확정</span><span>패널 보정 출처: 검토 대상 Photos 미등록</span></span></summary><div class="row-detail"><p class="time-evidence">관측 시간 근거: 원영상 표본 기록 / 원영상 표본의 UTC 시각을 KST로 변환. 전수·GPS 대응 미확인.</p>
+<p><b>회차 구분:</b> 2026-10-12 사용자 확정: 이 날짜는 4회차. 자료 유무·촬영시각 대응 검증·패널 보정 출처는 별도.<br/><b>패널 보정 출처:</b> 회차 연결과 독립적으로 패널 기준값·보정 처리 기록 확인 필요.</p>
 <p><b>자료의 회차 대응 근거:</b> 양식 폴더만 / 관리 폴더의 회차 표기. 실제 촬영시각·GPS 대응 확정을 뜻하지 않음.</p>
-<p><b>자료 조사 기록</b><br>2026-10-12 14:00:37 KST</p>
+<p><b>자료 조사 기록</b><br/>2026-10-12 14:00:37 KST</p>
 <p>이 회차 경로에서 세 자료 미발견. 공폴더를 실제 촬영 회차로 단정하지 않음.</p>
 <p>모자이크 후보: 0개 · 과거 Photos: 미확인 (2026-10-06)</p>
 <details><summary>이전 조사 비고</summary><p>확인한 폴더에서 적격 IMG TIFF를 찾지 못함. 빈 회차 양식은 관측 미실시나 다른 저장 위치의 부재를 뜻하지 않음.</p></details>
-
 </div></details>
 <div class="round-row nonexistent" data-state="nonexistent"><div class="absent-summary"><span class="round">5차</span><span class="absent-label">없음</span></div></div>
 <div class="round-row nonexistent" data-state="nonexistent"><div class="absent-summary"><span class="round">6차</span><span class="absent-label">없음</span></div></div>
@@ -538,7 +519,7 @@ main{max-width:1536px;margin:auto;padding:24px 32px 36px}.metrics{display:grid;g
 </tbody></table></div></section><section class="support"><h2>접근 오류 · 미확인 사항</h2>
 <p class="audit-warning">[WinError 1392] 파일 또는 디렉터리가 손상되었기 때문에 읽을 수 없습니다: &#x27;(경로 비공개)</p>
 <p>접근 오류·미확인은 0개 또는 자료 없음으로 판단하지 않습니다. 표본 헤더와 파일 존재는 반사도 보정 완료·픽셀 품질·GPS 대응 검증을 뜻하지 않습니다.</p></section>
-<section class="support"><h2>검증 근거 · 업데이트 이력</h2>
+<section class="support"><h2>검증 근거 · 업데이트 이력</h2><p>2026-11-03: 5/10 2차 Photos 571장과 6/30 2차 Photos 827장·DEM·GPS 반영. 5/10 ELC용 타프 없음. 보정 출처·정확도는 미검증.</p>
 <p><b>2026-10-24 공개본 갱신:</b> 검증된 19회차 1m RGB 대체와 10/7 1차 필지·스펙트럼·심라인·NDVI 표시를 사용자 승인 범위로 배포했습니다. 6/10 출처 재점검의 보류 사항을 추가했습니다. 김해 농지 수량·고정 회차는 그대로이며 전체 원자료를 재조사한 갱신이 아닙니다. <a href="updates/20261024_verified_release.html">배포·보류 범위</a></p>
 <p>J 목록 조사 시각: 2026-10-12 14:00:37 KST<br>여러 드라이브 조사 시각: 2026-10-12 14:00:40 KST<br>통합 현황판 갱신 시각: 2026-10-21 09:23:11 KST</p>
 <p>마지막 두 조사 기록을 통합했습니다. 조사 대상 경로 밖의 전체 디스크·픽셀을 전수 검사한 결과는 아닙니다. 이전 통합 화면과 표는 history에 보존됩니다.</p>
