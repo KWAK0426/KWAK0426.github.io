@@ -9,6 +9,11 @@
 | 이전 기록 | 기록 규칙 전 커밋 |
 
 
+## 2026-11-03 (화)
+
+- **17:59** · 이전 기록 · Update May and June panel photo dashboard  
+  `drone/index.html`, `drone/summary.json` (af60dad)
+
 ## 2026-10-29 (목)
 
 - **10:14** · 이전 기록 · 6월 30일 다분광 색상 범위를 대상 필지 기준으로 조정  

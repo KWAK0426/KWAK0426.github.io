@@ -2,6 +2,18 @@
  "format": "hub-changelog-v1",
  "entries": [
   {
+   "sha": "af60dad",
+   "time": "2026-11-03 17:59",
+   "date": "2026-11-03",
+   "weekday": "화",
+   "pc": "이전 기록",
+   "title": "Update May and June panel photo dashboard",
+   "files": [
+    "drone/index.html",
+    "drone/summary.json"
+   ]
+  },
+  {
    "sha": "066e47b",
    "time": "2026-10-29 10:14",
    "date": "2026-10-29",
@@ -1835,18 +1847,6 @@
     "START_NEW_PC.md",
     "tools/make_changelog.py",
     "tools/save.py"
-   ]
-  },
-  {
-   "sha": "38cbb40",
-   "time": "2026-10-17 02:10",
-   "date": "2026-10-17",
-   "weekday": "토",
-   "pc": "메클",
-   "title": "코덱스 이름을 '코덱스-연구실'로 등록, 예전 [Codex PC] 기록도 새 이름으로 표시",
-   "files": [
-    "START_NEW_PC.md",
-    "tools/make_changelog.py"
    ]
   }
  ]
