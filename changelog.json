@@ -2,6 +2,17 @@
  "format": "hub-changelog-v1",
  "entries": [
   {
+   "sha": "6c97f60",
+   "time": "2026-11-04 22:28",
+   "date": "2026-11-04",
+   "weekday": "수",
+   "pc": "이전 기록",
+   "title": "Dragonball checklist: order lines by latest release in 전체 view",
+   "files": [
+    "dragonball-figures/index.html"
+   ]
+  },
+  {
    "sha": "73934bd",
    "time": "2026-11-04 22:24",
    "date": "2026-11-04",
@@ -1810,42 +1821,6 @@
    "title": "새 PC 안내: 김해 논 모자이크 뷰어(/drone/viewer/) 항목, 자동 갱신은 메인 PC에서만",
    "files": [
     "START_NEW_PC.md"
-   ]
-  },
-  {
-   "sha": "5f7c84f",
-   "time": "2026-10-17 02:28",
-   "date": "2026-10-17",
-   "weekday": "토",
-   "pc": "메클",
-   "title": "현황판 아래 모자이크 뷰어(/drone/viewer/): 회차 칸 → 광학·다분광, Z_est·GSD 계산, 매일 05:00 자동 갱신",
-   "files": [
-    ".gitignore",
-    "README.md",
-    "UPDATE_MOSAICS.bat",
-    "assets/hub.js",
-    "drone/viewer/app.js",
-    "drone/viewer/catalog.json",
-    "drone/viewer/index.html",
-    "drone/viewer/results.json",
-    "drone/viewer/vendor/GEOTIFF-LICENSE.txt",
-    "drone/viewer/vendor/OPENLAYERS-LICENSE.txt",
-    "drone/viewer/vendor/PROJ4-LICENSE.md",
-    "drone/viewer/vendor/geotiff.js",
-    "drone/viewer/vendor/ol.css",
-    "drone/viewer/vendor/ol.js",
-    "drone/viewer/vendor/proj4.js",
-    "drone/viewer/viewer.css",
-    "drone/viewer/zest.js",
-    "index.html",
-    "tools/mosaic/config.json",
-    "tools/mosaic/drivefs.mjs",
-    "tools/mosaic/package-lock.json",
-    "tools/mosaic/package.json",
-    "tools/mosaic/run_daily.cmd",
-    "tools/mosaic/test/make_fixture.py",
-    "tools/mosaic/test/update.test.mjs",
-    "tools/mosaic/update.mjs"
    ]
   }
  ]

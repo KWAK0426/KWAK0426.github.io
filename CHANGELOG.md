@@ -11,6 +11,8 @@
 
 ## 2026-11-04 (수)
 
+- **22:28** · 이전 기록 · Dragonball checklist: order lines by latest release in 전체 view  
+  `dragonball-figures/index.html` (6c97f60)
 - **22:24** · 이전 기록 · Add dragonball figure checklist (read-only public page)  
   `dragonball-figures/catalog.json`, `dragonball-figures/index.html` (73934bd)
 
