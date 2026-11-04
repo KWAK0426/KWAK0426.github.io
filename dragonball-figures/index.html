@@ -278,6 +278,7 @@ main{padding:10px 28px 80px;max-width:1440px}
 .card .img{position:relative}
 .card{content-visibility:auto;contain-intrinsic-size:auto 360px}
 .lsec{contain:layout style}
+.lsub h2{color:var(--txt,#111)!important;font-size:18px!important}
 </style>
 </head>
 <body>
@@ -498,7 +499,7 @@ function renderNow(){
   const lmax=new Map();byLine.forEach((li,ln)=>lmax.set(ln,li.reduce((m,i)=>{const d=i.date||(i.year?String(i.year):"");return d>m?d:m},"")));
   const lks=[...byLine.keys()].sort((a,b)=>{const c=(s.sort==="asc"?-1:1)*lmax.get(b).localeCompare(lmax.get(a));if(c)return c;const ia=lorder.indexOf(a),ib=lorder.indexOf(b);return (ia<0?999:ia)-(ib<0?999:ib)||a.localeCompare(b,"ko")});
   CNT=[];CARDS=new Map();
-  const html=lks.map(ln=>{const li=byLine.get(ln),la=li.filter(i=>!isOff(i)),lo=la.filter(i=>i.owned).length;
+  const html=!s.lineSel.length?allByYear(list):lks.map(ln=>{const li=byLine.get(ln),la=li.filter(i=>!isOff(i)),lo=la.filter(i=>i.owned).length;
     return `<section class="lsec"><div class="lhead"><h2>${esc(ln)}</h2>${cnt(`있음 ${lo} / ${la.length}`)}</div>${yearsHtml(li)}</section>`}).join("");
   const key=s.sort+"|"+[...CARDS.keys()].join(",");
   const main=$("#main");
@@ -511,15 +512,8 @@ function renderNow(){
   }
   MAIN.key=key;MAIN.cards=CARDS;MAIN.counts=CNT;
 }
-function yearsHtml(list){
+function yearBody(g){
   const s=st.settings;
-  const groups=new Map();
-  list.forEach(it=>{const y=it.year||0;if(!groups.has(y))groups.set(y,[]);groups.get(y).push(it)});
-  const ys=[...groups.keys()].sort((a,b)=>{if(!a)return 1;if(!b)return -1;return s.sort==="asc"?a-b:b-a});
-  return ys.map(y=>{
-    const g=groups.get(y).sort((a,b)=>(s.sort==="asc"?1:-1)*(a.date||"").localeCompare(b.date||"")||(a.line||"").localeCompare(b.line||"","ko")||(a.name||"").localeCompare(b.name||"","ko"));
-    const gAct=g.filter(i=>!isOff(i)),gOwn=gAct.filter(i=>i.owned).length;
-    const yc=cnt(`있음 ${gOwn} / ${gAct.length}`);
     const others=g.filter(i=>i.line!=="제일복권"&&i.line!=="조형천하"&&i.line!=="월드 콜렉터블(30주년)"),kuji=g.filter(i=>i.line==="제일복권"),zk=g.filter(i=>i.line==="조형천하"||i.line==="월드 콜렉터블(30주년)");
     const zser=new Map();zk.forEach(i=>{const k=(i.line==="조형천하"?"Z":"W")+"|"+(i.series||"");if(!zser.has(k))zser.set(k,[]);zser.get(k).push(i)});
     const zHtml=[...zser.keys()].sort((a,b)=>a[0]!==b[0]?(a[0]==="Z"?-1:1):(s.sort==="asc"?1:-1)*((parseInt(a.replace(/\D/g,""))||0)-(parseInt(b.replace(/\D/g,""))||0))).map(k=>{
@@ -532,7 +526,32 @@ function yearsHtml(list){
       const act=its.filter(i=>!isOff(i)),o=act.filter(i=>i.owned).length;
       return `<div class="ser"><b>🎫 제일복권 · ${esc(f.seriesKo||f.series||"")}</b>${cnt((f.date||"")+` · 있음 ${o} / ${act.length}`)}${f.url?`<a href="${esc(f.url)}" target="_blank" rel="noopener">공식 페이지</a>`:""}</div><div class="grid">${its.map(card).join("")}</div>`}).join("");
     const othHtml=others.length?`<div class="grid">${others.map(card).join("")}</div>`:"";
-    return `<div class="year"><h2>${y?y+"년":"연도 미상"}</h2>${yc}</div>${othHtml}${kujiHtml}`;
+  return othHtml+kujiHtml;
+}
+function allByYear(list){
+  const s=st.settings,groups=new Map();
+  list.forEach(it=>{const y=it.year||0;if(!groups.has(y))groups.set(y,[]);groups.get(y).push(it)});
+  const ys=[...groups.keys()].sort((a,b)=>{if(!a)return 1;if(!b)return -1;return s.sort==="asc"?a-b:b-a});
+  const lorder=s.lines.map(l=>l.name);
+  return ys.map(y=>{const g=groups.get(y),ga=g.filter(i=>!isOff(i)),yc=cnt(`있음 ${ga.filter(i=>i.owned).length} / ${ga.length}`);
+    const bl=new Map();g.forEach(i=>{const l=i.line||"기타";if(!bl.has(l))bl.set(l,[]);bl.get(l).push(i)});
+    const mx=new Map();bl.forEach((li,l)=>mx.set(l,li.reduce((m,i)=>(i.date||"")>m?(i.date||""):m,"")));
+    const ls=[...bl.keys()].sort((a,b)=>(s.sort==="asc"?-1:1)*mx.get(b).localeCompare(mx.get(a))||((lorder.indexOf(a)+999)%999)-((lorder.indexOf(b)+999)%999));
+    return `<section class="lsec"><div class="lhead"><h2>${y?y+"년":"연도 미상"}</h2>${yc}</div>`+ls.map(l=>{const li=bl.get(l).sort((a,b)=>(s.sort==="asc"?1:-1)*(a.date||"").localeCompare(b.date||"")||(a.line||"").localeCompare(b.line||"","ko")||(a.name||"").localeCompare(b.name||"","ko")),la=li.filter(i=>!isOff(i));
+      const lc=cnt(`있음 ${la.filter(i=>i.owned).length} / ${la.length}`);
+      return `<div class="year lsub"><h2>${esc(l)}</h2>${lc}</div>${yearBody(li)}`}).join("")+`</section>`}).join("");
+}
+function yearsHtml(list){
+  const s=st.settings;
+  const groups=new Map();
+  list.forEach(it=>{const y=it.year||0;if(!groups.has(y))groups.set(y,[]);groups.get(y).push(it)});
+  const ys=[...groups.keys()].sort((a,b)=>{if(!a)return 1;if(!b)return -1;return s.sort==="asc"?a-b:b-a});
+  return ys.map(y=>{
+    const g=groups.get(y).sort((a,b)=>(s.sort==="asc"?1:-1)*(a.date||"").localeCompare(b.date||"")||(a.line||"").localeCompare(b.line||"","ko")||(a.name||"").localeCompare(b.name||"","ko"));
+    const gAct=g.filter(i=>!isOff(i)),gOwn=gAct.filter(i=>i.owned).length;
+    const yc=cnt(`있음 ${gOwn} / ${gAct.length}`);
+    const bodyHtml=yearBody(g);
+    return `<div class="year"><h2>${y?y+"년":"연도 미상"}</h2>${yc}</div>${bodyHtml}`;
   }).join("");
 }
 function sono(n){if(/SPECIAL/i.test(n))return 90+("一二三".indexOf((n.match(/SPECIAL\s*其[之ノ]([一二三])/)||[])[1])+1);const m=n.match(/其[之ノ]([一二三四五六七八九])/)||n.match(/#(\d+)/);if(!m)return 50;return isNaN(m[1])?"一二三四五六七八九".indexOf(m[1])+1:+m[1]}
