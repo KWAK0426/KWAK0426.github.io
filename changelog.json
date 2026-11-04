@@ -2,6 +2,17 @@
  "format": "hub-changelog-v1",
  "entries": [
   {
+   "sha": "dc973e3",
+   "time": "2026-11-04 22:30",
+   "date": "2026-11-04",
+   "weekday": "수",
+   "pc": "이전 기록",
+   "title": "Dragonball checklist: 전체 view grouped by year first, then line",
+   "files": [
+    "dragonball-figures/index.html"
+   ]
+  },
+  {
    "sha": "6c97f60",
    "time": "2026-11-04 22:28",
    "date": "2026-11-04",
@@ -1810,17 +1821,6 @@
     "README.md",
     "drone/index.html",
     "drone/summary.json"
-   ]
-  },
-  {
-   "sha": "b0a3b2a",
-   "time": "2026-10-17 17:32",
-   "date": "2026-10-17",
-   "weekday": "토",
-   "pc": "메클",
-   "title": "새 PC 안내: 김해 논 모자이크 뷰어(/drone/viewer/) 항목, 자동 갱신은 메인 PC에서만",
-   "files": [
-    "START_NEW_PC.md"
    ]
   }
  ]
