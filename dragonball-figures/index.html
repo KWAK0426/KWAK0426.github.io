@@ -495,7 +495,8 @@ function renderNow(){
   const byLine=new Map();
   list.forEach(it=>{const l=it.line||"기타";if(!byLine.has(l))byLine.set(l,[]);byLine.get(l).push(it)});
   const lorder=s.lines.map(l=>l.name);
-  const lks=[...byLine.keys()].sort((a,b)=>{const ia=lorder.indexOf(a),ib=lorder.indexOf(b);return (ia<0?999:ia)-(ib<0?999:ib)||a.localeCompare(b,"ko")});
+  const lmax=new Map();byLine.forEach((li,ln)=>lmax.set(ln,li.reduce((m,i)=>{const d=i.date||(i.year?String(i.year):"");return d>m?d:m},"")));
+  const lks=[...byLine.keys()].sort((a,b)=>{const c=(s.sort==="asc"?-1:1)*lmax.get(b).localeCompare(lmax.get(a));if(c)return c;const ia=lorder.indexOf(a),ib=lorder.indexOf(b);return (ia<0?999:ia)-(ib<0?999:ib)||a.localeCompare(b,"ko")});
   CNT=[];CARDS=new Map();
   const html=lks.map(ln=>{const li=byLine.get(ln),la=li.filter(i=>!isOff(i)),lo=la.filter(i=>i.owned).length;
     return `<section class="lsec"><div class="lhead"><h2>${esc(ln)}</h2>${cnt(`있음 ${lo} / ${la.length}`)}</div>${yearsHtml(li)}</section>`}).join("");
