@@ -9,6 +9,11 @@
 | 이전 기록 | 기록 규칙 전 커밋 |
 
 
+## 2026-11-04 (수)
+
+- **22:24** · 이전 기록 · Add dragonball figure checklist (read-only public page)  
+  `dragonball-figures/catalog.json`, `dragonball-figures/index.html` (73934bd)
+
 ## 2026-11-03 (화)
 
 - **17:59** · 이전 기록 · Update May and June panel photo dashboard  

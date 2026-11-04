@@ -2,6 +2,18 @@
  "format": "hub-changelog-v1",
  "entries": [
   {
+   "sha": "73934bd",
+   "time": "2026-11-04 22:24",
+   "date": "2026-11-04",
+   "weekday": "수",
+   "pc": "이전 기록",
+   "title": "Add dragonball figure checklist (read-only public page)",
+   "files": [
+    "dragonball-figures/catalog.json",
+    "dragonball-figures/index.html"
+   ]
+  },
+  {
    "sha": "af60dad",
    "time": "2026-11-03 17:59",
    "date": "2026-11-03",
@@ -1834,19 +1846,6 @@
     "tools/mosaic/test/make_fixture.py",
     "tools/mosaic/test/update.test.mjs",
     "tools/mosaic/update.mjs"
-   ]
-  },
-  {
-   "sha": "3017b96",
-   "time": "2026-10-17 02:14",
-   "date": "2026-10-17",
-   "weekday": "토",
-   "pc": "메클",
-   "title": "이름표 추가: 메클(메인 클로드)·집코(코덱스-집)·연코(코덱스-연구실), 예전 기록도 새 이름으로 표시",
-   "files": [
-    "START_NEW_PC.md",
-    "tools/make_changelog.py",
-    "tools/save.py"
    ]
   }
  ]
