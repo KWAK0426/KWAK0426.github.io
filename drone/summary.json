@@ -1,8 +1,8 @@
 {
   "format": "gimhae-drone-summary-v1",
   "title": "김해 논 드론 관측자료 현황",
-  "published_at": "2026-11-03 17:57:27 KST",
-  "published_at_iso": "2026-11-03T17:57:27+09:00",
+  "published_at": "2026-11-18 11:16:30 KST",
+  "published_at_iso": "2026-11-18T11:16:30+09:00",
   "j_checked_at": "2026-10-12 14:00:37 KST",
   "external_checked_at": "2026-10-12 14:00:40 KST",
   "dates": [
@@ -30,8 +30,8 @@
   "totals": {
     "rounds": 44,
     "photos_total": 16435,
-    "complete": 23,
-    "partial": 1,
+    "complete": 24,
+    "partial": 0,
     "empty": 20
   },
   "time_counts": {
@@ -47,8 +47,8 @@
   "tarp": {
     "criterion": "타프 반사도 Photos 존재",
     "sources": {
-      "0930": "FIELD_OBSERVATION_MASTER_DASHBOARD.html 2026-09-30 기록 (ELC 반사도 영상 생성 비율·타프 선정 기록)",
-      "1006": "side_updates_20261006/CURRENT_OBSERVATION_TIMELINE.html 2026-10-06 기록 (5/10 ELC 기반 반사도 Photos)"
+      "1006": "side_updates_20261006/CURRENT_OBSERVATION_TIMELINE.html 2026-10-06 기록 (5/10 ELC 기반 반사도 Photos)",
+      "0930": "FIELD_OBSERVATION_MASTER_DASHBOARD.html 2026-09-30 기록 (ELC 반사도 영상 생성 비율·타프 선정 기록)"
     },
     "counts": {
       "present": 0,
@@ -690,9 +690,9 @@
     {
       "date": "2026-08-24",
       "round": 1,
-      "state": "partial",
-      "photos": 643,
-      "photo_label": "643",
+      "state": "empty",
+      "photos": 0,
+      "photo_label": "자료 미확인",
       "additional_photos": 0,
       "dem": false,
       "gps": false,
@@ -702,9 +702,9 @@
       "photo_time_label": "",
       "photo_start_kst": null,
       "photo_end_kst": null,
-      "input_validation": null,
+      "input_validation": "지정 폴더에서 Photos 미발견. 기존 수량 표기는 2회차 자료와 구분하여 정정.",
       "round_status": "사용자 확정",
-      "calibration_status": "보정 근거 미검증",
+      "calibration_status": "검토 대상 Photos 미등록",
       "drive": [],
       "tarp": {
         "state": "unknown",
@@ -721,21 +721,21 @@
     {
       "date": "2026-08-24",
       "round": 2,
-      "state": "empty",
-      "photos": 0,
-      "photo_label": "자료 미확인",
+      "state": "complete",
+      "photos": 643,
+      "photo_label": "643",
       "additional_photos": 0,
-      "dem": false,
-      "gps": false,
+      "dem": true,
+      "gps": true,
       "mosaics": 0,
       "time_label": "11:03:56 ~ 11:30:33 (27분)",
       "time_status": "기존 기록 확정",
       "photo_time_label": "",
       "photo_start_kst": null,
       "photo_end_kst": null,
-      "input_validation": null,
+      "input_validation": "Photos 643장 이름과 GPS 추정 좌표 대응 확인. 3장 표본 읽기: 5밴드와 alpha. GPS에 추정 좌표가 비어 있는 별도 4건 존재. 전수 화소·촬영시각·보정 정확도는 미검증.",
       "round_status": "사용자 확정",
-      "calibration_status": "검토 대상 Photos 미등록",
+      "calibration_status": "패널 분류 · 보정 출처·정확도 미검증",
       "drive": [],
       "tarp": {
         "state": "unknown",
@@ -1521,6 +1521,11 @@
     }
   ],
   "update_history": [
+    {
+      "at": "2026-11-18 11:16:30 KST",
+      "scope": "2026-08-24 1·2회차",
+      "summary": "1차의 잘못된 643장 표시 정정. 2차 패널 Photos 643장·DEM·GPS 확인, 643장 모두 GPS 추정좌표 대응. 세 영상 표본: 5밴드+alpha. 보정 정확도와 촬영시각 별도 미검증. 파일 삭제 없음."
+    },
     {
       "at": "2026-11-03 17:57:27 KST",
       "scope": "5/10·6/30",
