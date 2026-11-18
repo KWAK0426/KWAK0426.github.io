@@ -9,6 +9,11 @@
 | 이전 기록 | 기록 규칙 전 커밋 |
 
 
+## 2026-11-18 (수)
+
+- **11:17** · 연코 · 8/24 1·2회차 Photos 현황 정정  
+  `drone/index.html`, `drone/summary.json` (50d1708)
+
 ## 2026-11-04 (수)
 
 - **22:30** · 이전 기록 · Dragonball checklist: 전체 view grouped by year first, then line  

@@ -2,6 +2,18 @@
  "format": "hub-changelog-v1",
  "entries": [
   {
+   "sha": "50d1708",
+   "time": "2026-11-18 11:17",
+   "date": "2026-11-18",
+   "weekday": "수",
+   "pc": "연코",
+   "title": "8/24 1·2회차 Photos 현황 정정",
+   "files": [
+    "drone/index.html",
+    "drone/summary.json"
+   ]
+  },
+  {
    "sha": "dc973e3",
    "time": "2026-11-04 22:30",
    "date": "2026-11-04",
@@ -1806,19 +1818,6 @@
    "title": "9/8 재저장 4회차 현황 갱신 및 공개 출처 정제",
    "files": [
     "START_NEW_PC.md",
-    "drone/index.html",
-    "drone/summary.json"
-   ]
-  },
-  {
-   "sha": "a4925a1",
-   "time": "2026-10-17 17:49",
-   "date": "2026-10-17",
-   "weekday": "토",
-   "pc": "연코",
-   "title": "김해 현황 유지, 피복 선택과 농과원 나지 6회차 공개",
-   "files": [
-    "README.md",
     "drone/index.html",
     "drone/summary.json"
    ]
