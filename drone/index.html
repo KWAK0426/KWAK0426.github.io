@@ -25,7 +25,7 @@ main{max-width:1536px;margin:auto;padding:24px 32px 36px}.metrics{display:grid;g
 </style>
 </head>
 <body>
-<header class="masthead"><div class="masthead-inner"><div><div class="eyebrow">김해 논 · 관측자료 현황</div><h1>패널 반사도 통합 현황</h1><p class="subtitle">Photos · DEM · GPS · 모자이크 후보 / 조사 기록 통합</p></div><div class="report-links"><span class="updated">공개본 갱신 2026-11-18 · 자료별 조사 시각은 이력 참조</span><span class="updated">현황표의 파일 경로·좌표 생략 · 승인된 표시 자료는 뷰어에서 열람</span><a href="../">← 통합 현황</a></div></div></header>
+<header class="masthead"><div class="masthead-inner"><div><div class="eyebrow">김해 논 · 관측자료 현황</div><h1>패널 반사도 통합 현황</h1><p class="subtitle">Photos · DEM · GPS · 모자이크 후보 / 조사 기록 통합</p></div><div class="report-links"><span class="updated">공개본 갱신 2026-11-18 · 자료별 조사 시각은 이력 참조</span><span class="updated">현황표의 파일 경로·좌표 생략 · 승인된 표시 자료는 뷰어에서 열람</span><a href="viewer/">모자이크 뷰어 ↗</a><a href="../">← 통합 현황</a></div></div></header>
 <main>
 <style>
 .habitat-toolbar{display:flex;gap:16px;align-items:center;flex-wrap:wrap;padding:0 0 20px;margin-bottom:22px;border-bottom:1px solid var(--line)}
@@ -627,5 +627,7 @@ coverFilter.value=new URLSearchParams(location.hash.slice(1)).get('cover')||'far
 if(!Object.hasOwn(coverLabels,coverFilter.value))coverFilter.value='farmland';
 selectCover();
 </script>
+<script defer src="viewer-links.js?v=20261118"></script>
 </body></html>
+
 
