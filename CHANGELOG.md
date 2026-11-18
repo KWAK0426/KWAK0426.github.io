@@ -11,6 +11,8 @@
 
 ## 2026-11-18 (수)
 
+- **12:47** · 이전 기록 · Protect drone dashboard from stale publication  
+  `tools/sync_drone.py`, `tools/test_sync_drone.py` (2f657c0)
 - **11:17** · 연코 · 8/24 1·2회차 Photos 현황 정정  
   `drone/index.html`, `drone/summary.json` (50d1708)
 
