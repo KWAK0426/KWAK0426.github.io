@@ -11,6 +11,8 @@
 
 ## 2026-11-18 (수)
 
+- **14:06** · 이전 기록 · Show separately verified RGB capture times  
+  `assets/hub.js`, `drone/index.html`, `drone/summary.json`, `index.html`, `tools/sync_drone.py`, `tools/test_sync_drone.py` (07bc2e4)
 - **13:10** · 이전 기록 · Connect shared dashboard to mosaic viewer  
   `drone/index.html`, `drone/viewer-links.js` (9fd30cf)
 - **12:47** · 이전 기록 · Protect drone dashboard from stale publication  
