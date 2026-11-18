@@ -252,6 +252,7 @@ function roundTip(r) {
     `관측 ${r.time_label} · ${r.time_status}`,
     `패널 보정 출처: ${r.calibration_status}`,
   ];
+  if (r.rgb_start_kst && r.rgb_end_kst) lines.push(`RGB ${r.rgb_start_kst.slice(-8)} ~ ${r.rgb_end_kst.slice(-8)} · KST 가정`);
   if (r.drive?.length) lines.push(`드라이브: ${r.drive.map((d) => `${d.role} ${d.status}`).join(', ')}`);
   return `<b>${md(r.date)} ${r.round}차 · ${DRONE_STATE[r.state]}</b>${lines.map((l) => `<span>${esc(l)}</span>`).join('')}`;
 }
@@ -390,3 +391,4 @@ if (board.status === 'fulfilled') { state.board = board.value; renderBoard(state
 if (drone.status === 'fulfilled') { state.drone = drone.value; renderDrone(state.drone); } else { failCard('#drone-tiles', '드론 현황 요약', drone.reason); }
 renderHero();
 renderTimeline();
+

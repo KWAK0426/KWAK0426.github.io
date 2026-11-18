@@ -1,8 +1,8 @@
 {
   "format": "gimhae-drone-summary-v1",
   "title": "김해 논 드론 관측자료 현황",
-  "published_at": "2026-11-18 11:16:30 KST",
-  "published_at_iso": "2026-11-18T11:16:30+09:00",
+  "published_at": "2026-11-18 14:02:15 KST",
+  "published_at_iso": "2026-11-18T14:02:15+09:00",
   "j_checked_at": "2026-10-12 14:00:37 KST",
   "external_checked_at": "2026-10-12 14:00:40 KST",
   "dates": [
@@ -59,7 +59,8 @@
   "notes": [
     "Photos 합계는 회차 기준 폴더의 파일 수이며 보정 완료 수량이 아님",
     "자료 미확인·접근 오류는 0개나 자료 없음이 아님",
-    "회차 구분·패널 보정 출처·관측 시간 근거는 별도 상태"
+    "회차 구분·패널 보정 출처·관측 시간 근거는 별도 상태",
+    "RGB는 확인된 JPEG의 파일명으로 첫·끝을 선정하고 두 영상의 EXIF를 대조. 시간대는 KST 가정이며 다분광·Photos 시간과 별개"
   ],
   "rounds": [
     {
@@ -716,7 +717,10 @@
         "elc_images_total": null,
         "elc_source": null,
         "note": ""
-      }
+      },
+      "rgb_start_kst": null,
+      "rgb_end_kst": null,
+      "rgb_count": null
     },
     {
       "date": "2026-08-24",
@@ -747,7 +751,10 @@
         "elc_images_total": 3235,
         "elc_source": "0930",
         "note": ""
-      }
+      },
+      "rgb_start_kst": null,
+      "rgb_end_kst": null,
+      "rgb_count": null
     },
     {
       "date": "2026-08-24",
@@ -778,7 +785,10 @@
         "elc_images_total": null,
         "elc_source": null,
         "note": ""
-      }
+      },
+      "rgb_start_kst": null,
+      "rgb_end_kst": null,
+      "rgb_count": null
     },
     {
       "date": "2026-08-24",
@@ -809,7 +819,10 @@
         "elc_images_total": null,
         "elc_source": null,
         "note": ""
-      }
+      },
+      "rgb_start_kst": null,
+      "rgb_end_kst": null,
+      "rgb_count": null
     },
     {
       "date": "2026-08-24",
@@ -840,7 +853,10 @@
         "elc_images_total": null,
         "elc_source": null,
         "note": ""
-      }
+      },
+      "rgb_start_kst": null,
+      "rgb_end_kst": null,
+      "rgb_count": null
     },
     {
       "date": "2026-08-24",
@@ -871,7 +887,10 @@
         "elc_images_total": null,
         "elc_source": null,
         "note": ""
-      }
+      },
+      "rgb_start_kst": null,
+      "rgb_end_kst": null,
+      "rgb_count": null
     },
     {
       "date": "2026-09-08",
@@ -902,7 +921,10 @@
         "elc_images_total": 7110,
         "elc_source": "0930",
         "note": ""
-      }
+      },
+      "rgb_start_kst": "2026-09-08 11:26:48",
+      "rgb_end_kst": "2026-09-08 11:44:09",
+      "rgb_count": 494
     },
     {
       "date": "2026-09-08",
@@ -933,7 +955,10 @@
         "elc_images_total": 7370,
         "elc_source": "0930",
         "note": ""
-      }
+      },
+      "rgb_start_kst": "2026-09-08 12:26:23",
+      "rgb_end_kst": "2026-09-08 12:51:31",
+      "rgb_count": 883
     },
     {
       "date": "2026-09-08",
@@ -964,7 +989,10 @@
         "elc_images_total": 7330,
         "elc_source": "0930",
         "note": ""
-      }
+      },
+      "rgb_start_kst": "2026-09-08 13:28:24",
+      "rgb_end_kst": "2026-09-08 13:53:33",
+      "rgb_count": 858
     },
     {
       "date": "2026-09-08",
@@ -995,7 +1023,10 @@
         "elc_images_total": 6240,
         "elc_source": "0930",
         "note": ""
-      }
+      },
+      "rgb_start_kst": "2026-09-08 14:22:38",
+      "rgb_end_kst": "2026-09-08 14:48:46",
+      "rgb_count": 867
     },
     {
       "date": "2026-09-21",
@@ -1026,7 +1057,10 @@
         "elc_images_total": null,
         "elc_source": null,
         "note": ""
-      }
+      },
+      "rgb_start_kst": "2026-09-21 10:55:30",
+      "rgb_end_kst": "2026-09-21 11:31:04",
+      "rgb_count": 880
     },
     {
       "date": "2026-09-21",
@@ -1057,7 +1091,10 @@
         "elc_images_total": null,
         "elc_source": null,
         "note": ""
-      }
+      },
+      "rgb_start_kst": "2026-09-21 12:12:59",
+      "rgb_end_kst": "2026-09-21 12:34:52",
+      "rgb_count": 808
     },
     {
       "date": "2026-09-21",
@@ -1088,7 +1125,10 @@
         "elc_images_total": null,
         "elc_source": null,
         "note": ""
-      }
+      },
+      "rgb_start_kst": "2026-09-21 13:19:58",
+      "rgb_end_kst": "2026-09-21 13:46:30",
+      "rgb_count": 859
     },
     {
       "date": "2026-09-21",
@@ -1119,7 +1159,10 @@
         "elc_images_total": null,
         "elc_source": null,
         "note": ""
-      }
+      },
+      "rgb_start_kst": null,
+      "rgb_end_kst": null,
+      "rgb_count": null
     },
     {
       "date": "2026-09-23",
@@ -1152,7 +1195,10 @@
         "elc_images_total": null,
         "elc_source": null,
         "note": ""
-      }
+      },
+      "rgb_start_kst": null,
+      "rgb_end_kst": null,
+      "rgb_count": null
     },
     {
       "date": "2026-09-23",
@@ -1185,7 +1231,10 @@
         "elc_images_total": null,
         "elc_source": null,
         "note": ""
-      }
+      },
+      "rgb_start_kst": "2026-09-23 11:38:33",
+      "rgb_end_kst": "2026-09-23 11:58:47",
+      "rgb_count": 941
     },
     {
       "date": "2026-09-23",
@@ -1218,7 +1267,10 @@
         "elc_images_total": null,
         "elc_source": null,
         "note": ""
-      }
+      },
+      "rgb_start_kst": "2026-09-23 12:36:25",
+      "rgb_end_kst": "2026-09-23 12:57:27",
+      "rgb_count": 896
     },
     {
       "date": "2026-09-23",
@@ -1249,7 +1301,10 @@
         "elc_images_total": null,
         "elc_source": null,
         "note": ""
-      }
+      },
+      "rgb_start_kst": "2026-09-23 13:42:15",
+      "rgb_end_kst": "2026-09-23 13:58:00",
+      "rgb_count": 686
     },
     {
       "date": "2026-10-07",
@@ -1282,7 +1337,10 @@
         "elc_images_total": null,
         "elc_source": null,
         "note": ""
-      }
+      },
+      "rgb_start_kst": "2026-10-07 10:35:15",
+      "rgb_end_kst": "2026-10-07 10:44:32",
+      "rgb_count": 452
     },
     {
       "date": "2026-10-07",
@@ -1313,7 +1371,10 @@
         "elc_images_total": null,
         "elc_source": null,
         "note": ""
-      }
+      },
+      "rgb_start_kst": null,
+      "rgb_end_kst": null,
+      "rgb_count": null
     },
     {
       "date": "2026-10-07",
@@ -1344,7 +1405,10 @@
         "elc_images_total": null,
         "elc_source": null,
         "note": ""
-      }
+      },
+      "rgb_start_kst": null,
+      "rgb_end_kst": null,
+      "rgb_count": null
     },
     {
       "date": "2026-10-07",
@@ -1375,7 +1439,10 @@
         "elc_images_total": null,
         "elc_source": null,
         "note": ""
-      }
+      },
+      "rgb_start_kst": null,
+      "rgb_end_kst": null,
+      "rgb_count": null
     },
     {
       "date": "2026-10-07",
@@ -1406,7 +1473,10 @@
         "elc_images_total": null,
         "elc_source": null,
         "note": ""
-      }
+      },
+      "rgb_start_kst": null,
+      "rgb_end_kst": null,
+      "rgb_count": null
     },
     {
       "date": "2026-10-07",
@@ -1437,7 +1507,10 @@
         "elc_images_total": null,
         "elc_source": null,
         "note": ""
-      }
+      },
+      "rgb_start_kst": null,
+      "rgb_end_kst": null,
+      "rgb_count": null
     }
   ],
   "default_cover": "farmland",

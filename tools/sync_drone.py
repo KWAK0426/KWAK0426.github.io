@@ -26,11 +26,11 @@ def regressions(existing, incoming):
         if new is None:
             issues.append(f'{key}: 회차 누락')
             continue
-        for name in ('photos', 'additional_photos', 'mosaics'):
+        for name in ('photos', 'additional_photos', 'mosaics', 'rgb_count'):
             before, after = old.get(name), new.get(name)
             if isinstance(before, int) and before > 0 and (not isinstance(after, int) or after < before):
                 issues.append(f'{key}: {name} {before} -> {after}')
-        for name in ('dem', 'gps', 'photo_start_kst', 'photo_end_kst'):
+        for name in ('dem', 'gps', 'photo_start_kst', 'photo_end_kst', 'rgb_start_kst', 'rgb_end_kst'):
             if old.get(name) and not new.get(name):
                 issues.append(f'{key}: {name} 누락')
         if old.get('drive') and not new.get('drive'):
@@ -82,3 +82,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+

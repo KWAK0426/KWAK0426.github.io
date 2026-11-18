@@ -36,6 +36,11 @@ class SyncTests(unittest.TestCase):
         bad = copy.deepcopy(old)
         bad['rounds'][1]['gps'] = False
         self.assertTrue(sync_drone.regressions(old, bad))
+        rgb = copy.deepcopy(old)
+        rgb['rounds'][1]['rgb_start_kst'] = '2026-08-24 11:00:00'
+        rgb['rounds'][1]['rgb_end_kst'] = '2026-08-24 11:30:00'
+        rgb['rounds'][1]['rgb_count'] = 400
+        self.assertTrue(sync_drone.regressions(rgb, old))
         bad = copy.deepcopy(old)
         bad['rounds'].pop()
         self.assertTrue(sync_drone.regressions(old, bad))
@@ -61,3 +66,4 @@ class SyncTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
